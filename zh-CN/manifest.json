@@ -1,0 +1,65 @@
+{
+    "pages": [
+        { "id": "getting-started", "title": "快速入门", "path": "zh-CN/getting-started.md" },
+        { "id": "how-it-works", "title": "frost 的工作原理", "path": "zh-CN/how-it-works.md" }
+    ],
+    "sections": [
+        {
+            "title": "安装与设置",
+            "pages": [
+                { "id": "installing", "title": "安装 frost", "path": "zh-CN/setup/installing.md" },
+                { "id": "setting-up", "title": "设置 frost", "path": "zh-CN/setup/setting-up.md" },
+                { "id": "updating", "title": "更新 frost", "path": "zh-CN/setup/updating.md" },
+                { "id": "uninstalling", "title": "卸载 frost", "path": "zh-CN/setup/uninstalling.md" }
+            ]
+        },
+        {
+            "title": "指南",
+            "pages": [
+                { "id": "backing-up", "title": "备份", "path": "zh-CN/guides/backing-up.md" },
+                { "id": "restoring", "title": "恢复文件", "path": "zh-CN/guides/restoring.md" },
+                { "id": "snapshot-browser", "title": "快照浏览器", "path": "zh-CN/guides/snapshot-browser.md" },
+                { "id": "scheduling", "title": "自动备份", "path": "zh-CN/guides/scheduling.md" },
+                { "id": "excluding-files", "title": "排除文件", "path": "zh-CN/guides/excluding-files.md" },
+                { "id": "checking-backups", "title": "检查备份", "path": "zh-CN/guides/checking-backups.md" },
+                { "id": "new-computer", "title": "在新电脑上恢复", "path": "zh-CN/guides/new-computer.md" },
+                { "id": "moving-backups", "title": "迁移备份", "path": "zh-CN/guides/moving-backups.md" }
+            ]
+        },
+        {
+            "title": "存储",
+            "pages": [
+                { "id": "choosing-storage", "title": "选择存储", "path": "zh-CN/storage/choosing-storage.md" },
+                { "id": "permafrost", "title": "Permafrost", "path": "zh-CN/storage/permafrost.md" },
+                { "id": "amazon-s3", "title": "Amazon S3", "path": "zh-CN/storage/amazon-s3.md" },
+                { "id": "cloudflare-r2", "title": "Cloudflare R2", "path": "zh-CN/storage/cloudflare-r2.md" },
+                { "id": "backblaze-b2", "title": "Backblaze B2", "path": "zh-CN/storage/backblaze-b2.md" },
+                { "id": "wasabi", "title": "Wasabi", "path": "zh-CN/storage/wasabi.md" },
+                { "id": "other-s3", "title": "其他 S3 兼容存储", "path": "zh-CN/storage/other-s3.md" }
+            ]
+        },
+        {
+            "title": "安全",
+            "pages": [
+                { "id": "recovery-phrase", "title": "恢复短语", "path": "zh-CN/security/recovery-phrase.md" },
+                { "id": "security", "title": "安全与隐私", "path": "zh-CN/security/security.md" }
+            ]
+        },
+        {
+            "title": "参考",
+            "pages": [
+                { "id": "commands", "title": "命令", "path": "zh-CN/reference/commands.md" },
+                { "id": "settings", "title": "设置项", "path": "zh-CN/reference/settings.md" },
+                { "id": "files-and-folders", "title": "文件与文件夹", "path": "zh-CN/reference/files-and-folders.md" }
+            ]
+        },
+        {
+            "title": "故障排除",
+            "pages": [
+                { "id": "common-problems", "title": "常见问题", "path": "zh-CN/troubleshooting/common-problems.md" },
+                { "id": "macos-permissions", "title": "macOS 权限", "path": "zh-CN/troubleshooting/macos-permissions.md" },
+                { "id": "getting-help", "title": "获取帮助", "path": "zh-CN/troubleshooting/getting-help.md" }
+            ]
+        }
+    ]
+}

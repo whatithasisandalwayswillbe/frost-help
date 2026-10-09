@@ -1,0 +1,65 @@
+{
+    "pages": [
+        { "id": "getting-started", "title": "Начало работы", "path": "ru/getting-started.md" },
+        { "id": "how-it-works", "title": "Как работает frost", "path": "ru/how-it-works.md" }
+    ],
+    "sections": [
+        {
+            "title": "Установка",
+            "pages": [
+                { "id": "installing", "title": "Установка frost", "path": "ru/setup/installing.md" },
+                { "id": "setting-up", "title": "Настройка frost", "path": "ru/setup/setting-up.md" },
+                { "id": "updating", "title": "Обновление frost", "path": "ru/setup/updating.md" },
+                { "id": "uninstalling", "title": "Удаление frost", "path": "ru/setup/uninstalling.md" }
+            ]
+        },
+        {
+            "title": "Руководства",
+            "pages": [
+                { "id": "backing-up", "title": "Резервное копирование", "path": "ru/guides/backing-up.md" },
+                { "id": "restoring", "title": "Восстановление файлов", "path": "ru/guides/restoring.md" },
+                { "id": "snapshot-browser", "title": "Обозреватель снимков", "path": "ru/guides/snapshot-browser.md" },
+                { "id": "scheduling", "title": "Автоматическое резервное копирование", "path": "ru/guides/scheduling.md" },
+                { "id": "excluding-files", "title": "Исключение файлов", "path": "ru/guides/excluding-files.md" },
+                { "id": "checking-backups", "title": "Проверка резервных копий", "path": "ru/guides/checking-backups.md" },
+                { "id": "new-computer", "title": "Восстановление на новом компьютере", "path": "ru/guides/new-computer.md" },
+                { "id": "moving-backups", "title": "Перенос резервных копий", "path": "ru/guides/moving-backups.md" }
+            ]
+        },
+        {
+            "title": "Хранилище",
+            "pages": [
+                { "id": "choosing-storage", "title": "Выбор хранилища", "path": "ru/storage/choosing-storage.md" },
+                { "id": "permafrost", "title": "Permafrost", "path": "ru/storage/permafrost.md" },
+                { "id": "amazon-s3", "title": "Amazon S3", "path": "ru/storage/amazon-s3.md" },
+                { "id": "cloudflare-r2", "title": "Cloudflare R2", "path": "ru/storage/cloudflare-r2.md" },
+                { "id": "backblaze-b2", "title": "Backblaze B2", "path": "ru/storage/backblaze-b2.md" },
+                { "id": "wasabi", "title": "Wasabi", "path": "ru/storage/wasabi.md" },
+                { "id": "other-s3", "title": "Другие S3-совместимые хранилища", "path": "ru/storage/other-s3.md" }
+            ]
+        },
+        {
+            "title": "Безопасность",
+            "pages": [
+                { "id": "recovery-phrase", "title": "Фраза восстановления", "path": "ru/security/recovery-phrase.md" },
+                { "id": "security", "title": "Безопасность и конфиденциальность", "path": "ru/security/security.md" }
+            ]
+        },
+        {
+            "title": "Справочник",
+            "pages": [
+                { "id": "commands", "title": "Команды", "path": "ru/reference/commands.md" },
+                { "id": "settings", "title": "Настройки", "path": "ru/reference/settings.md" },
+                { "id": "files-and-folders", "title": "Файлы и папки", "path": "ru/reference/files-and-folders.md" }
+            ]
+        },
+        {
+            "title": "Решение проблем",
+            "pages": [
+                { "id": "common-problems", "title": "Частые проблемы", "path": "ru/troubleshooting/common-problems.md" },
+                { "id": "macos-permissions", "title": "Разрешения macOS", "path": "ru/troubleshooting/macos-permissions.md" },
+                { "id": "getting-help", "title": "Где получить помощь", "path": "ru/troubleshooting/getting-help.md" }
+            ]
+        }
+    ]
+}

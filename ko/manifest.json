@@ -1,0 +1,65 @@
+{
+    "pages": [
+        { "id": "getting-started", "title": "시작하기", "path": "ko/getting-started.md" },
+        { "id": "how-it-works", "title": "frost의 작동 방식", "path": "ko/how-it-works.md" }
+    ],
+    "sections": [
+        {
+            "title": "설치",
+            "pages": [
+                { "id": "installing", "title": "frost 설치", "path": "ko/setup/installing.md" },
+                { "id": "setting-up", "title": "frost 설정", "path": "ko/setup/setting-up.md" },
+                { "id": "updating", "title": "frost 업데이트", "path": "ko/setup/updating.md" },
+                { "id": "uninstalling", "title": "frost 제거", "path": "ko/setup/uninstalling.md" }
+            ]
+        },
+        {
+            "title": "가이드",
+            "pages": [
+                { "id": "backing-up", "title": "백업", "path": "ko/guides/backing-up.md" },
+                { "id": "restoring", "title": "파일 복원", "path": "ko/guides/restoring.md" },
+                { "id": "snapshot-browser", "title": "스냅샷 브라우저", "path": "ko/guides/snapshot-browser.md" },
+                { "id": "scheduling", "title": "자동 백업", "path": "ko/guides/scheduling.md" },
+                { "id": "excluding-files", "title": "파일 제외", "path": "ko/guides/excluding-files.md" },
+                { "id": "checking-backups", "title": "백업 확인", "path": "ko/guides/checking-backups.md" },
+                { "id": "new-computer", "title": "새 컴퓨터에서 복구", "path": "ko/guides/new-computer.md" },
+                { "id": "moving-backups", "title": "백업 옮기기", "path": "ko/guides/moving-backups.md" }
+            ]
+        },
+        {
+            "title": "스토리지",
+            "pages": [
+                { "id": "choosing-storage", "title": "스토리지 선택", "path": "ko/storage/choosing-storage.md" },
+                { "id": "permafrost", "title": "Permafrost", "path": "ko/storage/permafrost.md" },
+                { "id": "amazon-s3", "title": "Amazon S3", "path": "ko/storage/amazon-s3.md" },
+                { "id": "cloudflare-r2", "title": "Cloudflare R2", "path": "ko/storage/cloudflare-r2.md" },
+                { "id": "backblaze-b2", "title": "Backblaze B2", "path": "ko/storage/backblaze-b2.md" },
+                { "id": "wasabi", "title": "Wasabi", "path": "ko/storage/wasabi.md" },
+                { "id": "other-s3", "title": "기타 S3 호환 스토리지", "path": "ko/storage/other-s3.md" }
+            ]
+        },
+        {
+            "title": "보안",
+            "pages": [
+                { "id": "recovery-phrase", "title": "복구 문구", "path": "ko/security/recovery-phrase.md" },
+                { "id": "security", "title": "보안 및 개인정보 보호", "path": "ko/security/security.md" }
+            ]
+        },
+        {
+            "title": "참고",
+            "pages": [
+                { "id": "commands", "title": "명령어", "path": "ko/reference/commands.md" },
+                { "id": "settings", "title": "설정 항목", "path": "ko/reference/settings.md" },
+                { "id": "files-and-folders", "title": "파일 및 폴더", "path": "ko/reference/files-and-folders.md" }
+            ]
+        },
+        {
+            "title": "문제 해결",
+            "pages": [
+                { "id": "common-problems", "title": "자주 발생하는 문제", "path": "ko/troubleshooting/common-problems.md" },
+                { "id": "macos-permissions", "title": "macOS 권한", "path": "ko/troubleshooting/macos-permissions.md" },
+                { "id": "getting-help", "title": "도움 받기", "path": "ko/troubleshooting/getting-help.md" }
+            ]
+        }
+    ]
+}

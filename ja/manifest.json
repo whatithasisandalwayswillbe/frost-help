@@ -1,0 +1,65 @@
+{
+    "pages": [
+        { "id": "getting-started", "title": "はじめに", "path": "ja/getting-started.md" },
+        { "id": "how-it-works", "title": "frost のしくみ", "path": "ja/how-it-works.md" }
+    ],
+    "sections": [
+        {
+            "title": "セットアップ",
+            "pages": [
+                { "id": "installing", "title": "frost のインストール", "path": "ja/setup/installing.md" },
+                { "id": "setting-up", "title": "frost の設定", "path": "ja/setup/setting-up.md" },
+                { "id": "updating", "title": "frost のアップデート", "path": "ja/setup/updating.md" },
+                { "id": "uninstalling", "title": "frost のアンインストール", "path": "ja/setup/uninstalling.md" }
+            ]
+        },
+        {
+            "title": "ガイド",
+            "pages": [
+                { "id": "backing-up", "title": "バックアップ", "path": "ja/guides/backing-up.md" },
+                { "id": "restoring", "title": "ファイルの復元", "path": "ja/guides/restoring.md" },
+                { "id": "snapshot-browser", "title": "スナップショットブラウザ", "path": "ja/guides/snapshot-browser.md" },
+                { "id": "scheduling", "title": "自動バックアップ", "path": "ja/guides/scheduling.md" },
+                { "id": "excluding-files", "title": "ファイルの除外", "path": "ja/guides/excluding-files.md" },
+                { "id": "checking-backups", "title": "バックアップの確認", "path": "ja/guides/checking-backups.md" },
+                { "id": "new-computer", "title": "新しいコンピュータでの復元", "path": "ja/guides/new-computer.md" },
+                { "id": "moving-backups", "title": "バックアップの移動", "path": "ja/guides/moving-backups.md" }
+            ]
+        },
+        {
+            "title": "ストレージ",
+            "pages": [
+                { "id": "choosing-storage", "title": "ストレージの選び方", "path": "ja/storage/choosing-storage.md" },
+                { "id": "permafrost", "title": "Permafrost", "path": "ja/storage/permafrost.md" },
+                { "id": "amazon-s3", "title": "Amazon S3", "path": "ja/storage/amazon-s3.md" },
+                { "id": "cloudflare-r2", "title": "Cloudflare R2", "path": "ja/storage/cloudflare-r2.md" },
+                { "id": "backblaze-b2", "title": "Backblaze B2", "path": "ja/storage/backblaze-b2.md" },
+                { "id": "wasabi", "title": "Wasabi", "path": "ja/storage/wasabi.md" },
+                { "id": "other-s3", "title": "その他の S3 互換ストレージ", "path": "ja/storage/other-s3.md" }
+            ]
+        },
+        {
+            "title": "セキュリティ",
+            "pages": [
+                { "id": "recovery-phrase", "title": "リカバリーフレーズ", "path": "ja/security/recovery-phrase.md" },
+                { "id": "security", "title": "セキュリティとプライバシー", "path": "ja/security/security.md" }
+            ]
+        },
+        {
+            "title": "リファレンス",
+            "pages": [
+                { "id": "commands", "title": "コマンド", "path": "ja/reference/commands.md" },
+                { "id": "settings", "title": "設定項目", "path": "ja/reference/settings.md" },
+                { "id": "files-and-folders", "title": "ファイルとフォルダ", "path": "ja/reference/files-and-folders.md" }
+            ]
+        },
+        {
+            "title": "トラブルシューティング",
+            "pages": [
+                { "id": "common-problems", "title": "よくある問題", "path": "ja/troubleshooting/common-problems.md" },
+                { "id": "macos-permissions", "title": "macOS の権限", "path": "ja/troubleshooting/macos-permissions.md" },
+                { "id": "getting-help", "title": "ヘルプ", "path": "ja/troubleshooting/getting-help.md" }
+            ]
+        }
+    ]
+}

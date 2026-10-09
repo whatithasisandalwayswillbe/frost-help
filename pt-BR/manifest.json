@@ -1,0 +1,65 @@
+{
+    "pages": [
+        { "id": "getting-started", "title": "Primeiros passos", "path": "pt-BR/getting-started.md" },
+        { "id": "how-it-works", "title": "Como o frost funciona", "path": "pt-BR/how-it-works.md" }
+    ],
+    "sections": [
+        {
+            "title": "Instalação",
+            "pages": [
+                { "id": "installing", "title": "Instalar o frost", "path": "pt-BR/setup/installing.md" },
+                { "id": "setting-up", "title": "Configurar o frost", "path": "pt-BR/setup/setting-up.md" },
+                { "id": "updating", "title": "Atualizar o frost", "path": "pt-BR/setup/updating.md" },
+                { "id": "uninstalling", "title": "Desinstalar o frost", "path": "pt-BR/setup/uninstalling.md" }
+            ]
+        },
+        {
+            "title": "Guias",
+            "pages": [
+                { "id": "backing-up", "title": "Fazer backup", "path": "pt-BR/guides/backing-up.md" },
+                { "id": "restoring", "title": "Restaurar arquivos", "path": "pt-BR/guides/restoring.md" },
+                { "id": "snapshot-browser", "title": "O navegador de snapshots", "path": "pt-BR/guides/snapshot-browser.md" },
+                { "id": "scheduling", "title": "Backups automáticos", "path": "pt-BR/guides/scheduling.md" },
+                { "id": "excluding-files", "title": "Excluir arquivos", "path": "pt-BR/guides/excluding-files.md" },
+                { "id": "checking-backups", "title": "Verificar seus backups", "path": "pt-BR/guides/checking-backups.md" },
+                { "id": "new-computer", "title": "Recuperar em um computador novo", "path": "pt-BR/guides/new-computer.md" },
+                { "id": "moving-backups", "title": "Mover seus backups", "path": "pt-BR/guides/moving-backups.md" }
+            ]
+        },
+        {
+            "title": "Armazenamento",
+            "pages": [
+                { "id": "choosing-storage", "title": "Escolher o armazenamento", "path": "pt-BR/storage/choosing-storage.md" },
+                { "id": "permafrost", "title": "Permafrost", "path": "pt-BR/storage/permafrost.md" },
+                { "id": "amazon-s3", "title": "Amazon S3", "path": "pt-BR/storage/amazon-s3.md" },
+                { "id": "cloudflare-r2", "title": "Cloudflare R2", "path": "pt-BR/storage/cloudflare-r2.md" },
+                { "id": "backblaze-b2", "title": "Backblaze B2", "path": "pt-BR/storage/backblaze-b2.md" },
+                { "id": "wasabi", "title": "Wasabi", "path": "pt-BR/storage/wasabi.md" },
+                { "id": "other-s3", "title": "Outro armazenamento compatível com S3", "path": "pt-BR/storage/other-s3.md" }
+            ]
+        },
+        {
+            "title": "Segurança",
+            "pages": [
+                { "id": "recovery-phrase", "title": "Sua frase de recuperação", "path": "pt-BR/security/recovery-phrase.md" },
+                { "id": "security", "title": "Segurança e privacidade", "path": "pt-BR/security/security.md" }
+            ]
+        },
+        {
+            "title": "Referência",
+            "pages": [
+                { "id": "commands", "title": "Comandos", "path": "pt-BR/reference/commands.md" },
+                { "id": "settings", "title": "Configurações", "path": "pt-BR/reference/settings.md" },
+                { "id": "files-and-folders", "title": "Arquivos e pastas", "path": "pt-BR/reference/files-and-folders.md" }
+            ]
+        },
+        {
+            "title": "Solução de problemas",
+            "pages": [
+                { "id": "common-problems", "title": "Problemas comuns", "path": "pt-BR/troubleshooting/common-problems.md" },
+                { "id": "macos-permissions", "title": "Permissões do macOS", "path": "pt-BR/troubleshooting/macos-permissions.md" },
+                { "id": "getting-help", "title": "Como obter ajuda", "path": "pt-BR/troubleshooting/getting-help.md" }
+            ]
+        }
+    ]
+}
