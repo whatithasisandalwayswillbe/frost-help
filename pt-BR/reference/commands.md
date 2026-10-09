@@ -73,7 +73,7 @@ frost browse
 
 ## frost config
 
-Lê ou muda configurações sem passar pela configuração de novo. Veja [Configurações](#settings).
+Lê ou muda as configurações sem executar o assistente de novo. Veja [Configurações](#settings).
 
 ```sh
 frost config [--show-secrets]

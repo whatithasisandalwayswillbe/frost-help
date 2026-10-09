@@ -4,7 +4,7 @@ frost takes snapshots of your folders, splits your files into encrypted chunks a
 
 ## The short version
 
-1. **Scan.** frost walks your folders and skips anything on your skip list. Files whose size and modification time haven't changed since the last backup aren't read again.
+1. **Scan.** frost walks your folders and skips anything on your skip list. Files whose size and modification time haven't changed since the last backup aren't read again while frost's cache still lists all their chunks.
 2. **Chunk.** Changed files are split into chunks of about 1 MiB, at points chosen by their content. An edit in the middle of a big file only changes the chunks around it.
 3. **Encrypt.** Each new chunk is compressed when that makes it smaller, then encrypted with your key.
 4. **Upload.** Only chunks that aren't in storage already are uploaded.
@@ -44,7 +44,7 @@ Object names are random-looking IDs, so your provider never sees your file names
 
 ## The local cache
 
-frost keeps a record of what it has uploaded in a cache folder on your computer, so a backup doesn't have to list everything in your storage each time. It checks that record against your storage once a week.
+frost keeps a record of what it has uploaded in a cache folder on your computer, so a backup doesn't have to list everything in your storage each time. It checks that record against your storage once a week, when the storage location changes or after a check finds missing data.
 
 The cache is disposable. If it's lost, the next backup rebuilds it from your storage and reads your files again. Restores don't need it at all.
 

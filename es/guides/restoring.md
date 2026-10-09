@@ -93,7 +93,7 @@ What's restored so far was kept. To carry on from there, run:
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
 
-Es la misma restauración con el ID completo de la instantánea en lugar de `latest` o de una fecha, así que una copia hecha entretanto no cambia la instantánea a la que se refiere. Los archivos ya restaurados se comprueban y se saltan, y el archivo que frost estaba escribiendo continúa desde su último fragmento correcto.
+Es la misma restauración con el ID completo de la instantánea en lugar de `latest` o de una fecha, así que una copia hecha entretanto no cambia la instantánea a la que se refiere. Los archivos ya restaurados se comprueban y se saltan, y el archivo que frost estaba escribiendo continúa desde su último fragmento correcto. En Windows, algunas rutas necesitan un comando de PowerShell; el mensaje indica cuándo ejecutarlo en PowerShell.
 
 Hasta que la restauración termina, su carpeta contiene un marcador `.frost-restore` y un archivo `.frost-partial-...`. Déjalos ahí; frost los quita al terminar.
 

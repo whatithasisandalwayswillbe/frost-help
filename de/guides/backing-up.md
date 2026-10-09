@@ -16,7 +16,7 @@ frost zeigt, was sich geändert hat, wie viel es hochgeladen hat und das Ergebni
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
 │  new data     14.2 MB in 9 chunks (9.8 MB uploaded after compression)
-│  verified     ok, 20 random objects re-downloaded and checked
+│  verified     ok, 21 random objects re-downloaded and checked
 │
 └  Saved snapshot maple-absurd-3f1c
 ```
@@ -29,7 +29,7 @@ Hat sich nichts geändert, speichert frost keinen neuen Snapshot:
 ┌  backup  s3://my-backups/frost/
 │
 │  files        1,204 (2.1 GB)
-│  verified     ok 3h ago, 20 objects checked
+│  verified     ok 3h ago, 21 objects checked
 │
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
@@ -93,4 +93,4 @@ Bricht ein Backup mittendrin ab, wegen einer verlorenen Verbindung, eines zugekl
 
 ## Eins nach dem anderen
 
-Es kann immer nur ein Backup oder eine Wiederherstellung laufen. Läuft schon eins, etwa ein geplantes Backup, meldet frost „a backup or restore is already running, try again when it's done“ (es läuft bereits ein Backup oder eine Wiederherstellung, versuch es danach noch einmal). Der Snapshot-Browser kann geöffnet bleiben, während ein Backup läuft.
+Ein Backup oder eine Wiederherstellung über die Kommandozeile sperrt während des Laufs den lokalen Cache. Braucht ein anderer Befehl diesen Cache, meldet frost „a backup or restore is already running, try again when it's done“ (es läuft bereits ein Backup oder eine Wiederherstellung, versuch es danach noch einmal). Der Snapshot-Browser gibt die Cache-Sperre frei, sodass er geöffnet bleiben und Dateien wiederherstellen kann, während ein Backup läuft. Andere Cache-Ordner und Computer haben eigene Sperren.

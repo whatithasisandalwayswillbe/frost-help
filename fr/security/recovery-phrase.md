@@ -8,7 +8,7 @@ Votre phrase de récupération, c'est votre clé de chiffrement écrite sous for
 
 L'assistant vous montre la phrase quand il crée votre clé. Notez-la sur papier ou gardez-la dans un gestionnaire de mots de passe de confiance, et rangez-la ailleurs que sur l'ordinateur que vous sauvegardez.
 
-Une copie se trouve aussi sur votre ordinateur, dans le fichier `key` du dossier de configuration de frost, pour que les sauvegardes planifiées puissent tourner sans vous. Seul votre utilisateur peut la lire. Quiconque peut lire ce fichier, ou lancer des programmes en votre nom, peut lire vos sauvegardes : utilisez le chiffrement complet du disque et un verrouillage de l'écran.
+Une copie se trouve aussi sur votre ordinateur, dans le fichier `key` du dossier de configuration de frost, pour que les sauvegardes planifiées puissent tourner sans vous. Sous macOS et Linux, frost la crée avec des autorisations réservées à votre utilisateur. Sous Windows, elle hérite des autorisations de votre profil utilisateur. Un dossier partagé ou des autorisations modifiées peuvent l'exposer. Quiconque peut lire ce fichier, ou lancer des programmes en votre nom, peut lire vos sauvegardes : utilisez le chiffrement complet du disque et un verrouillage de l'écran.
 
 Pour lire vos sauvegardes, il faut à la fois la phrase et un accès à votre stockage. Gardez aussi les clés de votre stockage pour vous.
 

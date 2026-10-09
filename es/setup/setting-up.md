@@ -67,7 +67,7 @@ El asistente a pantalla completa no pregunta por dos ajustes menos habituales, y
 - Un servidor de Permafrost propio: `storage.permafrost.url`.
 - La carpeta dentro de un bucket de S3, `frost` de forma predeterminada: `storage.s3.prefix`.
 
-Cámbialos con `frost config set`. Consulta [Ajustes](#settings).
+Para una ubicación nueva, usa `frost config edit`, acepta el aviso, guarda y ejecuta `frost init` otra vez. `frost config set` requiere que ya exista un repositorio en la nueva ubicación. Para configurar un servidor propio por primera vez, consulta [Permafrost](#permafrost). Consulta [Ajustes](#settings).
 
 ## Sin una terminal a pantalla completa
 

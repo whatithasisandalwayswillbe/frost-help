@@ -35,7 +35,7 @@ frost config set schedule.enabled true
 
 launchd 和 systemd 会补跑。如果备份到点时电脑处于关机或睡眠状态，备份会在电脑唤醒后运行。cron 和任务计划程序会跳过错过的那次，下一次照常按时运行。
 
-在 Windows 上，电脑使用电池供电时不会启动计划备份，拔掉电源时也会停止正在进行的计划备份。在 macOS 上以及使用 systemd 时，计划备份以低优先级运行，不会拖慢你的电脑。
+在 Windows 上，只有你登录后才会运行计划备份。电脑使用电池供电时不会启动计划备份，拔掉电源时也会停止正在进行的计划备份。在 macOS 上以及使用 systemd 时，计划备份以低优先级运行，不会拖慢你的电脑。
 
 ## 计划任务
 
@@ -50,7 +50,7 @@ launchd 和 systemd 会补跑。如果备份到点时电脑处于关机或睡眠
 
 在 macOS 上，这个计划任务会以 **Node.js Foundation** 的名称出现在“系统设置 > 通用 > 登录项与扩展”（System Settings > General > Login Items & Extensions）中，Node.js Foundation 是 frost 自带运行时的发布者。在那里把它关掉会停止计划备份，`frost status` 也会报告计划任务缺失。如果想停止计划备份，请改用 `frost config set schedule.enabled false`。
 
-使用 systemd 时，frost 会为你的用户开启 lingering（`loginctl enable-linger`），这样即使你已注销，备份也能运行。删除定时器时，它会再把 lingering 关掉，除非在 frost 之前它就已经开着。
+使用 systemd 时，如果能确认 lingering 处于关闭状态，frost 会尝试为你的用户开启它（`loginctl enable-linger`）。lingering 让备份能在你注销后继续运行。如果 frost 无法开启它，注销后备份可能就不会运行。删除定时器时，只有 frost 记录过自己开启了 lingering，才会把它关掉。
 
 ## 日志
 

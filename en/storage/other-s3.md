@@ -18,13 +18,13 @@ frost keeps your backups in a `frost` folder inside the bucket.
 
 ## A server without TLS
 
-For a test server on your own computer or network, give the endpoint with `http://`, like `http://localhost:9000`. That turns off TLS for every request, so only use it where you trust the network. Setting `storage.s3.insecure` to `true` does the same.
+For a test server on your own computer or network, give the endpoint with `http://`, like `http://localhost:9000`. That turns off TLS for every request, so only use it where you trust the network. Setting `storage.s3.insecure` to `true` selects HTTP when the endpoint has no scheme. An explicit `https://` or `http://` takes precedence.
 
 ## The folder inside the bucket
 
 frost keeps everything in one folder inside the bucket, `frost` by default. The full-screen setup doesn't ask about it.
 
-To use another folder, or the top of the bucket, before your first backup:
+After completing setup, to use another folder or the top of the bucket before your first backup:
 
 1. Run `frost config edit` and change `prefix` under `[storage.s3]`. Leave it empty for the top of the bucket. frost warns that there are no backups there yet. Type `yes` to save anyway.
 2. Run `frost init` again. Its review screen warns that this starts a separate set of backups. Press `[s]` to go ahead.

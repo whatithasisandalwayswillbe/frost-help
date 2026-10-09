@@ -67,7 +67,7 @@ The full-screen setup doesn't ask about two rarer settings, and keeps whatever t
 - A Permafrost server of your own: `storage.permafrost.url`.
 - The folder inside an S3 bucket, `frost` by default: `storage.s3.prefix`.
 
-Change them with `frost config set`. See [Settings](#settings).
+For a new location, use `frost config edit`, accept the warning, save and run `frost init` again. `frost config set` requires an existing repository at the new location. For a first-time custom server setup, see [Permafrost](#permafrost). See [Settings](#settings).
 
 ## Without a full-screen terminal
 

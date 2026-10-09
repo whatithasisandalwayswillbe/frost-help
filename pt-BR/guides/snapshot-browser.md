@@ -67,6 +67,6 @@ Antes de gravar qualquer coisa, o frost mostra onde cada item vai parar. Pressio
 
 "New folder elsewhere" abre o seletor de pastas do sistema: o Finder no macOS, o Explorador de Arquivos no Windows, e zenity, qarma ou matedialog no Linux. Por SSH, ou no Linux sem seletor, você digita a pasta. Pressione `[t]` com o seletor aberto para digitá-la mesmo assim.
 
-Quando uma restauração termina, o frost mostra o que restaurou no Finder, no Explorador de Arquivos ou no gerenciador de arquivos do Linux. Um arquivo único aparece selecionado; senão, abre a pasta que contém tudo. Nada é aberto por SSH, sem tela gráfica ou quando a restauração falha.
+Quando uma restauração termina, o frost mostra o que restaurou no Finder, no Explorador de Arquivos ou no gerenciador de arquivos do Linux. Um arquivo único aparece selecionado no macOS e no Windows; no Linux, a pasta dele é aberta. Nos outros casos, abre a pasta mais interna que contém tudo o que foi restaurado. Nada é aberto por SSH, sem tela gráfica ou quando a restauração falha.
 
 [Restaurar arquivos](#restoring) explica cada opção em detalhes, e o que acontece quando uma restauração é interrompida.

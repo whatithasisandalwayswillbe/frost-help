@@ -53,7 +53,7 @@ If the file doesn't parse, frost tells you why and offers to open it again, so a
 | `storage.s3.prefix` | `frost` | The folder inside the bucket that holds your backups. Empty for the top of the bucket |
 | `storage.s3.access_key_id` | | Your access key ID |
 | `storage.s3.secret_access_key` | | Your secret access key |
-| `storage.s3.insecure` | `false` | Use plain HTTP. Only for local testing |
+| `storage.s3.insecure` | `false` | Use plain HTTP when the endpoint has no scheme. Only for local testing |
 
 ## Environment variables
 

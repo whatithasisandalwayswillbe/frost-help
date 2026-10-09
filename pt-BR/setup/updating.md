@@ -20,7 +20,7 @@ O `frost update` nunca instala uma versão de pré-lançamento, nem uma versão 
 
 ## Atualizações automáticas
 
-Depois de um backup agendado, o frost procura uma versão nova no máximo uma vez por dia e a instala do mesmo jeito que o `frost update`. Se a busca ou a instalação falhar, o backup não falha por causa disso.
+Depois de um backup agendado, o frost procura uma versão nova no máximo uma vez a cada 20 horas e a instala do mesmo jeito que o `frost update`. Se a busca ou a instalação falhar, o backup não falha por causa disso.
 
 O `frost status` mostra como as atualizações estão configuradas e se a última funcionou. A tela de configurações do navegador de snapshots também mostra isso.
 

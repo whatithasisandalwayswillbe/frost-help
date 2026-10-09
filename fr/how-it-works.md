@@ -4,7 +4,7 @@ frost prend des instantanés de vos dossiers, découpe vos fichiers en blocs chi
 
 ## En bref
 
-1. **Parcours.** frost parcourt vos dossiers et ignore tout ce qui figure dans votre liste d'exclusions. Les fichiers dont la taille et la date de modification n'ont pas changé depuis la dernière sauvegarde ne sont pas relus.
+1. **Parcours.** frost parcourt vos dossiers et ignore tout ce qui figure dans votre liste d'exclusions. Les fichiers dont la taille et la date de modification n'ont pas changé depuis la dernière sauvegarde ne sont pas relus tant que le cache de frost contient encore la liste de tous leurs blocs.
 2. **Découpage.** Les fichiers modifiés sont découpés en blocs d'environ 1 Mio, à des endroits qui dépendent de leur contenu. Une modification au milieu d'un gros fichier ne touche que les blocs qui l'entourent.
 3. **Chiffrement.** Chaque nouveau bloc est compressé quand cela le rend plus petit, puis chiffré avec votre clé.
 4. **Envoi.** Seuls les blocs absents du stockage sont envoyés.
@@ -44,7 +44,7 @@ Les noms des objets sont des identifiants d'apparence aléatoire, votre fourniss
 
 ## Le cache local
 
-frost tient à jour, dans un dossier de cache sur votre ordinateur, la liste de ce qu'il a déjà envoyé, pour ne pas avoir à lister tout votre stockage à chaque sauvegarde. Il compare cette liste avec le stockage une fois par semaine.
+frost tient à jour, dans un dossier de cache sur votre ordinateur, la liste de ce qu'il a déjà envoyé, pour ne pas avoir à lister tout votre stockage à chaque sauvegarde. Il compare cette liste avec le stockage une fois par semaine, lorsque l'emplacement du stockage change ou après qu'une vérification a trouvé des données manquantes.
 
 Le cache est jetable. S'il disparaît, la sauvegarde suivante le reconstruit à partir du stockage et relit vos fichiers. Les restaurations n'en ont pas besoin du tout.
 

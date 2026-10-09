@@ -35,7 +35,7 @@ Os horários seguem a hora local do computador. O systemd atrasa cada execução
 
 O launchd e o systemd recuperam o atraso. Se o computador estava desligado ou em repouso quando um backup deveria rodar, o backup roda quando ele acorda. O cron e o Agendador de Tarefas pulam as execuções que o computador perdeu, e a próxima acontece no horário.
 
-No Windows, os backups agendados não começam enquanto o computador está na bateria, e param se ele for desconectado da tomada. No macOS e com o systemd, os backups agendados rodam com prioridade baixa para não deixar o computador lento.
+No Windows, os backups agendados só rodam enquanto sua sessão do Windows estiver aberta. Eles não começam enquanto o computador está na bateria, e param se ele for desconectado da tomada. No macOS e com o systemd, os backups agendados rodam com prioridade baixa para não deixar o computador lento.
 
 ## A tarefa agendada
 
@@ -50,7 +50,7 @@ A tarefa executa `frost backup` com as pastas de configuração e de cache que e
 
 No macOS, a tarefa aparece em Ajustes do Sistema > Geral > Itens de Início e Extensões (System Settings > General > Login Items & Extensions) como **Node.js Foundation**, a responsável pelo ambiente de execução que o frost inclui. Desligá-la ali interrompe os backups agendados, e o `frost status` informa que a tarefa está faltando. Para interromper os backups agendados, use `frost config set schedule.enabled false`.
 
-Com o systemd, o frost liga o lingering para o seu usuário (`loginctl enable-linger`), para que os backups rodem mesmo com você desconectado. Ele desliga o lingering de novo quando remove o timer, a menos que já estivesse ligado antes do frost.
+Com o systemd, o frost tenta ligar o lingering para o seu usuário (`loginctl enable-linger`) se puder confirmar que ele está desligado. O lingering permite que os backups rodem mesmo depois que você sai da sua conta. Se o frost não conseguir ligá-lo, os backups podem parar depois que você sair da conta. Ao remover o timer, o frost só desliga o lingering se tiver registrado que o ligou.
 
 ## Logs
 

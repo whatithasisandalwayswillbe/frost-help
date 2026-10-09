@@ -26,7 +26,7 @@ Das Installationsprogramm:
 2. Prüft die Signatur der Version und die Prüfsumme des Downloads und bricht ab, wenn eins davon nicht stimmt.
 3. Installiert frost in deinem Benutzerprofil und legt einen `frost`-Starter in einem Ordner in deinem `PATH` ab.
 
-Es braucht `curl` oder `wget` sowie `ssh-keygen` aus OpenSSH 8.1 oder neuer, um die Signatur zu prüfen.
+Es braucht `curl` oder `wget`, `ssh-keygen` aus OpenSSH 8.1 oder neuer sowie `sha256sum` oder `shasum` für die Prüfung. Zum Entpacken nutzt es `tar` unter macOS und Linux, unter Windows `unzip` oder PowerShell. Git Bash stellt `cygpath` bereit, das die Windows-Installation ebenfalls braucht.
 
 Der Starter landet in `/usr/local/bin`, wenn du dort schreiben darfst, sonst in `~/.local/bin`. Unter Windows landet er in `~/bin`. Ist dieser Ordner noch nicht in deinem `PATH`, gibt das Installationsprogramm die Zeile aus, die ihn hinzufügt.
 
@@ -75,10 +75,14 @@ Um ein entpacktes Paket ohne Installation zu nutzen, starte direkt seinen `frost
 Das Installationsprogramm erledigt das für dich. Um ein Archiv selbst zu prüfen, lade es zusammen mit `checksums.txt` und `checksums.txt.sig` aus derselben Version herunter, dazu [`release-signing.pub`](https://github.com/whatithasisandalwayswillbe/frost/blob/main/install/release-signing.pub) aus dem Repository. Setze `archive` auf den Dateinamen des Archivs und führe dann aus:
 
 ```sh
-archive='frost_X.Y.Z_linux_amd64.tar.gz'
-printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
-ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
-awk -v archive="$archive" '$2 == archive { print }' checksums.txt | shasum -a 256 -c -
+(
+  set -e
+  archive='frost_X.Y.Z_linux_amd64.tar.gz'
+  printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
+  ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
+  selected_checksum=$(awk -v archive="$archive" '$2 == archive { line = $0; count++ } END { if (count != 1) exit 1; print line }' checksums.txt)
+  printf '%s\n' "$selected_checksum" | shasum -a 256 -c -
+)
 ```
 
-Die erste Prüfung sollte `Good "file" signature` ausgeben und die zweite `OK` hinter dem Namen deines Archivs. Wenn eine davon das nicht tut, installiere es nicht.
+Die Befehle brechen ab, wenn die Signatur nicht stimmt oder die signierte Liste nicht genau einen Eintrag für dein Archiv enthält. Die erste Prüfung sollte `Good "file" signature` ausgeben und die zweite `OK` hinter dem Namen deines Archivs. Wenn eine davon das nicht tut, installiere es nicht.

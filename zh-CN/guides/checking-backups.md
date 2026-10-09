@@ -13,7 +13,7 @@ frost status
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
-│  health       ok 20 objects checked 2h ago
+│  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
 │
@@ -61,7 +61,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-这会重新运行一次抽查，并把 frost 本地记录的数据块与存储中的所有内容进行对比。检查失败时它以 `1` 退出，所以你可以在自己的计划程序中运行它，按与备份不同的频率进行检查。
+这会重新运行一次抽查，并把 frost 本地记录的数据块与存储中的所有内容进行对比。即使 `verify.sample` 设为 `0`，这个命令仍会检查 20 个数据块。检查失败时它以 `1` 退出，所以你可以在自己的计划程序中运行它，按与备份不同的频率进行检查。
 
 ## 检查失败时
 
@@ -70,7 +70,7 @@ health 这一行会列出失败的项目。这通常意味着你的存储丢失�
 1. 运行 `frost backup`。只要数据还在你的电脑上，缺失的数据块都会重新上传。
 2. 运行 `frost status --verify` 再检查一次。
 
-已经不在你电脑上的数据无法重新上传，需要这些数据的旧快照也就无法完整恢复。
+已经不在你电脑上的数据无法重新上传，需要这些数据的旧快照也就无法完整恢复。如果数据块仍在存储中但已经损坏，备份不会自动替换它。请从服务商或另一份独立备份中找回完好的副本，然后再次检查。
 
 ## 缺失的快照
 

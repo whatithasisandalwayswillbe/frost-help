@@ -67,6 +67,6 @@ Before anything is written, frost shows where everything will land. Press `[ente
 
 "New folder elsewhere" opens your system's folder picker: Finder on macOS, Explorer on Windows, and zenity, qarma or matedialog on Linux. Over SSH, or on Linux without a picker, you type the folder instead. Press `[t]` while the picker is open to type it anyway.
 
-When a restore finishes, frost shows what it restored in Finder, Explorer or your Linux file manager. A single file is shown selected, and otherwise the folder holding everything opens. Nothing opens over SSH, without a display, or when the restore fails.
+When a restore finishes, frost shows what it restored in Finder, Explorer or your Linux file manager. A single file is shown selected on macOS and Windows; on Linux, its folder opens. Otherwise the deepest folder holding everything restored opens. Nothing opens over SSH, without a display, or when the restore fails.
 
 [Restoring files](#restoring) explains each option in detail, and what happens when a restore is interrupted.

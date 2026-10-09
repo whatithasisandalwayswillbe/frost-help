@@ -67,6 +67,6 @@ Bevor etwas geschrieben wird, zeigt frost, wo alles landen wird. Drück `[enter]
 
 „New folder elsewhere“ öffnet die Ordnerauswahl deines Systems: den Finder unter macOS, den Datei-Explorer unter Windows und zenity, qarma oder matedialog unter Linux. Über SSH oder unter Linux ohne Auswahldialog gibst du den Ordner selbst ein. Drück `[t]`, während die Auswahl offen ist, um ihn trotzdem einzutippen.
 
-Wenn eine Wiederherstellung fertig ist, zeigt frost das Wiederhergestellte im Finder, im Datei-Explorer oder im Dateimanager deines Linux-Systems. Eine einzelne Datei erscheint ausgewählt, ansonsten öffnet sich der Ordner, der alles enthält. Über SSH, ohne grafische Oberfläche oder wenn die Wiederherstellung fehlschlägt, öffnet sich nichts.
+Wenn eine Wiederherstellung fertig ist, zeigt frost das Wiederhergestellte im Finder, im Datei-Explorer oder im Dateimanager deines Linux-Systems. Eine einzelne Datei erscheint unter macOS und Windows ausgewählt; unter Linux öffnet sich ihr Ordner. Ansonsten öffnet sich der tiefste gemeinsame Ordner, der alles Wiederhergestellte enthält. Über SSH, ohne grafische Oberfläche oder wenn die Wiederherstellung fehlschlägt, öffnet sich nichts.
 
 [Dateien wiederherstellen](#restoring) erklärt jede Option im Detail und was passiert, wenn eine Wiederherstellung unterbrochen wird.

@@ -26,7 +26,7 @@ The installer:
 2. Checks the release's signature and the download's checksum, and stops if either is wrong.
 3. Installs frost in your user profile, and puts a `frost` launcher in a folder on your `PATH`.
 
-It needs `curl` or `wget`, and `ssh-keygen` from OpenSSH 8.1 or newer to check the signature.
+It needs `curl` or `wget`, `ssh-keygen` from OpenSSH 8.1 or newer, and `sha256sum` or `shasum` for verification. Extraction uses `tar` on macOS and Linux, and `unzip` or PowerShell on Windows. Git Bash provides `cygpath`, which the Windows installer also needs.
 
 The launcher goes in `/usr/local/bin` if you can write to it, and in `~/.local/bin` otherwise. On Windows it goes in `~/bin`. If that folder isn't on your `PATH` yet, the installer prints the line that adds it.
 
@@ -75,10 +75,14 @@ To run an extracted package without installing it, use its `frost` launcher (`fr
 The installer does this for you. To check an archive yourself, download it with `checksums.txt` and `checksums.txt.sig` from the same release, and [`release-signing.pub`](https://github.com/whatithasisandalwayswillbe/frost/blob/main/install/release-signing.pub) from the repository. Set `archive` to the archive's file name, then run:
 
 ```sh
-archive='frost_X.Y.Z_linux_amd64.tar.gz'
-printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
-ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
-awk -v archive="$archive" '$2 == archive { print }' checksums.txt | shasum -a 256 -c -
+(
+  set -e
+  archive='frost_X.Y.Z_linux_amd64.tar.gz'
+  printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
+  ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
+  selected_checksum=$(awk -v archive="$archive" '$2 == archive { line = $0; count++ } END { if (count != 1) exit 1; print line }' checksums.txt)
+  printf '%s\n' "$selected_checksum" | shasum -a 256 -c -
+)
 ```
 
-The first check should print `Good "file" signature`, and the second should print `OK` after your archive's name. If either doesn't, don't install it.
+The commands stop if the signature is wrong or the signed list doesn't contain exactly one entry for your archive. The first check should print `Good "file" signature`, and the second should print `OK` after your archive's name. If either doesn't, don't install it.

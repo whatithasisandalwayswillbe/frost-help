@@ -28,7 +28,7 @@ frost config set storage.s3.prefix backups/frost
 
 ## 저장하기 전 확인
 
-`frost config set`은 새 스토리지 위치를 저장하기 전에 확인합니다. 백업이 없는 위치, 다른 키로 만든 백업이 있는 위치, `frost.repo`는 있지만 스냅샷이 없는 위치는 거부합니다. `frost config edit`는 같은 문제를 경고로만 보여 주므로, `set`이 거부하는 변경도 저장할 수 있습니다.
+`frost config set`은 새 스토리지 위치를 저장하기 전에 확인합니다. frost 저장소가 없는 위치나 다른 키로 만든 저장소는 거부합니다. 같은 저장소의 스냅샷이 이전 위치에는 있는데 새 위치에는 없다면 그 변경도 거부합니다. `frost config edit`는 같은 문제를 경고로만 보여 주므로, `set`이 거부하는 변경도 저장할 수 있습니다.
 
 ## frost가 백업을 찾지 못할 때
 

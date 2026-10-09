@@ -13,7 +13,7 @@ frost status
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
-│  health       ok 20 objects checked 2h ago
+│  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
 │
@@ -61,7 +61,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-Cette commande lance une nouvelle vérification et compare en plus la liste locale des blocs de frost avec tout ce que contient votre stockage. Elle se termine avec `1` si la vérification échoue : vous pouvez donc la lancer depuis votre propre planificateur pour vérifier à un autre rythme que vos sauvegardes.
+Cette commande lance une nouvelle vérification et compare en plus la liste locale des blocs de frost avec tout ce que contient votre stockage. Elle vérifie 20 blocs même si `verify.sample` vaut `0`. Elle se termine avec `1` si la vérification échoue : vous pouvez donc la lancer depuis votre propre planificateur pour vérifier à un autre rythme que vos sauvegardes.
 
 ## Si une vérification échoue
 
@@ -70,7 +70,7 @@ La ligne health liste ce qui a échoué. En général, cela signifie que votre s
 1. Lancez `frost backup`. Tout bloc manquant dont les données sont encore sur votre ordinateur est renvoyé.
 2. Lancez `frost status --verify` pour vérifier à nouveau.
 
-Les données qui ne sont plus sur votre ordinateur ne peuvent pas être renvoyées, et les anciens instantanés qui en ont besoin ne pourront pas être restaurés entièrement.
+Les données qui ne sont plus sur votre ordinateur ne peuvent pas être renvoyées, et les anciens instantanés qui en ont besoin ne pourront pas être restaurés entièrement. Une sauvegarde ne remplace pas automatiquement un bloc encore présent mais endommagé. Récupérez une copie intacte auprès de votre fournisseur ou dans une sauvegarde indépendante, puis vérifiez à nouveau.
 
 ## Instantanés manquants
 

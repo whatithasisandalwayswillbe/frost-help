@@ -36,7 +36,7 @@
 
 ## 修改列表
 
-运行 `frost init` 并修改“跳过”这一步，或者使用 `frost config edit`。也可以用一条命令设置整个列表，这会替换掉原有的内容：
+运行 `frost init` 并修改 "Skip"（跳过）这一步，或者使用 `frost config edit`。也可以用一条命令设置整个列表，这会替换掉原有的内容：
 
 ```sh
 frost config set exclude .DS_Store node_modules '*.tmp' '~/Downloads'

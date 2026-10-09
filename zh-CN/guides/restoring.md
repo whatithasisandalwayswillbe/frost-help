@@ -93,7 +93,7 @@ What's restored so far was kept. To carry on from there, run:
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
 
-这条命令与原来的恢复相同，只是把 `latest` 或时间换成了快照的完整 ID，所以即使中间又做了一次备份，它指向的快照也不会变。已经恢复的文件会经过检查后跳过，frost 正在写入的文件会从最后一个完好的数据块继续。
+这条命令与原来的恢复相同，只是把 `latest` 或时间换成了快照的完整 ID，所以即使中间又做了一次备份，它指向的快照也不会变。已经恢复的文件会经过检查后跳过，frost 正在写入的文件会从最后一个完好的数据块继续。在 Windows 上，有些路径需要使用 PowerShell 命令；提示信息会说明何时应在 PowerShell 中运行。
 
 在恢复完成之前，恢复文件夹中会有一个 `.frost-restore` 标记文件和一个 `.frost-partial-...` 文件。请不要动它们，frost 完成后会自动删除。
 

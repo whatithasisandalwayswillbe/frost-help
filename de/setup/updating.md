@@ -20,7 +20,7 @@ frost update --check
 
 ## Automatische Updates
 
-Nach einem geplanten Backup sucht frost höchstens einmal am Tag nach einer neuen Version und installiert sie genauso wie `frost update`. Schlägt die Suche oder die Installation fehl, schlägt deshalb nicht das Backup fehl.
+Nach einem geplanten Backup sucht frost höchstens einmal alle 20 Stunden nach einer neuen Version und installiert sie genauso wie `frost update`. Schlägt die Suche oder die Installation fehl, schlägt deshalb nicht das Backup fehl.
 
 `frost status` zeigt, wie Updates eingestellt sind und ob das letzte geklappt hat. Der Einstellungsbildschirm des Snapshot-Browsers zeigt das ebenfalls.
 

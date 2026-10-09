@@ -26,7 +26,7 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 2. 检查发布版本的签名和下载文件的校验和，只要有一项不对就停止。
 3. 把 frost 安装到你的用户目录中，并在 `PATH` 中的某个文件夹里放一个 `frost` 启动器。
 
-它需要 `curl` 或 `wget`，还需要 OpenSSH 8.1 或更新版本中的 `ssh-keygen` 来检查签名。
+它需要 `curl` 或 `wget`、OpenSSH 8.1 或更新版本中的 `ssh-keygen`，以及 `sha256sum` 或 `shasum` 来验证下载。在 macOS 和 Linux 上使用 `tar` 解压，在 Windows 上使用 `unzip` 或 PowerShell。Windows 安装程序还需要 Git Bash 提供的 `cygpath`。
 
 如果你有 `/usr/local/bin` 的写入权限，启动器会放在那里，否则放在 `~/.local/bin`。在 Windows 上，启动器放在 `~/bin`。如果这个文件夹还不在你的 `PATH` 中，安装程序会打印出添加它的命令。
 
@@ -75,10 +75,14 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 安装程序会自动完成这一步。如果想自己检查压缩包，请从同一个发布版本中下载它以及 `checksums.txt` 和 `checksums.txt.sig`，再从代码仓库下载 [`release-signing.pub`](https://github.com/whatithasisandalwayswillbe/frost/blob/main/install/release-signing.pub)。把 `archive` 设为压缩包的文件名，然后运行：
 
 ```sh
-archive='frost_X.Y.Z_linux_amd64.tar.gz'
-printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
-ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
-awk -v archive="$archive" '$2 == archive { print }' checksums.txt | shasum -a 256 -c -
+(
+  set -e
+  archive='frost_X.Y.Z_linux_amd64.tar.gz'
+  printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
+  ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
+  selected_checksum=$(awk -v archive="$archive" '$2 == archive { line = $0; count++ } END { if (count != 1) exit 1; print line }' checksums.txt)
+  printf '%s\n' "$selected_checksum" | shasum -a 256 -c -
+)
 ```
 
-第一项检查应当输出 `Good "file" signature`，第二项应当在压缩包名称后面输出 `OK`。只要有一项不是这样，就不要安装。
+如果签名有误，或者签名列表中对应压缩包的记录不是恰好一条，这组命令就会停止。第一项检查应当输出 `Good "file" signature`，第二项应当在压缩包名称后面输出 `OK`。只要有一项不是这样，就不要安装。

@@ -53,7 +53,7 @@ Se o arquivo não puder ser interpretado, o frost diz o motivo e oferece abri-lo
 | `storage.s3.prefix` | `frost` | A pasta do bucket que guarda seus backups. Vazio para a raiz do bucket |
 | `storage.s3.access_key_id` | | O ID da sua chave de acesso |
 | `storage.s3.secret_access_key` | | A sua chave de acesso secreta |
-| `storage.s3.insecure` | `false` | Usar HTTP sem criptografia. Só para testes locais |
+| `storage.s3.insecure` | `false` | Usar HTTP sem criptografia quando o endpoint não tem esquema. Só para testes locais |
 
 ## Variáveis de ambiente
 

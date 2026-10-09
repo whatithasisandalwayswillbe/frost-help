@@ -53,7 +53,7 @@ frost는 지정한 편집기에서 `config.toml`의 사본을 엽니다. 지정�
 | `storage.s3.prefix` | `frost` | 백업을 담는 버킷 안의 폴더. 비워 두면 버킷 최상위입니다 |
 | `storage.s3.access_key_id` | | 액세스 키 ID |
 | `storage.s3.secret_access_key` | | 비밀 액세스 키 |
-| `storage.s3.insecure` | `false` | 암호화하지 않은 HTTP를 씁니다. 로컬 테스트 전용입니다 |
+| `storage.s3.insecure` | `false` | 엔드포인트에 스킴이 없을 때 암호화하지 않은 HTTP를 씁니다. 로컬 테스트 전용입니다 |
 
 ## 환경 변수
 

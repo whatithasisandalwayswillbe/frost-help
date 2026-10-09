@@ -16,7 +16,7 @@ frost shows what changed, how much it uploaded and the result of its spot check:
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
 │  new data     14.2 MB in 9 chunks (9.8 MB uploaded after compression)
-│  verified     ok, 20 random objects re-downloaded and checked
+│  verified     ok, 21 random objects re-downloaded and checked
 │
 └  Saved snapshot maple-absurd-3f1c
 ```
@@ -29,7 +29,7 @@ If nothing changed, frost doesn't save a new snapshot:
 ┌  backup  s3://my-backups/frost/
 │
 │  files        1,204 (2.1 GB)
-│  verified     ok 3h ago, 20 objects checked
+│  verified     ok 3h ago, 21 objects checked
 │
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
@@ -93,4 +93,4 @@ If a backup stops partway, because of a lost connection, a closed laptop or `Ctr
 
 ## One at a time
 
-Only one backup or restore can run at once. If another is running, like a scheduled backup, frost says "a backup or restore is already running, try again when it's done". The snapshot browser can stay open while a backup runs.
+A backup or command-line restore locks its local cache while it runs. If another command needs that cache, frost says "a backup or restore is already running, try again when it's done". The snapshot browser releases the cache lock, so it can stay open and restore while a backup runs. Different cache folders and computers have separate locks.

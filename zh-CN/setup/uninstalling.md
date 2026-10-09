@@ -10,11 +10,11 @@ frost 没有卸载命令，不过手动删除它只需要几个步骤。
 frost config set schedule.enabled false
 ```
 
-这会把计划任务从操作系统的计划程序中删除。在使用 systemd 的 Linux 上，如果 lingering 是 frost 开启的，它也会把 lingering 关掉。
+这会把计划任务从操作系统的计划程序中删除。在使用 systemd 的 Linux 上，如果 frost 记录过自己开启了 lingering，它也会把 lingering 关掉。
 
 ## 2. 删除 frost 的文件
 
-这一步会删除应用程序、它的启动器、你的设置、你的密钥以及 frost 的缓存。如果你设置过 `FROST_CONFIG_DIR`、`FROST_CACHE_DIR`、`XDG_CONFIG_HOME`、`XDG_CACHE_HOME` 或 `XDG_DATA_HOME`，请改为删除这些变量指向的文件夹。[文件与文件夹](#files-and-folders)列出了所有位置。
+这一步会删除应用程序、它的启动器、你的设置、你的密钥以及 frost 的缓存。如果你改过位置，请把下面的路径换成 frost 自己的文件和文件夹。`FROST_CONFIG_DIR` 和 `FROST_CACHE_DIR` 直接指向 frost 的文件夹；`XDG_CONFIG_HOME`、`XDG_CACHE_HOME` 和 `XDG_DATA_HOME` 则包含一个 `frost` 子文件夹。绝不要删除 XDG 根文件夹或共享文件夹本身。[文件与文件夹](#files-and-folders)列出了所有位置。
 
 在 macOS 上：
 

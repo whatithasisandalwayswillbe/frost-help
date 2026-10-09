@@ -16,7 +16,7 @@ frost는 무엇이 바뀌었는지, 얼마나 업로드했는지, 표본 검사 
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
 │  new data     14.2 MB in 9 chunks (9.8 MB uploaded after compression)
-│  verified     ok, 20 random objects re-downloaded and checked
+│  verified     ok, 21 random objects re-downloaded and checked
 │
 └  Saved snapshot maple-absurd-3f1c
 ```
@@ -29,7 +29,7 @@ frost는 무엇이 바뀌었는지, 얼마나 업로드했는지, 표본 검사 
 ┌  backup  s3://my-backups/frost/
 │
 │  files        1,204 (2.1 GB)
-│  verified     ok 3h ago, 20 objects checked
+│  verified     ok 3h ago, 21 objects checked
 │
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
@@ -93,4 +93,4 @@ macOS에서는 일부 폴더를 frost가 읽으려면 사용자의 허락이 필
 
 ## 한 번에 하나씩
 
-백업이나 복원은 한 번에 하나만 실행할 수 있습니다. 예약된 백업처럼 다른 작업이 이미 실행 중이면 frost는 "a backup or restore is already running, try again when it's done"(이미 백업이나 복원이 실행 중이니 끝난 뒤 다시 시도하세요)라고 표시합니다. 백업이 실행되는 동안에도 스냅샷 브라우저는 열어 둘 수 있습니다.
+백업이나 명령줄 복원은 실행 중에 로컬 캐시를 잠급니다. 다른 명령어가 같은 캐시를 필요로 하면 frost는 "a backup or restore is already running, try again when it's done"(이미 백업이나 복원이 실행 중이니 끝난 뒤 다시 시도하세요)라고 표시합니다. 스냅샷 브라우저는 캐시 잠금을 해제하므로, 백업 중에도 열어 두거나 복원할 수 있습니다. 캐시 폴더나 컴퓨터가 다르면 잠금도 별개입니다.

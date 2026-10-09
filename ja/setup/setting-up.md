@@ -67,7 +67,7 @@ frost が自動でバックアップする頻度を、1 時間ごと、6 時間�
 - 自分で運用する Permafrost サーバー: `storage.permafrost.url`
 - S3 バケット内のフォルダ (既定は `frost`): `storage.s3.prefix`
 
-これらは `frost config set` で変更します。詳しくは[設定項目](#settings)を参照してください。
+新しい場所を使うには、`frost config edit` で変更し、警告を確認して保存してから、`frost init` をもう一度実行します。`frost config set` では、新しい場所に既存のリポジトリが必要です。自分のサーバーを初めて設定する場合は [Permafrost](#permafrost) を参照してください。詳しくは[設定項目](#settings)を参照してください。
 
 ## 全画面のターミナルが使えない場合
 

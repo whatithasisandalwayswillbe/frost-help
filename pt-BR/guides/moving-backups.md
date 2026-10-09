@@ -6,7 +6,7 @@ Seus backups podem ir para outra pasta, outro bucket ou outro provedor sem que t
 | --- | --- |
 | Mover seus backups para outra pasta ou outro bucket | Mova a pasta inteira do repositório e aponte o frost para o novo local. Nada é enviado de novo |
 | Começar um conjunto separado de backups em outro lugar | Execute `frost init` e escolha o novo local vazio. Os backups antigos ficam onde estão, mas o frost só mostra os novos |
-| Voltar para backups de onde você saiu | Aponte o frost de novo para o local antigo |
+| Voltar a usar os backups de um local anterior | Aponte o frost de novo para o local antigo |
 
 ## Mover o repositório
 
@@ -28,7 +28,7 @@ Para ir para outro provedor, o que exige mudar várias configurações de uma ve
 
 ## Verificações antes de salvar
 
-O `frost config set` confere um novo local de armazenamento antes de salvá-lo. Ele recusa um local sem backups, um com backups feitos com outra chave ou um com `frost.repo` mas sem snapshots. O `frost config edit` mostra esses mesmos problemas como avisos, então ainda consegue salvar uma mudança que o `set` recusa.
+O `frost config set` confere um novo local de armazenamento antes de salvá-lo. Ele recusa um local sem repositório do frost ou com um repositório criado com outra chave. Se o local antigo tem snapshots do mesmo repositório, mas o novo não, ele também recusa essa mudança. O `frost config edit` mostra esses mesmos problemas como avisos, então ainda consegue salvar uma mudança que o `set` recusa.
 
 ## Se o frost não encontrar seus backups
 

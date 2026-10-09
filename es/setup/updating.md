@@ -20,7 +20,7 @@ frost update --check
 
 ## Actualizaciones automáticas
 
-Después de una copia programada, frost busca una versión nueva como mucho una vez al día y la instala igual que `frost update`. Si la búsqueda o la instalación fallan, la copia no falla por ello.
+Después de una copia programada, frost busca una versión nueva como mucho una vez cada 20 horas y la instala igual que `frost update`. Si la búsqueda o la instalación fallan, la copia no falla por ello.
 
 `frost status` muestra cómo están configuradas las actualizaciones y si la última funcionó. La pantalla de ajustes del explorador de instantáneas también lo muestra.
 

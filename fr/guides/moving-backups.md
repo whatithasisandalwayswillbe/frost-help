@@ -6,7 +6,7 @@ Vos sauvegardes peuvent passer dans un autre dossier, un autre bucket ou chez un
 | --- | --- |
 | Déplacer vos sauvegardes vers un autre dossier ou un autre bucket | Déplacez tout le dossier du dépôt, puis indiquez à frost le nouvel emplacement. Rien n'est renvoyé |
 | Démarrer un ensemble de sauvegardes séparé ailleurs | Lancez `frost init` et choisissez le nouvel emplacement vide. Vos anciennes sauvegardes restent où elles sont, mais frost n'affiche plus que les nouvelles |
-| Revenir à des sauvegardes que vous aviez quittées | Indiquez de nouveau l'ancien emplacement à frost |
+| Réutiliser les sauvegardes d'un ancien emplacement | Indiquez de nouveau l'ancien emplacement à frost |
 
 ## Déplacer le dépôt
 
@@ -28,7 +28,7 @@ Pour passer chez un autre fournisseur, ce qui implique de changer plusieurs rég
 
 ## Contrôles avant l'enregistrement
 
-`frost config set` vérifie un nouvel emplacement de stockage avant de l'enregistrer. Il refuse un emplacement sans sauvegarde, un emplacement dont les sauvegardes ont été faites avec une autre clé, ou un emplacement qui contient `frost.repo` sans aucun instantané. `frost config edit` présente ces mêmes problèmes sous forme d'avertissements : il peut donc encore enregistrer un changement que `set` refuse.
+`frost config set` vérifie un nouvel emplacement de stockage avant de l'enregistrer. Il refuse un emplacement sans dépôt frost ou avec un dépôt créé avec une autre clé. Si l'ancien emplacement contient des instantanés du même dépôt mais que le nouveau n'en contient pas, il refuse aussi ce changement. `frost config edit` présente ces mêmes problèmes sous forme d'avertissements : il peut donc encore enregistrer un changement que `set` refuse.
 
 ## Si frost ne trouve pas vos sauvegardes
 

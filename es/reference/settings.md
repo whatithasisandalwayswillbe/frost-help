@@ -53,7 +53,7 @@ Si el archivo no se puede interpretar, frost te dice por qué y te ofrece abrirl
 | `storage.s3.prefix` | `frost` | La carpeta del bucket que contiene tus copias. Vacío para la raíz del bucket |
 | `storage.s3.access_key_id` | | Tu ID de clave de acceso |
 | `storage.s3.secret_access_key` | | Tu clave de acceso secreta |
-| `storage.s3.insecure` | `false` | Usar HTTP sin cifrar. Solo para pruebas locales |
+| `storage.s3.insecure` | `false` | Usar HTTP sin cifrar cuando el endpoint no tiene esquema. Solo para pruebas locales |
 
 ## Variables de entorno
 

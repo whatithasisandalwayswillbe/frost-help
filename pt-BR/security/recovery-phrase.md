@@ -8,7 +8,7 @@ A sua frase de recuperação é a sua chave de criptografia escrita como 24 pala
 
 A configuração mostra a frase quando cria a sua chave. Anote em papel ou guarde em um gerenciador de senhas de confiança, e mantenha em um lugar diferente do computador que você está protegendo.
 
-Também há uma cópia no seu computador, no arquivo `key` da pasta de configuração do frost, para que os backups agendados funcionem sem você. Só o seu usuário consegue lê-la. Quem conseguir ler esse arquivo, ou executar programas como você, consegue ler seus backups, então use criptografia de disco completo e bloqueio de tela.
+Também há uma cópia no seu computador, no arquivo `key` da pasta de configuração do frost, para que os backups agendados funcionem sem você. No macOS e no Linux, o frost a cria com permissões só para o seu usuário. No Windows, ela herda as permissões do seu perfil de usuário. Pastas compartilhadas ou alterações nas permissões podem deixá-la exposta. Quem conseguir ler esse arquivo, ou executar programas como você, consegue ler seus backups, então use criptografia de disco completo e bloqueio de tela.
 
 Para ler seus backups, alguém precisa ter a frase e também acesso ao seu armazenamento. Mantenha as chaves do seu armazenamento em sigilo também.
 

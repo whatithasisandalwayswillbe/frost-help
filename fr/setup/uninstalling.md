@@ -10,11 +10,11 @@ frost n'a pas de commande de désinstallation, mais le retirer ne prend que quel
 frost config set schedule.enabled false
 ```
 
-Cette commande retire la tâche du planificateur de votre système. Sous Linux avec systemd, elle désactive aussi lingering si c'est frost qui l'avait activé.
+Cette commande retire la tâche du planificateur de votre système. Sous Linux avec systemd, elle désactive aussi lingering si frost a enregistré qu'il l'avait activé.
 
 ## 2. Supprimez les fichiers de frost
 
-Cette étape supprime l'application, son lanceur, vos réglages, votre clé et le cache de frost. Si vous avez défini `FROST_CONFIG_DIR`, `FROST_CACHE_DIR`, `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` ou `XDG_DATA_HOME`, supprimez plutôt ces dossiers. [Fichiers et dossiers](#files-and-folders) liste tous les emplacements.
+Cette étape supprime l'application, son lanceur, vos réglages, votre clé et le cache de frost. Si vous avez changé un emplacement, adaptez les chemins ci-dessous pour viser les fichiers et dossiers propres à frost. `FROST_CONFIG_DIR` et `FROST_CACHE_DIR` désignent directement les dossiers de frost ; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` et `XDG_DATA_HOME` contiennent un sous-dossier `frost`. Ne supprimez jamais un dossier racine XDG ni un dossier partagé. [Fichiers et dossiers](#files-and-folders) liste tous les emplacements.
 
 Sous macOS :
 

@@ -8,7 +8,7 @@ Tu frase de recuperación es tu clave de cifrado escrita como 24 palabras. Es la
 
 El asistente te muestra la frase cuando crea tu clave. Apúntala en papel o guárdala en un gestor de contraseñas de confianza, y tenla en un lugar distinto del equipo que respaldas.
 
-También hay una copia en tu equipo, en el archivo `key` de la carpeta de configuración de frost, para que las copias programadas funcionen sin ti. Solo tu usuario puede leerla. Cualquiera que pueda leer ese archivo, o ejecutar programas como tú, puede leer tus copias, así que usa cifrado de disco completo y bloqueo de pantalla.
+También hay una copia en tu equipo, en el archivo `key` de la carpeta de configuración de frost, para que las copias programadas funcionen sin ti. En macOS y Linux, frost la crea con permisos solo para tu usuario. En Windows, hereda los permisos de tu perfil de usuario. Las carpetas compartidas o los cambios de permisos pueden dejarla expuesta. Cualquiera que pueda leer ese archivo, o ejecutar programas como tú, puede leer tus copias, así que usa cifrado de disco completo y bloqueo de pantalla.
 
 Para leer tus copias, alguien necesita la frase y también acceso a tu almacenamiento. Mantén en privado también las claves de tu almacenamiento.
 

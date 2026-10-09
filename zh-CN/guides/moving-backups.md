@@ -28,7 +28,7 @@ frost config set storage.s3.prefix backups/frost
 
 ## 保存前的检查
 
-`frost config set` 在保存新的存储位置之前会先检查它。以下几种位置会被拒绝：没有备份的位置、备份是用另一个密钥创建的位置，以及有 `frost.repo` 却没有快照的位置。`frost config edit` 会把同样的问题显示为警告，因此它仍然可以保存 `set` 拒绝的修改。
+`frost config set` 在保存新的存储位置之前会先检查它。没有 frost 仓库的位置，或用另一个密钥创建的仓库，会被拒绝。如果旧位置有同一仓库的快照，而新位置没有，也会拒绝这项修改。`frost config edit` 会把同样的问题显示为警告，因此它仍然可以保存 `set` 拒绝的修改。
 
 ## frost 找不到你的备份时
 

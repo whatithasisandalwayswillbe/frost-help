@@ -22,7 +22,7 @@ Permafrost は、frost のために作られたホスト型ストレージです
 
 ## キーが拒否された場合
 
-Permafrost がアクセスキーを受け付けなくなると、すべてのコマンドがその旨のエラーで止まります。`frost init` を実行してストレージを設定し直し、使えるキーを取得してください。
+Permafrost がアクセスキーを受け付けなくなると、バックアップにアクセスするコマンドが、その旨のエラーで止まります。`frost init` を実行してストレージを設定し直し、使えるキーを取得してください。
 
 | セットアップの表示 | 対処 |
 | --- | --- |
@@ -32,10 +32,20 @@ Permafrost がアクセスキーを受け付けなくなると、すべてのコ
 
 ## 自分のサーバー
 
-[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) に対応したサーバーは、誰でも運用できます。使うには、そのアドレスを設定します。
+[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) に対応したサーバーは、誰でも運用できます。
 
-```sh
-frost config set storage.permafrost.url https://<your-server>
+最初のセットアップの前に、frost の設定フォルダに `config.toml` を作り、次の設定を入れてください。場所は[ファイルとフォルダ](#files-and-folders)に載っています。アドレスを自分のサーバーのものに置き換えます。
+
+```toml
+[storage]
+backend = "permafrost"
+
+[storage.permafrost]
+url = "https://<your-server>"
 ```
+
+次に `frost init` を実行し、Permafrost を選び、アクセスキーを貼り付け、フォルダを選んで保存します。サーバーが空なら、セットアップがリポジトリを作成します。
+
+すでに frost を設定済みの場合は、`frost config edit` で既存のファイルを開き、バックエンドとサーバーのアドレスを一緒に変更します。新しいサーバーが空なら警告を確認し、`yes` と入力して保存したあと、`frost init` をもう一度実行してください。`frost config set` は空の保存先を拒否するので、新しいサーバーの準備には使えません。
 
 アドレスには `https://` を使う必要があります。例外は、`http://localhost:8080` のように自分のコンピュータで動かすサーバーだけです。この設定を空にすると、既定の Permafrost サーバーを使います。

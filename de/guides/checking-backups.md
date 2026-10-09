@@ -13,7 +13,7 @@ frost status
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
-│  health       ok 20 objects checked 2h ago
+│  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
 │
@@ -61,7 +61,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-Das startet eine neue Stichprobenprüfung und vergleicht zusätzlich frosts lokale Liste deiner Blöcke mit allem, was in deinem Speicher liegt. Schlägt die Prüfung fehl, endet der Befehl mit `1`. Du kannst ihn also aus deinem eigenen Zeitplaner starten und in einem anderen Rhythmus prüfen als sichern.
+Das startet eine neue Stichprobenprüfung und vergleicht zusätzlich frosts lokale Liste deiner Blöcke mit allem, was in deinem Speicher liegt. Auch bei `verify.sample` auf `0` prüft es 20 Blöcke. Schlägt die Prüfung fehl, endet der Befehl mit `1`. Du kannst ihn also aus deinem eigenen Zeitplaner starten und in einem anderen Rhythmus prüfen als sichern.
 
 ## Wenn eine Prüfung fehlschlägt
 
@@ -70,7 +70,7 @@ Die Zeile health listet auf, was fehlgeschlagen ist. Meist heißt das, dass dein
 1. Führ `frost backup` aus. Jeder fehlende Block, dessen Daten noch auf deinem Computer liegen, wird erneut hochgeladen.
 2. Führ `frost status --verify` aus, um noch einmal zu prüfen.
 
-Daten, die nicht mehr auf deinem Computer liegen, lassen sich nicht erneut hochladen, und ältere Snapshots, die sie brauchen, lassen sich nicht vollständig wiederherstellen.
+Daten, die nicht mehr auf deinem Computer liegen, lassen sich nicht erneut hochladen, und ältere Snapshots, die sie brauchen, lassen sich nicht vollständig wiederherstellen. Ein Block, der noch vorhanden, aber beschädigt ist, wird beim Backup nicht automatisch ersetzt. Beschaffe eine intakte Kopie von deinem Anbieter oder aus einem unabhängigen Backup und prüfe erneut.
 
 ## Fehlende Snapshots
 

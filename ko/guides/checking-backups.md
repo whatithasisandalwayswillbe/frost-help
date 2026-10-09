@@ -13,7 +13,7 @@ frost status
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
-│  health       ok 20 objects checked 2h ago
+│  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
 │
@@ -61,7 +61,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-새로 표본 검사를 하고, frost가 로컬에 기록한 청크 목록을 스토리지의 모든 내용과 대조합니다. 검사에 실패하면 `1`로 종료하므로, 직접 쓰는 스케줄러에서 실행해 백업과는 다른 주기로 점검할 수 있습니다.
+새로 표본 검사를 하고, frost가 로컬에 기록한 청크 목록을 스토리지의 모든 내용과 대조합니다. `verify.sample`이 `0`이어도 이 명령어는 청크 20개를 검사합니다. 검사에 실패하면 `1`로 종료하므로, 직접 쓰는 스케줄러에서 실행해 백업과는 다른 주기로 점검할 수 있습니다.
 
 ## 검사에 실패했을 때
 
@@ -70,7 +70,7 @@ health 줄에 실패한 내용이 표시됩니다. 대개 스토리지가 청크
 1. `frost backup`을 실행합니다. 없어진 청크 가운데 데이터가 아직 컴퓨터에 남아 있는 것은 다시 업로드됩니다.
 2. `frost status --verify`를 실행해 다시 확인합니다.
 
-컴퓨터에서 이미 사라진 데이터는 다시 업로드할 수 없으며, 그 데이터가 필요한 이전 스냅샷은 완전히 복원할 수 없습니다.
+컴퓨터에서 이미 사라진 데이터는 다시 업로드할 수 없으며, 그 데이터가 필요한 이전 스냅샷은 완전히 복원할 수 없습니다. 스토리지에 남아 있지만 손상된 청크는 백업이 자동으로 교체하지 않습니다. 제공업체나 별도의 독립적인 백업에서 정상 사본을 되찾은 뒤 다시 확인하세요.
 
 ## 사라진 스냅샷
 

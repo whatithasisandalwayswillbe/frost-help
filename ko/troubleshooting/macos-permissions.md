@@ -4,7 +4,7 @@ macOS는 데스크탑, 문서, 다운로드 같은 폴더와 메일, Safari 같�
 
 ## 직접 실행하는 백업
 
-터미널에서 `frost backup`을 실행하면 macOS는 사용 중인 터미널 앱(터미널, iTerm, Visual Studio Code, Warp, Ghostty 등)에 대한 허락을 구합니다. 허용하면 frost가 그 폴더들을 읽을 수 있습니다.
+터미널에서 `frost backup`을 실행하면 macOS는 사용 중인 터미널 앱(터미널, iTerm, Visual Studio Code, Warp, Ghostty 등)이 폴더에 접근하도록 허용할지 묻습니다. 허용하면 frost가 그 폴더들을 읽을 수 있습니다.
 
 ## 예약된 백업
 

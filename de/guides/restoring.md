@@ -46,7 +46,7 @@ Relative Zeitangaben schreibst du auf Englisch. Sie verstehen Minuten (`m`), Stu
 | `--to <dir>` | Einen neuen Ordner `frost-restore-<id>` in `<dir>`, das schon existieren muss |
 | `--overwrite` | Die ursprünglichen Orte und ersetzt, was dort liegt. frost fragt vorher, und `-y` überspringt die Frage |
 
-Ein neuer Ordner überschreibt nie etwas. Darin behält, was du wiederherstellst, seinen eigenen Namen und wird ausgehend von dem Ordner angeordnet, den deine Auswahl gemeinsam hat:
+Ein neuer Ordner überschreibt nie etwas. Die wiederhergestellten Dateien und Ordner behalten ihre Namen. Ihre Pfade beziehen sich auf den gemeinsamen übergeordneten Ordner deiner Auswahl:
 
 | Du stellst wieder her | `--beside` ergibt |
 | --- | --- |
@@ -93,7 +93,7 @@ What's restored so far was kept. To carry on from there, run:
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
 
-Es ist dieselbe Wiederherstellung, nur mit der vollständigen ID des Snapshots statt `latest` oder einer Zeitangabe. Ein Backup zwischendurch ändert also nicht, welcher Snapshot gemeint ist. Schon wiederhergestellte Dateien werden geprüft und übersprungen, und die Datei, an der frost gerade schrieb, wird ab ihrem letzten intakten Block fortgesetzt.
+Es ist dieselbe Wiederherstellung, nur mit der vollständigen ID des Snapshots statt `latest` oder einer Zeitangabe. Ein Backup zwischendurch ändert also nicht, welcher Snapshot gemeint ist. Schon wiederhergestellte Dateien werden geprüft und übersprungen, und die Datei, an der frost gerade schrieb, wird ab ihrem letzten intakten Block fortgesetzt. Unter Windows benötigen manche Pfade einen PowerShell-Befehl. Die Meldung sagt dir, wann du ihn in PowerShell ausführen musst.
 
 Bis die Wiederherstellung fertig ist, enthält ihr Ordner eine Markierung `.frost-restore` und eine Datei `.frost-partial-...`. Lass beide liegen; frost entfernt sie am Ende.
 

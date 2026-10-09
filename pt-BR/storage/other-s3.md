@@ -18,13 +18,13 @@ O frost guarda seus backups em uma pasta `frost` dentro do bucket.
 
 ## Um servidor sem TLS
 
-Para um servidor de teste no seu próprio computador ou na sua rede, informe o endpoint com `http://`, como `http://localhost:9000`. Isso desliga o TLS em todas as requisições, então use só em uma rede de confiança. Definir `storage.s3.insecure` como `true` tem o mesmo efeito.
+Para um servidor de teste no seu próprio computador ou na sua rede, informe o endpoint com `http://`, como `http://localhost:9000`. Isso desliga o TLS em todas as requisições, então use só em uma rede de confiança. Definir `storage.s3.insecure` como `true` seleciona HTTP quando o endpoint não tem esquema. Um `https://` ou `http://` explícito tem prioridade.
 
 ## A pasta dentro do bucket
 
 O frost guarda tudo em uma pasta dentro do bucket, `frost` por padrão. A configuração em tela cheia não pergunta sobre ela.
 
-Para usar outra pasta, ou a raiz do bucket, antes do seu primeiro backup:
+Depois de concluir a configuração, para usar outra pasta ou a raiz do bucket antes do seu primeiro backup:
 
 1. Execute `frost config edit` e mude `prefix` em `[storage.s3]`. Deixe vazio para usar a raiz do bucket. O frost avisa que ainda não há backups ali. Digite `yes` para salvar mesmo assim.
 2. Execute `frost init` de novo. A tela de revisão avisa que isso começa um conjunto separado de backups. Pressione `[s]` para continuar.

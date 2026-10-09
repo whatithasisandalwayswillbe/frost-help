@@ -22,7 +22,7 @@ Die Seite zeigt dir den Schlüssel außerdem an, damit du ihn selbst in frost ko
 
 ## Abgelehnte Schlüssel
 
-Akzeptiert Permafrost deinen Zugriffsschlüssel nicht mehr, bricht jeder Befehl mit einer Fehlermeldung ab, die das sagt. Starte `frost init` und richte den Speicher neu ein, um einen funktionierenden Schlüssel zu bekommen.
+Akzeptiert Permafrost deinen Zugriffsschlüssel nicht mehr, brechen Befehle, die auf deine Backups zugreifen, mit einer entsprechenden Fehlermeldung ab. Starte `frost init` und richte den Speicher neu ein, um einen funktionierenden Schlüssel zu bekommen.
 
 | Die Einrichtung meldet | Was du tust |
 | --- | --- |
@@ -32,10 +32,20 @@ Akzeptiert Permafrost deinen Zugriffsschlüssel nicht mehr, bricht jeder Befehl 
 
 ## Dein eigener Server
 
-Jeder kann einen Server betreiben, der die [Permafrost-API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) spricht. Um einen zu nutzen, trag seine Adresse ein:
+Jeder kann einen Server betreiben, der die [Permafrost-API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) spricht.
 
-```sh
-frost config set storage.permafrost.url https://<your-server>
+Erstelle vor deiner ersten Einrichtung eine Datei `config.toml` im Konfigurationsordner von frost, der unter [Dateien und Ordner](#files-and-folders) aufgeführt ist, mit diesen Einstellungen. Ersetze die Adresse durch die deines Servers:
+
+```toml
+[storage]
+backend = "permafrost"
+
+[storage.permafrost]
+url = "https://<your-server>"
 ```
+
+Starte dann `frost init`, wähle Permafrost, füge deinen Zugriffsschlüssel ein, wähle deine Ordner und speichere. Ist der Server leer, erstellt die Einrichtung das Repository.
+
+Ist frost schon eingerichtet, ändere mit `frost config edit` das Backend und die Serveradresse gemeinsam in der vorhandenen Datei. Bestätige die Warnung, wenn der neue Server leer ist, tipp `yes` zum Speichern und starte `frost init` erneut. `frost config set` lehnt ein leeres Ziel ab und kann deshalb keinen neuen Server vorbereiten.
 
 Die Adresse muss `https://` verwenden, außer bei einem Server auf deinem eigenen Computer, etwa `http://localhost:8080`. Lass die Einstellung leer, um den Standardserver von Permafrost zu verwenden.

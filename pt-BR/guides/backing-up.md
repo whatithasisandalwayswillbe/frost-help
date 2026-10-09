@@ -16,7 +16,7 @@ O frost mostra o que mudou, quanto enviou e o resultado da verificação por amo
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
 │  new data     14.2 MB in 9 chunks (9.8 MB uploaded after compression)
-│  verified     ok, 20 random objects re-downloaded and checked
+│  verified     ok, 21 random objects re-downloaded and checked
 │
 └  Saved snapshot maple-absurd-3f1c
 ```
@@ -29,7 +29,7 @@ Se nada mudou, o frost não salva um snapshot novo:
 ┌  backup  s3://my-backups/frost/
 │
 │  files        1,204 (2.1 GB)
-│  verified     ok 3h ago, 20 objects checked
+│  verified     ok 3h ago, 21 objects checked
 │
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
@@ -93,4 +93,4 @@ Se um backup parar no meio, por causa de uma conexão perdida, de um notebook fe
 
 ## Um de cada vez
 
-Só um backup ou uma restauração pode rodar por vez. Se outro já estiver rodando, como um backup agendado, o frost mostra "a backup or restore is already running, try again when it's done" (já há um backup ou uma restauração em andamento; tente de novo quando terminar). O navegador de snapshots pode ficar aberto enquanto um backup roda.
+Um backup ou uma restauração pela linha de comando bloqueia o cache local enquanto roda. Se outro comando precisar desse cache, o frost mostra "a backup or restore is already running, try again when it's done" (já há um backup ou uma restauração em andamento; tente de novo quando terminar). O navegador de snapshots libera o bloqueio do cache, então pode ficar aberto e restaurar arquivos enquanto um backup roda. Cada pasta de cache e cada computador têm seu próprio bloqueio.

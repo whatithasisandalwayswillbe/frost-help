@@ -53,7 +53,7 @@ frost は `config.toml` のコピーを、指定したエディタで開きま�
 | `storage.s3.prefix` | `frost` | バックアップを入れるバケット内のフォルダ。空ならバケットの最上位 |
 | `storage.s3.access_key_id` | | アクセスキー ID |
 | `storage.s3.secret_access_key` | | シークレットアクセスキー |
-| `storage.s3.insecure` | `false` | 暗号化なしの HTTP を使う。ローカルでのテスト専用です |
+| `storage.s3.insecure` | `false` | エンドポイントにスキームがない場合、暗号化なしの HTTP を使う。ローカルでのテスト専用です |
 
 ## 環境変数
 

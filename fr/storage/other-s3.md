@@ -18,13 +18,13 @@ frost range vos sauvegardes dans un dossier `frost` du bucket.
 
 ## Un serveur sans TLS
 
-Pour un serveur de test sur votre ordinateur ou votre réseau, indiquez l'endpoint avec `http://`, comme `http://localhost:9000`. TLS est alors désactivé pour toutes les requêtes : ne le faites que sur un réseau de confiance. Régler `storage.s3.insecure` sur `true` a le même effet.
+Pour un serveur de test sur votre ordinateur ou votre réseau, indiquez l'endpoint avec `http://`, comme `http://localhost:9000`. TLS est alors désactivé pour toutes les requêtes : ne le faites que sur un réseau de confiance. Régler `storage.s3.insecure` sur `true` choisit HTTP si l'endpoint n'indique pas de protocole. Un `https://` ou `http://` explicite est prioritaire.
 
 ## Le dossier dans le bucket
 
 frost range tout dans un dossier du bucket, `frost` par défaut. L'assistant en plein écran ne pose pas la question.
 
-Pour utiliser un autre dossier, ou la racine du bucket, avant votre première sauvegarde :
+Après avoir terminé la configuration, pour utiliser un autre dossier ou la racine du bucket avant votre première sauvegarde :
 
 1. Lancez `frost config edit` et modifiez `prefix` sous `[storage.s3]`. Laissez-le vide pour la racine du bucket. frost vous avertit qu'il n'y a pas encore de sauvegarde à cet endroit. Tapez `yes` pour enregistrer quand même.
 2. Relancez `frost init`. Son écran récapitulatif vous avertit que vous démarrez ainsi un ensemble de sauvegardes séparé. Appuyez sur `[s]` pour continuer.

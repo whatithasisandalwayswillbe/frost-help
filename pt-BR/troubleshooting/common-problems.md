@@ -70,7 +70,7 @@ A tarefa agendada foi apagada ou desligada. Recrie a tarefa com `frost config se
 
 - Confira a linha "next backup" do `frost status`.
 - No macOS, confira o botão do frost em Ajustes do Sistema > Geral > Itens de Início e Extensões (System Settings > General > Login Items & Extensions). Ele aparece como Node.js Foundation.
-- No Windows, os backups agendados não rodam na bateria.
+- No Windows, os backups agendados exigem que sua sessão do Windows esteja aberta e não rodam na bateria.
 - Com o cron ou o Agendador de Tarefas, um backup que deveria rodar com o computador desligado ou em repouso é pulado.
 - Leia o log. Veja [Backups automáticos](#scheduling).
 

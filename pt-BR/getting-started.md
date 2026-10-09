@@ -31,7 +31,7 @@ A configuração pergunta uma coisa por tela:
 1. **Armazenamento.** Onde seus backups ficam. Escolha o Permafrost ou um provedor compatível com S3 e cole as chaves pedidas.
 2. **Pastas.** As pastas que entram no backup, como `~/Documents`.
 3. **Exclusões.** Arquivos e pastas que ficam de fora. Alguns comuns, como `node_modules`, já vêm preenchidos.
-4. **Agendamento.** Com que frequência o frost faz backup sozinho, ou desligado.
+4. **Agendamento.** A frequência dos backups automáticos, ou a opção de desativá-los.
 5. **Frase de recuperação.** 24 palavras que destravam seus backups. Anote todas.
 6. **Revisão.** Confira tudo e pressione `[s]` para salvar.
 

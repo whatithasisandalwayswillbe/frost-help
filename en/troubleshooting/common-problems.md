@@ -70,7 +70,7 @@ The scheduled job was deleted or switched off. Put it back with `frost config se
 
 - Check the "next backup" row in `frost status`.
 - On macOS, check frost's switch in System Settings > General > Login Items & Extensions. It's listed as Node.js Foundation.
-- On Windows, scheduled backups don't run on battery power.
+- On Windows, scheduled backups need you to be signed in, and don't run on battery power.
 - With cron or Task Scheduler, a backup due while the computer was off or asleep is skipped.
 - Read the log. See [Automatic backups](#scheduling).
 

@@ -4,7 +4,7 @@ frost verschlüsselt deine Backups auf deinem Computer, mit einem Schlüssel, de
 
 ## Was verschlüsselt wird
 
-frost verschlüsselt alles in deinen Backups: Dateiinhalte, Dateinamen, die Ordnerstruktur und die Angaben zu jedem Snapshot. Dein Schlüssel verlässt deinen Computer nie, und es gibt nirgendwo sonst eine Kopie davon.
+frost verschlüsselt alles in deinen Backups: Dateiinhalte, Dateinamen, die Ordnerstruktur und die Angaben zu jedem Snapshot. frost sendet deinen Schlüssel nie an einen Server und hinterlegt auch keine Kopie davon.
 
 | Bestandteil | Wie |
 | --- | --- |
@@ -24,12 +24,12 @@ Dein Speicheranbieter, ob ein S3-Dienst oder Permafrost, kann sehen:
 - Wie viele neue Daten jedes Backup hochlädt, was andeutet, wie viel sich geändert hat. Ein Backup ohne Neues speichert keinen Snapshot, neue Snapshots verraten also, wann sich etwas geändert hat.
 - Ungefähr, wie groß eine kleine Datei nach der Kompression ist, aber nicht, was sie ist oder wie sie heißt. Große Dateien werden in Blöcke unterschiedlicher Größe zerlegt und tauchen deshalb nicht als ein einziges Objekt ihrer Größe auf.
 
-Er kann nicht prüfen, ob du eine bestimmte bekannte Datei hast. Sowohl die Blocknamen als auch die Schnittstellen hängen von deinem Schlüssel ab.
+Er kann nicht prüfen, ob du eine bestimmte bekannte Datei hast. Sowohl die Blocknamen als auch die Blockgrenzen hängen von deinem Schlüssel ab.
 
 ## Wovor frost schützt
 
 - Davor, dass dein Anbieter oder jemand mit einer Kopie deines Buckets deine Dateien liest.
-- Vor jemandem im Netzwerk zwischen dir und deinem Speicher. Verbindungen nutzen TLS, außer du wählst unverschlüsseltes HTTP für einen lokalen Server, und jedes Objekt ist ohnehin authentifiziert.
+- Vor jemandem im Netzwerk zwischen dir und deinem Speicher. Verbindungen nutzen TLS, außer du wählst einen S3-Endpunkt mit `http://` oder aktivierst `storage.s3.insecure` für einen Endpunkt ohne Protokollangabe. Permafrost erlaubt `http://` nur auf deinem eigenen Computer. Nutze unverschlüsseltes HTTP nur für lokale Tests. Jedes Backup-Objekt ist in beiden Fällen authentifiziert.
 - Vor Manipulation. Ein verändertes, vertauschtes oder abgeschnittenes Objekt lässt sich nicht entschlüsseln, und frost akzeptiert es nie stillschweigend.
 - Davor, dass eine Wiederherstellung außerhalb des gewählten Ordners schreibt.
 - Vor manipulierten frost-Downloads. Jede Version ist signiert, und das Installationsprogramm und `frost update` prüfen die Signatur, bevor sie etwas installieren.
@@ -43,7 +43,7 @@ Er kann nicht prüfen, ob du eine bestimmte bekannte Datei hast. Sowohl die Bloc
 
 ## Dateien auf deinem Computer
 
-Unter macOS und Linux legt frost seine Dateien so an, dass nur dein Benutzer sie lesen kann. Unter Windows übernehmen sie die Berechtigungen deines Benutzerprofils.
+Unter macOS und Linux legt frost seine privaten Dateien mit Berechtigungen nur für deinen Benutzer an. Vorhandene Berechtigungen und vom Zeitplaner angelegte Protokolle können davon abweichen. Unter Windows übernehmen die Dateien die Berechtigungen deines Benutzerprofils. Bewahre Konfiguration und Cache in Ordnern auf, die andere Benutzer nicht lesen können.
 
 | Datei | Inhalt |
 | --- | --- |

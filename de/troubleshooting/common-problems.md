@@ -70,7 +70,7 @@ Der geplante Auftrag wurde gelöscht oder ausgeschaltet. Stell ihn mit `frost co
 
 - Sieh dir die Zeile „next backup“ in `frost status` an.
 - Prüf unter macOS den Schalter für frost unter Systemeinstellungen > Allgemein > Anmeldeobjekte & Erweiterungen (System Settings > General > Login Items & Extensions). Er heißt dort Node.js Foundation.
-- Unter Windows laufen geplante Backups nicht im Akkubetrieb.
+- Unter Windows musst du für geplante Backups angemeldet sein, und sie laufen nicht im Akkubetrieb.
 - Mit cron oder der Aufgabenplanung wird ein Backup übersprungen, das fällig war, während der Computer aus war oder schlief.
 - Lies das Protokoll. Siehe [Automatische Backups](#scheduling).
 

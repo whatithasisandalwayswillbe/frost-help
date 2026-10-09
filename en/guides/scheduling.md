@@ -35,7 +35,7 @@ Times are in your computer's local time. systemd starts each run up to 5 minutes
 
 launchd and systemd catch up. If your computer was off or asleep when a backup was due, the backup runs when it wakes. Cron and Task Scheduler skip runs the computer missed, and the next run happens on time.
 
-On Windows, scheduled backups don't start while the computer runs on battery, and stop if it's unplugged. On macOS and with systemd, scheduled backups run at low priority so they don't slow your computer down.
+On Windows, scheduled backups run only while you're signed in. They don't start while the computer runs on battery, and stop if it's unplugged. On macOS and with systemd, scheduled backups run at low priority so they don't slow your computer down.
 
 ## The scheduled job
 
@@ -50,7 +50,7 @@ The job runs `frost backup` with the config and cache folders that were in use w
 
 On macOS, the job is listed in System Settings > General > Login Items & Extensions as **Node.js Foundation**, the publisher of the runtime frost bundles. Switching it off there stops scheduled backups, and `frost status` reports the job as missing. To stop scheduled backups, use `frost config set schedule.enabled false` instead.
 
-With systemd, frost turns on lingering for your user (`loginctl enable-linger`), so backups run while you're logged out. It turns lingering off again when it removes the timer, unless it was already on before frost.
+With systemd, frost tries to turn on lingering for your user (`loginctl enable-linger`) if it can confirm lingering is off. Lingering lets backups run while you're logged out. If frost can't enable it, backups may stop after you log out. When removing the timer, frost turns lingering off only if it recorded enabling it.
 
 ## Logs
 

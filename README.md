@@ -1,6 +1,6 @@
 # frost-help
 
-The help docs for [frost](https://github.com/whatithasisandalwayswillbe/frost), which makes encrypted, incremental backups to storage you choose. They're published at [getfro.st/docs](https://getfro.st/docs).
+The help docs for [frost](https://github.com/whatithasisandalwayswillbe/frost). They're published at [getfro.st/docs](https://getfro.st/docs).
 
 ## Languages
 
@@ -21,6 +21,17 @@ English is the source. Every other language has the same content and follows it 
 ## Layout
 
 Each language folder holds a `manifest.json` and the pages as Markdown. The manifest lists every page's id, title and file, grouped into the sections of the sidebar. Ids and file names are the same in every language, so a link like `[Restoring files](#restoring)` points to the same page everywhere. The site reads the pages straight from `main`, so a change there goes live once it's pushed.
+
+## Check the docs
+
+With Node.js installed, run these from the repository root:
+
+```sh
+node tools/check.mjs
+node --test tools/check.test.mjs
+```
+
+The check covers all nine languages. It checks manifest ids and paths, missing or unlisted pages, heading, table and list structure, links, inline identifiers and exact code blocks. It doesn't judge translation quality or check frost's behavior; those still need a review against the English pages and frost's source.
 
 ## Contributing
 

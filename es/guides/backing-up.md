@@ -16,7 +16,7 @@ frost muestra qué ha cambiado, cuánto ha subido y el resultado de su comprobac
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
 │  new data     14.2 MB in 9 chunks (9.8 MB uploaded after compression)
-│  verified     ok, 20 random objects re-downloaded and checked
+│  verified     ok, 21 random objects re-downloaded and checked
 │
 └  Saved snapshot maple-absurd-3f1c
 ```
@@ -29,7 +29,7 @@ Si nada ha cambiado, frost no guarda una instantánea nueva:
 ┌  backup  s3://my-backups/frost/
 │
 │  files        1,204 (2.1 GB)
-│  verified     ok 3h ago, 20 objects checked
+│  verified     ok 3h ago, 21 objects checked
 │
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
@@ -93,4 +93,4 @@ Si una copia se detiene a medias, por una conexión perdida, un portátil cerrad
 
 ## De una en una
 
-Solo puede haber una copia o restauración en marcha a la vez. Si ya hay otra, por ejemplo una copia programada, frost muestra "a backup or restore is already running, try again when it's done" (ya hay una copia o restauración en marcha; inténtalo cuando termine). El explorador de instantáneas puede seguir abierto mientras se hace una copia.
+Una copia o restauración desde la línea de comandos bloquea su caché local mientras se ejecuta. Si otro comando necesita esa caché, frost muestra "a backup or restore is already running, try again when it's done" (ya hay una copia o restauración en marcha; inténtalo cuando termine). El explorador de instantáneas libera el bloqueo de la caché, así que puede seguir abierto y restaurar archivos mientras se hace una copia. Cada carpeta de caché y cada equipo tienen su propio bloqueo.

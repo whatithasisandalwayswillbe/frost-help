@@ -26,7 +26,7 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 2. リリースの署名とダウンロードしたファイルのチェックサムを確認し、どちらかが合わなければ中止します。
 3. frost をユーザープロファイルにインストールし、`PATH` 上のフォルダに `frost` ランチャーを置きます。
 
-`curl` か `wget` が必要です。署名の確認には、OpenSSH 8.1 以降の `ssh-keygen` も必要です。
+検証には `curl` または `wget`、OpenSSH 8.1 以降の `ssh-keygen`、`sha256sum` または `shasum` が必要です。展開には、macOS と Linux では `tar`、Windows では `unzip` または PowerShell を使います。Windows のインストーラには、Git Bash が提供する `cygpath` も必要です。
 
 ランチャーは、書き込み権限があれば `/usr/local/bin` に、なければ `~/.local/bin` に置かれます。Windows では `~/bin` に置かれます。そのフォルダがまだ `PATH` に含まれていない場合は、追加するためのコマンドをインストーラが表示します。
 
@@ -75,10 +75,14 @@ Windows の場合は PowerShell で:
 この作業はインストーラが自動で行います。アーカイブを自分で確認したい場合は、同じリリースから `checksums.txt` と `checksums.txt.sig` を一緒にダウンロードし、リポジトリから [`release-signing.pub`](https://github.com/whatithasisandalwayswillbe/frost/blob/main/install/release-signing.pub) をダウンロードします。`archive` にアーカイブのファイル名を設定してから、次を実行します。
 
 ```sh
-archive='frost_X.Y.Z_linux_amd64.tar.gz'
-printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
-ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
-awk -v archive="$archive" '$2 == archive { print }' checksums.txt | shasum -a 256 -c -
+(
+  set -e
+  archive='frost_X.Y.Z_linux_amd64.tar.gz'
+  printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
+  ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
+  selected_checksum=$(awk -v archive="$archive" '$2 == archive { line = $0; count++ } END { if (count != 1) exit 1; print line }' checksums.txt)
+  printf '%s\n' "$selected_checksum" | shasum -a 256 -c -
+)
 ```
 
-1 つ目のチェックでは `Good "file" signature` と、2 つ目ではアーカイブ名の後ろに `OK` と表示されるはずです。どちらかがそうならない場合は、インストールしないでください。
+署名が正しくない場合や、署名付きリストに対象のアーカイブがちょうど 1 件だけ載っていない場合、このコマンド群は停止します。1 つ目のチェックでは `Good "file" signature` と、2 つ目ではアーカイブ名の後ろに `OK` と表示されるはずです。どちらかがそうならない場合は、インストールしないでください。

@@ -13,7 +13,7 @@ frost status
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
-│  health       ok 20 objects checked 2h ago
+│  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
 │
@@ -61,7 +61,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-Esto hace una comprobación aleatoria nueva y además compara el registro local de frost de tus fragmentos con todo lo que hay en tu almacenamiento. Termina con `1` si la comprobación falla, así que puedes ejecutarlo desde tu propio programador para comprobar con una frecuencia distinta de la de tus copias.
+Esto hace una comprobación aleatoria nueva y además compara el registro local de frost de tus fragmentos con todo lo que hay en tu almacenamiento. Comprueba 20 fragmentos incluso si `verify.sample` es `0`. Termina con `1` si la comprobación falla, así que puedes ejecutarlo desde tu propio programador para comprobar con una frecuencia distinta de la de tus copias.
 
 ## Si una comprobación falla
 
@@ -70,7 +70,7 @@ La fila health enumera lo que ha fallado. Normalmente significa que tu almacenam
 1. Ejecuta `frost backup`. Cualquier fragmento perdido cuyos datos sigan en tu equipo se vuelve a subir.
 2. Ejecuta `frost status --verify` para volver a comprobar.
 
-Los datos que ya no están en tu equipo no se pueden volver a subir, y las instantáneas antiguas que los necesitan no se podrán restaurar por completo.
+Los datos que ya no están en tu equipo no se pueden volver a subir, y las instantáneas antiguas que los necesitan no se podrán restaurar por completo. Una copia no sustituye automáticamente los fragmentos que siguen en el almacenamiento pero están dañados. Recupera una copia en buen estado de tu proveedor o de una copia de seguridad independiente y vuelve a comprobar.
 
 ## Instantáneas desaparecidas
 
