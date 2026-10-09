@@ -1,6 +1,6 @@
 # frost-help
 
-The help docs for [frost](https://github.com/whatithasisandalwayswillbe/frost). They're published at [getfro.st/docs](https://getfro.st/docs).
+The help docs for [frost](https://github.com/whatithasisandalwayswillbe/frost). They're published at [getfro.st/help](https://getfro.st/help).
 
 ## Languages
 
