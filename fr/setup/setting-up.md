@@ -67,7 +67,7 @@ L'assistant en plein écran ne pose pas de question sur deux réglages plus rare
 - Un serveur Permafrost personnel : `storage.permafrost.url`.
 - Le dossier dans un bucket S3, `frost` par défaut : `storage.s3.prefix`.
 
-Modifiez-les avec `frost config set`. Voir [Réglages](#settings).
+Pour un nouvel emplacement, utilisez `frost config edit`, acceptez l'avertissement, enregistrez et relancez `frost init`. `frost config set` exige qu'un dépôt existe déjà au nouvel emplacement. Pour configurer un serveur personnel pour la première fois, voir [Permafrost](#permafrost). Voir [Réglages](#settings).
 
 ## Sans terminal plein écran
 

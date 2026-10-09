@@ -10,11 +10,11 @@ frost no tiene un comando para desinstalarse, pero quitarlo solo lleva unos poco
 frost config set schedule.enabled false
 ```
 
-Esto quita la tarea del programador de tu sistema operativo. En Linux con systemd, también vuelve a desactivar lingering si fue frost quien lo activó.
+Esto quita la tarea del programador de tu sistema operativo. En Linux con systemd, también vuelve a desactivar lingering si frost dejó constancia de haberlo activado.
 
 ## 2. Borra los archivos de frost
 
-Esto borra la aplicación, su lanzador, tus ajustes, tu clave y la caché de frost. Si definiste `FROST_CONFIG_DIR`, `FROST_CACHE_DIR`, `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` o `XDG_DATA_HOME`, borra esas carpetas en su lugar. [Archivos y carpetas](#files-and-folders) indica todas las ubicaciones.
+Esto borra la aplicación, su lanzador, tus ajustes, tu clave y la caché de frost. Si cambiaste alguna ubicación, adapta las rutas de abajo para que apunten a los archivos y carpetas propios de frost. `FROST_CONFIG_DIR` y `FROST_CACHE_DIR` indican directamente las carpetas de frost; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` y `XDG_DATA_HOME` contienen una subcarpeta `frost`. Nunca borres la carpeta raíz de XDG ni una carpeta compartida. [Archivos y carpetas](#files-and-folders) indica todas las ubicaciones.
 
 En macOS:
 

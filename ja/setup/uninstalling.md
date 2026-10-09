@@ -10,11 +10,11 @@ frost にはアンインストール用のコマンドはありませんが、�
 frost config set schedule.enabled false
 ```
 
-これで、OS のスケジューラからジョブが削除されます。systemd を使う Linux では、frost が有効にした lingering も無効に戻します。
+これで、OS のスケジューラからジョブが削除されます。systemd を使う Linux では、frost 自身が有効にしたと記録している場合は、lingering も無効に戻します。
 
 ## 2. frost のファイルを削除する
 
-この手順で、アプリケーション、ランチャー、設定、キー、frost のキャッシュを削除します。`FROST_CONFIG_DIR`、`FROST_CACHE_DIR`、`XDG_CONFIG_HOME`、`XDG_CACHE_HOME`、`XDG_DATA_HOME` を設定している場合は、代わりにそれらのフォルダを削除してください。すべての場所は[ファイルとフォルダ](#files-and-folders)にまとめています。
+この手順で、アプリケーション、ランチャー、設定、キー、frost のキャッシュを削除します。場所を変えた場合は、以下のパスを frost 自身のファイルやフォルダに合わせて変更してください。`FROST_CONFIG_DIR` と `FROST_CACHE_DIR` は frost のフォルダを直接指定します。`XDG_CONFIG_HOME`、`XDG_CACHE_HOME`、`XDG_DATA_HOME` では、その中の `frost` サブフォルダを使います。XDG のルートフォルダや共有フォルダそのものは、決して削除しないでください。すべての場所は[ファイルとフォルダ](#files-and-folders)にまとめています。
 
 macOS の場合:
 

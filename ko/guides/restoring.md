@@ -93,7 +93,7 @@ What's restored so far was kept. To carry on from there, run:
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
 
-같은 복원을 `latest`나 시각 대신 스냅샷의 전체 ID로 지정한 명령어입니다. 그래서 중간에 백업이 이루어져도 대상 스냅샷은 바뀌지 않습니다. 이미 복원한 파일은 확인한 뒤 건너뛰고, 쓰던 파일은 마지막으로 온전한 청크부터 이어서 씁니다.
+같은 복원을 `latest`나 시각 대신 스냅샷의 전체 ID로 지정한 명령어입니다. 그래서 중간에 백업이 이루어져도 대상 스냅샷은 바뀌지 않습니다. 이미 복원한 파일은 확인한 뒤 건너뛰고, 쓰던 파일은 마지막으로 온전한 청크부터 이어서 씁니다. Windows에서는 일부 경로에 PowerShell 명령어가 필요합니다. 이때는 메시지에서 PowerShell로 실행하라고 안내합니다.
 
 복원이 끝날 때까지 복원 폴더에는 `.frost-restore` 표시 파일과 `.frost-partial-...` 파일이 있습니다. 그대로 두세요. 끝나면 frost가 지웁니다.
 

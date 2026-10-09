@@ -13,7 +13,7 @@ frost status
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
-│  health       ok 20 objects checked 2h ago
+│  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
 │
@@ -61,7 +61,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-This runs a fresh spot check, and also compares frost's local record of your chunks with everything in your storage. It exits with `1` if the check fails, so you can run it from your own scheduler to check on a different schedule from your backups.
+This runs a fresh spot check, and also compares frost's local record of your chunks with everything in your storage. It checks 20 chunks even when `verify.sample` is `0`. It exits with `1` if the check fails, so you can run it from your own scheduler to check on a different schedule from your backups.
 
 ## If a check fails
 
@@ -70,7 +70,7 @@ The health row lists what failed. Usually it means your storage lost or damaged 
 1. Run `frost backup`. Any missing chunk whose data is still on your computer is uploaded again.
 2. Run `frost status --verify` to check again.
 
-Data that's no longer on your computer can't be uploaded again, and older snapshots that need it can't fully restore.
+Data that's no longer on your computer can't be uploaded again, and older snapshots that need it can't fully restore. A chunk that's still present but damaged isn't automatically replaced by a backup. Recover a good copy from your provider or an independent backup, and check again.
 
 ## Missing snapshots
 

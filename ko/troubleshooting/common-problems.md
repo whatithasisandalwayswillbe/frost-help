@@ -70,7 +70,7 @@ frost는 그 파일들을 건너뛰고 나머지를 저장했습니다. 흔한 �
 
 - `frost status`의 "next backup" 줄을 확인하세요.
 - macOS에서는 시스템 설정 > 일반 > 로그인 항목 및 확장 프로그램(System Settings > General > Login Items & Extensions)에서 frost의 스위치를 확인하세요. Node.js Foundation이라는 이름으로 표시됩니다.
-- Windows에서는 배터리로 동작하는 동안 예약된 백업이 실행되지 않습니다.
+- Windows에서는 예약된 백업을 실행하려면 로그인한 상태여야 하며, 배터리로 동작하는 동안에는 실행되지 않습니다.
 - cron이나 작업 스케줄러에서는 컴퓨터가 꺼져 있거나 잠자기 상태일 때 예정된 백업을 건너뜁니다.
 - 로그를 확인하세요. 자세한 내용은 [자동 백업](#scheduling)을 참고하세요.
 

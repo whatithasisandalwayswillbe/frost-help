@@ -93,7 +93,7 @@ What's restored so far was kept. To carry on from there, run:
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
 
-É a mesma restauração com o ID completo do snapshot no lugar de `latest` ou de uma data, então um backup feito no meio-tempo não muda o snapshot a que ela se refere. Os arquivos já restaurados são conferidos e pulados, e o arquivo que o frost estava gravando continua do último bloco bom.
+É a mesma restauração com o ID completo do snapshot no lugar de `latest` ou de uma data, então um backup feito no meio-tempo não muda o snapshot a que ela se refere. Os arquivos já restaurados são conferidos e pulados, e o arquivo que o frost estava gravando continua do último bloco bom. No Windows, alguns caminhos precisam de um comando do PowerShell; a mensagem indica quando executá-lo no PowerShell.
 
 Até a restauração terminar, a pasta dela contém um marcador `.frost-restore` e um arquivo `.frost-partial-...`. Deixe os dois onde estão; o frost os remove ao terminar.
 

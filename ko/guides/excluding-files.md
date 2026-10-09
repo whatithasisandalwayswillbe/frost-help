@@ -36,7 +36,7 @@
 
 ## 목록 바꾸기
 
-`frost init`을 실행해 제외 단계에서 바꾸거나 `frost config edit`를 쓰세요. 명령어 하나로 목록 전체를 지정할 수도 있으며, 이때 기존 목록은 대체됩니다.
+`frost init`을 실행해 "Skip"(제외) 단계에서 바꾸거나 `frost config edit`를 쓰세요. 명령어 하나로 목록 전체를 지정할 수도 있으며, 이때 기존 목록은 대체됩니다.
 
 ```sh
 frost config set exclude .DS_Store node_modules '*.tmp' '~/Downloads'

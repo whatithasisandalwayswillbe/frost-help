@@ -67,7 +67,7 @@ frost가 알아서 백업하는 주기를 매시간, 6시간 또는 12시간마�
 - 직접 운영하는 Permafrost 서버: `storage.permafrost.url`
 - S3 버킷 안의 폴더(기본값 `frost`): `storage.s3.prefix`
 
-이 설정은 `frost config set`으로 바꿉니다. 자세한 내용은 [설정 항목](#settings)을 참고하세요.
+새 위치를 쓰려면 `frost config edit`로 바꾸고, 경고를 확인한 뒤 저장하고 `frost init`을 다시 실행하세요. `frost config set`은 새 위치에 기존 저장소가 있어야 합니다. 직접 운영하는 서버를 처음 설정한다면 [Permafrost](#permafrost)를 참고하세요. 자세한 내용은 [설정 항목](#settings)을 참고하세요.
 
 ## 전체 화면 터미널을 쓸 수 없을 때
 

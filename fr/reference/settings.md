@@ -53,7 +53,7 @@ Si le fichier ne peut pas être lu, frost vous dit pourquoi et propose de le rou
 | `storage.s3.prefix` | `frost` | Le dossier du bucket qui contient vos sauvegardes. Vide pour la racine du bucket |
 | `storage.s3.access_key_id` | | Votre identifiant de clé d'accès |
 | `storage.s3.secret_access_key` | | Votre clé d'accès secrète |
-| `storage.s3.insecure` | `false` | Utiliser le HTTP simple. Pour les tests en local uniquement |
+| `storage.s3.insecure` | `false` | Utiliser le HTTP sans chiffrement quand l'endpoint n'indique pas de protocole. Pour les tests en local uniquement |
 
 ## Variables d'environnement
 

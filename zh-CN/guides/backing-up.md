@@ -16,7 +16,7 @@ frost 会显示哪些内容有变化、上传了多少数据，以及抽查的�
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
 │  new data     14.2 MB in 9 chunks (9.8 MB uploaded after compression)
-│  verified     ok, 20 random objects re-downloaded and checked
+│  verified     ok, 21 random objects re-downloaded and checked
 │
 └  Saved snapshot maple-absurd-3f1c
 ```
@@ -29,7 +29,7 @@ frost 会显示哪些内容有变化、上传了多少数据，以及抽查的�
 ┌  backup  s3://my-backups/frost/
 │
 │  files        1,204 (2.1 GB)
-│  verified     ok 3h ago, 20 objects checked
+│  verified     ok 3h ago, 21 objects checked
 │
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
@@ -93,4 +93,4 @@ frost 不会创建文件系统快照或数据库快照。对于总是处于使�
 
 ## 一次只运行一个
 
-同一时间只能运行一个备份或恢复。如果已经有一个在运行，比如计划备份，frost 会提示 "a backup or restore is already running, try again when it's done"（已有备份或恢复在运行，请等它结束后再试）。备份运行时，快照浏览器可以保持打开。
+备份或命令行恢复在运行时会锁住本地缓存。如果另一个命令也需要使用这份缓存，frost 会提示 "a backup or restore is already running, try again when it's done"（已有备份或恢复在运行，请等它结束后再试）。快照浏览器会释放缓存锁，所以备份运行时，你仍可打开浏览器并从中恢复。不同的缓存文件夹和不同的电脑各有自己的锁。

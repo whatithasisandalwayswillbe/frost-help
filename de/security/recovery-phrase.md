@@ -8,7 +8,7 @@ Deine Wiederherstellungsphrase ist dein Verschlüsselungsschlüssel, geschrieben
 
 Die Einrichtung zeigt dir die Phrase, wenn sie deinen Schlüssel erzeugt. Schreib sie auf Papier oder bewahre sie in einem Passwortmanager auf, dem du vertraust, und zwar an einem anderen Ort als auf dem Computer, den du sicherst.
 
-Eine Kopie liegt außerdem auf deinem Computer, in der Datei `key` im Konfigurationsordner von frost, damit geplante Backups ohne dich laufen können. Nur dein Benutzer kann sie lesen. Wer diese Datei lesen oder Programme unter deinem Namen ausführen kann, kann deine Backups lesen. Nutze deshalb eine vollständige Festplattenverschlüsselung und eine Bildschirmsperre.
+Eine Kopie liegt außerdem auf deinem Computer, in der Datei `key` im Konfigurationsordner von frost, damit geplante Backups ohne dich laufen können. Unter macOS und Linux legt frost sie mit Berechtigungen nur für deinen Benutzer an. Unter Windows übernimmt sie die Berechtigungen deines Benutzerprofils. Gemeinsam genutzte Ordner oder geänderte Berechtigungen können anderen Zugriff darauf geben. Wer diese Datei lesen oder Programme unter deinem Namen ausführen kann, kann deine Backups lesen. Nutze deshalb eine vollständige Festplattenverschlüsselung und eine Bildschirmsperre.
 
 Um deine Backups zu lesen, braucht jemand sowohl die Phrase als auch Zugriff auf deinen Speicher. Halte deshalb auch die Schlüssel für deinen Speicher geheim.
 

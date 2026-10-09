@@ -67,7 +67,7 @@ Die Einrichtung im Vollbild fragt nicht nach zwei selteneren Einstellungen und b
 - Ein eigener Permafrost-Server: `storage.permafrost.url`.
 - Der Ordner in einem S3-Bucket, standardmäßig `frost`: `storage.s3.prefix`.
 
-Ändere sie mit `frost config set`. Siehe [Einstellungen](#settings).
+Für einen neuen Speicherort nutze `frost config edit`, bestätige die Warnung, speichere und starte `frost init` erneut. `frost config set` setzt ein vorhandenes Repository am neuen Ort voraus. Wie du einen eigenen Server zum ersten Mal einrichtest, steht unter [Permafrost](#permafrost). Siehe [Einstellungen](#settings).
 
 ## Ohne Vollbild-Terminal
 

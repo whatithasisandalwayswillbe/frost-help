@@ -20,7 +20,7 @@ frost update --check
 
 ## Mises à jour automatiques
 
-Après une sauvegarde planifiée, frost cherche une nouvelle version au plus une fois par jour et l'installe de la même façon que `frost update`. Si la recherche ou l'installation échoue, la sauvegarde n'échoue pas pour autant.
+Après une sauvegarde planifiée, frost cherche une nouvelle version au plus une fois toutes les 20 heures et l'installe de la même façon que `frost update`. Si la recherche ou l'installation échoue, la sauvegarde n'échoue pas pour autant.
 
 `frost status` montre comment les mises à jour sont configurées et si la dernière a réussi. L'écran des réglages du navigateur d'instantanés l'affiche aussi.
 

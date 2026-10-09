@@ -18,13 +18,13 @@ frost legt deine Backups in einem Ordner `frost` im Bucket ab.
 
 ## Ein Server ohne TLS
 
-Für einen Testserver auf deinem eigenen Computer oder in deinem Netzwerk gibst du den Endpunkt mit `http://` an, etwa `http://localhost:9000`. Damit ist TLS für alle Anfragen ausgeschaltet, also tu das nur in einem Netzwerk, dem du vertraust. `storage.s3.insecure` auf `true` zu setzen bewirkt dasselbe.
+Für einen Testserver auf deinem eigenen Computer oder in deinem Netzwerk gibst du den Endpunkt mit `http://` an, etwa `http://localhost:9000`. Damit ist TLS für alle Anfragen ausgeschaltet, also tu das nur in einem Netzwerk, dem du vertraust. Wenn du `storage.s3.insecure` auf `true` setzt, wird HTTP für Endpunkte ohne Protokollangabe verwendet. Ein ausdrücklich angegebenes `https://` oder `http://` hat Vorrang.
 
 ## Der Ordner im Bucket
 
 frost legt alles in einem Ordner im Bucket ab, standardmäßig `frost`. Die Einrichtung im Vollbild fragt nicht danach.
 
-Um vor deinem ersten Backup einen anderen Ordner oder die oberste Ebene des Buckets zu nutzen:
+Um nach Abschluss der Einrichtung und vor deinem ersten Backup einen anderen Ordner oder die oberste Ebene des Buckets zu nutzen:
 
 1. Starte `frost config edit` und ändere `prefix` unter `[storage.s3]`. Lass es leer für die oberste Ebene des Buckets. frost warnt dich, dass dort noch keine Backups liegen. Tipp `yes`, um trotzdem zu speichern.
 2. Starte `frost init` erneut. Der Übersichtsbildschirm warnt, dass damit ein separater Satz Backups beginnt. Drück `[s]`, um fortzufahren.

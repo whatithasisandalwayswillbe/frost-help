@@ -93,7 +93,7 @@ What's restored so far was kept. To carry on from there, run:
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
 
-It's the same restore with the snapshot's full ID in place of `latest` or a time, so a backup in between doesn't change which snapshot it means. Files already restored are checked and skipped, and the file frost was writing continues from its last good chunk.
+It's the same restore with the snapshot's full ID in place of `latest` or a time, so a backup in between doesn't change which snapshot it means. Files already restored are checked and skipped, and the file frost was writing continues from its last good chunk. On Windows, some paths need a PowerShell command; the message says when to run it in PowerShell.
 
 Until the restore finishes, its folder holds a `.frost-restore` marker and a `.frost-partial-...` file. Leave them there, and frost removes them when it's done.
 

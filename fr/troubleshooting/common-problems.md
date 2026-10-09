@@ -70,7 +70,7 @@ La tâche planifiée a été supprimée ou désactivée. Remettez-la en place av
 
 - Regardez la ligne « next backup » de `frost status`.
 - Sous macOS, vérifiez l'interrupteur de frost dans Réglages Système > Général > Ouverture et extensions (System Settings > General > Login Items & Extensions). Il apparaît sous le nom Node.js Foundation.
-- Sous Windows, les sauvegardes planifiées ne se lancent pas sur batterie.
+- Sous Windows, les sauvegardes planifiées exigent une session ouverte et ne se lancent pas sur batterie.
 - Avec cron ou le Planificateur de tâches, une sauvegarde prévue pendant que l'ordinateur était éteint ou en veille est sautée.
 - Consultez le journal. Voir [Sauvegardes automatiques](#scheduling).
 

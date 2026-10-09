@@ -53,7 +53,7 @@ frost 会用你指定的编辑器打开 `config.toml` 的一份副本；如果�
 | `storage.s3.prefix` | `frost` | 存储桶中存放备份的文件夹。留空表示存储桶的顶层 |
 | `storage.s3.access_key_id` | | 你的访问密钥 ID |
 | `storage.s3.secret_access_key` | | 你的私密访问密钥 |
-| `storage.s3.insecure` | `false` | 使用明文 HTTP。仅用于本地测试 |
+| `storage.s3.insecure` | `false` | 端点未指定协议时，使用明文 HTTP。仅用于本地测试 |
 
 ## 环境变量
 

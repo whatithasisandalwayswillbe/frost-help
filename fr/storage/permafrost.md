@@ -22,7 +22,7 @@ La page vous affiche aussi la clé, pour que vous puissiez la copier vous-même 
 
 ## Clés refusées
 
-Si Permafrost cesse d'accepter votre clé d'accès, chaque commande s'arrête avec une erreur qui l'explique. Lancez `frost init` et configurez à nouveau le stockage pour obtenir une clé qui fonctionne.
+Si Permafrost cesse d'accepter votre clé d'accès, les commandes qui accèdent à vos sauvegardes s'arrêtent avec une erreur qui l'explique. Lancez `frost init` et configurez à nouveau le stockage pour obtenir une clé qui fonctionne.
 
 | L'assistant affiche | Que faire |
 | --- | --- |
@@ -32,10 +32,20 @@ Si Permafrost cesse d'accepter votre clé d'accès, chaque commande s'arrête av
 
 ## Votre propre serveur
 
-Tout le monde peut faire tourner un serveur qui parle l'[API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Pour en utiliser un, indiquez son adresse :
+Tout le monde peut faire tourner un serveur qui parle l'[API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md).
 
-```sh
-frost config set storage.permafrost.url https://<your-server>
+Avant de lancer l'assistant pour la première fois, créez `config.toml` dans le dossier de configuration de frost, indiqué dans [Fichiers et dossiers](#files-and-folders), avec ces réglages. Remplacez l'adresse par celle de votre serveur :
+
+```toml
+[storage]
+backend = "permafrost"
+
+[storage.permafrost]
+url = "https://<your-server>"
 ```
+
+Lancez ensuite `frost init`, choisissez Permafrost, collez votre clé d'accès, choisissez vos dossiers et enregistrez. L'assistant crée le dépôt si le serveur est vide.
+
+Si frost est déjà configuré, utilisez `frost config edit` pour modifier ensemble le backend et l'adresse du serveur dans le fichier existant. Acceptez l'avertissement si le nouveau serveur est vide, tapez `yes` pour enregistrer, puis relancez `frost init`. `frost config set` refuse une destination vide : il ne peut donc pas préparer un nouveau serveur.
 
 L'adresse doit utiliser `https://`, sauf pour un serveur sur votre propre ordinateur, comme `http://localhost:8080`. Laissez ce réglage vide pour utiliser le serveur Permafrost par défaut.

@@ -26,7 +26,7 @@ El instalador:
 2. Comprueba la firma de la versión y la suma de comprobación de la descarga, y se detiene si alguna no cuadra.
 3. Instala frost en tu perfil de usuario y deja un lanzador `frost` en una carpeta de tu `PATH`.
 
-Necesita `curl` o `wget`, y `ssh-keygen` de OpenSSH 8.1 o posterior para comprobar la firma.
+Necesita `curl` o `wget`, `ssh-keygen` de OpenSSH 8.1 o posterior, y `sha256sum` o `shasum` para las comprobaciones. Para extraer los archivos usa `tar` en macOS y Linux, y `unzip` o PowerShell en Windows. Git Bash incluye `cygpath`, que el instalador de Windows también necesita.
 
 El lanzador va a `/usr/local/bin` si tienes permiso de escritura ahí, y a `~/.local/bin` si no. En Windows va a `~/bin`. Si esa carpeta todavía no está en tu `PATH`, el instalador muestra la línea que la añade.
 
@@ -75,10 +75,14 @@ Para usar un paquete extraído sin instalarlo, ejecuta directamente su lanzador 
 El instalador lo hace por ti. Para comprobar un archivo comprimido tú mismo, descárgalo junto con `checksums.txt` y `checksums.txt.sig` de la misma versión, y [`release-signing.pub`](https://github.com/whatithasisandalwayswillbe/frost/blob/main/install/release-signing.pub) del repositorio. Pon en `archive` el nombre del archivo comprimido y ejecuta:
 
 ```sh
-archive='frost_X.Y.Z_linux_amd64.tar.gz'
-printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
-ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
-awk -v archive="$archive" '$2 == archive { print }' checksums.txt | shasum -a 256 -c -
+(
+  set -e
+  archive='frost_X.Y.Z_linux_amd64.tar.gz'
+  printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
+  ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
+  selected_checksum=$(awk -v archive="$archive" '$2 == archive { line = $0; count++ } END { if (count != 1) exit 1; print line }' checksums.txt)
+  printf '%s\n' "$selected_checksum" | shasum -a 256 -c -
+)
 ```
 
-La primera comprobación debería mostrar `Good "file" signature`, y la segunda, `OK` detrás del nombre de tu archivo. Si alguna no lo hace, no lo instales.
+Los comandos se detienen si la firma es incorrecta o si la lista firmada no contiene exactamente una entrada para tu archivo. La primera comprobación debería mostrar `Good "file" signature`, y la segunda, `OK` detrás del nombre de tu archivo. Si alguna no lo hace, no lo instales.

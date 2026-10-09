@@ -70,7 +70,7 @@ La tarea programada se borró o se desactivó. Recupérala con `frost config set
 
 - Revisa la fila "next backup" de `frost status`.
 - En macOS, revisa el interruptor de frost en Ajustes del Sistema > General > Ítems de inicio y extensiones (System Settings > General > Login Items & Extensions). Aparece como Node.js Foundation.
-- En Windows, las copias programadas no se hacen con batería.
+- En Windows, las copias programadas requieren que tengas la sesión iniciada y no se hacen con batería.
 - Con cron o el Programador de tareas, una copia que tocaba con el equipo apagado o en reposo se salta.
 - Lee el registro. Consulta [Copias de seguridad automáticas](#scheduling).
 

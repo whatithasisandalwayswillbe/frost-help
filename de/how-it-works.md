@@ -4,7 +4,7 @@ frost erstellt Snapshots deiner Ordner, zerlegt deine Dateien in verschlüsselte
 
 ## Kurz gesagt
 
-1. **Durchsuchen.** frost geht deine Ordner durch und überspringt alles auf deiner Ausschlussliste. Dateien, deren Größe und Änderungszeit sich seit dem letzten Backup nicht geändert haben, werden nicht erneut gelesen.
+1. **Durchsuchen.** frost geht deine Ordner durch und überspringt alles auf deiner Ausschlussliste. Dateien, deren Größe und Änderungszeit sich seit dem letzten Backup nicht geändert haben, werden nicht erneut gelesen, solange der Cache von frost noch alle ihre Blöcke kennt.
 2. **Zerlegen.** Geänderte Dateien werden in Blöcke von etwa 1 MiB zerlegt, und zwar an Stellen, die ihr Inhalt bestimmt. Eine Änderung mitten in einer großen Datei betrifft nur die Blöcke drumherum.
 3. **Verschlüsseln.** Jeder neue Block wird komprimiert, wenn er dadurch kleiner wird, und dann mit deinem Schlüssel verschlüsselt.
 4. **Hochladen.** Hochgeladen werden nur Blöcke, die noch nicht im Speicher liegen.
@@ -44,7 +44,7 @@ Die Objektnamen sind zufällig aussehende IDs, dein Anbieter sieht also nie dein
 
 ## Der lokale Cache
 
-frost führt in einem Cache-Ordner auf deinem Computer Buch darüber, was es schon hochgeladen hat, damit es nicht bei jedem Backup den ganzen Speicher auflisten muss. Einmal pro Woche gleicht es diese Liste mit dem Speicher ab.
+frost führt in einem Cache-Ordner auf deinem Computer Buch darüber, was es schon hochgeladen hat, damit es nicht bei jedem Backup den ganzen Speicher auflisten muss. Es gleicht diese Liste einmal pro Woche mit dem Speicher ab, außerdem nach einem Wechsel des Speicherorts oder wenn eine Prüfung fehlende Daten findet.
 
 Der Cache ist entbehrlich. Geht er verloren, baut ihn das nächste Backup aus dem Speicher neu auf und liest deine Dateien noch einmal. Zum Wiederherstellen wird er überhaupt nicht gebraucht.
 

@@ -4,7 +4,7 @@ frost encrypts your backups on your computer, with a key only you hold, before a
 
 ## What's encrypted
 
-frost encrypts everything inside your backups: file contents, file names, folder structure and the details of each snapshot. Your key never leaves your computer, and there's no copy of it anywhere else.
+frost encrypts everything inside your backups: file contents, file names, folder structure and the details of each snapshot. frost never sends your key to a server or keeps an escrow copy.
 
 | Piece | How |
 | --- | --- |
@@ -29,7 +29,7 @@ It can't check whether you have a particular known file. Chunk names and chunk b
 ## What frost protects against
 
 - Your provider, or someone with a copy of your bucket, reading your files.
-- Someone on the network between you and your storage. Connections use TLS, unless you choose plain HTTP for a local server, and every object is authenticated anyway.
+- Someone on the network between you and your storage. Connections use TLS unless you choose an `http://` S3 endpoint, or enable `storage.s3.insecure` for an endpoint without a scheme. Permafrost permits `http://` only on your own computer. Use plain HTTP only for local testing. Every backup object is authenticated either way.
 - Tampering. A changed, swapped or truncated object fails to decrypt, and frost never quietly accepts it.
 - A restore writing outside the folder you chose.
 - Tampered frost downloads. Every release is signed, and the installer and `frost update` check the signature before installing anything.
@@ -43,7 +43,7 @@ It can't check whether you have a particular known file. Chunk names and chunk b
 
 ## Files on your computer
 
-On macOS and Linux, frost creates its files so only your user can read them. On Windows, they take the permissions of your user profile.
+On macOS and Linux, frost creates its private files with permissions for your user only. Existing permissions and logs created by the scheduler can differ. On Windows, files inherit your user profile's permissions. Keep the config and cache in folders that other users can't read.
 
 | File | Holds |
 | --- | --- |

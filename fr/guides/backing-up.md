@@ -16,7 +16,7 @@ frost affiche ce qui a changé, la quantité envoyée et le résultat de sa vér
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
 │  new data     14.2 MB in 9 chunks (9.8 MB uploaded after compression)
-│  verified     ok, 20 random objects re-downloaded and checked
+│  verified     ok, 21 random objects re-downloaded and checked
 │
 └  Saved snapshot maple-absurd-3f1c
 ```
@@ -29,7 +29,7 @@ Si rien n'a changé, frost n'enregistre pas de nouvel instantané :
 ┌  backup  s3://my-backups/frost/
 │
 │  files        1,204 (2.1 GB)
-│  verified     ok 3h ago, 20 objects checked
+│  verified     ok 3h ago, 21 objects checked
 │
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
@@ -93,4 +93,4 @@ Si une sauvegarde s'arrête en cours de route, à cause d'une connexion perdue, 
 
 ## Une à la fois
 
-Une seule sauvegarde ou restauration peut tourner à la fois. Si une autre est en cours, comme une sauvegarde planifiée, frost affiche « a backup or restore is already running, try again when it's done » (une sauvegarde ou une restauration est déjà en cours, réessayez quand elle sera terminée). Le navigateur d'instantanés peut rester ouvert pendant une sauvegarde.
+Une sauvegarde ou une restauration en ligne de commande verrouille son cache local pendant son exécution. Si une autre commande a besoin de ce cache, frost affiche « a backup or restore is already running, try again when it's done » (une sauvegarde ou une restauration est déjà en cours, réessayez quand elle sera terminée). Le navigateur d'instantanés libère le verrou du cache : il peut donc rester ouvert et restaurer des fichiers pendant une sauvegarde. Chaque dossier de cache et chaque ordinateur ont leur propre verrou.

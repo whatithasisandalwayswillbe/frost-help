@@ -4,7 +4,7 @@ O frost criptografa seus backups no seu computador, com uma chave que só você 
 
 ## O que é criptografado
 
-O frost criptografa tudo o que está nos seus backups: o conteúdo dos arquivos, os nomes, a estrutura de pastas e os detalhes de cada snapshot. A sua chave nunca sai do seu computador, e não existe cópia dela em nenhum outro lugar.
+O frost criptografa tudo o que está nos seus backups: o conteúdo dos arquivos, os nomes, a estrutura de pastas e os detalhes de cada snapshot. O frost nunca envia a sua chave a um servidor nem guarda uma cópia sob custódia.
 
 | Parte | Como |
 | --- | --- |
@@ -29,7 +29,7 @@ Ele não consegue verificar se você tem um determinado arquivo conhecido. Tanto
 ## Contra o que o frost protege
 
 - O seu provedor, ou alguém com uma cópia do seu bucket, lendo seus arquivos.
-- Alguém na rede entre você e o seu armazenamento. As conexões usam TLS, a menos que você escolha HTTP sem criptografia para um servidor local, e cada objeto é autenticado de qualquer forma.
+- Alguém na rede entre você e o seu armazenamento. As conexões usam TLS, a menos que você escolha um endpoint S3 com `http://` ou ative `storage.s3.insecure` para um endpoint sem esquema. O Permafrost só permite `http://` no seu próprio computador. Use HTTP sem criptografia apenas para testes locais. Cada objeto do backup é autenticado em qualquer caso.
 - Adulteração. Um objeto alterado, trocado ou truncado não é descriptografado, e o frost nunca o aceita em silêncio.
 - Uma restauração gravando fora da pasta que você escolheu.
 - Downloads do frost adulterados. Cada versão é assinada, e o instalador e o `frost update` conferem a assinatura antes de instalar qualquer coisa.
@@ -43,7 +43,7 @@ Ele não consegue verificar se você tem um determinado arquivo conhecido. Tanto
 
 ## Arquivos no seu computador
 
-No macOS e no Linux, o frost cria seus arquivos de modo que só o seu usuário consegue lê-los. No Windows, eles herdam as permissões do seu perfil de usuário.
+No macOS e no Linux, o frost cria seus arquivos privados com permissões só para o seu usuário. As permissões existentes e os logs criados pelo agendador podem ser diferentes. No Windows, os arquivos herdam as permissões do seu perfil de usuário. Mantenha a configuração e o cache em pastas que outros usuários não possam ler.
 
 | Arquivo | Contém |
 | --- | --- |

@@ -4,7 +4,7 @@ frost cifra tus copias en tu equipo, con una clave que solo tienes tú, antes de
 
 ## Qué se cifra
 
-frost cifra todo lo que hay dentro de tus copias: el contenido de los archivos, sus nombres, la estructura de carpetas y los detalles de cada instantánea. Tu clave nunca sale de tu equipo, y no hay ninguna copia de ella en ningún otro sitio.
+frost cifra todo lo que hay dentro de tus copias: el contenido de los archivos, sus nombres, la estructura de carpetas y los detalles de cada instantánea. frost nunca envía tu clave a un servidor ni guarda una copia bajo custodia.
 
 | Elemento | Cómo |
 | --- | --- |
@@ -29,7 +29,7 @@ No puede comprobar si tienes un archivo conocido concreto. Tanto los nombres de 
 ## De qué te protege frost
 
 - De que tu proveedor, o alguien con una copia de tu bucket, lea tus archivos.
-- De quien esté en la red entre tú y tu almacenamiento. Las conexiones usan TLS, salvo que elijas HTTP sin cifrar para un servidor local, y además cada objeto está autenticado.
+- De quien esté en la red entre tú y tu almacenamiento. Las conexiones usan TLS salvo que elijas un endpoint S3 con `http://` o actives `storage.s3.insecure` para un endpoint sin esquema. Permafrost solo permite `http://` en tu propio equipo. Usa HTTP sin cifrar solo para pruebas locales. En cualquier caso, cada objeto de la copia está autenticado.
 - De manipulaciones. Un objeto modificado, cambiado por otro o truncado no se descifra, y frost nunca lo acepta sin avisar.
 - De que una restauración escriba fuera de la carpeta que elegiste.
 - De descargas de frost manipuladas. Cada versión está firmada, y el instalador y `frost update` comprueban la firma antes de instalar nada.
@@ -43,7 +43,7 @@ No puede comprobar si tienes un archivo conocido concreto. Tanto los nombres de 
 
 ## Archivos en tu equipo
 
-En macOS y Linux, frost crea sus archivos de forma que solo tu usuario puede leerlos. En Windows, heredan los permisos de tu perfil de usuario.
+En macOS y Linux, frost crea sus archivos privados con permisos solo para tu usuario. Los permisos existentes y los registros creados por el programador pueden ser distintos. En Windows, los archivos heredan los permisos de tu perfil de usuario. Guarda la configuración y la caché en carpetas que otros usuarios no puedan leer.
 
 | Archivo | Contiene |
 | --- | --- |

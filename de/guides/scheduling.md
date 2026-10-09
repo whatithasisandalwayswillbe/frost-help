@@ -35,7 +35,7 @@ Die Zeiten gelten in der Ortszeit deines Computers. systemd startet jeden Lauf z
 
 launchd und systemd holen verpasste Läufe nach. War dein Computer aus oder im Ruhezustand, als ein Backup fällig war, läuft das Backup, sobald er aufwacht. cron und die Aufgabenplanung überspringen verpasste Läufe, und der nächste kommt pünktlich.
 
-Unter Windows starten geplante Backups nicht, solange der Computer im Akkubetrieb läuft, und brechen ab, wenn du ihn vom Strom trennst. Unter macOS und mit systemd laufen geplante Backups mit niedriger Priorität, damit sie deinen Computer nicht ausbremsen.
+Unter Windows laufen geplante Backups nur, solange du angemeldet bist. Sie starten nicht im Akkubetrieb und brechen ab, wenn du den Computer vom Strom trennst. Unter macOS und mit systemd laufen geplante Backups mit niedriger Priorität, damit sie deinen Computer nicht ausbremsen.
 
 ## Der geplante Auftrag
 
@@ -50,7 +50,7 @@ Der Auftrag führt `frost backup` mit den Konfigurations- und Cache-Ordnern aus,
 
 Unter macOS erscheint der Auftrag in Systemeinstellungen > Allgemein > Anmeldeobjekte & Erweiterungen (System Settings > General > Login Items & Extensions) als **Node.js Foundation**, der Herausgeber der Laufzeitumgebung, die frost mitbringt. Schaltest du ihn dort aus, stoppen die geplanten Backups, und `frost status` meldet den Auftrag als fehlend. Um geplante Backups anzuhalten, nimm lieber `frost config set schedule.enabled false`.
 
-Mit systemd schaltet frost Lingering für deinen Benutzer ein (`loginctl enable-linger`), damit Backups auch laufen, wenn du abgemeldet bist. Beim Entfernen des Timers schaltet es Lingering wieder aus, es sei denn, es war schon vor frost eingeschaltet.
+Mit systemd versucht frost, Lingering für deinen Benutzer einzuschalten (`loginctl enable-linger`), wenn es bestätigen kann, dass Lingering aus ist. Damit laufen Backups auch, wenn du abgemeldet bist. Kann frost Lingering nicht einschalten, laufen nach dem Abmelden möglicherweise keine Backups mehr. Beim Entfernen des Timers schaltet frost Lingering nur aus, wenn es aufgezeichnet hat, dass es Lingering eingeschaltet hat.
 
 ## Protokolle
 

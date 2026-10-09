@@ -22,7 +22,7 @@ A página também mostra a chave para você, que pode copiá-la para o frost, po
 
 ## Chaves recusadas
 
-Se o Permafrost deixar de aceitar a sua chave de acesso, todos os comandos param com um erro que explica isso. Execute `frost init` e configure o armazenamento de novo para conseguir uma chave que funcione.
+Se o Permafrost deixar de aceitar a sua chave de acesso, os comandos que acessam seus backups param com um erro que explica isso. Execute `frost init` e configure o armazenamento de novo para conseguir uma chave que funcione.
 
 | A configuração diz | O que fazer |
 | --- | --- |
@@ -32,10 +32,20 @@ Se o Permafrost deixar de aceitar a sua chave de acesso, todos os comandos param
 
 ## O seu próprio servidor
 
-Qualquer pessoa pode rodar um servidor que fale a [API do Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Para usar um, informe o endereço dele:
+Qualquer pessoa pode rodar um servidor que fale a [API do Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md).
 
-```sh
-frost config set storage.permafrost.url https://<your-server>
+Antes de executar o assistente pela primeira vez, crie `config.toml` na pasta de configuração do frost, indicada em [Arquivos e pastas](#files-and-folders), com estas configurações. Troque o endereço pelo do seu servidor:
+
+```toml
+[storage]
+backend = "permafrost"
+
+[storage.permafrost]
+url = "https://<your-server>"
 ```
+
+Depois execute `frost init`, escolha Permafrost, cole a sua chave de acesso, escolha suas pastas e salve. O assistente cria o repositório se o servidor estiver vazio.
+
+Se o frost já estiver configurado, use `frost config edit` para mudar o backend e o endereço do servidor juntos no arquivo existente. Aceite o aviso se o novo servidor estiver vazio, digite `yes` para salvar e execute `frost init` de novo. O `frost config set` recusa um destino vazio, então não pode preparar um novo servidor.
 
 O endereço precisa usar `https://`, exceto para um servidor no seu próprio computador, como `http://localhost:8080`. Deixe a configuração vazia para usar o servidor padrão do Permafrost.

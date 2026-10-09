@@ -14,7 +14,7 @@
 
 | Вопрос мастера | Ответ |
 | --- | --- |
-| What's your Cloudflare account ID? | 32-значный идентификатор с обзорной страницы R2 |
+| What's your Cloudflare account ID? | Идентификатор из 32 символов с обзорной страницы R2 |
 | What's the bucket called? | Имя бакета, точно как при создании |
 | Paste the Access Key ID. | Access Key ID нового токена API |
 | Paste the Secret Access Key. | Показывается один раз, рядом с Access Key ID |

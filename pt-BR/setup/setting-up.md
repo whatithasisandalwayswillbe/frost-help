@@ -67,7 +67,7 @@ A configuração em tela cheia não pergunta sobre duas configurações menos co
 - Um servidor Permafrost próprio: `storage.permafrost.url`.
 - A pasta dentro de um bucket S3, `frost` por padrão: `storage.s3.prefix`.
 
-Mude essas configurações com `frost config set`. Veja [Configurações](#settings).
+Para um novo local, use `frost config edit`, aceite o aviso, salve e execute `frost init` de novo. O `frost config set` exige que já exista um repositório no novo local. Para configurar um servidor próprio pela primeira vez, veja [Permafrost](#permafrost). Veja [Configurações](#settings).
 
 ## Sem um terminal em tela cheia
 

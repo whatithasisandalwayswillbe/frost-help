@@ -4,7 +4,7 @@ frost chiffre vos sauvegardes sur votre ordinateur, avec une clé que vous seul 
 
 ## Ce qui est chiffré
 
-frost chiffre tout ce que contiennent vos sauvegardes : le contenu des fichiers, leurs noms, la structure des dossiers et les détails de chaque instantané. Votre clé ne quitte jamais votre ordinateur, et il n'en existe aucune copie ailleurs.
+frost chiffre tout ce que contiennent vos sauvegardes : le contenu des fichiers, leurs noms, la structure des dossiers et les détails de chaque instantané. frost n'envoie jamais votre clé à un serveur et n'en conserve aucune copie sous séquestre.
 
 | Élément | Comment |
 | --- | --- |
@@ -29,7 +29,7 @@ Il ne peut pas vérifier si vous possédez un fichier connu donné. Les noms des
 ## Contre quoi frost vous protège
 
 - Votre fournisseur, ou quiconque possède une copie de votre bucket, qui lirait vos fichiers.
-- Quelqu'un sur le réseau entre vous et votre stockage. Les connexions passent par TLS, sauf si vous choisissez le HTTP simple pour un serveur local, et chaque objet est de toute façon authentifié.
+- Quelqu'un sur le réseau entre vous et votre stockage. Les connexions passent par TLS, sauf si vous choisissez un endpoint S3 en `http://` ou activez `storage.s3.insecure` pour un endpoint sans protocole indiqué. Permafrost n'autorise `http://` que sur votre propre ordinateur. Réservez le HTTP sans chiffrement aux tests en local. Chaque objet de sauvegarde est authentifié dans tous les cas.
 - Les falsifications. Un objet modifié, échangé ou tronqué ne se déchiffre pas, et frost ne l'accepte jamais en silence.
 - Une restauration qui écrirait hors du dossier choisi.
 - Les téléchargements de frost falsifiés. Chaque version est signée, et l'installateur comme `frost update` vérifient la signature avant toute installation.
@@ -43,7 +43,7 @@ Il ne peut pas vérifier si vous possédez un fichier connu donné. Les noms des
 
 ## Fichiers sur votre ordinateur
 
-Sous macOS et Linux, frost crée ses fichiers de façon que seul votre utilisateur puisse les lire. Sous Windows, ils héritent des autorisations de votre profil utilisateur.
+Sous macOS et Linux, frost crée ses fichiers privés avec des autorisations réservées à votre utilisateur. Les autorisations existantes et les journaux créés par le planificateur peuvent être différents. Sous Windows, les fichiers héritent des autorisations de votre profil utilisateur. Gardez la configuration et le cache dans des dossiers que les autres utilisateurs ne peuvent pas lire.
 
 | Fichier | Contenu |
 | --- | --- |

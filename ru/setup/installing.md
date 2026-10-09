@@ -26,7 +26,7 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 2. Проверяет подпись версии и контрольную сумму загрузки и останавливается, если что-то не сходится.
 3. Устанавливает frost в ваш профиль пользователя и кладёт лаунчер `frost` в папку из `PATH`.
 
-Ему нужны `curl` или `wget`, а для проверки подписи ещё и `ssh-keygen` из OpenSSH 8.1 или новее.
+Ему нужны `curl` или `wget`, `ssh-keygen` из OpenSSH 8.1 или новее и `sha256sum` или `shasum` для проверки. Для распаковки используются `tar` в macOS и Linux, а в Windows `unzip` или PowerShell. Git Bash предоставляет `cygpath`, который также нужен установщику в Windows.
 
 Лаунчер попадает в `/usr/local/bin`, если у вас есть право записи туда, иначе в `~/.local/bin`. В Windows он попадает в `~/bin`. Если этой папки ещё нет в `PATH`, установщик покажет строку, которая её туда добавит.
 
@@ -75,10 +75,14 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 Установщик делает это за вас. Чтобы проверить архив самостоятельно, скачайте его вместе с `checksums.txt` и `checksums.txt.sig` той же версии, а также [`release-signing.pub`](https://github.com/whatithasisandalwayswillbe/frost/blob/main/install/release-signing.pub) из репозитория. Запишите имя архива в `archive` и выполните:
 
 ```sh
-archive='frost_X.Y.Z_linux_amd64.tar.gz'
-printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
-ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
-awk -v archive="$archive" '$2 == archive { print }' checksums.txt | shasum -a 256 -c -
+(
+  set -e
+  archive='frost_X.Y.Z_linux_amd64.tar.gz'
+  printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
+  ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
+  selected_checksum=$(awk -v archive="$archive" '$2 == archive { line = $0; count++ } END { if (count != 1) exit 1; print line }' checksums.txt)
+  printf '%s\n' "$selected_checksum" | shasum -a 256 -c -
+)
 ```
 
-Первая проверка должна вывести `Good "file" signature`, а вторая `OK` после имени вашего архива. Если хотя бы одна этого не делает, не устанавливайте архив.
+Команды останавливаются, если подпись неверна или в подписанном списке нет ровно одной записи для вашего архива. Первая проверка должна вывести `Good "file" signature`, а вторая `OK` после имени вашего архива. Если хотя бы одна этого не делает, не устанавливайте архив.

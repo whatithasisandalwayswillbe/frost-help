@@ -35,7 +35,7 @@ frost config set schedule.enabled true
 
 launchd와 systemd는 놓친 백업을 따라잡습니다. 백업할 시각에 컴퓨터가 꺼져 있거나 잠자기 상태였다면, 깨어났을 때 백업을 실행합니다. cron과 작업 스케줄러는 놓친 실행을 건너뛰고, 다음 실행은 제시간에 합니다.
 
-Windows에서는 컴퓨터가 배터리로 동작하는 동안 예약된 백업을 시작하지 않고, 전원을 뽑으면 중단합니다. macOS와 systemd에서는 예약된 백업이 낮은 우선순위로 실행되므로 컴퓨터가 느려지지 않습니다.
+Windows에서는 로그인한 동안에만 예약된 백업이 실행됩니다. 컴퓨터가 배터리로 동작하는 동안 예약된 백업을 시작하지 않고, 전원을 뽑으면 중단합니다. macOS와 systemd에서는 예약된 백업이 낮은 우선순위로 실행되므로 컴퓨터가 느려지지 않습니다.
 
 ## 예약 작업
 
@@ -50,7 +50,7 @@ Windows에서는 컴퓨터가 배터리로 동작하는 동안 예약된 백업�
 
 macOS에서는 이 작업이 시스템 설정 > 일반 > 로그인 항목 및 확장 프로그램(System Settings > General > Login Items & Extensions)에 **Node.js Foundation**이라는 이름으로 표시됩니다. frost에 포함된 런타임의 배포자입니다. 이곳에서 끄면 예약된 백업이 멈추고, `frost status`는 작업이 없다고 보고합니다. 예약된 백업을 멈추려면 대신 `frost config set schedule.enabled false`를 쓰세요.
 
-systemd에서는 로그아웃한 동안에도 백업이 실행되도록 frost가 사용자의 lingering을 켭니다(`loginctl enable-linger`). 타이머를 제거할 때는 lingering을 다시 끕니다. 단, frost를 쓰기 전부터 켜져 있었다면 그대로 둡니다.
+systemd에서는 lingering이 꺼져 있다고 확인할 수 있을 때 frost가 사용자의 lingering을 켜려고 시도합니다(`loginctl enable-linger`). lingering은 로그아웃한 동안에도 백업을 실행할 수 있게 합니다. frost가 켜지 못하면 로그아웃 후 백업이 멈출 수 있습니다. 타이머를 제거할 때는 frost가 직접 켰다고 기록한 경우에만 lingering을 끕니다.
 
 ## 로그
 

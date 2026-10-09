@@ -20,7 +20,7 @@ frost update --check
 
 ## Automatic updates
 
-After a scheduled backup, frost checks for a new release at most once a day, and installs it the same way `frost update` does. A failed check or install never fails the backup.
+After a scheduled backup, frost checks for a new release at most once every 20 hours, and installs it the same way `frost update` does. A failed check or install never fails the backup.
 
 `frost status` shows how updates are set up and whether the last one worked. So does the snapshot browser's settings screen.
 

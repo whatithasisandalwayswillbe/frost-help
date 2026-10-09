@@ -4,7 +4,7 @@ macOS は、デスクトップ、書類、ダウンロードなどのフォル�
 
 ## 自分で実行するバックアップ
 
-ターミナルで `frost backup` を実行すると、macOS はお使いのターミナルアプリ (ターミナル、iTerm、Visual Studio Code、Warp、Ghostty など) へのアクセス許可を求めます。許可すれば、frost はそれらのフォルダを読めるようになります。
+ターミナルで `frost backup` を実行すると、macOS は、お使いのターミナルアプリ (ターミナル、iTerm、Visual Studio Code、Warp、Ghostty など) にフォルダへのアクセスを許可するかどうかを尋ねます。許可すれば、frost はそれらのフォルダを読めるようになります。
 
 ## スケジュールされたバックアップ
 

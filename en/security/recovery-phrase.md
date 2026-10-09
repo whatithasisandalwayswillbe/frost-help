@@ -8,7 +8,7 @@ Your recovery phrase is your encryption key, written as 24 words. It's the only 
 
 Setup shows you the phrase when it creates your key. Write it down on paper, or keep it in a password manager you trust, and store it somewhere other than the computer you're backing up.
 
-A copy also lives on your computer, in the `key` file in frost's config folder, so scheduled backups can run without you. Only your user can read it. Anyone who can read that file, or run programs as you, can read your backups, so use full-disk encryption and a screen lock.
+A copy also lives on your computer, in the `key` file in frost's config folder, so scheduled backups can run without you. On macOS and Linux, frost creates it with permissions for your user only. On Windows, it inherits your user profile's permissions. Shared folders or changed permissions can expose it. Anyone who can read that file, or run programs as you, can read your backups, so use full-disk encryption and a screen lock.
 
 To read your backups, someone needs both the phrase and access to your storage. Keep your storage keys private as well.
 

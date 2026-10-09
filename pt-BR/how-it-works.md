@@ -4,7 +4,7 @@ O frost tira snapshots das suas pastas, divide seus arquivos em blocos criptogra
 
 ## Em resumo
 
-1. **Varredura.** O frost percorre suas pastas e pula tudo o que está na sua lista de exclusões. Arquivos cujo tamanho e data de modificação não mudaram desde o último backup não são lidos de novo.
+1. **Varredura.** O frost percorre suas pastas e pula tudo o que está na sua lista de exclusões. Arquivos cujo tamanho e data de modificação não mudaram desde o último backup não são lidos de novo enquanto o cache do frost ainda tiver todos os blocos deles registrados.
 2. **Divisão.** Os arquivos alterados são divididos em blocos de cerca de 1 MiB, em pontos definidos pelo conteúdo. Uma alteração no meio de um arquivo grande muda só os blocos ao redor.
 3. **Criptografia.** Cada bloco novo é compactado quando isso o deixa menor e depois é criptografado com a sua chave.
 4. **Envio.** Só são enviados os blocos que ainda não estão no armazenamento.
@@ -44,7 +44,7 @@ Os nomes dos objetos são IDs com cara de aleatórios, então o seu provedor nun
 
 ## O cache local
 
-O frost mantém, em uma pasta de cache no seu computador, um registro do que já enviou, para não precisar listar todo o armazenamento a cada backup. Ele compara esse registro com o armazenamento uma vez por semana.
+O frost mantém, em uma pasta de cache no seu computador, um registro do que já enviou, para não precisar listar todo o armazenamento a cada backup. Ele compara esse registro com o armazenamento uma vez por semana, quando o local de armazenamento muda ou depois que uma verificação encontra dados faltando.
 
 O cache é descartável. Se ele se perder, o próximo backup o reconstrói a partir do armazenamento e lê seus arquivos de novo. A restauração não precisa dele.
 

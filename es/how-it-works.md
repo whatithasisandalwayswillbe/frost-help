@@ -4,7 +4,7 @@ frost toma instantáneas de tus carpetas, divide tus archivos en fragmentos cifr
 
 ## En resumen
 
-1. **Recorre.** frost recorre tus carpetas y se salta todo lo que esté en tu lista de exclusiones. Los archivos cuyo tamaño y fecha de modificación no han cambiado desde la última copia no se vuelven a leer.
+1. **Recorre.** frost recorre tus carpetas y se salta todo lo que esté en tu lista de exclusiones. Los archivos cuyo tamaño y fecha de modificación no han cambiado desde la última copia no se vuelven a leer mientras la caché de frost siga teniendo registrados todos sus fragmentos.
 2. **Divide.** Los archivos que han cambiado se dividen en fragmentos de 1 MiB aproximadamente, en puntos que dependen de su contenido. Un cambio en mitad de un archivo grande solo afecta a los fragmentos de alrededor.
 3. **Cifra.** Cada fragmento nuevo se comprime si así ocupa menos y después se cifra con tu clave.
 4. **Sube.** Solo se suben los fragmentos que no están ya en el almacenamiento.
@@ -44,7 +44,7 @@ Los nombres de los objetos son ID de aspecto aleatorio, así que tu proveedor nu
 
 ## La caché local
 
-frost lleva un registro de lo que ya ha subido en una carpeta de caché de tu equipo, para no tener que listar todo tu almacenamiento en cada copia. Compara ese registro con el almacenamiento una vez por semana.
+frost lleva un registro de lo que ya ha subido en una carpeta de caché de tu equipo, para no tener que listar todo tu almacenamiento en cada copia. Compara ese registro con el almacenamiento una vez por semana, cuando cambia la ubicación de almacenamiento o después de que una comprobación detecte datos que faltan.
 
 La caché es prescindible. Si se pierde, la siguiente copia la reconstruye a partir del almacenamiento y vuelve a leer tus archivos. Para restaurar no se necesita en absoluto.
 

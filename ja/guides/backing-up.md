@@ -16,7 +16,7 @@ frost は、何が変わったか、どれだけアップロードしたか、�
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
 │  new data     14.2 MB in 9 chunks (9.8 MB uploaded after compression)
-│  verified     ok, 20 random objects re-downloaded and checked
+│  verified     ok, 21 random objects re-downloaded and checked
 │
 └  Saved snapshot maple-absurd-3f1c
 ```
@@ -29,7 +29,7 @@ frost は、何が変わったか、どれだけアップロードしたか、�
 ┌  backup  s3://my-backups/frost/
 │
 │  files        1,204 (2.1 GB)
-│  verified     ok 3h ago, 20 objects checked
+│  verified     ok 3h ago, 21 objects checked
 │
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
@@ -93,4 +93,4 @@ macOS では、一部のフォルダを frost が読むために、あなたの�
 
 ## 一度に 1 つだけ
 
-バックアップや復元は、同時に 1 つしか実行できません。スケジュールされたバックアップなど、別の処理が実行中の場合、frost は "a backup or restore is already running, try again when it's done" (バックアップか復元が実行中です。終わってからもう一度試してください) と表示します。バックアップの実行中も、スナップショットブラウザは開いたままにできます。
+バックアップやコマンドラインからの復元は、実行中にローカルキャッシュをロックします。別のコマンドが同じキャッシュを必要とすると、frost は "a backup or restore is already running, try again when it's done" (バックアップか復元が実行中です。終わってからもう一度試してください) と表示します。スナップショットブラウザはキャッシュのロックを解放するので、バックアップ中も開いたままにでき、復元もできます。キャッシュフォルダやコンピュータが違えば、ロックも別です。

@@ -26,7 +26,7 @@ O instalador:
 2. Confere a assinatura da versão e a soma de verificação do download, e para se alguma estiver errada.
 3. Instala o frost no seu perfil de usuário e coloca um inicializador `frost` em uma pasta do seu `PATH`.
 
-Ele precisa de `curl` ou `wget`, e do `ssh-keygen` do OpenSSH 8.1 ou mais recente para conferir a assinatura.
+Ele precisa de `curl` ou `wget`, do `ssh-keygen` do OpenSSH 8.1 ou mais recente, e de `sha256sum` ou `shasum` para as verificações. A extração usa `tar` no macOS e no Linux, e `unzip` ou PowerShell no Windows. O Git Bash fornece o `cygpath`, de que o instalador para Windows também precisa.
 
 O inicializador vai para `/usr/local/bin` se você tiver permissão de escrita ali, e para `~/.local/bin` se não tiver. No Windows, ele vai para `~/bin`. Se essa pasta ainda não estiver no seu `PATH`, o instalador mostra a linha que a adiciona.
 
@@ -75,10 +75,14 @@ Para rodar um pacote extraído sem instalar, use diretamente o inicializador `fr
 O instalador faz isso por você. Para conferir um arquivo compactado por conta própria, baixe-o junto com `checksums.txt` e `checksums.txt.sig` da mesma versão, e baixe [`release-signing.pub`](https://github.com/whatithasisandalwayswillbe/frost/blob/main/install/release-signing.pub) do repositório. Coloque em `archive` o nome do arquivo compactado e execute:
 
 ```sh
-archive='frost_X.Y.Z_linux_amd64.tar.gz'
-printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
-ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
-awk -v archive="$archive" '$2 == archive { print }' checksums.txt | shasum -a 256 -c -
+(
+  set -e
+  archive='frost_X.Y.Z_linux_amd64.tar.gz'
+  printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
+  ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
+  selected_checksum=$(awk -v archive="$archive" '$2 == archive { line = $0; count++ } END { if (count != 1) exit 1; print line }' checksums.txt)
+  printf '%s\n' "$selected_checksum" | shasum -a 256 -c -
+)
 ```
 
-A primeira verificação deve mostrar `Good "file" signature`, e a segunda deve mostrar `OK` depois do nome do seu arquivo. Se alguma não mostrar, não instale.
+Os comandos param se a assinatura estiver incorreta ou se a lista assinada não tiver exatamente uma entrada para o seu arquivo. A primeira verificação deve mostrar `Good "file" signature`, e a segunda deve mostrar `OK` depois do nome do seu arquivo. Se alguma não mostrar, não instale.

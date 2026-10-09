@@ -13,7 +13,7 @@ frost status
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
-│  health       ok 20 objects checked 2h ago
+│  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
 │
@@ -61,7 +61,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-Isso faz uma verificação nova e ainda compara o registro local de blocos do frost com tudo o que está no seu armazenamento. O comando termina com `1` se a verificação falhar, então você pode rodá-lo pelo seu próprio agendador para verificar com uma frequência diferente da dos backups.
+Isso faz uma verificação nova e ainda compara o registro local de blocos do frost com tudo o que está no seu armazenamento. Ele verifica 20 blocos mesmo quando `verify.sample` é `0`. O comando termina com `1` se a verificação falhar, então você pode rodá-lo pelo seu próprio agendador para verificar com uma frequência diferente da dos backups.
 
 ## Se uma verificação falhar
 
@@ -70,7 +70,7 @@ A linha health lista o que falhou. Normalmente, isso significa que o armazenamen
 1. Execute `frost backup`. Qualquer bloco perdido cujos dados ainda estejam no seu computador é enviado de novo.
 2. Execute `frost status --verify` para conferir de novo.
 
-Dados que não estão mais no seu computador não podem ser enviados de novo, e os snapshots antigos que precisam deles não poderão ser restaurados por completo.
+Dados que não estão mais no seu computador não podem ser enviados de novo, e os snapshots antigos que precisam deles não poderão ser restaurados por completo. Um backup não substitui automaticamente um bloco que ainda está no armazenamento, mas está danificado. Recupere uma cópia íntegra com o seu provedor ou de um backup independente e verifique de novo.
 
 ## Snapshots desaparecidos
 

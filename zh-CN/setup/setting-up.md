@@ -67,7 +67,7 @@
 - 你自己的 Permafrost 服务器：`storage.permafrost.url`。
 - S3 存储桶中的文件夹，默认是 `frost`：`storage.s3.prefix`。
 
-用 `frost config set` 修改它们。参见[设置项](#settings)。
+要使用新位置，请用 `frost config edit` 修改，接受警告并保存，然后再次运行 `frost init`。`frost config set` 要求新位置已经有仓库。第一次设置自己的服务器时，请参见 [Permafrost](#permafrost)。参见[设置项](#settings)。
 
 ## 没有全屏终端时
 

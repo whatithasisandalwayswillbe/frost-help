@@ -70,7 +70,7 @@ frost 跳过了这些文件，其余内容照常保存。常见原因有：你�
 
 - 查看 `frost status` 中的 "next backup" 这一行。
 - 在 macOS 上，检查“系统设置 > 通用 > 登录项与扩展”（System Settings > General > Login Items & Extensions）中 frost 的开关。它显示为 Node.js Foundation。
-- 在 Windows 上，使用电池供电时不会运行计划备份。
+- 在 Windows 上，计划备份需要你保持登录，并且使用电池供电时不会运行。
 - 使用 cron 或任务计划程序时，如果备份到点时电脑处于关机或睡眠状态，这次备份会被跳过。
 - 查看日志。参见[自动备份](#scheduling)。
 

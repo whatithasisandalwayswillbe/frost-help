@@ -67,6 +67,6 @@ Avant d'écrire quoi que ce soit, frost montre où chaque élément va atterrir.
 
 « New folder elsewhere » ouvre le sélecteur de dossiers de votre système : le Finder sous macOS, l'Explorateur de fichiers sous Windows, et zenity, qarma ou matedialog sous Linux. En SSH, ou sous Linux sans sélecteur, vous saisissez le dossier vous-même. Appuyez sur `[t]` pendant que le sélecteur est ouvert pour le saisir quand même.
 
-Une fois la restauration terminée, frost montre ce qu'il a restauré dans le Finder, l'Explorateur de fichiers ou votre gestionnaire de fichiers Linux. Un fichier seul apparaît sélectionné ; sinon, le dossier qui contient l'ensemble s'ouvre. Rien ne s'ouvre en SSH, sans affichage graphique ou si la restauration échoue.
+Une fois la restauration terminée, frost montre ce qu'il a restauré dans le Finder, l'Explorateur de fichiers ou votre gestionnaire de fichiers Linux. Un fichier seul apparaît sélectionné sous macOS et Windows ; sous Linux, son dossier s'ouvre. Dans les autres cas, le dossier le plus profond contenant tous les éléments restaurés s'ouvre. Rien ne s'ouvre en SSH, sans affichage graphique ou si la restauration échoue.
 
 [Restaurer des fichiers](#restoring) détaille chaque option, et ce qui se passe quand une restauration est interrompue.

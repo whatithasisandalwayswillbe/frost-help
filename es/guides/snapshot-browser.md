@@ -67,6 +67,6 @@ Antes de escribir nada, frost te muestra dónde irá cada cosa. Pulsa `[enter]` 
 
 "New folder elsewhere" abre el selector de carpetas de tu sistema: Finder en macOS, el Explorador de archivos en Windows, y zenity, qarma o matedialog en Linux. Por SSH, o en Linux sin selector, escribes la carpeta a mano. Pulsa `[t]` con el selector abierto para escribirla de todos modos.
 
-Cuando termina una restauración, frost muestra lo restaurado en Finder, el Explorador de archivos o el gestor de archivos de Linux. Si es un solo archivo, aparece seleccionado; si no, se abre la carpeta que lo contiene todo. No se abre nada por SSH, sin pantalla gráfica o cuando la restauración falla.
+Cuando termina una restauración, frost muestra lo restaurado en Finder, el Explorador de archivos o el gestor de archivos de Linux. Si es un solo archivo, aparece seleccionado en macOS y Windows; en Linux, se abre su carpeta. En los demás casos, se abre la carpeta más profunda que contiene todo lo restaurado. No se abre nada por SSH, sin pantalla gráfica o cuando la restauración falla.
 
 [Restaurar archivos](#restoring) explica cada opción en detalle, y qué pasa cuando se interrumpe una restauración.

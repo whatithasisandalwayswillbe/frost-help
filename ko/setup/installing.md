@@ -26,7 +26,7 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 2. 릴리스의 서명과 내려받은 파일의 체크섬을 확인하고, 하나라도 맞지 않으면 중단합니다.
 3. frost를 사용자 프로필에 설치하고, `PATH`에 있는 폴더에 `frost` 런처를 둡니다.
 
-`curl` 또는 `wget`이 필요하고, 서명을 확인하려면 OpenSSH 8.1 이상의 `ssh-keygen`도 필요합니다.
+검증에는 `curl` 또는 `wget`, OpenSSH 8.1 이상의 `ssh-keygen`, `sha256sum` 또는 `shasum`이 필요합니다. 압축을 풀 때는 macOS와 Linux에서 `tar`를, Windows에서 `unzip` 또는 PowerShell을 씁니다. Windows 설치 프로그램에는 Git Bash가 제공하는 `cygpath`도 필요합니다.
 
 런처는 쓰기 권한이 있으면 `/usr/local/bin`에, 없으면 `~/.local/bin`에 놓입니다. Windows에서는 `~/bin`에 놓입니다. 그 폴더가 아직 `PATH`에 없으면, 설치 프로그램이 추가하는 명령어를 보여 줍니다.
 
@@ -75,10 +75,14 @@ Windows에서는 PowerShell에서:
 이 작업은 설치 프로그램이 대신 해 줍니다. 압축 파일을 직접 확인하려면, 같은 릴리스에서 `checksums.txt`와 `checksums.txt.sig`를 함께 내려받고, 저장소에서 [`release-signing.pub`](https://github.com/whatithasisandalwayswillbe/frost/blob/main/install/release-signing.pub)를 내려받습니다. `archive`에 압축 파일 이름을 넣고 다음을 실행합니다.
 
 ```sh
-archive='frost_X.Y.Z_linux_amd64.tar.gz'
-printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
-ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
-awk -v archive="$archive" '$2 == archive { print }' checksums.txt | shasum -a 256 -c -
+(
+  set -e
+  archive='frost_X.Y.Z_linux_amd64.tar.gz'
+  printf 'frost-release %s\n' "$(cat release-signing.pub)" > allowed_signers
+  ssh-keygen -Y verify -f allowed_signers -I frost-release -n file -s checksums.txt.sig < checksums.txt
+  selected_checksum=$(awk -v archive="$archive" '$2 == archive { line = $0; count++ } END { if (count != 1) exit 1; print line }' checksums.txt)
+  printf '%s\n' "$selected_checksum" | shasum -a 256 -c -
+)
 ```
 
-첫 번째 검사는 `Good "file" signature`를, 두 번째 검사는 압축 파일 이름 뒤에 `OK`를 출력해야 합니다. 둘 중 하나라도 그렇지 않으면 설치하지 마세요.
+서명이 잘못되었거나 서명된 목록에 해당 압축 파일의 항목이 정확히 하나가 아니면 명령어 실행이 중단됩니다. 첫 번째 검사는 `Good "file" signature`를, 두 번째 검사는 압축 파일 이름 뒤에 `OK`를 출력해야 합니다. 둘 중 하나라도 그렇지 않으면 설치하지 마세요.

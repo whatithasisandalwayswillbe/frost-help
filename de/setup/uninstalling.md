@@ -10,11 +10,11 @@ frost hat keinen Befehl zum Deinstallieren, aber das Entfernen dauert nur ein pa
 frost config set schedule.enabled false
 ```
 
-Damit wird der Auftrag aus dem Zeitplaner deines Betriebssystems entfernt. Unter Linux mit systemd wird außerdem Lingering wieder ausgeschaltet, sofern frost es eingeschaltet hatte.
+Damit wird der Auftrag aus dem Zeitplaner deines Betriebssystems entfernt. Unter Linux mit systemd wird außerdem Lingering wieder ausgeschaltet, sofern frost aufgezeichnet hat, dass es Lingering eingeschaltet hat.
 
 ## 2. Die Dateien von frost löschen
 
-Dieser Schritt löscht die Anwendung, ihren Starter, deine Einstellungen, deinen Schlüssel und den Cache von frost. Wenn du `FROST_CONFIG_DIR`, `FROST_CACHE_DIR`, `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` oder `XDG_DATA_HOME` gesetzt hast, lösch stattdessen diese Ordner. [Dateien und Ordner](#files-and-folders) listet alle Orte auf.
+Dieser Schritt löscht die Anwendung, ihren Starter, deine Einstellungen, deinen Schlüssel und den Cache von frost. Hast du einen Speicherort geändert, passe die Pfade unten so an, dass sie auf die eigenen Dateien und Ordner von frost zeigen. `FROST_CONFIG_DIR` und `FROST_CACHE_DIR` nennen die frost-Ordner direkt; unter `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` und `XDG_DATA_HOME` liegt jeweils ein Unterordner `frost`. Lösch nie einen XDG-Stammordner oder einen gemeinsam genutzten Ordner selbst. [Dateien und Ordner](#files-and-folders) listet alle Orte auf.
 
 Unter macOS:
 

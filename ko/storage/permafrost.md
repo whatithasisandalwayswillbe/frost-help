@@ -22,7 +22,7 @@ Permafrost는 frost를 위해 만든 호스팅 스토리지입니다. 연결에�
 
 ## 거부된 키
 
-Permafrost가 액세스 키를 더 이상 받아들이지 않으면, 모든 명령어가 그 사실을 알리는 오류와 함께 멈춥니다. `frost init`을 실행해 스토리지를 다시 설정하고 작동하는 키를 받으세요.
+Permafrost가 액세스 키를 더 이상 받아들이지 않으면, 백업에 접근하는 명령어가 그 사실을 알리는 오류와 함께 멈춥니다. `frost init`을 실행해 스토리지를 다시 설정하고 작동하는 키를 받으세요.
 
 | 설정 도우미의 메시지 | 할 일 |
 | --- | --- |
@@ -32,10 +32,20 @@ Permafrost가 액세스 키를 더 이상 받아들이지 않으면, 모든 명�
 
 ## 직접 운영하는 서버
 
-[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md)를 지원하는 서버는 누구나 운영할 수 있습니다. 그런 서버를 쓰려면 주소를 지정합니다.
+[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md)를 지원하는 서버는 누구나 운영할 수 있습니다.
 
-```sh
-frost config set storage.permafrost.url https://<your-server>
+처음 설정하기 전에 frost의 설정 폴더에 `config.toml`을 만들고 아래 설정을 넣으세요. 위치는 [파일 및 폴더](#files-and-folders)에 나와 있습니다. 주소는 자신의 서버 주소로 바꾸세요.
+
+```toml
+[storage]
+backend = "permafrost"
+
+[storage.permafrost]
+url = "https://<your-server>"
 ```
+
+그런 다음 `frost init`을 실행하고 Permafrost를 고른 뒤, 액세스 키를 붙여 넣고 폴더를 골라 저장하세요. 서버가 비어 있으면 설정 도우미가 저장소를 만듭니다.
+
+이미 frost를 설정했다면 `frost config edit`로 기존 파일에서 백엔드와 서버 주소를 함께 바꾸세요. 새 서버가 비어 있다면 경고를 확인하고 `yes`를 입력해 저장한 뒤 `frost init`을 다시 실행하세요. `frost config set`은 빈 대상 위치를 거부하므로 새 서버를 준비하는 데 쓸 수 없습니다.
 
 주소는 `https://`를 써야 합니다. `http://localhost:8080`처럼 사용자의 컴퓨터에서 실행하는 서버만 예외입니다. 이 설정을 비워 두면 기본 Permafrost 서버를 사용합니다.

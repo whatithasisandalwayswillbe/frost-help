@@ -16,7 +16,7 @@ frost показывает, что изменилось, сколько отпр
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
 │  new data     14.2 MB in 9 chunks (9.8 MB uploaded after compression)
-│  verified     ok, 20 random objects re-downloaded and checked
+│  verified     ok, 21 random objects re-downloaded and checked
 │
 └  Saved snapshot maple-absurd-3f1c
 ```
@@ -29,7 +29,7 @@ frost показывает, что изменилось, сколько отпр
 ┌  backup  s3://my-backups/frost/
 │
 │  files        1,204 (2.1 GB)
-│  verified     ok 3h ago, 20 objects checked
+│  verified     ok 3h ago, 21 objects checked
 │
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
@@ -93,4 +93,4 @@ frost не делает снимков файловой системы или б
 
 ## По одной за раз
 
-Одновременно может выполняться только одно копирование или восстановление. Если другое уже идёт, например копирование по расписанию, frost сообщает "a backup or restore is already running, try again when it's done" (копирование или восстановление уже выполняется, попробуйте после его завершения). Обозреватель снимков можно не закрывать, пока идёт копирование.
+Резервное копирование или восстановление из командной строки блокирует свой локальный кэш на время работы. Если другой команде нужен этот кэш, frost сообщает "a backup or restore is already running, try again when it's done" (копирование или восстановление уже выполняется, попробуйте после его завершения). Обозреватель снимков снимает блокировку кэша, поэтому его можно держать открытым и восстанавливать файлы, пока идёт копирование. У разных папок кэша и компьютеров отдельные блокировки.

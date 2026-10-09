@@ -10,11 +10,11 @@ frost has no uninstall command, but removing it takes a few steps.
 frost config set schedule.enabled false
 ```
 
-This removes the job from your operating system's scheduler. On Linux with systemd, it also turns lingering back off, if frost was the one that turned it on.
+This removes the job from your operating system's scheduler. On Linux with systemd, it also turns lingering back off if frost recorded turning it on.
 
 ## 2. Delete frost's files
 
-This deletes the application, its launcher, your settings, your key and frost's cache. If you set `FROST_CONFIG_DIR`, `FROST_CACHE_DIR`, `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` or `XDG_DATA_HOME`, delete those folders instead. [Files and folders](#files-and-folders) lists every location.
+This deletes the application, its launcher, your settings, your key and frost's cache. If you changed a location, adjust the paths below to frost's own files and folders. `FROST_CONFIG_DIR` and `FROST_CACHE_DIR` name frost's folders directly; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` and `XDG_DATA_HOME` contain a `frost` subfolder. Never delete an XDG root or a shared folder itself. [Files and folders](#files-and-folders) lists every location.
 
 On macOS:
 

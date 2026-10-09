@@ -22,7 +22,7 @@ The page also shows you the key, so you can copy it into frost yourself, for exa
 
 ## Rejected keys
 
-If Permafrost stops accepting your access key, every command stops with an error that says so. Run `frost init` and set up storage again to get a working one.
+If Permafrost stops accepting your access key, commands that access your backups stop with an error that says so. Run `frost init` and set up storage again to get a working one.
 
 | Setup says | What to do |
 | --- | --- |
@@ -32,10 +32,20 @@ If Permafrost stops accepting your access key, every command stops with an error
 
 ## Your own server
 
-Anyone can run a server that speaks the [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). To use one, set its address:
+Anyone can run a server that speaks the [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md).
 
-```sh
-frost config set storage.permafrost.url https://<your-server>
+Before your first setup, create `config.toml` in frost's config folder, as listed in [Files and folders](#files-and-folders), with these settings. Replace the address with your server's:
+
+```toml
+[storage]
+backend = "permafrost"
+
+[storage.permafrost]
+url = "https://<your-server>"
 ```
+
+Then run `frost init`, choose Permafrost, paste your access key, pick your folders and save. Setup creates the repository if the server is empty.
+
+If frost is already set up, use `frost config edit` to change the backend and server address together in the existing file. Accept the warning if the new server is empty, type `yes` to save, then run `frost init` again. `frost config set` refuses an empty destination, so it can't prepare a new server.
 
 The address must use `https://`, except for a server on your own computer, like `http://localhost:8080`. Leave the setting blank to use the default Permafrost server.
