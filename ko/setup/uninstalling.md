@@ -34,10 +34,23 @@ Windows에서는 PowerShell에서:
 
 ```powershell
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\frost", "$env:APPDATA\frost"
-Remove-Item -Force "$HOME\bin\frost", "$HOME\bin\frost.cmd"
+Remove-Item -Force "$HOME\bin\frost", "$HOME\bin\frost.cmd" -ErrorAction SilentlyContinue
 ```
 
-런처를 다른 곳에 설치했다면 그곳에서 삭제하세요.
+Windows 설치 프로그램은 `%LocalAppData%\frost\bin`도 `PATH`에 추가했습니다. 다음 명령어로 다시 뺄 수 있습니다.
+
+```powershell
+$environment = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment', $true)
+$path = $environment.GetValue('Path', '', 'DoNotExpandEnvironmentNames') -split ';' | Where-Object { $_ -and [Environment]::ExpandEnvironmentVariables($_).TrimEnd('\') -ne "$env:LOCALAPPDATA\frost\bin" }
+$environment.SetValue('Path', ($path -join ';'), 'ExpandString')
+```
+
+런처를 다른 곳에 설치했다면 그곳에서 삭제하세요. npm이나 pnpm으로 설치했다면 패키지도 삭제하세요.
+
+```sh
+npm uninstall -g getfrost
+pnpm remove -g getfrost
+```
 
 ## 3. 원한다면 백업도 삭제하기
 

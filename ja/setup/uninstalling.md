@@ -34,10 +34,23 @@ Windows の場合は PowerShell で:
 
 ```powershell
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\frost", "$env:APPDATA\frost"
-Remove-Item -Force "$HOME\bin\frost", "$HOME\bin\frost.cmd"
+Remove-Item -Force "$HOME\bin\frost", "$HOME\bin\frost.cmd" -ErrorAction SilentlyContinue
 ```
 
-ランチャーを別の場所にインストールした場合は、そこから削除してください。
+Windows のインストーラは `%LocalAppData%\frost\bin` を `PATH` にも追加しています。次のコマンドで取り除けます。
+
+```powershell
+$environment = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment', $true)
+$path = $environment.GetValue('Path', '', 'DoNotExpandEnvironmentNames') -split ';' | Where-Object { $_ -and [Environment]::ExpandEnvironmentVariables($_).TrimEnd('\') -ne "$env:LOCALAPPDATA\frost\bin" }
+$environment.SetValue('Path', ($path -join ';'), 'ExpandString')
+```
+
+ランチャーを別の場所にインストールした場合は、そこから削除してください。npm や pnpm でインストールした場合は、パッケージも削除します。
+
+```sh
+npm uninstall -g getfrost
+pnpm remove -g getfrost
+```
 
 ## 3. 必要ならバックアップも削除する
 

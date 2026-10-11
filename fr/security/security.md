@@ -32,7 +32,7 @@ Il ne peut pas vérifier si vous possédez un fichier connu donné. Les noms des
 - Quelqu'un sur le réseau entre vous et votre stockage. Les connexions passent par TLS, sauf si vous choisissez un endpoint S3 en `http://` ou activez `storage.s3.insecure` pour un endpoint sans protocole indiqué. Permafrost n'autorise `http://` que sur votre propre ordinateur. Réservez le HTTP sans chiffrement aux tests en local. Chaque objet de sauvegarde est authentifié dans tous les cas.
 - Les falsifications. Un objet modifié, échangé ou tronqué ne se déchiffre pas, et frost ne l'accepte jamais en silence.
 - Une restauration qui écrirait hors du dossier choisi.
-- Les téléchargements de frost falsifiés. Chaque version est signée, et l'installateur comme `frost update` vérifient la signature avant toute installation.
+- Les téléchargements de frost falsifiés. Chaque version est signée, et les installateurs, le paquet npm `getfrost` et `frost update` vérifient la signature avant toute installation.
 
 ## Ce contre quoi il ne peut rien
 

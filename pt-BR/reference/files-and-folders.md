@@ -12,7 +12,7 @@ O frost guarda o aplicativo, suas configurações e o cache dele em pastas separ
 
 A pasta do aplicativo guarda o ambiente de execução incluído e cada versão instalada. Mantenha a pasta inteira.
 
-O inicializador `frost` fica em `/usr/local/bin` ou `~/.local/bin` no macOS e no Linux, e em `~/bin` no Windows, a menos que você tenha escolhido outra pasta na instalação. Veja [Instalar o frost](#installing).
+O inicializador `frost` fica em `/usr/local/bin` ou `~/.local/bin` no macOS e no Linux, e em `%LocalAppData%\frost\bin` no Windows, a menos que você tenha escolhido outra pasta na instalação. O instalador do Git Bash usa `~/bin`. Com npm ou pnpm, o `frost` fica onde eles guardam os comandos globais. Veja [Instalar o frost](#installing).
 
 ## Configurações e chave
 

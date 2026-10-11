@@ -32,7 +32,7 @@ No puede comprobar si tienes un archivo conocido concreto. Tanto los nombres de 
 - De quien esté en la red entre tú y tu almacenamiento. Las conexiones usan TLS salvo que elijas un endpoint S3 con `http://` o actives `storage.s3.insecure` para un endpoint sin esquema. Permafrost solo permite `http://` en tu propio equipo. Usa HTTP sin cifrar solo para pruebas locales. En cualquier caso, cada objeto de la copia está autenticado.
 - De manipulaciones. Un objeto modificado, cambiado por otro o truncado no se descifra, y frost nunca lo acepta sin avisar.
 - De que una restauración escriba fuera de la carpeta que elegiste.
-- De descargas de frost manipuladas. Cada versión está firmada, y el instalador y `frost update` comprueban la firma antes de instalar nada.
+- De descargas de frost manipuladas. Cada versión está firmada, y los instaladores, el paquete de npm `getfrost` y `frost update` comprueban la firma antes de instalar nada.
 
 ## De qué no puede protegerte
 

@@ -12,13 +12,19 @@ frost создаёт резервные копии ваших папок в вы
 
 ## 1. Установите frost
 
-В macOS или Linux выполните эту команду в терминале. В Windows выполните её в Git Bash.
+В macOS или Linux выполните эту команду в терминале:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
 ```
 
-Прежде чем что-либо устанавливать, установщик проверяет подпись версии. Об установке вручную и о параметрах установщика рассказано в разделе [Установка frost](#installing).
+В Windows выполните эту команду в PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
+Прежде чем что-либо устанавливать, установщик проверяет подпись версии. Об установке через npm и pnpm, установке вручную и параметрах установщика рассказано в разделе [Установка frost](#installing).
 
 ## 2. Настройте
 

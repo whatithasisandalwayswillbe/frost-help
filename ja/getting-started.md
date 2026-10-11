@@ -12,13 +12,19 @@ Node.js などを事前にインストールする必要はありません。fro
 
 ## 1. frost をインストールする
 
-macOS や Linux ではターミナルで次のコマンドを実行します。Windows では Git Bash で実行します。
+macOS や Linux では、ターミナルで次のコマンドを実行します。
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
 ```
 
-インストーラは、何かをインストールする前にリリースの署名を確認します。手動でのインストールやインストーラのオプションについては、[frost のインストール](#installing)を参照してください。
+Windows では、PowerShell で次のコマンドを実行します。
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
+インストーラは、何かをインストールする前にリリースの署名を確認します。npm や pnpm でのインストール、手動でのインストール、インストーラのオプションについては、[frost のインストール](#installing)を参照してください。
 
 ## 2. 設定する
 

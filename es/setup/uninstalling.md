@@ -34,10 +34,23 @@ En Windows, en PowerShell:
 
 ```powershell
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\frost", "$env:APPDATA\frost"
-Remove-Item -Force "$HOME\bin\frost", "$HOME\bin\frost.cmd"
+Remove-Item -Force "$HOME\bin\frost", "$HOME\bin\frost.cmd" -ErrorAction SilentlyContinue
 ```
 
-Si instalaste el lanzador en otro sitio, bórralo de allí.
+El instalador de Windows también añadió `%LocalAppData%\frost\bin` a tu `PATH`. Esto la quita de nuevo:
+
+```powershell
+$environment = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment', $true)
+$path = $environment.GetValue('Path', '', 'DoNotExpandEnvironmentNames') -split ';' | Where-Object { $_ -and [Environment]::ExpandEnvironmentVariables($_).TrimEnd('\') -ne "$env:LOCALAPPDATA\frost\bin" }
+$environment.SetValue('Path', ($path -join ';'), 'ExpandString')
+```
+
+Si instalaste el lanzador en otro sitio, bórralo de allí. Si instalaste con npm o pnpm, quita también el paquete:
+
+```sh
+npm uninstall -g getfrost
+pnpm remove -g getfrost
+```
 
 ## 3. Borra tus copias, si quieres
 

@@ -14,10 +14,16 @@
 
 ## 安装程序
 
-在 macOS 或 Linux 上，在终端中运行下面的命令。在 Windows 上，请在 Git Bash 中运行。
+在 macOS 或 Linux 上，在终端中运行：
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+```
+
+在 Windows 上，在 PowerShell 中运行：
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
 安装程序会：
@@ -26,9 +32,11 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 2. 检查发布版本的签名和下载文件的校验和，只要有一项不对就停止。
 3. 把 frost 安装到你的用户目录中，并在 `PATH` 中的某个文件夹里放一个 `frost` 启动器。
 
-它需要 `curl` 或 `wget`、OpenSSH 8.1 或更新版本中的 `ssh-keygen`，以及 `sha256sum` 或 `shasum` 来验证下载。在 macOS 和 Linux 上使用 `tar` 解压，在 Windows 上使用 `unzip` 或 PowerShell。Windows 安装程序还需要 Git Bash 提供的 `cygpath`。
+在 macOS 和 Linux 上，它需要 `curl` 或 `wget`、OpenSSH 8.1 或更新版本中的 `ssh-keygen`，以及 `sha256sum` 或 `shasum` 来验证下载。在 Windows 上，它需要 Windows 10 和 11 自带的 Windows PowerShell 5.1，或者 PowerShell 7。它用发布版本里自带的运行时来检查签名，前提是 Windows 已确认这个运行时由 OpenJS Foundation 签名。
 
-如果你有 `/usr/local/bin` 的写入权限，启动器会放在那里，否则放在 `~/.local/bin`。在 Windows 上，启动器放在 `~/bin`。如果这个文件夹还不在你的 `PATH` 中，安装程序会打印出添加它的命令。
+在 macOS 和 Linux 上，如果你有 `/usr/local/bin` 的写入权限，启动器会放在那里，否则放在 `~/.local/bin`。如果这个文件夹还不在你的 `PATH` 中，安装程序会打印出添加它的命令。在 Windows 上，启动器放在 `%LocalAppData%\frost\bin`，安装程序会把这个文件夹加入你的 `PATH`。安装之前就已打开的终端需要重新打开，才能找到 `frost`。
+
+`curl` 安装程序也能在 Windows 的 Git Bash 中使用。在那里，它需要 Git Bash 提供的 `cygpath`，用 `unzip` 或 PowerShell 解压，并把启动器放在 `~/bin`。
 
 安装完成后，运行 `frost init` 来设置你的第一次备份。参见[设置 frost](#setting-up)。
 
@@ -36,16 +44,40 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 
 | 变量 | 作用 |
 | --- | --- |
-| `FROST_INSTALL_DIR` | 把启动器放到这个文件夹中 |
+| `FROST_INSTALL_DIR` | 把启动器放到这个文件夹中。Windows 安装程序不会为它修改你的 `PATH` |
 | `FROST_VERSION` | 安装指定的发布版本，比如 `v0.1.0`，而不是最新版本 |
 
-例如：
+例如，在 macOS 或 Linux 上：
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
+在 Windows 上，先在同一个 PowerShell 窗口中设置变量：
+
+```powershell
+$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
 更改启动器所在的文件夹，不会移动 frost 本身。[文件与文件夹](#files-and-folders)列出了所有内容的位置。
+
+## 使用 npm 或 pnpm
+
+如果你已经装有 Node.js 22 或更新版本，可以用 npm 安装 frost：
+
+```sh
+npm install -g getfrost
+```
+
+或者用 pnpm：
+
+```sh
+pnpm add -g getfrost
+```
+
+这个包叫 `getfrost`，它提供的命令是 `frost`。第一次运行 `frost` 时，它会下载适合你系统的发布版本，像安装程序一样检查签名和校验和，并把它安装到你的用户目录中，然后运行你的命令。此后，每个 `frost` 命令都会直接交给已安装的 frost，而 frost 会自己保持更新。
+
+使用 pnpm 时，如果你以前没有运行过 `pnpm setup`，请先运行它，这样 pnpm 的全局命令才会在你的 `PATH` 中。
 
 ## 手动安装
 

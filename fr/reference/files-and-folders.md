@@ -12,7 +12,7 @@ frost range l'application, vos réglages et son cache dans des dossiers distinct
 
 Le dossier de l'application contient l'environnement d'exécution fourni et chaque version installée. Gardez-le intact.
 
-Le lanceur `frost` se trouve dans `/usr/local/bin` ou `~/.local/bin` sous macOS et Linux, et dans `~/bin` sous Windows, sauf si vous avez choisi un autre dossier à l'installation. Voir [Installer frost](#installing).
+Le lanceur `frost` se trouve dans `/usr/local/bin` ou `~/.local/bin` sous macOS et Linux, et dans `%LocalAppData%\frost\bin` sous Windows, sauf si vous avez choisi un autre dossier à l'installation. L'installateur Git Bash utilise `~/bin`. Avec npm ou pnpm, `frost` se trouve là où ils rangent les commandes globales. Voir [Installer frost](#installing).
 
 ## Réglages et clé
 

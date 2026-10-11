@@ -106,7 +106,13 @@ frost 是通过包管理器安装的，或者它所在的文件夹不可写，�
 
 | 安装程序的提示 | 该怎么做 |
 | --- | --- |
-| need OpenSSH 8.1+ to verify the frost release signature | 安装或更新 OpenSSH。在 Windows 上，Git for Windows 自带 OpenSSH |
+| need OpenSSH 8.1+ to verify the frost release signature | 安装或更新 OpenSSH。在 Windows 上，请改用 PowerShell 安装程序 |
 | checksums.txt isn't signed by the frost release key. Don't install this. | 不要安装。稍后再试，如果一直出现，请[报告这个问题](#getting-help) |
+| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | 不要安装。稍后再试，如果一直出现，请[报告这个问题](#getting-help) |
 | checksum mismatch | 下载的文件损坏了。重新运行安装程序 |
 | 32-bit ARM isn't supported by the bundled runtime | 没有适用于这台电脑的 frost 安装包 |
+| installing frost needs Node.js 22 or newer | 更新 Node.js，或者改用安装程序，不用 npm 或 pnpm |
+
+## 安装后找不到 `frost`
+
+打开一个新的终端。安装 frost 时已经打开的终端看不到新的 `PATH`。使用 pnpm 时，先运行一次 `pnpm setup`，再打开一个新的终端。

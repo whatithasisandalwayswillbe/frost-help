@@ -12,7 +12,7 @@ frost는 애플리케이션, 설정, 캐시를 컴퓨터의 서로 다른 폴더
 
 애플리케이션 폴더에는 포함된 런타임과 설치된 각 버전이 들어 있습니다. 내용을 그대로 두세요.
 
-`frost` 런처는 설치할 때 다른 폴더를 고르지 않았다면 macOS와 Linux에서는 `/usr/local/bin`이나 `~/.local/bin`에, Windows에서는 `~/bin`에 있습니다. 자세한 내용은 [frost 설치](#installing)를 참고하세요.
+`frost` 런처는 설치할 때 다른 폴더를 고르지 않았다면 macOS와 Linux에서는 `/usr/local/bin`이나 `~/.local/bin`에, Windows에서는 `%LocalAppData%\frost\bin`에 있습니다. Git Bash 설치 프로그램을 썼다면 `~/bin`에 있습니다. npm이나 pnpm으로 설치했다면 `frost`는 각 도구가 전역 명령어를 두는 곳에 있습니다. 자세한 내용은 [frost 설치](#installing)를 참고하세요.
 
 ## 설정과 키
 

@@ -12,13 +12,19 @@ You don't need to install Node.js or anything else first. frost brings its own r
 
 ## 1. Install frost
 
-On macOS or Linux, run this in a terminal. On Windows, run it in Git Bash.
+On macOS or Linux, run this in a terminal:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
 ```
 
-The installer checks the release's signature before it installs anything. [Installing frost](#installing) covers manual installs and installer options.
+On Windows, run this in PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
+The installer checks the release's signature before it installs anything. [Installing frost](#installing) covers npm and pnpm, manual installs and installer options.
 
 ## 2. Set it up
 

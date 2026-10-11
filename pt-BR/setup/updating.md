@@ -1,6 +1,8 @@
 # Atualizar o frost
 
-O frost se atualiza sozinho. Por padrão, ele instala as versões novas depois dos backups agendados.
+O frost se atualiza sozinho, inclusive quando você o instalou com npm ou pnpm. Por padrão, ele instala as versões novas depois dos backups agendados.
+
+Você não precisa atualizar o pacote `getfrost` por conta própria. Um pacote mais antigo nunca substitui um frost mais novo.
 
 ## Atualizar agora
 

@@ -12,13 +12,19 @@ Node.js 등 다른 프로그램을 미리 설치할 필요는 없습니다. fros
 
 ## 1. frost 설치하기
 
-macOS나 Linux에서는 터미널에서 다음 명령어를 실행합니다. Windows에서는 Git Bash에서 실행합니다.
+macOS나 Linux에서는 터미널에서 다음 명령어를 실행합니다.
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
 ```
 
-설치 프로그램은 무엇이든 설치하기 전에 릴리스의 서명부터 확인합니다. 수동 설치와 설치 프로그램 옵션은 [frost 설치](#installing)에서 설명합니다.
+Windows에서는 PowerShell에서 다음 명령어를 실행합니다.
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
+설치 프로그램은 무엇이든 설치하기 전에 릴리스의 서명부터 확인합니다. npm과 pnpm, 수동 설치, 설치 프로그램 옵션은 [frost 설치](#installing)에서 설명합니다.
 
 ## 2. 설정하기
 

@@ -1,6 +1,8 @@
 # Actualizar frost
 
-frost se actualiza solo. De forma predeterminada, instala las versiones nuevas después de las copias programadas.
+frost se actualiza solo, también si lo instalaste con npm o pnpm. De forma predeterminada, instala las versiones nuevas después de las copias programadas.
+
+No hace falta que actualices tú el paquete `getfrost`. Uno más antiguo nunca reemplaza a un frost más nuevo.
 
 ## Actualizar ahora
 

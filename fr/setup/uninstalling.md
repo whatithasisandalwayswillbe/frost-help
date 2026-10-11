@@ -34,10 +34,23 @@ Sous Windows, dans PowerShell :
 
 ```powershell
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\frost", "$env:APPDATA\frost"
-Remove-Item -Force "$HOME\bin\frost", "$HOME\bin\frost.cmd"
+Remove-Item -Force "$HOME\bin\frost", "$HOME\bin\frost.cmd" -ErrorAction SilentlyContinue
 ```
 
-Si vous avez installé le lanceur ailleurs, supprimez-le à cet endroit.
+L'installateur Windows a aussi ajouté `%LocalAppData%\frost\bin` à votre `PATH`. Ceci l'en retire :
+
+```powershell
+$environment = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment', $true)
+$path = $environment.GetValue('Path', '', 'DoNotExpandEnvironmentNames') -split ';' | Where-Object { $_ -and [Environment]::ExpandEnvironmentVariables($_).TrimEnd('\') -ne "$env:LOCALAPPDATA\frost\bin" }
+$environment.SetValue('Path', ($path -join ';'), 'ExpandString')
+```
+
+Si vous avez installé le lanceur ailleurs, supprimez-le à cet endroit. Si vous avez installé frost avec npm ou pnpm, retirez aussi le paquet :
+
+```sh
+npm uninstall -g getfrost
+pnpm remove -g getfrost
+```
 
 ## 3. Supprimez vos sauvegardes, si vous le souhaitez
 

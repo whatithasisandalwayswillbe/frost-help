@@ -32,7 +32,7 @@ Er kann nicht prüfen, ob du eine bestimmte bekannte Datei hast. Sowohl die Bloc
 - Vor jemandem im Netzwerk zwischen dir und deinem Speicher. Verbindungen nutzen TLS, außer du wählst einen S3-Endpunkt mit `http://` oder aktivierst `storage.s3.insecure` für einen Endpunkt ohne Protokollangabe. Permafrost erlaubt `http://` nur auf deinem eigenen Computer. Nutze unverschlüsseltes HTTP nur für lokale Tests. Jedes Backup-Objekt ist in beiden Fällen authentifiziert.
 - Vor Manipulation. Ein verändertes, vertauschtes oder abgeschnittenes Objekt lässt sich nicht entschlüsseln, und frost akzeptiert es nie stillschweigend.
 - Davor, dass eine Wiederherstellung außerhalb des gewählten Ordners schreibt.
-- Vor manipulierten frost-Downloads. Jede Version ist signiert, und das Installationsprogramm und `frost update` prüfen die Signatur, bevor sie etwas installieren.
+- Vor manipulierten frost-Downloads. Jede Version ist signiert, und die Installationsprogramme, das npm-Paket `getfrost` und `frost update` prüfen die Signatur, bevor sie etwas installieren.
 
 ## Wovor es nicht schützen kann
 

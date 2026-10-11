@@ -14,10 +14,16 @@ There's no package for 32-bit ARM, like older Raspberry Pi systems. On Windows, 
 
 ## The installer
 
-On macOS or Linux, run this in a terminal. On Windows, run it in Git Bash.
+On macOS or Linux, run this in a terminal:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+```
+
+On Windows, run this in PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
 The installer:
@@ -26,9 +32,11 @@ The installer:
 2. Checks the release's signature and the download's checksum, and stops if either is wrong.
 3. Installs frost in your user profile, and puts a `frost` launcher in a folder on your `PATH`.
 
-It needs `curl` or `wget`, `ssh-keygen` from OpenSSH 8.1 or newer, and `sha256sum` or `shasum` for verification. Extraction uses `tar` on macOS and Linux, and `unzip` or PowerShell on Windows. Git Bash provides `cygpath`, which the Windows installer also needs.
+On macOS and Linux, it needs `curl` or `wget`, `ssh-keygen` from OpenSSH 8.1 or newer, and `sha256sum` or `shasum` for verification. On Windows, it needs Windows PowerShell 5.1, which comes with Windows 10 and 11, or PowerShell 7. It checks the signature with the runtime inside the release, once Windows confirms the OpenJS Foundation signed that runtime.
 
-The launcher goes in `/usr/local/bin` if you can write to it, and in `~/.local/bin` otherwise. On Windows it goes in `~/bin`. If that folder isn't on your `PATH` yet, the installer prints the line that adds it.
+On macOS and Linux, the launcher goes in `/usr/local/bin` if you can write to it, and in `~/.local/bin` otherwise. If that folder isn't on your `PATH` yet, the installer prints the line that adds it. On Windows, the launcher goes in `%LocalAppData%\frost\bin`, and the installer adds that folder to your `PATH`. Terminals that were already open need restarting before they find `frost`.
+
+The `curl` installer also works in Git Bash on Windows. There it needs `cygpath`, which Git Bash provides, extracts with `unzip` or PowerShell, and puts the launcher in `~/bin`.
 
 When it's done, run `frost init` to set up your first backup. See [Setting up frost](#setting-up).
 
@@ -36,16 +44,40 @@ When it's done, run `frost init` to set up your first backup. See [Setting up fr
 
 | Variable | Does |
 | --- | --- |
-| `FROST_INSTALL_DIR` | Puts the launcher in this folder instead |
+| `FROST_INSTALL_DIR` | Puts the launcher in this folder instead. The Windows installer leaves your `PATH` alone for it |
 | `FROST_VERSION` | Installs this release, like `v0.1.0`, instead of the latest |
 
-For example:
+For example, on macOS or Linux:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
+On Windows, set the variable first, in the same PowerShell window:
+
+```powershell
+$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
 Changing the launcher folder doesn't move frost itself. [Files and folders](#files-and-folders) lists where everything goes.
+
+## With npm or pnpm
+
+If you already have Node.js 22 or newer, you can install frost with npm:
+
+```sh
+npm install -g getfrost
+```
+
+Or with pnpm:
+
+```sh
+pnpm add -g getfrost
+```
+
+The package is called `getfrost`, and the command it gives you is `frost`. The first time you run `frost`, it downloads the release for your system, checks its signature and checksum like the installer does, and installs it in your user profile. Then it runs your command. After that, every `frost` command goes straight to the installed frost, which keeps itself up to date.
+
+With pnpm, run `pnpm setup` first if you haven't before, so pnpm's global commands are on your `PATH`.
 
 ## Installing by hand
 

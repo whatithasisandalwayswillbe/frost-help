@@ -12,7 +12,7 @@ frost legt die Anwendung, deine Einstellungen und seinen Cache in getrennten Ord
 
 Der Anwendungsordner enthält die mitgelieferte Laufzeitumgebung und jede installierte Version. Lass ihn vollständig.
 
-Der `frost`-Starter liegt unter macOS und Linux in `/usr/local/bin` oder `~/.local/bin` und unter Windows in `~/bin`, sofern du bei der Installation keinen anderen Ordner gewählt hast. Siehe [frost installieren](#installing).
+Der `frost`-Starter liegt unter macOS und Linux in `/usr/local/bin` oder `~/.local/bin` und unter Windows in `%LocalAppData%\frost\bin`, sofern du bei der Installation keinen anderen Ordner gewählt hast. Das Installationsprogramm für Git Bash nutzt stattdessen `~/bin`. Mit npm oder pnpm liegt `frost` dort, wo sie globale Befehle ablegen. Siehe [frost installieren](#installing).
 
 ## Einstellungen und Schlüssel
 

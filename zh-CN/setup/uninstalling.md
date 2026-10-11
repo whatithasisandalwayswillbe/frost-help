@@ -34,10 +34,23 @@ rm -f /usr/local/bin/frost ~/.local/bin/frost
 
 ```powershell
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\frost", "$env:APPDATA\frost"
-Remove-Item -Force "$HOME\bin\frost", "$HOME\bin\frost.cmd"
+Remove-Item -Force "$HOME\bin\frost", "$HOME\bin\frost.cmd" -ErrorAction SilentlyContinue
 ```
 
-如果你把启动器装在了别的地方，请到那里删除它。
+Windows 安装程序还把 `%LocalAppData%\frost\bin` 加入了你的 `PATH`。下面的命令会把它移除：
+
+```powershell
+$environment = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment', $true)
+$path = $environment.GetValue('Path', '', 'DoNotExpandEnvironmentNames') -split ';' | Where-Object { $_ -and [Environment]::ExpandEnvironmentVariables($_).TrimEnd('\') -ne "$env:LOCALAPPDATA\frost\bin" }
+$environment.SetValue('Path', ($path -join ';'), 'ExpandString')
+```
+
+如果你把启动器装在了别的地方，请到那里删除它。如果你是用 npm 或 pnpm 安装的，也请删除这个包：
+
+```sh
+npm uninstall -g getfrost
+pnpm remove -g getfrost
+```
 
 ## 3. 删除备份（如果你愿意）
 

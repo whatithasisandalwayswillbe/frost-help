@@ -1,6 +1,8 @@
 # Mettre à jour frost
 
-frost se met à jour tout seul. Par défaut, il installe les nouvelles versions après les sauvegardes planifiées.
+frost se met à jour tout seul, y compris si vous l'avez installé avec npm ou pnpm. Par défaut, il installe les nouvelles versions après les sauvegardes planifiées.
+
+Inutile de mettre à jour vous-même le paquet `getfrost`. Un paquet plus ancien ne remplace jamais un frost plus récent.
 
 ## Mettre à jour maintenant
 
