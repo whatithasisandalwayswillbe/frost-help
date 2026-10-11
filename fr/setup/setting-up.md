@@ -10,7 +10,7 @@ Dans un terminal, `frost init` ouvre un assistant en plein écran. Il lui faut u
 
 Choisissez où vont vos sauvegardes :
 
-- **Permafrost**, l'option recommandée. Une seule clé d'accès suffit, et si vous n'en avez pas encore, frost peut vous en obtenir une dans votre navigateur. Voir [Permafrost](#permafrost).
+- **Permafrost**, l'option recommandée. Une seule clé d'accès suffit, et si vous n'en avez pas encore, frost ouvre getfro.st/perma pour que vous en obteniez une. Voir [Permafrost](#permafrost).
 - **Backblaze B2**, **Amazon S3**, **Cloudflare R2** ou **Wasabi**. L'assistant ne demande que ce dont ce fournisseur a besoin, et indique où trouver chaque réponse.
 - **Other S3-compatible** (autre service compatible S3), pour MinIO, Ceph et les autres services qui parlent le protocole S3.
 
@@ -71,4 +71,4 @@ Pour un nouvel emplacement, utilisez `frost config edit`, acceptez l'avertisseme
 
 ## Sans terminal plein écran
 
-Quand frost ne tourne pas dans un terminal interactif, par exemple avec une entrée redirigée, `frost init` pose des questions simples, une par ligne. Au lieu de la liste des fournisseurs, il propose Permafrost ou un bucket générique compatible S3, et il demande aussi le dossier dans le bucket. Les listes sont séparées par des virgules, et `-` laisse la liste d'exclusions vide. L'obtention d'une clé Permafrost dans le navigateur fonctionne aussi dans ce mode.
+Quand frost ne tourne pas dans un terminal interactif, par exemple avec une entrée redirigée, `frost init` pose des questions simples, une par ligne. Au lieu de la liste des fournisseurs, il propose Permafrost ou un bucket générique compatible S3, et il demande aussi le dossier dans le bucket. Les listes sont séparées par des virgules, et `-` laisse la liste d'exclusions vide. Dans ce mode aussi, frost ouvre getfro.st/perma si vous avez besoin d'une clé Permafrost.

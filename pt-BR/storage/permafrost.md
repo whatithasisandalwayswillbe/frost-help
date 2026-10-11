@@ -7,28 +7,39 @@ Seus backups são criptografados no seu computador antes do envio, como em qualq
 ## Conseguir uma chave
 
 1. Execute `frost init` e escolha **Permafrost**.
-2. Escolha **I don't have a key yet** (ainda não tenho uma chave). O frost abre uma página no navegador onde você pode conseguir uma.
-3. Quando você tiver a chave, a página a devolve para o frost, que a salva na hora. Mesmo que você saia da configuração depois, ela não se perde.
-
-Se o navegador não abrir, acesse [getfro.st/perma](https://getfro.st/perma) e pressione `[p]` na configuração para colar a chave que a página der. Se a obtenção da chave não terminar, pressione `[r]` para tentar de novo ou `[p]` para colar uma chave. O frost espera até 25 minutos.
+2. Escolha **I don't have a key yet** (ainda não tenho uma chave). O frost abre [getfro.st/perma](https://getfro.st/perma) no navegador. Se ele não abrir, acesse o endereço você mesmo.
+3. Consiga a sua chave lá e copie.
+4. Cole a chave na configuração.
 
 Se você já tem uma chave, escolha **I have a key** (tenho uma chave) e cole a chave.
 
-## Como a chave chega ao frost
+## Conseguir uma chave nova
 
-Enquanto espera, o frost escuta em `127.0.0.1`, um endereço que só o seu próprio computador alcança. Ele entrega à página um valor aleatório e só aceita uma chave que volte com esse mesmo valor, então nenhuma outra página consegue empurrar para o frost uma chave dela.
+Se você perder a sua chave, acesse [getfro.st/perma/recover](https://getfro.st/perma/recover) e informe o e-mail que usou para consegui-la. O e-mail que você recebe leva a uma chave nova. A nova substitui a antiga, que para de funcionar em todos os computadores.
 
-A página também mostra a chave para você, que pode copiá-la para o frost, por exemplo quando o navegador está em outro computador.
+Em cada computador que usa o Permafrost, troque pela chave nova:
 
-## Chaves recusadas
+```sh
+frost config set storage.permafrost.token <new key>
+```
 
-Se o Permafrost deixar de aceitar a sua chave de acesso, os comandos que acessam seus backups param com um erro que explica isso. Execute `frost init` e configure o armazenamento de novo para conseguir uma chave que funcione.
+Enquanto o Permafrost não estiver aceitando envios, o `frost config set` não consegue fazer a verificação do armazenamento. Use `frost config edit` no lugar e coloque a chave em `token`, dentro de `[storage.permafrost]`.
 
-| A configuração diz | O que fazer |
+## Espaço usado
+
+O `frost status` mostra quanto do seu armazenamento no Permafrost você usa. Quando o Permafrost tem algo a avisar, como o armazenamento estar quase cheio, o `frost status` e o `frost backup` mostram isso como um aviso. Veja [Verificar seus backups](#checking-backups).
+
+## Quando o Permafrost recusa
+
+Os erros do Permafrost dizem o motivo. Os comandos que acessam seus backups param com essa mensagem.
+
+| Você vê | O que significa |
 | --- | --- |
-| Permafrost didn't accept that access key | Confira se você copiou a chave inteira. Ela também pode ter expirado |
-| That access key can't store backups | Confira as permissões dela na sua conta do Permafrost |
-| your Permafrost storage is full | A sua conta está sem espaço livre. Confira a sua conta do Permafrost |
+| the Permafrost access key was rejected | A chave está errada, uma chave mais nova a substituiu ou a conta foi encerrada. A mensagem diz qual dos casos. Use a sua chave mais recente ou consiga uma nova |
+| uploads are paused | O Permafrost não está aceitando backups novos por enquanto. Restaurar continua funcionando. A mensagem diz por quê, até quando e o que fazer |
+| your Permafrost storage is full | O envio não cabe. A mensagem diz quanto você armazena e o que fazer |
+
+Na configuração, os dois primeiros aparecem como "Permafrost didn't accept that access key" e "Permafrost won't store backups with that access key", seguidos do mesmo motivo.
 
 ## O seu próprio servidor
 
@@ -48,4 +59,4 @@ Depois execute `frost init`, escolha Permafrost, cole a sua chave de acesso, esc
 
 Se o frost já estiver configurado, use `frost config edit` para mudar o backend e o endereço do servidor juntos no arquivo existente. Aceite o aviso se o novo servidor estiver vazio, digite `yes` para salvar e execute `frost init` de novo. O `frost config set` recusa um destino vazio, então não pode preparar um novo servidor.
 
-O endereço precisa usar `https://`, exceto para um servidor no seu próprio computador, como `http://localhost:8080`. Deixe a configuração vazia para usar o servidor padrão do Permafrost.
+O endereço precisa usar `https://`, exceto para um servidor no seu próprio computador, como `http://localhost:8080`. Deixe a configuração vazia para usar o servidor padrão do Permafrost, `https://permafrost.wihiaawb.com`.

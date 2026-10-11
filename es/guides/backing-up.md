@@ -34,6 +34,8 @@ Si nada ha cambiado, frost no guarda una instantánea nueva:
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
+Con Permafrost, una copia termina con un aviso `storage` cuando Permafrost tiene algo que contarte, como que el almacenamiento está casi lleno.
+
 Con las copias automáticas activadas, rara vez tendrás que ejecutar esto tú. Consulta [Copias de seguridad automáticas](#scheduling).
 
 ## Ver una vista previa

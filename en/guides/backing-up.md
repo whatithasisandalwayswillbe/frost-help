@@ -34,6 +34,8 @@ If nothing changed, frost doesn't save a new snapshot:
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
+With Permafrost, a backup ends with a `storage` warning when Permafrost has something to tell you, such as storage that's nearly full.
+
 With automatic backups on, you rarely need to run this yourself. See [Automatic backups](#scheduling).
 
 ## Preview a backup

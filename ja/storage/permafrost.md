@@ -7,28 +7,39 @@ Permafrost は、frost のために作られたホスト型ストレージです
 ## キーを取得する
 
 1. `frost init` を実行し、**Permafrost** を選びます。
-2. **I don't have a key yet** (まだキーを持っていない) を選びます。frost がブラウザでページを開くので、そこでキーを取得します。
-3. キーを取得すると、ページがそれを frost に送り返し、frost がすぐに保存します。そのあとでセットアップを終了しても、キーは失われません。
-
-ブラウザが開かない場合は、自分で [getfro.st/perma](https://getfro.st/perma) を開き、セットアップで `[p]` を押して、表示されたキーを貼り付けます。キーの取得が完了しない場合は、`[r]` で再試行するか、`[p]` でキーを貼り付けます。frost は最大 25 分待ちます。
+2. **I don't have a key yet** (まだキーを持っていない) を選びます。frost がブラウザで [getfro.st/perma](https://getfro.st/perma) を開きます。開かない場合は、自分で開いてください。
+3. そこでキーを取得してコピーします。
+4. セットアップに貼り付けます。
 
 すでにキーを持っている場合は、**I have a key** (キーを持っている) を選んで貼り付けます。
 
-## キーが frost に届くしくみ
+## 新しいキーを取得する
 
-待っている間、frost は `127.0.0.1` で待ち受けます。このアドレスには、お使いのコンピュータからしか接続できません。frost はページにランダムな値を渡し、同じ値と一緒に戻ってきたキーだけを受け付けます。そのため、ほかのページが自分のキーを frost に紛れ込ませることはできません。
+キーをなくした場合は、[getfro.st/perma/recover](https://getfro.st/perma/recover) を開き、キーを取得したときのメールアドレスを入力します。届いたメールのリンクから新しいキーを受け取れます。新しいキーは古いキーに置き換わり、古いキーはどのコンピュータでも使えなくなります。
 
-ページにはキーも表示されるので、ブラウザが別のコンピュータにある場合などは、自分で frost にコピーできます。
+Permafrost を使っているコンピュータごとに、新しいキーに切り替えます。
 
-## キーが拒否された場合
+```sh
+frost config set storage.permafrost.token <new key>
+```
 
-Permafrost がアクセスキーを受け付けなくなると、バックアップにアクセスするコマンドが、その旨のエラーで止まります。`frost init` を実行してストレージを設定し直し、使えるキーを取得してください。
+Permafrost がアップロードを受け付けていない間は、`frost config set` がストレージの確認を行えません。代わりに `frost config edit` を使い、`[storage.permafrost]` の `token` にキーを入れてください。
 
-| セットアップの表示 | 対処 |
+## ストレージの使用量
+
+`frost status` には、Permafrost のストレージをどれだけ使っているかが表示されます。ストレージがほぼいっぱいになったときなど、Permafrost から知らせることがある場合は、`frost status` と `frost backup` が警告として表示します。詳しくは[バックアップの確認](#checking-backups)を参照してください。
+
+## Permafrost に拒否された場合
+
+Permafrost のエラーには理由が書かれています。バックアップにアクセスするコマンドは、そのメッセージで止まります。
+
+| 表示 | 意味 |
 | --- | --- |
-| Permafrost didn't accept that access key | キーを最後までコピーしたか確認してください。期限切れの可能性もあります |
-| That access key can't store backups | Permafrost のアカウントで、そのキーの権限を確認してください |
-| your Permafrost storage is full | アカウントの空き容量がありません。Permafrost のアカウントを確認してください |
+| the Permafrost access key was rejected | キーが間違っている、新しいキーに置き換えられた、またはアカウントが閉じられた、のいずれかです。どれに当たるかはメッセージに書かれています。最新のキーを使うか、新しいキーを取得してください |
+| uploads are paused | Permafrost は今のところ新しいバックアップを受け付けていません。復元は引き続き使えます。理由、期限、対処はメッセージに書かれています |
+| your Permafrost storage is full | このアップロードは収まりません。保存している量と対処はメッセージに書かれています |
+
+セットアップでは、最初の 2 つは "Permafrost didn't accept that access key" と "Permafrost won't store backups with that access key" と表示され、そのあとに同じ理由が続きます。
 
 ## 自分のサーバー
 
@@ -48,4 +59,4 @@ url = "https://<your-server>"
 
 すでに frost を設定済みの場合は、`frost config edit` で既存のファイルを開き、バックエンドとサーバーのアドレスを一緒に変更します。新しいサーバーが空なら警告を確認し、`yes` と入力して保存したあと、`frost init` をもう一度実行してください。`frost config set` は空の保存先を拒否するので、新しいサーバーの準備には使えません。
 
-アドレスには `https://` を使う必要があります。例外は、`http://localhost:8080` のように自分のコンピュータで動かすサーバーだけです。この設定を空にすると、既定の Permafrost サーバーを使います。
+アドレスには `https://` を使う必要があります。例外は、`http://localhost:8080` のように自分のコンピュータで動かすサーバーだけです。この設定を空にすると、既定の Permafrost サーバー `https://permafrost.wihiaawb.com` を使います。

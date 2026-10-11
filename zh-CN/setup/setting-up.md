@@ -10,7 +10,7 @@
 
 选择备份存放的位置：
 
-- **Permafrost**，推荐的选项。它只需要一个访问密钥，别的都不用设置。如果你还没有密钥，frost 可以在浏览器中帮你获取一个。参见 [Permafrost](#permafrost)。
+- **Permafrost**，推荐的选项。它只需要一个访问密钥，别的都不用设置。如果你还没有密钥，frost 会打开 getfro.st/perma，让你在那里获取一个。参见 [Permafrost](#permafrost)。
 - **Backblaze B2**、**Amazon S3**、**Cloudflare R2** 或 **Wasabi**。设置程序只会问这个服务商需要的信息，并告诉你每一项答案在哪里找。
 - **Other S3-compatible**（其他 S3 兼容存储），适用于 MinIO、Ceph 以及其他支持 S3 协议的服务。
 
@@ -71,4 +71,4 @@
 
 ## 没有全屏终端时
 
-如果 frost 不是在交互式终端中运行，比如输入来自管道，`frost init` 会改为一行一个地提出简单的问题。它不会显示服务商列表，而是让你在 Permafrost 和通用的 S3 兼容存储桶之间选择，并且还会询问存储桶中的文件夹。列表用逗号分隔，输入 `-` 表示跳过列表为空。在这种模式下，同样可以在浏览器中获取 Permafrost 密钥。
+如果 frost 不是在交互式终端中运行，比如输入来自管道，`frost init` 会改为一行一个地提出简单的问题。它不会显示服务商列表，而是让你在 Permafrost 和通用的 S3 兼容存储桶之间选择，并且还会询问存储桶中的文件夹。列表用逗号分隔，输入 `-` 表示跳过列表为空。在这种模式下，如果你需要 Permafrost 密钥，frost 同样会打开 getfro.st/perma。

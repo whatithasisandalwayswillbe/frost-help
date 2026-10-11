@@ -34,6 +34,8 @@ frost는 무엇이 바뀌었는지, 얼마나 업로드했는지, 표본 검사 
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
+Permafrost를 쓸 때 스토리지가 거의 찼다는 등 Permafrost가 알려 줄 것이 있으면, 백업이 끝날 때 `storage` 경고가 표시됩니다.
+
 자동 백업을 켜 두면 이 명령어를 직접 실행할 일은 거의 없습니다. 자세한 내용은 [자동 백업](#scheduling)을 참고하세요.
 
 ## 백업 미리 보기

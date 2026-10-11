@@ -35,6 +35,7 @@ La première ligne indique la version de frost, votre stockage et l'empreinte de
 | health | Le résultat de la dernière vérification par échantillonnage |
 | updates | Si les mises à jour sont automatiques, et si une nouvelle version est sortie |
 | protected | Le nombre de fichiers et la taille du dernier instantané, et le nombre total d'instantanés |
+| storage | Avec Permafrost, la part de votre stockage que vous utilisez. L'avertissement de Permafrost, s'il y en a un, vient en premier, par exemple pour un stockage presque plein |
 | missing | Des instantanés connus de cet ordinateur qui ne sont plus dans le stockage |
 
 La liste affiche vos 10 instantanés les plus récents. La colonne `new` indique la quantité de données nouvelles ajoutée par chacun. Pour les afficher tous :

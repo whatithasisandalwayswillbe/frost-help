@@ -7,28 +7,39 @@ Deine Backups werden auf deinem Computer verschlüsselt, bevor sie hochgeladen w
 ## Einen Schlüssel bekommen
 
 1. Starte `frost init` und wähle **Permafrost**.
-2. Wähle **I don't have a key yet** (ich habe noch keinen Schlüssel). frost öffnet in deinem Browser eine Seite, auf der du einen bekommst.
-3. Sobald du deinen Schlüssel hast, schickt die Seite ihn an frost zurück, und frost speichert ihn sofort. Auch wenn du die Einrichtung danach beendest, geht er nicht verloren.
-
-Öffnet sich der Browser nicht, ruf [getfro.st/perma](https://getfro.st/perma) selbst auf und drück dann in der Einrichtung `[p]`, um den Schlüssel einzufügen, den du dort bekommst. Klappt das Abholen des Schlüssels nicht, drück `[r]` für einen neuen Versuch oder `[p]`, um einen Schlüssel einzufügen. frost wartet bis zu 25 Minuten.
+2. Wähle **I don't have a key yet** (ich habe noch keinen Schlüssel). frost öffnet [getfro.st/perma](https://getfro.st/perma) in deinem Browser. Öffnet er sich nicht, ruf die Seite selbst auf.
+3. Hol dir dort deinen Schlüssel und kopier ihn.
+4. Füge ihn in der Einrichtung ein.
 
 Hast du schon einen Schlüssel, wähle **I have a key** (ich habe einen Schlüssel) und füge ihn ein.
 
-## Wie der Schlüssel zu frost gelangt
+## Einen neuen Schlüssel bekommen
 
-Während es wartet, lauscht frost auf `127.0.0.1`, das nur dein eigener Computer erreicht. Es gibt der Seite einen Zufallswert mit und nimmt nur einen Schlüssel an, der mit genau diesem Wert zurückkommt. Keine andere Seite kann frost also einen eigenen Schlüssel unterschieben.
+Hast du deinen Schlüssel verloren, ruf [getfro.st/perma/recover](https://getfro.st/perma/recover) auf und gib die E-Mail-Adresse ein, mit der du ihn bekommen hast. Die E-Mail, die du dann erhältst, führt dich zu einem neuen Schlüssel. Der neue ersetzt den alten, und der alte funktioniert danach auf keinem Computer mehr.
 
-Die Seite zeigt dir den Schlüssel außerdem an, damit du ihn selbst in frost kopieren kannst, zum Beispiel wenn der Browser auf einem anderen Computer läuft.
+Setz den neuen Schlüssel auf jedem Computer ein, der Permafrost nutzt:
 
-## Abgelehnte Schlüssel
+```sh
+frost config set storage.permafrost.token <new key>
+```
 
-Akzeptiert Permafrost deinen Zugriffsschlüssel nicht mehr, brechen Befehle, die auf deine Backups zugreifen, mit einer entsprechenden Fehlermeldung ab. Starte `frost init` und richte den Speicher neu ein, um einen funktionierenden Schlüssel zu bekommen.
+Solange Permafrost keine Uploads annimmt, kann `frost config set` seine Speicherprüfung nicht durchführen. Nimm dann stattdessen `frost config edit` und trag den Schlüssel bei `token` unter `[storage.permafrost]` ein.
 
-| Die Einrichtung meldet | Was du tust |
+## Belegter Speicher
+
+`frost status` zeigt, wie viel von deinem Permafrost-Speicher belegt ist. Hat Permafrost dir etwas mitzuteilen, etwa dass der Speicher fast voll ist, zeigen `frost status` und `frost backup` das als Warnung an. Siehe [Backups prüfen](#checking-backups).
+
+## Wenn Permafrost ablehnt
+
+Die Fehlermeldungen von Permafrost nennen den Grund. Befehle, die auf deine Backups zugreifen, brechen mit dieser Meldung ab.
+
+| Du siehst | Was es bedeutet |
 | --- | --- |
-| Permafrost didn't accept that access key | Prüf, ob du ihn vollständig kopiert hast. Er kann auch abgelaufen sein |
-| That access key can't store backups | Prüf seine Berechtigungen in deinem Permafrost-Konto |
-| your Permafrost storage is full | Dein Konto hat keinen freien Platz mehr. Sieh in deinem Permafrost-Konto nach |
+| the Permafrost access key was rejected | Der Schlüssel ist falsch, ein neuerer hat ihn ersetzt, oder das Konto wurde geschlossen. Die Meldung sagt, was davon zutrifft. Nimm deinen neuesten Schlüssel oder hol dir einen neuen |
+| uploads are paused | Permafrost nimmt gerade keine neuen Backups an. Wiederherstellen klappt weiterhin. Die Meldung sagt, warum, bis wann und was zu tun ist |
+| your Permafrost storage is full | Der Upload passt nicht mehr hinein. Die Meldung sagt, wie viel du speicherst und was zu tun ist |
+
+In der Einrichtung lauten die ersten beiden „Permafrost didn't accept that access key“ und „Permafrost won't store backups with that access key“, gefolgt vom selben Grund.
 
 ## Dein eigener Server
 
@@ -48,4 +59,4 @@ Starte dann `frost init`, wähle Permafrost, füge deinen Zugriffsschlüssel ein
 
 Ist frost schon eingerichtet, ändere mit `frost config edit` das Backend und die Serveradresse gemeinsam in der vorhandenen Datei. Bestätige die Warnung, wenn der neue Server leer ist, tipp `yes` zum Speichern und starte `frost init` erneut. `frost config set` lehnt ein leeres Ziel ab und kann deshalb keinen neuen Server vorbereiten.
 
-Die Adresse muss `https://` verwenden, außer bei einem Server auf deinem eigenen Computer, etwa `http://localhost:8080`. Lass die Einstellung leer, um den Standardserver von Permafrost zu verwenden.
+Die Adresse muss `https://` verwenden, außer bei einem Server auf deinem eigenen Computer, etwa `http://localhost:8080`. Lass die Einstellung leer, um den Standardserver von Permafrost zu verwenden, `https://permafrost.wihiaawb.com`.

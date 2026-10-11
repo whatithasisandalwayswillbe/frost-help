@@ -44,7 +44,11 @@ O seu provedor não oferece um recurso de que o frost precisa para evitar que co
 
 ## "the Permafrost access key was rejected"
 
-A chave pode estar errada ou ter expirado. Execute `frost init` e configure o armazenamento de novo para conseguir uma chave que funcione. Veja [Permafrost](#permafrost).
+A mensagem continua com o motivo do Permafrost: a chave está errada, uma chave mais nova a substituiu ou a conta foi encerrada. Use a sua chave mais recente ou consiga uma nova. Veja [Permafrost](#permafrost).
+
+## "uploads are paused"
+
+O Permafrost não está aceitando backups novos da sua conta agora. A mensagem diz por quê e até quando, e restaurar continua funcionando. Veja [Permafrost](#permafrost).
 
 ## Um backup não consegue ler uma pasta
 

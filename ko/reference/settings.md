@@ -45,7 +45,7 @@ frost는 지정한 편집기에서 `config.toml`의 사본을 엽니다. 지정�
 | `verify.sample` | `20` | 표본 검사에서 내려받을 청크 수. `0`이면 검사를 끕니다 |
 | `update.auto` | `true` | 예약된 백업 후 새 릴리스를 설치할지. `false`면 알려 주기만 합니다 |
 | `storage.backend` | | `permafrost` 또는 `s3` |
-| `storage.permafrost.url` | | 비워 두면 기본 서버를 씁니다. 그 밖에는 `https://` 주소, 또는 자신의 컴퓨터에서 도는 서버라면 `http://` 주소 |
+| `storage.permafrost.url` | | 비워 두면 기본 서버인 `https://permafrost.wihiaawb.com`을 씁니다. 그 밖에는 `https://` 주소, 또는 자신의 컴퓨터에서 도는 서버라면 `http://` 주소 |
 | `storage.permafrost.token` | | Permafrost 액세스 키 |
 | `storage.s3.endpoint` | | `s3.us-east-1.amazonaws.com` 등. 전체 `https://` 주소도 쓸 수 있으며, `http://` 주소를 쓰면 TLS가 꺼집니다 |
 | `storage.s3.region` | | 제공업체가 리전을 쓰지 않으면 비워 둡니다 |

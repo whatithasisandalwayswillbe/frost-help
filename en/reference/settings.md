@@ -45,7 +45,7 @@ If the file doesn't parse, frost tells you why and offers to open it again, so a
 | `verify.sample` | `20` | How many chunks the spot check downloads. `0` turns it off |
 | `update.auto` | `true` | Install new releases after scheduled backups. `false` only tells you about them |
 | `storage.backend` | | `permafrost` or `s3` |
-| `storage.permafrost.url` | | Leave blank for the default server. Otherwise an `https://` address, or `http://` for a server on your own computer |
+| `storage.permafrost.url` | | Leave blank for the default server, `https://permafrost.wihiaawb.com`. Otherwise an `https://` address, or `http://` for a server on your own computer |
 | `storage.permafrost.token` | | Your Permafrost access key |
 | `storage.s3.endpoint` | | Like `s3.us-east-1.amazonaws.com`. A full `https://` address also works, and an `http://` one turns off TLS |
 | `storage.s3.region` | | Leave blank if your provider doesn't use one |

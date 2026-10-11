@@ -45,7 +45,7 @@ frost は `config.toml` のコピーを、指定したエディタで開きま�
 | `verify.sample` | `20` | 抜き取りチェックでダウンロードするチャンクの数。`0` でチェックをオフにします |
 | `update.auto` | `true` | スケジュールされたバックアップのあとに新しいリリースをインストールする。`false` なら知らせるだけです |
 | `storage.backend` | | `permafrost` または `s3` |
-| `storage.permafrost.url` | | 空なら既定のサーバー。それ以外は `https://` のアドレス。自分のコンピュータ上のサーバーなら `http://` も使えます |
+| `storage.permafrost.url` | | 空なら既定のサーバー `https://permafrost.wihiaawb.com`。それ以外は `https://` のアドレス。自分のコンピュータ上のサーバーなら `http://` も使えます |
 | `storage.permafrost.token` | | Permafrost のアクセスキー |
 | `storage.s3.endpoint` | | `s3.us-east-1.amazonaws.com` など。完全な `https://` のアドレスも使え、`http://` のアドレスにすると TLS が無効になります |
 | `storage.s3.region` | | プロバイダーがリージョンを使わないなら空のまま |

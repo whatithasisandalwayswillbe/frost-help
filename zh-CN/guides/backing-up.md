@@ -34,6 +34,8 @@ frost 会显示哪些内容有变化、上传了多少数据，以及抽查的�
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
+使用 Permafrost 时，如果 Permafrost 有事要告诉你，比如存储快满了，备份结束时会显示一条 `storage` 警告。
+
 开启自动备份后，你很少需要自己运行这个命令。参见[自动备份](#scheduling)。
 
 ## 预览备份

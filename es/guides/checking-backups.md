@@ -35,6 +35,7 @@ La primera línea muestra la versión de frost, tu almacenamiento y la huella de
 | health | El resultado de la última comprobación aleatoria |
 | updates | Si las actualizaciones son automáticas, y si ha salido una versión nueva |
 | protected | Los archivos y el tamaño de la instantánea más reciente, y cuántas instantáneas tienes |
+| storage | Con Permafrost, cuánto de tu almacenamiento usas. Si Permafrost tiene un aviso, como que el almacenamiento está casi lleno, aparece primero |
 | missing | Instantáneas que este equipo conocía y que ya no están en el almacenamiento |
 
 La lista muestra tus 10 instantáneas más recientes. La columna `new` indica cuántos datos nuevos añadió cada una. Para verlas todas:

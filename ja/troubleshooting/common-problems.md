@@ -44,7 +44,11 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 
 ## "the Permafrost access key was rejected"
 
-キーが間違っているか、期限切れの可能性があります。`frost init` を実行してストレージを設定し直し、使えるキーを取得してください。詳しくは [Permafrost](#permafrost) を参照してください。
+メッセージの続きに、Permafrost からの理由が書かれています。キーが間違っている、新しいキーに置き換えられた、またはアカウントが閉じられた、のいずれかです。最新のキーを使うか、新しいキーを取得してください。詳しくは [Permafrost](#permafrost) を参照してください。
+
+## "uploads are paused"
+
+Permafrost は今のところ、あなたのアカウントの新しいバックアップを受け付けていません。理由と期限はメッセージに書かれており、復元は引き続き使えます。詳しくは [Permafrost](#permafrost) を参照してください。
 
 ## バックアップがフォルダを読めない
 

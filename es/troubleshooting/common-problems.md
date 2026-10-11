@@ -44,7 +44,11 @@ Tu proveedor no admite una función que frost necesita para que los equipos no s
 
 ## "the Permafrost access key was rejected"
 
-La clave puede ser incorrecta o haber caducado. Ejecuta `frost init` y vuelve a configurar el almacenamiento para conseguir una que funcione. Consulta [Permafrost](#permafrost).
+El mensaje sigue con el motivo de Permafrost: la clave es incorrecta, otra más nueva la sustituyó o la cuenta se cerró. Usa tu clave más reciente o consigue una nueva. Consulta [Permafrost](#permafrost).
+
+## "uploads are paused"
+
+Permafrost no acepta copias nuevas de tu cuenta por ahora. El mensaje dice por qué y hasta cuándo, y restaurar sigue funcionando. Consulta [Permafrost](#permafrost).
 
 ## Una copia no puede leer una carpeta
 

@@ -35,6 +35,7 @@ A primeira linha mostra a versão do frost, o seu armazenamento e a impressão d
 | health | O resultado da última verificação por amostragem |
 | updates | Se as atualizações são automáticas e se saiu uma versão nova |
 | protected | Os arquivos e o tamanho do snapshot mais recente, e quantos snapshots você tem |
+| storage | Com o Permafrost, quanto do seu armazenamento você usa. Um aviso do Permafrost, como o de armazenamento quase cheio, aparece primeiro |
 | missing | Snapshots que este computador conhecia e que não estão mais no armazenamento |
 
 A lista mostra seus 10 snapshots mais recentes. A coluna `new` indica quantos dados novos cada um acrescentou. Para ver todos:

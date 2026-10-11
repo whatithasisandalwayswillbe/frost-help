@@ -44,7 +44,11 @@ Dein Anbieter unterstützt eine Funktion nicht, die frost braucht, damit sich Co
 
 ## „the Permafrost access key was rejected“
 
-Der Schlüssel ist vielleicht falsch oder abgelaufen. Starte `frost init` und richte den Speicher neu ein, um einen funktionierenden Schlüssel zu bekommen. Siehe [Permafrost](#permafrost).
+Die Meldung nennt danach den Grund von Permafrost: Der Schlüssel ist falsch, ein neuerer hat ihn ersetzt, oder das Konto wurde geschlossen. Nimm deinen neuesten Schlüssel oder hol dir einen neuen. Siehe [Permafrost](#permafrost).
+
+## „uploads are paused“
+
+Permafrost nimmt für dein Konto gerade keine neuen Backups an. Die Meldung sagt, warum und bis wann, und Wiederherstellen klappt weiterhin. Siehe [Permafrost](#permafrost).
 
 ## Ein Backup kann einen Ordner nicht lesen
 

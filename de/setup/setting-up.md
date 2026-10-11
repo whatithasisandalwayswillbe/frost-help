@@ -10,7 +10,7 @@ In einem Terminal öffnet `frost init` eine Einrichtung im Vollbild. Sie braucht
 
 Wähle, wo deine Backups liegen sollen:
 
-- **Permafrost**, die empfohlene Option. Du brauchst nur einen Zugriffsschlüssel und sonst nichts, und wenn du noch keinen hast, kann frost dir einen in deinem Browser besorgen. Siehe [Permafrost](#permafrost).
+- **Permafrost**, die empfohlene Option. Du brauchst nur einen Zugriffsschlüssel und sonst nichts, und wenn du noch keinen hast, öffnet frost getfro.st/perma, damit du dir einen holen kannst. Siehe [Permafrost](#permafrost).
 - **Backblaze B2**, **Amazon S3**, **Cloudflare R2** oder **Wasabi**. Die Einrichtung fragt nur, was dieser Anbieter braucht, und sagt dir, wo du jede Antwort findest.
 - **Other S3-compatible** (anderer S3-kompatibler Dienst), für MinIO, Ceph und andere Dienste, die das S3-Protokoll sprechen.
 
@@ -71,4 +71,4 @@ Für einen neuen Speicherort nutze `frost config edit`, bestätige die Warnung, 
 
 ## Ohne Vollbild-Terminal
 
-Läuft frost nicht in einem interaktiven Terminal, zum Beispiel bei umgeleiteter Eingabe, stellt `frost init` einfache Fragen, eine pro Zeile. Statt der Anbieterliste bietet es Permafrost oder einen allgemeinen S3-kompatiblen Bucket an und fragt zusätzlich nach dem Ordner im Bucket. Listen werden mit Kommas getrennt, und `-` lässt die Ausschlussliste leer. Einen Permafrost-Schlüssel im Browser zu holen funktioniert auch hier.
+Läuft frost nicht in einem interaktiven Terminal, zum Beispiel bei umgeleiteter Eingabe, stellt `frost init` einfache Fragen, eine pro Zeile. Statt der Anbieterliste bietet es Permafrost oder einen allgemeinen S3-kompatiblen Bucket an und fragt zusätzlich nach dem Ordner im Bucket. Listen werden mit Kommas getrennt, und `-` lässt die Ausschlussliste leer. Auch hier öffnet frost getfro.st/perma, wenn du einen neuen Permafrost-Schlüssel brauchst.

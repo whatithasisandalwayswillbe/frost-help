@@ -44,7 +44,11 @@ frost 找不到 `config.toml`。运行 `frost init`。如果你使用了 `--conf
 
 ## "the Permafrost access key was rejected"
 
-密钥可能有误或已过期。运行 `frost init` 重新设置存储，获取一个能用的密钥。参见 [Permafrost](#permafrost)。
+错误信息后面会附上 Permafrost 给出的原因：密钥不对、已被更新的密钥替换，或者账户已关闭。请使用你最新的密钥，或者获取一个新密钥。参见 [Permafrost](#permafrost)。
+
+## "uploads are paused"
+
+Permafrost 目前不接受你账户的新备份。错误信息会说明原因和持续到什么时候，恢复照常可用。参见 [Permafrost](#permafrost)。
 
 ## 备份无法读取某个文件夹
 
