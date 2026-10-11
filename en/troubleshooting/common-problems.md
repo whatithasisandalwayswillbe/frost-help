@@ -106,7 +106,13 @@ frost was installed by a package manager, its folder isn't writable, or it was b
 
 | The installer says | What to do |
 | --- | --- |
-| need OpenSSH 8.1+ to verify the frost release signature | Install or update OpenSSH. On Windows, Git for Windows includes it |
+| need OpenSSH 8.1+ to verify the frost release signature | Install or update OpenSSH. On Windows, use the PowerShell installer instead |
 | checksums.txt isn't signed by the frost release key. Don't install this. | Don't install it. Try again later, and [report it](#getting-help) if it keeps happening |
+| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | Don't install it. Try again later, and [report it](#getting-help) if it keeps happening |
 | checksum mismatch | The download was damaged. Run the installer again |
 | 32-bit ARM isn't supported by the bundled runtime | There's no frost package for this computer |
+| installing frost needs Node.js 22 or newer | Update Node.js, or use the installer instead of npm or pnpm |
+
+## `frost` isn't found after installing
+
+Open a new terminal. Terminals that were open while frost installed don't see the new `PATH`. With pnpm, run `pnpm setup` once, then open a new terminal.

@@ -106,7 +106,13 @@ frost lo instaló un gestor de paquetes, su carpeta no admite escritura o se com
 
 | El instalador dice | Qué hacer |
 | --- | --- |
-| need OpenSSH 8.1+ to verify the frost release signature | Instala o actualiza OpenSSH. En Windows, Git for Windows lo incluye |
+| need OpenSSH 8.1+ to verify the frost release signature | Instala o actualiza OpenSSH. En Windows, usa el instalador de PowerShell |
 | checksums.txt isn't signed by the frost release key. Don't install this. | No lo instales. Inténtalo más tarde e [infórmalo](#getting-help) si sigue pasando |
+| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | No lo instales. Inténtalo más tarde e [infórmalo](#getting-help) si sigue pasando |
 | checksum mismatch | La descarga se dañó. Vuelve a ejecutar el instalador |
 | 32-bit ARM isn't supported by the bundled runtime | No hay paquete de frost para este equipo |
+| installing frost needs Node.js 22 or newer | Actualiza Node.js, o usa el instalador en lugar de npm o pnpm |
+
+## No se encuentra `frost` después de instalar
+
+Abre una terminal nueva. Las terminales que estaban abiertas mientras se instalaba frost no ven el nuevo `PATH`. Con pnpm, ejecuta `pnpm setup` una vez y luego abre una terminal nueva.

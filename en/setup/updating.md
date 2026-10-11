@@ -1,6 +1,8 @@
 # Updating frost
 
-frost updates itself. By default, it installs new releases after scheduled backups.
+frost updates itself, including when you installed it with npm or pnpm. By default, it installs new releases after scheduled backups.
+
+You don't need to update the `getfrost` package yourself. An older one never replaces a newer frost.
 
 ## Update now
 

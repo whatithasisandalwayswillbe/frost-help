@@ -14,10 +14,16 @@ frost는 macOS, Linux, Windows 어디서든 명령어 하나로 설치할 수 �
 
 ## 설치 프로그램
 
-macOS나 Linux에서는 터미널에서 다음 명령어를 실행합니다. Windows에서는 Git Bash에서 실행합니다.
+macOS나 Linux에서는 터미널에서 다음 명령어를 실행합니다.
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+```
+
+Windows에서는 PowerShell에서 다음 명령어를 실행합니다.
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
 설치 프로그램은 다음 일을 합니다.
@@ -26,9 +32,11 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 2. 릴리스의 서명과 내려받은 파일의 체크섬을 확인하고, 하나라도 맞지 않으면 중단합니다.
 3. frost를 사용자 프로필에 설치하고, `PATH`에 있는 폴더에 `frost` 런처를 둡니다.
 
-검증에는 `curl` 또는 `wget`, OpenSSH 8.1 이상의 `ssh-keygen`, `sha256sum` 또는 `shasum`이 필요합니다. 압축을 풀 때는 macOS와 Linux에서 `tar`를, Windows에서 `unzip` 또는 PowerShell을 씁니다. Windows 설치 프로그램에는 Git Bash가 제공하는 `cygpath`도 필요합니다.
+macOS와 Linux에서는 검증에 `curl` 또는 `wget`, OpenSSH 8.1 이상의 `ssh-keygen`, `sha256sum` 또는 `shasum`이 필요합니다. Windows에서는 Windows 10과 11에 들어 있는 Windows PowerShell 5.1이나 PowerShell 7이 필요합니다. 서명은 릴리스에 들어 있는 런타임으로 확인하며, 그 전에 이 런타임이 OpenJS Foundation의 서명을 받았는지 Windows가 먼저 확인합니다.
 
-런처는 쓰기 권한이 있으면 `/usr/local/bin`에, 없으면 `~/.local/bin`에 놓입니다. Windows에서는 `~/bin`에 놓입니다. 그 폴더가 아직 `PATH`에 없으면, 설치 프로그램이 추가하는 명령어를 보여 줍니다.
+macOS와 Linux에서는 런처가 쓰기 권한이 있으면 `/usr/local/bin`에, 없으면 `~/.local/bin`에 놓입니다. 그 폴더가 아직 `PATH`에 없으면, 설치 프로그램이 추가하는 명령어를 보여 줍니다. Windows에서는 런처가 `%LocalAppData%\frost\bin`에 놓이고, 설치 프로그램이 이 폴더를 `PATH`에 추가합니다. 설치 전에 이미 열려 있던 터미널은 다시 열어야 `frost`를 찾을 수 있습니다.
+
+`curl` 설치 프로그램은 Windows의 Git Bash에서도 쓸 수 있습니다. 이때는 Git Bash가 제공하는 `cygpath`가 필요하고, `unzip` 또는 PowerShell로 압축을 풀며, 런처를 `~/bin`에 둡니다.
 
 설치가 끝나면 `frost init`을 실행해 첫 백업을 설정합니다. 자세한 내용은 [frost 설정](#setting-up)을 참고하세요.
 
@@ -36,16 +44,40 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 
 | 변수 | 동작 |
 | --- | --- |
-| `FROST_INSTALL_DIR` | 런처를 이 폴더에 둡니다 |
+| `FROST_INSTALL_DIR` | 런처를 이 폴더에 둡니다. 이때 Windows 설치 프로그램은 `PATH`를 바꾸지 않습니다 |
 | `FROST_VERSION` | 최신 버전 대신 `v0.1.0`처럼 지정한 릴리스를 설치합니다 |
 
-예:
+macOS나 Linux에서의 예:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
+Windows에서는 같은 PowerShell 창에서 변수를 먼저 설정합니다.
+
+```powershell
+$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
 런처 폴더를 바꿔도 frost 자체의 위치는 바뀌지 않습니다. 각 파일의 위치는 [파일 및 폴더](#files-and-folders)에 정리되어 있습니다.
+
+## npm이나 pnpm으로 설치하기
+
+Node.js 22 이상을 이미 쓰고 있다면 npm으로 frost를 설치할 수 있습니다.
+
+```sh
+npm install -g getfrost
+```
+
+pnpm을 쓴다면:
+
+```sh
+pnpm add -g getfrost
+```
+
+패키지 이름은 `getfrost`이고, 이 패키지가 제공하는 명령어는 `frost`입니다. `frost`를 처음 실행하면 사용 중인 시스템에 맞는 릴리스를 내려받고, 설치 프로그램과 똑같이 서명과 체크섬을 확인한 뒤 사용자 프로필에 설치합니다. 그런 다음 입력한 명령어를 실행합니다. 그 뒤로는 모든 `frost` 명령어가 설치된 frost로 바로 넘어가며, frost는 스스로 최신 상태를 유지합니다.
+
+pnpm을 쓴다면, 아직 실행한 적이 없을 때 `pnpm setup`을 먼저 실행해 pnpm의 전역 명령어가 `PATH`에 들어가게 하세요.
 
 ## 직접 설치하기
 

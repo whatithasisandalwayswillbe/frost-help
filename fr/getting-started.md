@@ -12,13 +12,19 @@ Inutile d'installer Node.js ou quoi que ce soit d'autre au préalable. frost emb
 
 ## 1. Installez frost
 
-Sous macOS ou Linux, lancez cette commande dans un terminal. Sous Windows, lancez-la dans Git Bash.
+Sous macOS ou Linux, lancez cette commande dans un terminal :
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
 ```
 
-L'installateur vérifie la signature de la version avant d'installer quoi que ce soit. [Installer frost](#installing) présente l'installation manuelle et les options de l'installateur.
+Sous Windows, lancez celle-ci dans PowerShell :
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
+L'installateur vérifie la signature de la version avant d'installer quoi que ce soit. [Installer frost](#installing) présente npm et pnpm, l'installation manuelle et les options de l'installateur.
 
 ## 2. Configurez-le
 

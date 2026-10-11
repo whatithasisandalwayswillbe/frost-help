@@ -106,7 +106,13 @@ frost がパッケージマネージャでインストールされたか、フ�
 
 | インストーラの表示 | 対処 |
 | --- | --- |
-| need OpenSSH 8.1+ to verify the frost release signature | OpenSSH をインストールまたはアップデートします。Windows では Git for Windows に含まれています |
+| need OpenSSH 8.1+ to verify the frost release signature | OpenSSH をインストールまたはアップデートします。Windows では PowerShell のインストーラを使ってください |
 | checksums.txt isn't signed by the frost release key. Don't install this. | インストールしないでください。時間をおいて再試行し、繰り返し起きる場合は[報告](#getting-help)してください |
+| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | インストールしないでください。時間をおいて再試行し、繰り返し起きる場合は[報告](#getting-help)してください |
 | checksum mismatch | ダウンロードしたファイルが壊れています。インストーラをもう一度実行します |
 | 32-bit ARM isn't supported by the bundled runtime | このコンピュータ向けの frost のパッケージはありません |
+| installing frost needs Node.js 22 or newer | Node.js をアップデートするか、npm や pnpm ではなくインストーラを使ってください |
+
+## インストール後に `frost` が見つからない
+
+新しいターミナルを開いてください。frost のインストール中に開いていたターミナルには、新しい `PATH` が反映されません。pnpm の場合は、`pnpm setup` を一度実行してから新しいターミナルを開きます。

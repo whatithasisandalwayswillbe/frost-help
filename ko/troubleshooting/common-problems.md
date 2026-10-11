@@ -106,7 +106,13 @@ frost를 패키지 관리자로 설치했거나, 폴더에 쓸 수 없거나, �
 
 | 설치 프로그램의 메시지 | 할 일 |
 | --- | --- |
-| need OpenSSH 8.1+ to verify the frost release signature | OpenSSH를 설치하거나 업데이트하세요. Windows에서는 Git for Windows에 포함되어 있습니다 |
+| need OpenSSH 8.1+ to verify the frost release signature | OpenSSH를 설치하거나 업데이트하세요. Windows에서는 PowerShell 설치 프로그램을 쓰세요 |
 | checksums.txt isn't signed by the frost release key. Don't install this. | 설치하지 마세요. 나중에 다시 시도하고, 계속 발생하면 [신고](#getting-help)하세요 |
+| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | 설치하지 마세요. 나중에 다시 시도하고, 계속 발생하면 [신고](#getting-help)하세요 |
 | checksum mismatch | 내려받은 파일이 손상되었습니다. 설치 프로그램을 다시 실행하세요 |
 | 32-bit ARM isn't supported by the bundled runtime | 이 컴퓨터용 frost 패키지는 없습니다 |
+| installing frost needs Node.js 22 or newer | Node.js를 업데이트하거나, npm이나 pnpm 대신 설치 프로그램을 쓰세요 |
+
+## 설치한 뒤 `frost`를 찾을 수 없음
+
+새 터미널을 여세요. frost를 설치하는 동안 열려 있던 터미널에는 새 `PATH`가 반영되지 않습니다. pnpm을 쓴다면 `pnpm setup`을 한 번 실행한 뒤 새 터미널을 여세요.

@@ -14,10 +14,16 @@ Il n'existe pas de paquet pour l'ARM 32 bits, comme les anciens systèmes Raspbe
 
 ## L'installateur
 
-Sous macOS ou Linux, lancez cette commande dans un terminal. Sous Windows, lancez-la dans Git Bash.
+Sous macOS ou Linux, lancez cette commande dans un terminal :
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+```
+
+Sous Windows, lancez celle-ci dans PowerShell :
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
 L'installateur :
@@ -26,9 +32,11 @@ L'installateur :
 2. Vérifie la signature de la version et la somme de contrôle du téléchargement, et s'arrête si l'une des deux ne correspond pas.
 3. Installe frost dans votre profil utilisateur et place un lanceur `frost` dans un dossier de votre `PATH`.
 
-Il lui faut `curl` ou `wget`, `ssh-keygen` d'OpenSSH 8.1 ou plus récent, et `sha256sum` ou `shasum` pour les vérifications. L'extraction utilise `tar` sous macOS et Linux, et `unzip` ou PowerShell sous Windows. Git Bash fournit `cygpath`, dont l'installateur Windows a aussi besoin.
+Sous macOS et Linux, il lui faut `curl` ou `wget`, `ssh-keygen` d'OpenSSH 8.1 ou plus récent, et `sha256sum` ou `shasum` pour les vérifications. Sous Windows, il lui faut Windows PowerShell 5.1, fourni avec Windows 10 et 11, ou PowerShell 7. Il vérifie la signature avec l'environnement d'exécution inclus dans la version, une fois que Windows a confirmé que l'OpenJS Foundation l'a signé.
 
-Le lanceur va dans `/usr/local/bin` si vous pouvez y écrire, sinon dans `~/.local/bin`. Sous Windows, il va dans `~/bin`. Si ce dossier n'est pas encore dans votre `PATH`, l'installateur affiche la ligne qui l'ajoute.
+Sous macOS et Linux, le lanceur va dans `/usr/local/bin` si vous pouvez y écrire, sinon dans `~/.local/bin`. Si ce dossier n'est pas encore dans votre `PATH`, l'installateur affiche la ligne qui l'ajoute. Sous Windows, le lanceur va dans `%LocalAppData%\frost\bin`, et l'installateur ajoute ce dossier à votre `PATH`. Les terminaux déjà ouverts doivent être relancés pour trouver `frost`.
+
+L'installateur `curl` fonctionne aussi dans Git Bash sous Windows. Il a alors besoin de `cygpath`, que fournit Git Bash, extrait les fichiers avec `unzip` ou PowerShell et place le lanceur dans `~/bin`.
 
 Une fois terminé, lancez `frost init` pour configurer votre première sauvegarde. Voir [Configurer frost](#setting-up).
 
@@ -36,16 +44,40 @@ Une fois terminé, lancez `frost init` pour configurer votre première sauvegard
 
 | Variable | Effet |
 | --- | --- |
-| `FROST_INSTALL_DIR` | Place le lanceur dans ce dossier |
+| `FROST_INSTALL_DIR` | Place le lanceur dans ce dossier. L'installateur Windows ne l'ajoute pas à votre `PATH` |
 | `FROST_VERSION` | Installe cette version, comme `v0.1.0`, au lieu de la dernière |
 
-Par exemple :
+Par exemple, sous macOS ou Linux :
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
+Sous Windows, définissez d'abord la variable, dans la même fenêtre PowerShell :
+
+```powershell
+$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
 Changer le dossier du lanceur ne déplace pas frost lui-même. [Fichiers et dossiers](#files-and-folders) indique où va chaque élément.
+
+## Avec npm ou pnpm
+
+Si vous avez déjà Node.js 22 ou plus récent, vous pouvez installer frost avec npm :
+
+```sh
+npm install -g getfrost
+```
+
+Ou avec pnpm :
+
+```sh
+pnpm add -g getfrost
+```
+
+Le paquet s'appelle `getfrost`, et la commande qu'il fournit est `frost`. La première fois que vous lancez `frost`, il télécharge la version pour votre système, vérifie sa signature et sa somme de contrôle comme le fait l'installateur, et l'installe dans votre profil utilisateur. Puis il exécute votre commande. Ensuite, chaque commande `frost` passe directement au frost installé, qui se tient à jour tout seul.
+
+Avec pnpm, lancez d'abord `pnpm setup` si vous ne l'avez jamais fait, pour que les commandes globales de pnpm soient dans votre `PATH`.
 
 ## Installer à la main
 

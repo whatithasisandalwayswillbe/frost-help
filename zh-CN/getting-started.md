@@ -12,13 +12,19 @@ frost 会把你的文件夹备份到你选择的存储中，而且所有内容�
 
 ## 1. 安装 frost
 
-在 macOS 或 Linux 上，在终端中运行下面的命令。在 Windows 上，请在 Git Bash 中运行。
+在 macOS 或 Linux 上，在终端中运行：
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
 ```
 
-安装程序在安装任何东西之前，都会先检查发布版本的签名。[安装 frost](#installing)介绍了手动安装和安装程序的选项。
+在 Windows 上，在 PowerShell 中运行：
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
+安装程序在安装任何东西之前，都会先检查发布版本的签名。[安装 frost](#installing)介绍了 npm 和 pnpm、手动安装以及安装程序的选项。
 
 ## 2. 进行设置
 

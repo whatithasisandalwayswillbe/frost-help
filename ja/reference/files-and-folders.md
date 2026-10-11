@@ -12,7 +12,7 @@ frost は、アプリケーション、設定、キャッシュを、コンピ�
 
 アプリケーションフォルダには、同梱のランタイムと、インストールした各バージョンが入っています。中身はそのままにしておいてください。
 
-`frost` ランチャーは、インストール時に別のフォルダを選んでいなければ、macOS と Linux では `/usr/local/bin` か `~/.local/bin`、Windows では `~/bin` にあります。詳しくは[frost のインストール](#installing)を参照してください。
+`frost` ランチャーは、インストール時に別のフォルダを選んでいなければ、macOS と Linux では `/usr/local/bin` か `~/.local/bin`、Windows では `%LocalAppData%\frost\bin` にあります。Git Bash のインストーラを使った場合は `~/bin` です。npm や pnpm の場合、`frost` はそれぞれがグローバルコマンドを置く場所にあります。詳しくは[frost のインストール](#installing)を参照してください。
 
 ## 設定とキー
 

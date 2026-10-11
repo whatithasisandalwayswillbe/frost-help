@@ -32,7 +32,7 @@ It can't check whether you have a particular known file. Chunk names and chunk b
 - Someone on the network between you and your storage. Connections use TLS unless you choose an `http://` S3 endpoint, or enable `storage.s3.insecure` for an endpoint without a scheme. Permafrost permits `http://` only on your own computer. Use plain HTTP only for local testing. Every backup object is authenticated either way.
 - Tampering. A changed, swapped or truncated object fails to decrypt, and frost never quietly accepts it.
 - A restore writing outside the folder you chose.
-- Tampered frost downloads. Every release is signed, and the installer and `frost update` check the signature before installing anything.
+- Tampered frost downloads. Every release is signed, and the installers, the `getfrost` npm package and `frost update` check the signature before installing anything.
 
 ## What it can't protect against
 

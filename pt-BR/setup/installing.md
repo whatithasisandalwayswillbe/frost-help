@@ -14,10 +14,16 @@ Não existe pacote para ARM de 32 bits, como os sistemas Raspberry Pi mais antig
 
 ## O instalador
 
-No macOS ou no Linux, execute isto em um terminal. No Windows, execute no Git Bash.
+No macOS ou no Linux, execute isto em um terminal:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+```
+
+No Windows, execute isto no PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
 O instalador:
@@ -26,9 +32,11 @@ O instalador:
 2. Confere a assinatura da versão e a soma de verificação do download, e para se alguma estiver errada.
 3. Instala o frost no seu perfil de usuário e coloca um inicializador `frost` em uma pasta do seu `PATH`.
 
-Ele precisa de `curl` ou `wget`, do `ssh-keygen` do OpenSSH 8.1 ou mais recente, e de `sha256sum` ou `shasum` para as verificações. A extração usa `tar` no macOS e no Linux, e `unzip` ou PowerShell no Windows. O Git Bash fornece o `cygpath`, de que o instalador para Windows também precisa.
+No macOS e no Linux, ele precisa de `curl` ou `wget`, do `ssh-keygen` do OpenSSH 8.1 ou mais recente, e de `sha256sum` ou `shasum` para as verificações. No Windows, ele precisa do Windows PowerShell 5.1, que vem com o Windows 10 e 11, ou do PowerShell 7. Ele confere a assinatura com o runtime que vem na própria versão, depois que o Windows confirma que a OpenJS Foundation assinou esse runtime.
 
-O inicializador vai para `/usr/local/bin` se você tiver permissão de escrita ali, e para `~/.local/bin` se não tiver. No Windows, ele vai para `~/bin`. Se essa pasta ainda não estiver no seu `PATH`, o instalador mostra a linha que a adiciona.
+No macOS e no Linux, o inicializador vai para `/usr/local/bin` se você tiver permissão de escrita ali, e para `~/.local/bin` se não tiver. Se essa pasta ainda não estiver no seu `PATH`, o instalador mostra a linha que a adiciona. No Windows, o inicializador vai para `%LocalAppData%\frost\bin`, e o instalador adiciona essa pasta ao seu `PATH`. Terminais que já estavam abertos precisam ser reabertos para encontrar o `frost`.
+
+O instalador com `curl` também funciona no Git Bash no Windows. Ali ele precisa do `cygpath`, que o Git Bash fornece, extrai com `unzip` ou PowerShell, e coloca o inicializador em `~/bin`.
 
 Quando terminar, execute `frost init` para configurar o seu primeiro backup. Veja [Configurar o frost](#setting-up).
 
@@ -36,16 +44,40 @@ Quando terminar, execute `frost init` para configurar o seu primeiro backup. Vej
 
 | Variável | O que faz |
 | --- | --- |
-| `FROST_INSTALL_DIR` | Coloca o inicializador nesta pasta |
+| `FROST_INSTALL_DIR` | Coloca o inicializador nesta pasta. O instalador para Windows não a adiciona ao seu `PATH` |
 | `FROST_VERSION` | Instala esta versão, como `v0.1.0`, em vez da mais recente |
 
-Por exemplo:
+Por exemplo, no macOS ou no Linux:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
+No Windows, defina a variável antes, na mesma janela do PowerShell:
+
+```powershell
+$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
 Mudar a pasta do inicializador não move o frost em si. [Arquivos e pastas](#files-and-folders) mostra onde fica cada coisa.
+
+## Com npm ou pnpm
+
+Se você já tem o Node.js 22 ou mais recente, pode instalar o frost com o npm:
+
+```sh
+npm install -g getfrost
+```
+
+Ou com o pnpm:
+
+```sh
+pnpm add -g getfrost
+```
+
+O pacote se chama `getfrost`, e o comando que ele oferece é `frost`. Na primeira vez que você executa `frost`, ele baixa a versão para o seu sistema, confere a assinatura e a soma de verificação como o instalador faz, e a instala no seu perfil de usuário. Depois executa o seu comando. A partir daí, todo comando `frost` vai direto para o frost instalado, que se mantém atualizado sozinho.
+
+Com o pnpm, execute `pnpm setup` antes, se nunca tiver feito isso, para que os comandos globais do pnpm fiquem no seu `PATH`.
 
 ## Instalar manualmente
 

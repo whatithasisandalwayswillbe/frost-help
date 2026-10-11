@@ -12,7 +12,7 @@ frost guarda la aplicación, tus ajustes y su caché en carpetas separadas de tu
 
 La carpeta de la aplicación contiene el entorno de ejecución incluido y cada versión instalada. Mantenla completa.
 
-El lanzador `frost` está en `/usr/local/bin` o `~/.local/bin` en macOS y Linux, y en `~/bin` en Windows, salvo que hayas elegido otra carpeta al instalar. Consulta [Instalar frost](#installing).
+El lanzador `frost` está en `/usr/local/bin` o `~/.local/bin` en macOS y Linux, y en `%LocalAppData%\frost\bin` en Windows, salvo que hayas elegido otra carpeta al instalar. El instalador de Git Bash usa `~/bin`. Con npm o pnpm, `frost` está donde ellos guardan los comandos globales. Consulta [Instalar frost](#installing).
 
 ## Ajustes y clave
 

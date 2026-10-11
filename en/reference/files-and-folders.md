@@ -12,7 +12,7 @@ frost keeps the application, your settings and its cache in separate folders on 
 
 The application folder holds the bundled runtime and each installed version. Keep it whole.
 
-The `frost` launcher is in `/usr/local/bin` or `~/.local/bin` on macOS and Linux, and in `~/bin` on Windows, unless you chose another folder when installing. See [Installing frost](#installing).
+The `frost` launcher is in `/usr/local/bin` or `~/.local/bin` on macOS and Linux, and in `%LocalAppData%\frost\bin` on Windows, unless you chose another folder when installing. The Git Bash installer uses `~/bin` instead. With npm or pnpm, `frost` is wherever they put global commands. See [Installing frost](#installing).
 
 ## Settings and key
 

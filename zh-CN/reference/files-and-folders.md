@@ -12,7 +12,7 @@ frost 把应用程序、你的设置和它的缓存分别存放在电脑上的�
 
 应用程序文件夹中有自带的运行时以及每个已安装的版本。请保持它完整。
 
-在 macOS 和 Linux 上，`frost` 启动器位于 `/usr/local/bin` 或 `~/.local/bin`；在 Windows 上位于 `~/bin`，除非你在安装时选择了别的文件夹。参见[安装 frost](#installing)。
+在 macOS 和 Linux 上，`frost` 启动器位于 `/usr/local/bin` 或 `~/.local/bin`；在 Windows 上位于 `%LocalAppData%\frost\bin`，除非你在安装时选择了别的文件夹。Git Bash 安装程序则使用 `~/bin`。用 npm 或 pnpm 安装时，`frost` 位于它们存放全局命令的地方。参见[安装 frost](#installing)。
 
 ## 设置和密钥
 

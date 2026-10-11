@@ -14,10 +14,16 @@ frost は、macOS、Linux、Windows のいずれでも 1 つのコマンドで�
 
 ## インストーラ
 
-macOS や Linux ではターミナルで次のコマンドを実行します。Windows では Git Bash で実行します。
+macOS や Linux では、ターミナルで次のコマンドを実行します。
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+```
+
+Windows では、PowerShell で次のコマンドを実行します。
+
+```powershell
+irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
 インストーラは次のことを行います。
@@ -26,9 +32,11 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 2. リリースの署名とダウンロードしたファイルのチェックサムを確認し、どちらかが合わなければ中止します。
 3. frost をユーザープロファイルにインストールし、`PATH` 上のフォルダに `frost` ランチャーを置きます。
 
-検証には `curl` または `wget`、OpenSSH 8.1 以降の `ssh-keygen`、`sha256sum` または `shasum` が必要です。展開には、macOS と Linux では `tar`、Windows では `unzip` または PowerShell を使います。Windows のインストーラには、Git Bash が提供する `cygpath` も必要です。
+macOS と Linux では、検証に `curl` または `wget`、OpenSSH 8.1 以降の `ssh-keygen`、`sha256sum` または `shasum` が必要です。Windows では、Windows 10 と 11 に付属する Windows PowerShell 5.1、または PowerShell 7 が必要です。署名の確認には、リリースに含まれるランタイムを使います。そのランタイムが OpenJS Foundation によって署名されていることを、先に Windows が確認します。
 
-ランチャーは、書き込み権限があれば `/usr/local/bin` に、なければ `~/.local/bin` に置かれます。Windows では `~/bin` に置かれます。そのフォルダがまだ `PATH` に含まれていない場合は、追加するためのコマンドをインストーラが表示します。
+macOS と Linux では、ランチャーは書き込み権限があれば `/usr/local/bin` に、なければ `~/.local/bin` に置かれます。そのフォルダがまだ `PATH` に含まれていない場合は、追加するためのコマンドをインストーラが表示します。Windows では、ランチャーは `%LocalAppData%\frost\bin` に置かれ、インストーラがこのフォルダを `PATH` に追加します。インストール前から開いていたターミナルで `frost` を使うには、ターミナルを開き直す必要があります。
+
+`curl` のインストーラは、Windows の Git Bash でも使えます。その場合は Git Bash が提供する `cygpath` が必要で、展開には `unzip` または PowerShell を使い、ランチャーは `~/bin` に置かれます。
 
 インストールが終わったら、`frost init` を実行して最初のバックアップを設定します。詳しくは[frost の設定](#setting-up)を参照してください。
 
@@ -36,16 +44,40 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 
 | 変数 | 動作 |
 | --- | --- |
-| `FROST_INSTALL_DIR` | ランチャーをこのフォルダに置きます |
+| `FROST_INSTALL_DIR` | ランチャーをこのフォルダに置きます。この場合、Windows のインストーラは `PATH` を変更しません |
 | `FROST_VERSION` | 最新版ではなく、`v0.1.0` のように指定したリリースをインストールします |
 
-例:
+macOS や Linux での例:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
+Windows では、同じ PowerShell ウィンドウで先に変数を設定します。
+
+```powershell
+$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+```
+
 ランチャーのフォルダを変えても、frost 本体の場所は変わりません。各ファイルの場所は[ファイルとフォルダ](#files-and-folders)にまとめています。
+
+## npm や pnpm でインストールする
+
+Node.js 22 以降をすでに使っているなら、npm で frost をインストールできます。
+
+```sh
+npm install -g getfrost
+```
+
+pnpm の場合:
+
+```sh
+pnpm add -g getfrost
+```
+
+パッケージ名は `getfrost` で、使えるようになるコマンドは `frost` です。初めて `frost` を実行すると、お使いのシステム向けのリリースをダウンロードし、インストーラと同じように署名とチェックサムを確認してから、ユーザープロファイルにインストールします。そのあとで、入力したコマンドを実行します。以降の `frost` コマンドはすべて、インストール済みの frost にそのまま渡されます。frost は自分自身を最新の状態に保ちます。
+
+pnpm の場合、まだ実行したことがなければ先に `pnpm setup` を実行して、pnpm のグローバルコマンドが `PATH` に入るようにしてください。
 
 ## 手動でインストールする
 

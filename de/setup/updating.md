@@ -1,6 +1,8 @@
 # frost aktualisieren
 
-frost aktualisiert sich selbst. Standardmäßig installiert es neue Versionen nach geplanten Backups.
+frost aktualisiert sich selbst, auch wenn du es mit npm oder pnpm installiert hast. Standardmäßig installiert es neue Versionen nach geplanten Backups.
+
+Das Paket `getfrost` musst du nicht selbst aktualisieren. Ein älteres Paket ersetzt nie ein neueres frost.
 
 ## Jetzt aktualisieren
 
