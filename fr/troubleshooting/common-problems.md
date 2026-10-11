@@ -44,7 +44,11 @@ Votre fournisseur ne prend pas en charge une fonction dont frost a besoin pour e
 
 ## « the Permafrost access key was rejected »
 
-La clé est peut-être erronée ou expirée. Lancez `frost init` et configurez à nouveau le stockage pour obtenir une clé qui fonctionne. Voir [Permafrost](#permafrost).
+Le message donne ensuite la raison de Permafrost : la clé est erronée, une clé plus récente l'a remplacée, ou le compte a été fermé. Utilisez votre clé la plus récente, ou obtenez-en une nouvelle. Voir [Permafrost](#permafrost).
+
+## « uploads are paused »
+
+Permafrost n'accepte pas de nouvelles sauvegardes pour votre compte en ce moment. Le message indique pourquoi et jusqu'à quand, et les restaurations continuent de fonctionner. Voir [Permafrost](#permafrost).
 
 ## Une sauvegarde ne peut pas lire un dossier
 

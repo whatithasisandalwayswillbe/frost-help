@@ -34,6 +34,8 @@ frost は、何が変わったか、どれだけアップロードしたか、�
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
+Permafrost を使っている場合、ストレージがほぼいっぱいなど Permafrost から知らせることがあると、バックアップの最後に `storage` の警告が表示されます。
+
 自動バックアップをオンにしていれば、このコマンドを自分で実行することはほとんどありません。詳しくは[自動バックアップ](#scheduling)を参照してください。
 
 ## バックアップをプレビューする

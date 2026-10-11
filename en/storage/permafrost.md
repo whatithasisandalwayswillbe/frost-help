@@ -7,28 +7,39 @@ Your backups are encrypted on your computer before they're uploaded, the same as
 ## Getting a key
 
 1. Run `frost init` and choose **Permafrost**.
-2. Choose **I don't have a key yet**. frost opens a page in your browser where you can get one.
-3. Once you have your key, the page sends it back to frost, which saves it straight away. Quitting setup after that doesn't lose it.
-
-If the browser doesn't open, go to [getfro.st/perma](https://getfro.st/perma) yourself, then press `[p]` in setup to paste the key it gives you. If getting the key doesn't finish, press `[r]` to try again or `[p]` to paste one. frost waits up to 25 minutes.
+2. Choose **I don't have a key yet**. frost opens [getfro.st/perma](https://getfro.st/perma) in your browser. If it doesn't open, go there yourself.
+3. Get your key there and copy it.
+4. Paste it into setup.
 
 If you already have a key, choose **I have a key** and paste it.
 
-## How the key reaches frost
+## Getting a new key
 
-While it waits, frost listens on `127.0.0.1`, which only your own computer can reach. It gives the page a random value, and only accepts a key that comes back with that same value, so no other page can hand frost a key of its own.
+If you lose your key, go to [getfro.st/perma/recover](https://getfro.st/perma/recover) and enter the email address you used to get it. The email you receive links to a new key. The new key replaces the old one, which stops working on every computer.
 
-The page also shows you the key, so you can copy it into frost yourself, for example when the browser is on another computer.
+On each computer that uses Permafrost, swap in the new key:
 
-## Rejected keys
+```sh
+frost config set storage.permafrost.token <new key>
+```
 
-If Permafrost stops accepting your access key, commands that access your backups stop with an error that says so. Run `frost init` and set up storage again to get a working one.
+While Permafrost isn't accepting uploads, `frost config set` can't run its storage check. Use `frost config edit` instead, and put the key in `token` under `[storage.permafrost]`.
 
-| Setup says | What to do |
+## Storage use
+
+`frost status` shows how much of your Permafrost storage you use. When Permafrost has something to tell you, such as storage that's nearly full, `frost status` and `frost backup` show it as a warning. See [Checking your backups](#checking-backups).
+
+## When Permafrost refuses
+
+Permafrost's errors say why. Commands that access your backups stop with that message.
+
+| You see | What it means |
 | --- | --- |
-| Permafrost didn't accept that access key | Check you copied all of it. It may also have expired |
-| That access key can't store backups | Check its permissions in your Permafrost account |
-| your Permafrost storage is full | Your account has no space left. Check your Permafrost account |
+| the Permafrost access key was rejected | The key is wrong, a newer key replaced it, or the account closed. The message says which. Use your newest key, or get a new one |
+| uploads are paused | Permafrost isn't accepting new backups for now. Restores still work. The message says why, until when, and what to do |
+| your Permafrost storage is full | The upload doesn't fit. The message says how much you store and what to do |
+
+During setup, the first two read "Permafrost didn't accept that access key" and "Permafrost won't store backups with that access key", followed by the same reason.
 
 ## Your own server
 
@@ -48,4 +59,4 @@ Then run `frost init`, choose Permafrost, paste your access key, pick your folde
 
 If frost is already set up, use `frost config edit` to change the backend and server address together in the existing file. Accept the warning if the new server is empty, type `yes` to save, then run `frost init` again. `frost config set` refuses an empty destination, so it can't prepare a new server.
 
-The address must use `https://`, except for a server on your own computer, like `http://localhost:8080`. Leave the setting blank to use the default Permafrost server.
+The address must use `https://`, except for a server on your own computer, like `http://localhost:8080`. Leave the setting blank to use the default Permafrost server, `https://permafrost.wihiaawb.com`.

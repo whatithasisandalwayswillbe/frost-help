@@ -44,7 +44,11 @@ Your provider doesn't support a feature frost needs to keep computers from overw
 
 ## "the Permafrost access key was rejected"
 
-The key may be wrong or expired. Run `frost init` and set up storage again to get a working one. See [Permafrost](#permafrost).
+The message goes on with Permafrost's reason: the key is wrong, a newer key replaced it, or the account closed. Use your newest key, or get a new one. See [Permafrost](#permafrost).
+
+## "uploads are paused"
+
+Permafrost isn't accepting new backups for your account right now. The message says why and until when, and restores keep working. See [Permafrost](#permafrost).
 
 ## A backup can't read a folder
 

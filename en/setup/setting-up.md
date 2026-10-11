@@ -10,7 +10,7 @@ In a terminal, `frost init` opens a full-screen setup. It needs a window at leas
 
 Pick where your backups go:
 
-- **Permafrost**, the recommended option. It needs one access key and nothing else, and if you don't have a key yet, frost can get you one in your browser. See [Permafrost](#permafrost).
+- **Permafrost**, the recommended option. It needs one access key and nothing else, and if you don't have a key yet, frost opens getfro.st/perma so you can get one. See [Permafrost](#permafrost).
 - **Backblaze B2**, **Amazon S3**, **Cloudflare R2** or **Wasabi**. Setup asks only what that provider needs, and says where to find each answer.
 - **Other S3-compatible**, for MinIO, Ceph and other services that speak the S3 protocol.
 
@@ -71,4 +71,4 @@ For a new location, use `frost config edit`, accept the warning, save and run `f
 
 ## Without a full-screen terminal
 
-When frost isn't running in an interactive terminal, for example with piped input, `frost init` asks plain questions, one per line. It offers Permafrost or a generic S3-compatible bucket instead of the provider list, and it also asks for the folder inside the bucket. Lists are comma separated, and `-` leaves the skip list empty. Getting a Permafrost key in the browser works here too.
+When frost isn't running in an interactive terminal, for example with piped input, `frost init` asks plain questions, one per line. It offers Permafrost or a generic S3-compatible bucket instead of the provider list, and it also asks for the folder inside the bucket. Lists are comma separated, and `-` leaves the skip list empty. frost opens getfro.st/perma for a new Permafrost key here too.

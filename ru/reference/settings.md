@@ -45,7 +45,7 @@ frost открывает копию `config.toml` в указанном вами
 | `verify.sample` | `20` | Сколько блоков скачивает выборочная проверка. `0` её выключает |
 | `update.auto` | `true` | Устанавливать новые версии после копирования по расписанию. `false` только сообщает о них |
 | `storage.backend` | | `permafrost` или `s3` |
-| `storage.permafrost.url` | | Пусто для сервера по умолчанию. Иначе адрес `https://` или `http://` для сервера на вашем компьютере |
+| `storage.permafrost.url` | | Пусто для сервера по умолчанию, `https://permafrost.wihiaawb.com`. Иначе адрес `https://` или `http://` для сервера на вашем компьютере |
 | `storage.permafrost.token` | | Ваш ключ доступа Permafrost |
 | `storage.s3.endpoint` | | Например `s3.us-east-1.amazonaws.com`. Подойдёт и полный адрес `https://`, а адрес `http://` выключает TLS |
 | `storage.s3.region` | | Пусто, если ваш провайдер не использует регионы |

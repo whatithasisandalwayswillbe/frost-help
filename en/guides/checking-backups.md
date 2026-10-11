@@ -35,6 +35,7 @@ The first line shows frost's version, your storage and your key's fingerprint. T
 | health | The result of the latest spot check |
 | updates | Whether updates are automatic, and whether a new release is out |
 | protected | The files and size in the newest snapshot, and how many snapshots you have |
+| storage | With Permafrost, how much of your storage you use. Permafrost's warning comes first when it has one, such as storage that's nearly full |
 | missing | Snapshots this computer knew about that are no longer in storage |
 
 The list shows your 10 newest snapshots. The `new` column is how much new data each one added. To list them all:

@@ -35,6 +35,7 @@ Die erste Zeile zeigt die Version von frost, deinen Speicher und den Fingerabdru
 | health | Das Ergebnis der letzten Stichprobenprüfung |
 | updates | Ob Updates automatisch laufen und ob eine neue Version erschienen ist |
 | protected | Dateien und Größe des neuesten Snapshots und wie viele Snapshots du hast |
+| storage | Bei Permafrost, wie viel von deinem Speicher belegt ist. Eine Warnung von Permafrost, etwa bei fast vollem Speicher, steht davor |
 | missing | Snapshots, die dieser Computer kannte, die aber nicht mehr im Speicher liegen |
 
 Die Liste zeigt deine 10 neuesten Snapshots. Die Spalte `new` gibt an, wie viele neue Daten jeder hinzugefügt hat. Um alle aufzulisten:

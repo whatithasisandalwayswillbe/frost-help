@@ -44,7 +44,11 @@ frost가 `config.toml`을 찾지 못했습니다. `frost init`을 실행하세�
 
 ## "the Permafrost access key was rejected"
 
-키가 잘못되었거나 만료되었을 수 있습니다. `frost init`을 실행해 스토리지를 다시 설정하고 작동하는 키를 받으세요. 자세한 내용은 [Permafrost](#permafrost)를 참고하세요.
+메시지 뒤에 Permafrost가 알려 주는 이유가 이어집니다. 키가 잘못되었거나, 더 새 키로 바뀌었거나, 계정이 닫혔습니다. 가장 최근 키를 쓰거나 새 키를 받으세요. 자세한 내용은 [Permafrost](#permafrost)를 참고하세요.
+
+## "uploads are paused"
+
+Permafrost가 지금은 이 계정의 새 백업을 받지 않습니다. 이유와 기한은 메시지에 나오며, 복원은 계속 됩니다. 자세한 내용은 [Permafrost](#permafrost)를 참고하세요.
 
 ## 백업이 폴더를 읽지 못함
 

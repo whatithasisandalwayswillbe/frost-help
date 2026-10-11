@@ -10,7 +10,7 @@ Em um terminal, o `frost init` abre uma configuração em tela cheia. Ela precis
 
 Escolha onde seus backups ficam:
 
-- **Permafrost**, a opção recomendada. Ele precisa só de uma chave de acesso e mais nada, e se você ainda não tiver uma chave, o frost pode conseguir uma pelo navegador. Veja [Permafrost](#permafrost).
+- **Permafrost**, a opção recomendada. Ele precisa só de uma chave de acesso e mais nada, e se você ainda não tiver uma chave, o frost abre getfro.st/perma para você conseguir uma. Veja [Permafrost](#permafrost).
 - **Backblaze B2**, **Amazon S3**, **Cloudflare R2** ou **Wasabi**. A configuração pergunta só o que aquele provedor precisa e diz onde encontrar cada resposta.
 - **Other S3-compatible** (outro compatível com S3), para MinIO, Ceph e outros serviços que falam o protocolo S3.
 
@@ -71,4 +71,4 @@ Para um novo local, use `frost config edit`, aceite o aviso, salve e execute `fr
 
 ## Sem um terminal em tela cheia
 
-Quando o frost não está rodando em um terminal interativo, por exemplo com a entrada redirecionada, o `frost init` faz perguntas simples, uma por linha. Em vez da lista de provedores, ele oferece o Permafrost ou um bucket genérico compatível com S3, e também pergunta pela pasta dentro do bucket. As listas são separadas por vírgulas, e `-` deixa a lista de exclusões vazia. Conseguir uma chave do Permafrost pelo navegador também funciona nesse modo.
+Quando o frost não está rodando em um terminal interativo, por exemplo com a entrada redirecionada, o `frost init` faz perguntas simples, uma por linha. Em vez da lista de provedores, ele oferece o Permafrost ou um bucket genérico compatível com S3, e também pergunta pela pasta dentro do bucket. As listas são separadas por vírgulas, e `-` deixa a lista de exclusões vazia. Nesse modo, o frost também abre getfro.st/perma se você precisar de uma chave do Permafrost.

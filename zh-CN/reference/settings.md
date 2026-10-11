@@ -45,7 +45,7 @@ frost 会用你指定的编辑器打开 `config.toml` 的一份副本；如果�
 | `verify.sample` | `20` | 抽查时下载多少个数据块。`0` 表示关闭抽查 |
 | `update.auto` | `true` | 在计划备份之后安装新的发布版本。`false` 只通知你有新版本 |
 | `storage.backend` | | `permafrost` 或 `s3` |
-| `storage.permafrost.url` | | 留空表示使用默认服务器。否则填写 `https://` 地址，或者对于你自己电脑上的服务器，填写 `http://` 地址 |
+| `storage.permafrost.url` | | 留空表示使用默认服务器 `https://permafrost.wihiaawb.com`。否则填写 `https://` 地址，或者对于你自己电脑上的服务器，填写 `http://` 地址 |
 | `storage.permafrost.token` | | 你的 Permafrost 访问密钥 |
 | `storage.s3.endpoint` | | 比如 `s3.us-east-1.amazonaws.com`。也可以填写完整的 `https://` 地址，填写 `http://` 地址则会关闭 TLS |
 | `storage.s3.region` | | 如果你的服务商不使用区域，就留空 |

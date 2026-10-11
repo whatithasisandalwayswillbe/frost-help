@@ -45,7 +45,7 @@ Se o arquivo não puder ser interpretado, o frost diz o motivo e oferece abri-lo
 | `verify.sample` | `20` | Quantos blocos a verificação por amostragem baixa. `0` desliga a verificação |
 | `update.auto` | `true` | Instalar versões novas depois dos backups agendados. `false` só avisa sobre elas |
 | `storage.backend` | | `permafrost` ou `s3` |
-| `storage.permafrost.url` | | Vazio para o servidor padrão. Caso contrário, um endereço `https://`, ou `http://` para um servidor no seu próprio computador |
+| `storage.permafrost.url` | | Vazio para o servidor padrão, `https://permafrost.wihiaawb.com`. Caso contrário, um endereço `https://`, ou `http://` para um servidor no seu próprio computador |
 | `storage.permafrost.token` | | A sua chave de acesso do Permafrost |
 | `storage.s3.endpoint` | | Como `s3.us-east-1.amazonaws.com`. Um endereço `https://` completo também funciona, e um `http://` desliga o TLS |
 | `storage.s3.region` | | Vazio se o seu provedor não usa regiões |

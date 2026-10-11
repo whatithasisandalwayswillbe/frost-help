@@ -34,6 +34,8 @@ Si rien n'a changé, frost n'enregistre pas de nouvel instantané :
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
+Avec Permafrost, une sauvegarde se termine par un avertissement `storage` quand Permafrost a quelque chose à vous signaler, par exemple un stockage presque plein.
+
 Avec les sauvegardes automatiques activées, vous aurez rarement besoin de lancer cette commande vous-même. Voir [Sauvegardes automatiques](#scheduling).
 
 ## Prévisualiser une sauvegarde

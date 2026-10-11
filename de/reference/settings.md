@@ -45,7 +45,7 @@ Lässt sich die Datei nicht einlesen, sagt dir frost, warum, und bietet an, sie 
 | `verify.sample` | `20` | Wie viele Blöcke die Stichprobenprüfung herunterlädt. `0` schaltet sie aus |
 | `update.auto` | `true` | Neue Versionen nach geplanten Backups installieren. `false` informiert nur darüber |
 | `storage.backend` | | `permafrost` oder `s3` |
-| `storage.permafrost.url` | | Leer für den Standardserver. Sonst eine `https://`-Adresse, oder `http://` für einen Server auf deinem eigenen Computer |
+| `storage.permafrost.url` | | Leer für den Standardserver, `https://permafrost.wihiaawb.com`. Sonst eine `https://`-Adresse, oder `http://` für einen Server auf deinem eigenen Computer |
 | `storage.permafrost.token` | | Dein Permafrost-Zugriffsschlüssel |
 | `storage.s3.endpoint` | | Etwa `s3.us-east-1.amazonaws.com`. Eine vollständige `https://`-Adresse geht auch, und eine `http://`-Adresse schaltet TLS aus |
 | `storage.s3.region` | | Leer, wenn dein Anbieter keine Regionen nutzt |
