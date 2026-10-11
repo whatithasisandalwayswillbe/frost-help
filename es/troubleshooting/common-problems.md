@@ -100,7 +100,7 @@ La instantánea viene de otro tipo de equipo, o la ruta a los originales pasa po
 
 ## frost no puede actualizarse
 
-frost lo instaló un gestor de paquetes, su carpeta no admite escritura o se compiló desde el código fuente. Consulta [Actualizar frost](#updating).
+La carpeta de frost no admite escritura, o frost se compiló desde el código fuente. Consulta [Actualizar frost](#updating).
 
 ## El instalador se detiene
 

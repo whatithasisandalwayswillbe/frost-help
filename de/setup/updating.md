@@ -40,7 +40,6 @@ frost config set update.auto false
 
 | Wann | Was du stattdessen tust |
 | --- | --- |
-| Ein Paketmanager hat frost installiert (Homebrew, Nix, Snap, Scoop oder ein Systempaket) | Aktualisiere es mit diesem Paketmanager |
 | Du darfst nicht in den Anwendungsordner von frost schreiben | Installiere es mit dem Installationsprogramm neu, als dein eigener Benutzer |
 | frost wurde aus dem Quellcode gebaut | Bau es neu oder installiere eine Version mit dem Installationsprogramm |
 

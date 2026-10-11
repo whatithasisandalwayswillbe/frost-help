@@ -40,7 +40,6 @@ frost config set update.auto false
 
 | 情况 | 改为这样做 |
 | --- | --- |
-| frost 是通过包管理器安装的（Homebrew、Nix、Snap、Scoop 或系统自带的软件包） | 用那个包管理器来更新 |
 | 你没有 frost 应用程序文件夹的写入权限 | 以你自己的用户身份，用安装程序重新安装 |
 | frost 是从源代码构建的 | 重新构建，或者用安装程序安装一个发布版本 |
 

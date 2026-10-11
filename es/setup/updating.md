@@ -40,7 +40,6 @@ Desde ese momento, `frost status` te avisa cuando sale una versión, y no se ins
 
 | Cuándo | Qué hacer en su lugar |
 | --- | --- |
-| Un gestor de paquetes instaló frost (Homebrew, Nix, Snap, Scoop o un paquete del sistema) | Actualízalo con ese gestor de paquetes |
 | No puedes escribir en la carpeta de la aplicación de frost | Reinstálalo con el instalador, con tu propio usuario |
 | frost se compiló desde el código fuente | Vuelve a compilarlo, o instala una versión con el instalador |
 

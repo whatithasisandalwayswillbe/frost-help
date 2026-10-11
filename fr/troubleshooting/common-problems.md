@@ -100,7 +100,7 @@ L'instantané vient d'un autre type d'ordinateur, ou le chemin vers les originau
 
 ## frost ne peut pas se mettre à jour
 
-frost a été installé par un gestionnaire de paquets, son dossier n'est pas accessible en écriture, ou il a été compilé à partir des sources. Voir [Mettre à jour frost](#updating).
+Le dossier de frost n'est pas accessible en écriture, ou frost a été compilé à partir des sources. Voir [Mettre à jour frost](#updating).
 
 ## L'installateur s'arrête
 
