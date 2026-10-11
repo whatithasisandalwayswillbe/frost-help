@@ -100,7 +100,7 @@ The snapshot came from a different kind of computer, or the path to the original
 
 ## frost can't update itself
 
-frost was installed by a package manager, its folder isn't writable, or it was built from source. See [Updating frost](#updating).
+frost's folder isn't writable, or frost was built from source. See [Updating frost](#updating).
 
 ## The installer stops
 

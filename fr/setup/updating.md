@@ -40,7 +40,6 @@ frost config set update.auto false
 
 | Situation | Que faire |
 | --- | --- |
-| Un gestionnaire de paquets a installé frost (Homebrew, Nix, Snap, Scoop ou un paquet du système) | Mettez-le à jour avec ce gestionnaire de paquets |
 | Vous ne pouvez pas écrire dans le dossier de l'application frost | Réinstallez-le avec l'installateur, sous votre propre utilisateur |
 | frost a été compilé à partir des sources | Recompilez-le, ou installez une version avec l'installateur |
 

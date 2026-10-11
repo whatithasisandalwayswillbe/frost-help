@@ -100,7 +100,7 @@ O snapshot veio de outro tipo de computador, ou o caminho até os originais pass
 
 ## O frost não consegue se atualizar
 
-O frost foi instalado por um gerenciador de pacotes, a pasta dele não permite gravação ou ele foi compilado a partir do código-fonte. Veja [Atualizar o frost](#updating).
+A pasta do frost não permite gravação, ou o frost foi compilado a partir do código-fonte. Veja [Atualizar o frost](#updating).
 
 ## O instalador para
 

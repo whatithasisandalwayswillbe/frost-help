@@ -100,7 +100,7 @@ Der Snapshot stammt von einer anderen Art Computer, oder der Pfad zu den Origina
 
 ## frost kann sich nicht selbst aktualisieren
 
-frost wurde von einem Paketmanager installiert, sein Ordner ist nicht beschreibbar, oder es wurde aus dem Quellcode gebaut. Siehe [frost aktualisieren](#updating).
+Der Ordner von frost ist nicht beschreibbar, oder frost wurde aus dem Quellcode gebaut. Siehe [frost aktualisieren](#updating).
 
 ## Das Installationsprogramm bricht ab
 

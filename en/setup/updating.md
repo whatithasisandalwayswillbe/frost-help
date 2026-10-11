@@ -40,7 +40,6 @@ frost config set update.auto false
 
 | When | Do this instead |
 | --- | --- |
-| A package manager installed frost (Homebrew, Nix, Snap, Scoop or a system package) | Update it with that package manager |
 | You can't write to frost's application folder | Reinstall with the installer, as your own user |
 | frost was built from source | Rebuild it, or install a release with the installer |
 
