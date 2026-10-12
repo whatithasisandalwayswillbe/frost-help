@@ -32,7 +32,7 @@ frost config edit
 
 frost abre una copia de `config.toml` en el editor que indiques, o en `$VISUAL` o `$EDITOR`, o si no en nano, vim o vi. En Windows, la alternativa es el Bloc de notas. Al cerrar el editor, frost enumera lo que has cambiado y guarda la copia cuando escribes `yes`.
 
-Si el archivo no se puede interpretar, frost te dice por qué y te ofrece abrirlo de nuevo, así que una errata no puede estropear tus copias programadas. Los ajustes desconocidos cuentan como errores, así que un nombre mal escrito no pasa desapercibido.
+Si el archivo no se puede interpretar, frost te señala el problema y te ofrece abrirlo de nuevo, así que una errata no puede estropear tus copias programadas. Los ajustes desconocidos cuentan como errores, así que un nombre mal escrito no pasa desapercibido.
 
 ## Todos los ajustes
 

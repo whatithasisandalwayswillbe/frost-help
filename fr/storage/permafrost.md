@@ -43,7 +43,7 @@ Dans l'assistant, les deux premiers s'affichent sous la forme « Permafrost didn
 
 ## Votre propre serveur
 
-Tout le monde peut faire tourner un serveur qui parle l'[API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md).
+Tout le monde peut faire tourner un serveur qui parle l'[API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Un serveur compatible doit respecter ses règles sur les objets et les erreurs, notamment refuser les envois vides. frost réessaie automatiquement quand un serveur est occupé.
 
 Avant de lancer l'assistant pour la première fois, créez `config.toml` dans le dossier de configuration de frost, indiqué dans [Fichiers et dossiers](#files-and-folders), avec ces réglages. Remplacez l'adresse par celle de votre serveur :
 

@@ -47,13 +47,13 @@ frost key import
 | frost 的提示 | 含义 |
 | --- | --- |
 | that's 23 words, a recovery phrase has 24 | 少了一个或多了一个单词 |
-| word 5, "hapy", isn't a recovery phrase word | 这个单词拼错了 |
+| word 5 isn't a recovery phrase word | 这个单词拼错了 |
 | all the words are real, but they don't make a valid phrase | 有两个单词顺序颠倒，或者某个单词被换成了另一个真实存在的单词 |
 | that's a valid phrase, but not the one for these backups | 这个恢复短语属于另一组备份 |
 
 ## 密钥指纹
 
-指纹是一个简短的 ID，比如 `6f154dc10058`，它能标识你的密钥而不会泄露密钥。`frost status` 会显示它，在快照浏览器中按 `[v]` 也能看到。指纹相同的两台电脑，拥有的是同一个密钥。
+指纹是一个简短的 ID，比如 `6f154dc10058`，它能标识你的密钥而不会泄露密钥。`frost status` 会显示它，在快照浏览器中按 `[v]` 也能看到。相同的指纹有助于识别密钥，但指纹太短，不能证明两个密钥完全相同。frost 在打开备份时会检查密钥本身。
 
 ## 更换密钥
 

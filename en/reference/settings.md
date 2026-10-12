@@ -32,7 +32,7 @@ frost config edit
 
 frost opens a copy of `config.toml` in the editor you name, or in `$VISUAL` or `$EDITOR`, or else in nano, vim or vi. On Windows the fallback is Notepad. When you close the editor, frost lists what you changed and saves the copy once you type `yes`.
 
-If the file doesn't parse, frost tells you why and offers to open it again, so a typo can't break your scheduled backups. Unknown settings count as errors, so a misspelled name can't slip through unnoticed.
+If the file doesn't parse, frost points out the problem and offers to open it again, so a typo can't break your scheduled backups. Unknown settings count as errors, so a misspelled name can't slip through unnoticed.
 
 ## All settings
 

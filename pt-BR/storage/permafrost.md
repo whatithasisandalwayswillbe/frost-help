@@ -43,7 +43,7 @@ Na configuração, os dois primeiros aparecem como "Permafrost didn't accept tha
 
 ## O seu próprio servidor
 
-Qualquer pessoa pode rodar um servidor que fale a [API do Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md).
+Qualquer pessoa pode rodar um servidor que fale a [API do Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Um servidor compatível precisa seguir as regras da API para objetos e erros, inclusive recusar envios vazios. O frost tenta de novo automaticamente quando um servidor está ocupado.
 
 Antes de executar o assistente pela primeira vez, crie `config.toml` na pasta de configuração do frost, indicada em [Arquivos e pastas](#files-and-folders), com estas configurações. Troque o endereço pelo do seu servidor:
 

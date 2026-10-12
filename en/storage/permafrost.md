@@ -43,7 +43,7 @@ During setup, the first two read "Permafrost didn't accept that access key" and 
 
 ## Your own server
 
-Anyone can run a server that speaks the [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md).
+Anyone can run a server that speaks the [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). A compatible server must follow its object and error rules, including refusing empty uploads. frost retries automatically when a server is busy.
 
 Before your first setup, create `config.toml` in frost's config folder, as listed in [Files and folders](#files-and-folders), with these settings. Replace the address with your server's:
 

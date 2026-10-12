@@ -4,7 +4,7 @@ frost encrypts your backups on your computer, with a key only you hold, before a
 
 ## What's encrypted
 
-frost encrypts everything inside your backups: file contents, file names, folder structure and the details of each snapshot. frost never sends your key to a server or keeps an escrow copy.
+frost encrypts everything inside your backups: file contents, file names, folder structure and the details of each snapshot. Setup also sends a small plaintext test object, then deletes it. It contains no files, names or encryption key. frost never sends your key to a server or keeps an escrow copy.
 
 | Piece | How |
 | --- | --- |

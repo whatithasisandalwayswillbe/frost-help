@@ -43,7 +43,7 @@ Permafrost 的错误信息会说明原因。需要访问备份的命令会带着
 
 ## 你自己的服务器
 
-任何人都可以运行一个支持 [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) 的服务器。
+任何人都可以运行一个支持 [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) 的服务器。兼容的服务器必须遵守其中的对象和错误规则，包括拒绝空的上传。服务器繁忙时，frost 会自动重试。
 
 第一次设置之前，请在 frost 的配置文件夹中创建 `config.toml`，填入下面的设置。文件夹位置见[文件与文件夹](#files-and-folders)。请把地址换成自己服务器的地址：
 

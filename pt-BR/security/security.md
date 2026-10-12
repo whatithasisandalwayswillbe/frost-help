@@ -4,7 +4,7 @@ O frost criptografa seus backups no seu computador, com uma chave que só você 
 
 ## O que é criptografado
 
-O frost criptografa tudo o que está nos seus backups: o conteúdo dos arquivos, os nomes, a estrutura de pastas e os detalhes de cada snapshot. O frost nunca envia a sua chave a um servidor nem guarda uma cópia sob custódia.
+O frost criptografa tudo o que está nos seus backups: o conteúdo dos arquivos, os nomes, a estrutura de pastas e os detalhes de cada snapshot. A configuração também envia um pequeno objeto de teste sem criptografia e depois o apaga. Ele não contém arquivos, nomes nem a chave de criptografia. O frost nunca envia a sua chave a um servidor nem guarda uma cópia sob custódia.
 
 | Parte | Como |
 | --- | --- |

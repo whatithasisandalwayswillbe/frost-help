@@ -27,7 +27,7 @@ Pour choisir quoi restaurer depuis un ordinateur d'un autre type, comme un insta
 
 Utilisez `--to` plutôt que `--beside` ou `--overwrite`. `--beside` exige que les dossiers d'origine existent sur cet ordinateur, et `--overwrite` exige un instantané du même type d'ordinateur : macOS et Linux, ou Windows.
 
-> Restaurez avant que cet ordinateur fasse sa première sauvegarde. Ensuite, `latest` désigne l'instantané le plus récent de cet ordinateur-ci. Si c'est déjà fait, lancez `frost status` pour trouver l'identifiant de votre ancien instantané, et restaurez celui-là.
+> Restaurez avant que cet ordinateur fasse sa première sauvegarde. Ensuite, `latest` peut sélectionner un instantané créé sur cet ordinateur. Si c'est déjà fait, lancez `frost status` pour trouver l'identifiant de votre ancien instantané, et restaurez celui-là.
 
 ## Deux ordinateurs, un seul stockage
 

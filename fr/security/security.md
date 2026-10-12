@@ -4,7 +4,7 @@ frost chiffre vos sauvegardes sur votre ordinateur, avec une clé que vous seul 
 
 ## Ce qui est chiffré
 
-frost chiffre tout ce que contiennent vos sauvegardes : le contenu des fichiers, leurs noms, la structure des dossiers et les détails de chaque instantané. frost n'envoie jamais votre clé à un serveur et n'en conserve aucune copie sous séquestre.
+frost chiffre tout ce que contiennent vos sauvegardes : le contenu des fichiers, leurs noms, la structure des dossiers et les détails de chaque instantané. Pendant la configuration, frost envoie aussi un petit objet de test en clair, puis le supprime. Il ne contient ni fichiers, ni noms, ni clé de chiffrement. frost n'envoie jamais votre clé à un serveur et n'en conserve aucune copie sous séquestre.
 
 | Élément | Comment |
 | --- | --- |

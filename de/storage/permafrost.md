@@ -43,7 +43,7 @@ In der Einrichtung lauten die ersten beiden „Permafrost didn't accept that acc
 
 ## Dein eigener Server
 
-Jeder kann einen Server betreiben, der die [Permafrost-API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) spricht.
+Jeder kann einen Server betreiben, der die [Permafrost-API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) spricht. Ein kompatibler Server muss deren Regeln für Objekte und Fehler befolgen und dabei auch leere Uploads ablehnen. frost versucht es automatisch erneut, wenn ein Server ausgelastet ist.
 
 Erstelle vor deiner ersten Einrichtung eine Datei `config.toml` im Konfigurationsordner von frost, der unter [Dateien und Ordner](#files-and-folders) aufgeführt ist, mit diesen Einstellungen. Ersetze die Adresse durch die deines Servers:
 

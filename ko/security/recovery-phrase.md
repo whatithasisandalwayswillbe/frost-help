@@ -47,13 +47,13 @@ frost key import
 | frost의 메시지 | 의미 |
 | --- | --- |
 | that's 23 words, a recovery phrase has 24 | 단어가 하나 빠졌거나 하나 더 있습니다 |
-| word 5, "hapy", isn't a recovery phrase word | 그 단어의 철자가 틀렸습니다 |
+| word 5 isn't a recovery phrase word | 그 단어의 철자가 틀렸습니다 |
 | all the words are real, but they don't make a valid phrase | 두 단어의 순서가 바뀌었거나, 한 단어가 다른 실제 단어로 바뀌었습니다 |
 | that's a valid phrase, but not the one for these backups | 다른 백업의 복구 문구입니다 |
 
 ## 키 지문
 
-지문은 `6f154dc10058` 같은 짧은 ID로, 키를 드러내지 않고 키를 식별합니다. `frost status`에 표시되고, 스냅샷 브라우저에서도 `[v]`를 누르면 보입니다. 지문이 같은 두 컴퓨터는 같은 키를 가지고 있습니다.
+지문은 `6f154dc10058` 같은 짧은 ID로, 키를 드러내지 않고 키를 식별합니다. `frost status`에 표시되고, 스냅샷 브라우저에서도 `[v]`를 누르면 보입니다. 같은 지문은 키를 식별하는 데 도움이 되지만, 지문은 너무 짧아서 두 키가 동일하다는 것을 증명할 수 없습니다. frost는 백업을 열 때 키 자체를 확인합니다.
 
 ## 키 바꾸기
 

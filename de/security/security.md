@@ -4,7 +4,7 @@ frost verschlüsselt deine Backups auf deinem Computer, mit einem Schlüssel, de
 
 ## Was verschlüsselt wird
 
-frost verschlüsselt alles in deinen Backups: Dateiinhalte, Dateinamen, die Ordnerstruktur und die Angaben zu jedem Snapshot. frost sendet deinen Schlüssel nie an einen Server und hinterlegt auch keine Kopie davon.
+frost verschlüsselt alles in deinen Backups: Dateiinhalte, Dateinamen, die Ordnerstruktur und die Angaben zu jedem Snapshot. Bei der Einrichtung sendet frost außerdem ein kleines Testobjekt im Klartext und löscht es danach. Es enthält keine Dateien, Dateinamen oder Verschlüsselungsschlüssel. frost sendet deinen Schlüssel nie an einen Server und hinterlegt auch keine Kopie davon.
 
 | Bestandteil | Wie |
 | --- | --- |

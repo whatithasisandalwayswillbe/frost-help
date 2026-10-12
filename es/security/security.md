@@ -4,7 +4,7 @@ frost cifra tus copias en tu equipo, con una clave que solo tienes tú, antes de
 
 ## Qué se cifra
 
-frost cifra todo lo que hay dentro de tus copias: el contenido de los archivos, sus nombres, la estructura de carpetas y los detalles de cada instantánea. frost nunca envía tu clave a un servidor ni guarda una copia bajo custodia.
+frost cifra todo lo que hay dentro de tus copias: el contenido de los archivos, sus nombres, la estructura de carpetas y los detalles de cada instantánea. El asistente también envía un pequeño objeto de prueba sin cifrar y después lo borra. No contiene archivos, nombres ni la clave de cifrado. frost nunca envía tu clave a un servidor ni guarda una copia bajo custodia.
 
 | Elemento | Cómo |
 | --- | --- |

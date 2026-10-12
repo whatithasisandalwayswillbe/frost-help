@@ -47,13 +47,13 @@ Digite as 24 palavras em ordem, separadas por espaços. Maiúsculas não fazem d
 | O frost diz | Significa |
 | --- | --- |
 | that's 23 words, a recovery phrase has 24 | Falta ou sobra uma palavra |
-| word 5, "hapy", isn't a recovery phrase word | Essa palavra está escrita errado |
+| word 5 isn't a recovery phrase word | Essa palavra está escrita errado |
 | all the words are real, but they don't make a valid phrase | Duas palavras estão trocadas de lugar, ou uma é outra palavra real |
 | that's a valid phrase, but not the one for these backups | A frase é de outro conjunto de backups |
 
 ## A impressão digital da chave
 
-A impressão digital é um ID curto, como `6f154dc10058`, que identifica a sua chave sem revelá-la. O `frost status` a mostra, e o navegador de snapshots também, quando você pressiona `[v]`. Dois computadores com a mesma impressão digital têm a mesma chave.
+A impressão digital é um ID curto, como `6f154dc10058`, que identifica a sua chave sem revelá-la. O `frost status` a mostra, e o navegador de snapshots também, quando você pressiona `[v]`. Impressões digitais iguais ajudam a identificar uma chave, mas são curtas demais para provar que duas chaves são idênticas. O frost verifica a própria chave ao abrir seus backups.
 
 ## Trocar a sua chave
 

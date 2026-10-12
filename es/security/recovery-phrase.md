@@ -47,13 +47,13 @@ Escribe las 24 palabras en orden, separadas por espacios. Da igual si usas mayú
 | frost dice | Significa |
 | --- | --- |
 | that's 23 words, a recovery phrase has 24 | Falta o sobra una palabra |
-| word 5, "hapy", isn't a recovery phrase word | Esa palabra está mal escrita |
+| word 5 isn't a recovery phrase word | Esa palabra está mal escrita |
 | all the words are real, but they don't make a valid phrase | Hay dos palabras intercambiadas, o una es otra palabra real distinta |
 | that's a valid phrase, but not the one for these backups | La frase es de otro conjunto de copias |
 
 ## La huella de la clave
 
-La huella es un ID corto, como `6f154dc10058`, que identifica tu clave sin revelarla. `frost status` la muestra, y el explorador de instantáneas también cuando pulsas `[v]`. Dos equipos con la misma huella tienen la misma clave.
+La huella es un ID corto, como `6f154dc10058`, que identifica tu clave sin revelarla. `frost status` la muestra, y el explorador de instantáneas también cuando pulsas `[v]`. Las huellas coincidentes ayudan a identificar una clave, pero son demasiado cortas para demostrar que dos claves son idénticas. frost comprueba la propia clave al abrir tus copias.
 
 ## Cambiar tu clave
 

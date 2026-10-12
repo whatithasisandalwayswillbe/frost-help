@@ -27,7 +27,7 @@ Um auszuwählen, was du von einer anderen Art Computer wiederherstellst, etwa ei
 
 Nimm `--to` statt `--beside` oder `--overwrite`. `--beside` setzt voraus, dass die ursprünglichen Ordner auf diesem Computer existieren, und `--overwrite` braucht einen Snapshot von derselben Art Computer, also macOS und Linux oder Windows.
 
-> Stell wieder her, bevor dieser Computer sein erstes Backup macht. Danach bezeichnet `latest` den neuesten Snapshot dieses Computers. Ist das schon passiert, such mit `frost status` die ID deines alten Snapshots heraus und stell diesen wieder her.
+> Stell wieder her, bevor dieser Computer sein erstes Backup macht. Danach kann `latest` stattdessen einen Snapshot auswählen, der auf diesem Computer erstellt wurde. Ist das schon passiert, such mit `frost status` die ID deines alten Snapshots heraus und stell diesen wieder her.
 
 ## Zwei Computer, ein Speicher
 
