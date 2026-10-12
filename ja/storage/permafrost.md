@@ -43,7 +43,7 @@ Permafrost のエラーには理由が書かれています。バックアップ
 
 ## 自分のサーバー
 
-[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) に対応したサーバーは、誰でも運用できます。
+[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) に対応したサーバーは、誰でも運用できます。互換サーバーは、空のアップロードを拒否することも含め、API のオブジェクトとエラーの規則に従う必要があります。サーバーが混み合っている場合、frost は自動的に再試行します。
 
 最初のセットアップの前に、frost の設定フォルダに `config.toml` を作り、次の設定を入れてください。場所は[ファイルとフォルダ](#files-and-folders)に載っています。アドレスを自分のサーバーのものに置き換えます。
 

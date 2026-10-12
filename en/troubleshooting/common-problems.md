@@ -90,6 +90,10 @@ The folder next to the originals isn't usable, often because the snapshot came f
 
 The snapshot came from a different kind of computer, or the path to the originals goes through a link frost doesn't trust. Use `--beside` or `--to <dir>` instead.
 
+## Restore says a file "changed after it was checked" or "has more than one link"
+
+frost found that a checked file changed, or that an unfinished restore file has a hardlink to another name. Stop programs that are changing the restore folder and retry. If an unfinished restore file is hardlinked, restore into a new empty folder instead.
+
 ## frost can't find the snapshot you asked for
 
 | frost says | Try |

@@ -47,13 +47,13 @@ Tipp alle 24 Wörter in der richtigen Reihenfolge ein, getrennt durch Leerzeiche
 | frost meldet | Das bedeutet |
 | --- | --- |
 | that's 23 words, a recovery phrase has 24 | Ein Wort fehlt oder ist zu viel |
-| word 5, "hapy", isn't a recovery phrase word | Dieses Wort ist falsch geschrieben |
+| word 5 isn't a recovery phrase word | Dieses Wort ist falsch geschrieben |
 | all the words are real, but they don't make a valid phrase | Zwei Wörter sind vertauscht, oder eines ist ein anderes echtes Wort |
 | that's a valid phrase, but not the one for these backups | Die Phrase gehört zu einem anderen Satz Backups |
 
 ## Der Fingerabdruck des Schlüssels
 
-Der Fingerabdruck ist eine kurze ID, etwa `6f154dc10058`, die deinen Schlüssel benennt, ohne ihn preiszugeben. `frost status` zeigt ihn an, ebenso der Snapshot-Browser, wenn du `[v]` drückst. Zwei Computer mit demselben Fingerabdruck haben denselben Schlüssel.
+Der Fingerabdruck ist eine kurze ID, etwa `6f154dc10058`, die deinen Schlüssel benennt, ohne ihn preiszugeben. `frost status` zeigt ihn an, ebenso der Snapshot-Browser, wenn du `[v]` drückst. Übereinstimmende Fingerabdrücke helfen dabei, einen Schlüssel zu erkennen, sind aber zu kurz, um die Gleichheit zweier Schlüssel zu beweisen. frost prüft den Schlüssel selbst, wenn es deine Backups öffnet.
 
 ## Den Schlüssel wechseln
 

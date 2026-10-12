@@ -32,7 +32,7 @@ frost config edit
 
 frost ouvre une copie de `config.toml` dans l'éditeur que vous indiquez, ou dans `$VISUAL` ou `$EDITOR`, ou à défaut dans nano, vim ou vi. Sous Windows, c'est le Bloc-notes par défaut. Quand vous fermez l'éditeur, frost liste ce que vous avez modifié et enregistre la copie dès que vous tapez `yes`.
 
-Si le fichier ne peut pas être lu, frost vous dit pourquoi et propose de le rouvrir : une faute de frappe ne peut donc pas casser vos sauvegardes planifiées. Les réglages inconnus comptent comme des erreurs, pour qu'un nom mal orthographié ne passe pas inaperçu.
+Si le fichier ne peut pas être lu, frost vous signale le problème et propose de le rouvrir : une faute de frappe ne peut donc pas casser vos sauvegardes planifiées. Les réglages inconnus comptent comme des erreurs, pour qu'un nom mal orthographié ne passe pas inaperçu.
 
 ## Tous les réglages
 

@@ -47,13 +47,13 @@ frost key import
 | frost の表示 | 意味 |
 | --- | --- |
 | that's 23 words, a recovery phrase has 24 | 単語が 1 つ足りないか、多すぎます |
-| word 5, "hapy", isn't a recovery phrase word | その単語のつづりが間違っています |
+| word 5 isn't a recovery phrase word | その単語のつづりが間違っています |
 | all the words are real, but they don't make a valid phrase | 2 つの単語が入れ替わっているか、1 つが別の実在する単語になっています |
 | that's a valid phrase, but not the one for these backups | 別のバックアップのフレーズです |
 
 ## キーのフィンガープリント
 
-フィンガープリントは、`6f154dc10058` のような短い ID で、キーそのものを明かさずにキーを識別します。`frost status` に表示され、スナップショットブラウザでも `[v]` を押すと表示されます。フィンガープリントが同じ 2 台のコンピュータは、同じキーを持っています。
+フィンガープリントは、`6f154dc10058` のような短い ID で、キーそのものを明かさずにキーを識別します。`frost status` に表示され、スナップショットブラウザでも `[v]` を押すと表示されます。フィンガープリントの一致はキーを見分ける手がかりになりますが、短いため、2 つのキーが同一であることの証明にはなりません。frost はバックアップを開くときにキーそのものを確認します。
 
 ## キーを変える
 

@@ -47,13 +47,13 @@ Tapez les 24 mots dans l'ordre, séparés par des espaces. Les majuscules n'ont 
 | frost affiche | Cela signifie |
 | --- | --- |
 | that's 23 words, a recovery phrase has 24 | Il manque un mot, ou il y en a un de trop |
-| word 5, "hapy", isn't a recovery phrase word | Ce mot est mal orthographié |
+| word 5 isn't a recovery phrase word | Ce mot est mal orthographié |
 | all the words are real, but they don't make a valid phrase | Deux mots sont inversés, ou l'un d'eux est un autre mot existant |
 | that's a valid phrase, but not the one for these backups | La phrase appartient à un autre ensemble de sauvegardes |
 
 ## L'empreinte de la clé
 
-L'empreinte est un court identifiant, comme `6f154dc10058`, qui désigne votre clé sans la révéler. `frost status` l'affiche, tout comme le navigateur d'instantanés quand vous appuyez sur `[v]`. Deux ordinateurs qui ont la même empreinte ont la même clé.
+L'empreinte est un court identifiant, comme `6f154dc10058`, qui désigne votre clé sans la révéler. `frost status` l'affiche, tout comme le navigateur d'instantanés quand vous appuyez sur `[v]`. Des empreintes identiques aident à reconnaître une clé, mais elles sont trop courtes pour prouver que deux clés sont identiques. frost vérifie la clé elle-même à l'ouverture de vos sauvegardes.
 
 ## Changer de clé
 

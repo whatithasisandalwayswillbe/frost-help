@@ -90,6 +90,10 @@ No se puede usar la carpeta que hay junto a los originales, a menudo porque la i
 
 La instantánea viene de otro tipo de equipo, o la ruta a los originales pasa por un enlace del que frost no se fía. Usa `--beside` o `--to <dir>` en su lugar.
 
+## La restauración indica que un archivo "changed after it was checked" o "has more than one link"
+
+frost ha detectado que un archivo ya comprobado ha cambiado, o que un archivo cuya restauración no ha terminado tiene un enlace duro a otro nombre. Cierra los programas que estén modificando la carpeta de restauración y vuelve a intentarlo. Si el archivo sin terminar tiene un enlace duro, restaura en una carpeta nueva y vacía.
+
 ## frost no encuentra la instantánea que pides
 
 | frost dice | Prueba |

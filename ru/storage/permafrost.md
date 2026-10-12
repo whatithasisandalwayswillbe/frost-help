@@ -43,7 +43,7 @@ frost config set storage.permafrost.token <new key>
 
 ## Собственный сервер
 
-Любой может запустить сервер, поддерживающий [API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md).
+Любой может запустить сервер, поддерживающий [API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Совместимый сервер должен соблюдать правила API для объектов и ошибок, включая отказ от пустых загрузок. Если сервер занят, frost автоматически повторяет запрос.
 
 Перед первой настройкой создайте файл `config.toml` в папке конфигурации frost, указанной в разделе [Файлы и папки](#files-and-folders), с такими настройками. Замените адрес на адрес своего сервера:
 

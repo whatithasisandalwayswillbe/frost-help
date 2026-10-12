@@ -90,6 +90,10 @@ Der Ordner neben den Originalen lässt sich nicht nutzen, oft weil der Snapshot 
 
 Der Snapshot stammt von einer anderen Art Computer, oder der Pfad zu den Originalen führt über einen Link, dem frost nicht vertraut. Nimm stattdessen `--beside` oder `--to <dir>`.
 
+## Die Wiederherstellung meldet bei einer Datei „changed after it was checked“ oder „has more than one link“
+
+frost hat festgestellt, dass eine bereits geprüfte Datei geändert wurde oder dass eine noch nicht fertig wiederhergestellte Datei über einen Hardlink mit einem anderen Namen verknüpft ist. Schließe Programme, die den Wiederherstellungsordner ändern, und versuche es erneut. Hat eine noch nicht fertig wiederhergestellte Datei einen Hardlink, stelle stattdessen in einem neuen, leeren Ordner wieder her.
+
 ## frost findet den gewünschten Snapshot nicht
 
 | frost meldet | Versuch es mit |

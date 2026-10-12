@@ -90,6 +90,10 @@ Le dossier à côté des originaux n'est pas utilisable, souvent parce que l'ins
 
 L'instantané vient d'un autre type d'ordinateur, ou le chemin vers les originaux passe par un lien auquel frost ne fait pas confiance. Utilisez plutôt `--beside` ou `--to <dir>`.
 
+## La restauration signale qu’un fichier « changed after it was checked » ou « has more than one link »
+
+frost a constaté qu’un fichier déjà vérifié avait changé, ou qu’un fichier dont la restauration n’est pas terminée possède un lien physique vers un autre nom. Fermez les programmes qui modifient le dossier de restauration, puis réessayez. Si un fichier dont la restauration n’est pas terminée possède un lien physique, restaurez plutôt dans un nouveau dossier vide.
+
 ## frost ne trouve pas l'instantané demandé
 
 | frost affiche | Essayez |

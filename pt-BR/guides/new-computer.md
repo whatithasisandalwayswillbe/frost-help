@@ -27,7 +27,7 @@ Para escolher o que restaurar de um computador de outro tipo, como um snapshot d
 
 Use `--to`, e não `--beside` nem `--overwrite`. O `--beside` precisa que as pastas originais existam neste computador, e o `--overwrite` precisa de um snapshot do mesmo tipo de computador: macOS e Linux, ou Windows.
 
-> Restaure antes de este computador fazer o primeiro backup. Depois disso, `latest` passa a ser o snapshot mais recente deste próprio computador. Se isso já aconteceu, execute `frost status` para encontrar o ID do seu snapshot antigo e restaure esse.
+> Restaure antes de este computador fazer o primeiro backup. Depois disso, `latest` pode selecionar um snapshot feito neste computador em vez do antigo. Se isso já aconteceu, execute `frost status` para encontrar o ID do seu snapshot antigo e restaure esse.
 
 ## Dois computadores, um armazenamento
 

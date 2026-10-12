@@ -90,6 +90,10 @@ A pasta ao lado dos originais não pode ser usada, muitas vezes porque o snapsho
 
 O snapshot veio de outro tipo de computador, ou o caminho até os originais passa por um link em que o frost não confia. Use `--beside` ou `--to <dir>` em vez disso.
 
+## A restauração informa que um arquivo "changed after it was checked" ou "has more than one link"
+
+O frost detectou que um arquivo já verificado mudou, ou que um arquivo cuja restauração ainda não terminou tem um link físico para outro nome. Feche os programas que estão alterando a pasta de restauração e tente novamente. Se o arquivo inacabado tiver um link físico, restaure em uma nova pasta vazia.
+
 ## O frost não encontra o snapshot que você pediu
 
 | O frost diz | Tente |

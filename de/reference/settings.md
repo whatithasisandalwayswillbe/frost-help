@@ -32,7 +32,7 @@ frost config edit
 
 frost öffnet eine Kopie von `config.toml` im angegebenen Editor, ansonsten in `$VISUAL` oder `$EDITOR`, und sonst in nano, vim oder vi. Unter Windows ist Notepad (Editor) die Ausweichlösung. Wenn du den Editor schließt, listet frost auf, was du geändert hast, und speichert die Kopie, sobald du `yes` eintippst.
 
-Lässt sich die Datei nicht einlesen, sagt dir frost, warum, und bietet an, sie erneut zu öffnen. Ein Tippfehler kann deine geplanten Backups also nicht lahmlegen. Unbekannte Einstellungen gelten als Fehler, damit ein falsch geschriebener Name nicht unbemerkt durchrutscht.
+Lässt sich die Datei nicht einlesen, zeigt dir frost das Problem und bietet an, sie erneut zu öffnen. Ein Tippfehler kann deine geplanten Backups also nicht lahmlegen. Unbekannte Einstellungen gelten als Fehler, damit ein falsch geschriebener Name nicht unbemerkt durchrutscht.
 
 ## Alle Einstellungen
 

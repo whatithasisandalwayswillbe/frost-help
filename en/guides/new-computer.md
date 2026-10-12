@@ -27,7 +27,7 @@ To pick what to restore from a different kind of computer, like a Mac snapshot o
 
 Use `--to` rather than `--beside` or `--overwrite`. `--beside` needs the original folders to exist on this computer, and `--overwrite` needs a snapshot from the same kind of computer, macOS and Linux or Windows.
 
-> Restore before this computer runs its first backup. Afterwards, `latest` means this computer's own newest snapshot. If that's already happened, run `frost status` to find your old snapshot's ID, and restore that instead.
+> Restore before this computer runs its first backup. Afterwards, `latest` may select a snapshot made on this computer instead. If that's already happened, run `frost status` to find your old snapshot's ID, and restore that instead.
 
 ## Two computers, one storage
 

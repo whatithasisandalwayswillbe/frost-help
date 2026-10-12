@@ -27,7 +27,7 @@ frost restore latest --to ~
 
 请使用 `--to`，而不是 `--beside` 或 `--overwrite`。`--beside` 要求原来的文件夹在这台电脑上存在，`--overwrite` 要求快照来自同一类系统，即 macOS 和 Linux，或者 Windows。
 
-> 请在这台电脑第一次备份之前恢复。备份之后，`latest` 就指向这台电脑自己最新的快照了。如果已经备份过，请运行 `frost status` 找到旧快照的 ID，改为恢复那个快照。
+> 请在这台电脑第一次备份之前恢复。备份之后，`latest` 可能会选中这台电脑创建的快照。如果已经备份过，请运行 `frost status` 找到旧快照的 ID，改为恢复那个快照。
 
 ## 两台电脑共用一个存储
 

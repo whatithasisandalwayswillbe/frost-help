@@ -47,13 +47,13 @@ Type all 24 words in order, separated by spaces. Capital letters don't matter. T
 | frost says | It means |
 | --- | --- |
 | that's 23 words, a recovery phrase has 24 | A word is missing or extra |
-| word 5, "hapy", isn't a recovery phrase word | That word is misspelled |
+| word 5 isn't a recovery phrase word | That word is misspelled |
 | all the words are real, but they don't make a valid phrase | Two words are swapped, or one is a different real word |
 | that's a valid phrase, but not the one for these backups | The phrase belongs to another set of backups |
 
 ## The key fingerprint
 
-The fingerprint is a short ID, like `6f154dc10058`, that names your key without revealing it. `frost status` shows it, and the snapshot browser shows it when you press `[v]`. Two computers with the same fingerprint have the same key.
+The fingerprint is a short ID, like `6f154dc10058`, that names your key without revealing it. `frost status` shows it, and the snapshot browser shows it when you press `[v]`. Matching fingerprints help identify a key, but are too short to prove that two keys are identical. frost checks the key itself when opening your backups.
 
 ## Changing your key
 

@@ -27,7 +27,7 @@ Para elegir qué restaurar de un equipo de otro tipo, como una instantánea de u
 
 Usa `--to` y no `--beside` ni `--overwrite`. `--beside` necesita que las carpetas originales existan en este equipo, y `--overwrite` necesita una instantánea del mismo tipo de equipo: macOS y Linux, o Windows.
 
-> Restaura antes de que este equipo haga su primera copia. Después, `latest` se refiere a la instantánea más reciente del propio equipo. Si eso ya ha pasado, ejecuta `frost status` para encontrar el ID de tu instantánea antigua y restaura esa.
+> Restaura antes de que este equipo haga su primera copia. Después, `latest` puede seleccionar una instantánea hecha en este equipo en su lugar. Si eso ya ha pasado, ejecuta `frost status` para encontrar el ID de tu instantánea antigua y restaura esa.
 
 ## Dos equipos, un almacenamiento
 
