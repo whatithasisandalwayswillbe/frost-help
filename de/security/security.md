@@ -2,6 +2,8 @@
 
 frost verschlüsselt deine Backups auf deinem Computer, mit einem Schlüssel, den nur du hast, bevor irgendetwas hochgeladen wird. Weder dein Speicheranbieter noch der Betreiber von Permafrost noch die Entwickler von frost können sie lesen.
 
+frost hat keine Konten und sammelt nichts über dich oder darüber, wie du es nutzt. Es verbindet sich nur mit deinem Speicher und mit GitHub, um nach Updates zu suchen und sie herunterzuladen.
+
 ## Was verschlüsselt wird
 
 frost verschlüsselt alles in deinen Backups: Dateiinhalte, Dateinamen, die Ordnerstruktur und die Angaben zu jedem Snapshot. Bei der Einrichtung sendet frost außerdem ein kleines Testobjekt im Klartext und löscht es danach. Es enthält keine Dateien, Dateinamen oder Verschlüsselungsschlüssel. frost sendet deinen Schlüssel nie an einen Server und hinterlegt auch keine Kopie davon.

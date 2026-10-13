@@ -2,6 +2,8 @@
 
 frost cifra tus copias en tu equipo, con una clave que solo tienes tú, antes de subir nada. Ni tu proveedor de almacenamiento, ni quien opera Permafrost, ni los autores de frost pueden leerlas.
 
+frost no tiene cuentas y no recopila nada sobre ti ni sobre cómo lo usas. Solo se conecta a tu almacenamiento y a GitHub, para buscar y descargar actualizaciones.
+
 ## Qué se cifra
 
 frost cifra todo lo que hay dentro de tus copias: el contenido de los archivos, sus nombres, la estructura de carpetas y los detalles de cada instantánea. El asistente también envía un pequeño objeto de prueba sin cifrar y después lo borra. No contiene archivos, nombres ni la clave de cifrado. frost nunca envía tu clave a un servidor ni guarda una copia bajo custodia.
