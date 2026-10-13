@@ -2,6 +2,8 @@
 
 O frost criptografa seus backups no seu computador, com uma chave que só você tem, antes de enviar qualquer coisa. Nem o seu provedor de armazenamento, nem quem opera o Permafrost, nem os autores do frost conseguem lê-los.
 
+O frost não tem contas e não coleta nada sobre você nem sobre como você o usa. Ele só se conecta ao seu armazenamento e ao GitHub, para verificar e baixar atualizações.
+
 ## O que é criptografado
 
 O frost criptografa tudo o que está nos seus backups: o conteúdo dos arquivos, os nomes, a estrutura de pastas e os detalhes de cada snapshot. A configuração também envia um pequeno objeto de teste sem criptografia e depois o apaga. Ele não contém arquivos, nomes nem a chave de criptografia. O frost nunca envia a sua chave a um servidor nem guarda uma cópia sob custódia.

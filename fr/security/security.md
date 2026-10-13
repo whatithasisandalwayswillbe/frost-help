@@ -2,6 +2,8 @@
 
 frost chiffre vos sauvegardes sur votre ordinateur, avec une clé que vous seul détenez, avant le moindre envoi. Ni votre fournisseur de stockage, ni l'opérateur de Permafrost, ni les auteurs de frost ne peuvent les lire.
 
+frost n'a pas de comptes et ne collecte rien sur vous ni sur la façon dont vous l'utilisez. Il se connecte uniquement à votre stockage, et à GitHub pour vérifier et télécharger les mises à jour.
+
 ## Ce qui est chiffré
 
 frost chiffre tout ce que contiennent vos sauvegardes : le contenu des fichiers, leurs noms, la structure des dossiers et les détails de chaque instantané. Pendant la configuration, frost envoie aussi un petit objet de test en clair, puis le supprime. Il ne contient ni fichiers, ni noms, ni clé de chiffrement. frost n'envoie jamais votre clé à un serveur et n'en conserve aucune copie sous séquestre.

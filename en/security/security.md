@@ -2,6 +2,8 @@
 
 frost encrypts your backups on your computer, with a key only you hold, before anything is uploaded. Your storage provider, the Permafrost operator and the frost authors can't read them.
 
+frost has no accounts and collects nothing about you or how you use it. It connects only to your storage, and to GitHub to check for and download updates.
+
 ## What's encrypted
 
 frost encrypts everything inside your backups: file contents, file names, folder structure and the details of each snapshot. Setup also sends a small plaintext test object, then deletes it. It contains no files, names or encryption key. frost never sends your key to a server or keeps an escrow copy.
