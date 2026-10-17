@@ -65,7 +65,7 @@ Après `[r]`, choisissez où vont les fichiers :
 
 Avant d'écrire quoi que ce soit, frost montre où chaque élément va atterrir. Appuyez sur `[enter]` pour restaurer, `[c]` pour changer de dossier ou `[esc]` pour annuler. Les confirmations et résultats longs défilent avec `[pgup]` et `[pgdn]`.
 
-« New folder elsewhere » ouvre le sélecteur de dossiers de votre système : le Finder sous macOS, l'Explorateur de fichiers sous Windows, et zenity, qarma ou matedialog sous Linux. En SSH, ou sous Linux sans sélecteur, vous saisissez le dossier vous-même. Appuyez sur `[t]` pendant que le sélecteur est ouvert pour le saisir quand même.
+« New folder elsewhere » ouvre le sélecteur de dossiers de votre système : le Finder sous macOS, l'Explorateur de fichiers sous Windows, et zenity, qarma ou matedialog sous Linux. Sous Windows, vous pouvez redimensionner la fenêtre du sélecteur, qui comporte une barre d'adresse, un volet latéral et une vue des dossiers. En SSH, ou sous Linux sans sélecteur, vous saisissez le dossier vous-même. Appuyez sur `[t]` pendant que le sélecteur est ouvert pour le saisir quand même.
 
 Une fois la restauration terminée, frost montre ce qu'il a restauré dans le Finder, l'Explorateur de fichiers ou votre gestionnaire de fichiers Linux. Un fichier seul apparaît sélectionné sous macOS et Windows ; sous Linux, son dossier s'ouvre. Dans les autres cas, le dossier le plus profond contenant tous les éléments restaurés s'ouvre. Rien ne s'ouvre en SSH, sans affichage graphique ou si la restauration échoue.
 
