@@ -65,7 +65,7 @@ After `[r]`, choose where the files go:
 
 Before anything is written, frost shows where everything will land. Press `[enter]` to restore, `[c]` to change the folder or `[esc]` to cancel. Long confirmations and results scroll with `[pgup]` and `[pgdn]`.
 
-"New folder elsewhere" opens your system's folder picker: Finder on macOS, Explorer on Windows, and zenity, qarma or matedialog on Linux. Over SSH, or on Linux without a picker, you type the folder instead. Press `[t]` while the picker is open to type it anyway.
+"New folder elsewhere" opens your system's folder picker: Finder on macOS, Explorer on Windows, and zenity, qarma or matedialog on Linux. On Windows, this is a resizable Explorer folder-selection window with an address bar, sidebar and folder view. Over SSH, or on Linux without a picker, you type the folder instead. Press `[t]` while the picker is open to type it anyway.
 
 When a restore finishes, frost shows what it restored in Finder, Explorer or your Linux file manager. A single file is shown selected on macOS and Windows; on Linux, its folder opens. Otherwise the deepest folder holding everything restored opens. Nothing opens over SSH, without a display, or when the restore fails.
 

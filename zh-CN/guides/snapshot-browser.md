@@ -65,7 +65,7 @@ frost browse
 
 在写入任何内容之前，frost 会先显示每样东西会落在哪里。按 `[enter]` 恢复，按 `[c]` 更换文件夹，按 `[esc]` 取消。较长的确认信息和结果可以用 `[pgup]` 和 `[pgdn]` 滚动。
 
-"New folder elsewhere" 会打开系统的文件夹选择器：macOS 上是访达，Windows 上是文件资源管理器，Linux 上是 zenity、qarma 或 matedialog。通过 SSH 连接时，或者 Linux 上没有选择器时，需要手动输入文件夹。选择器打开时按 `[t]`，也可以改为手动输入。
+"New folder elsewhere" 会打开系统的文件夹选择器：macOS 上是访达，Windows 上是文件资源管理器，Linux 上是 zenity、qarma 或 matedialog。Windows 的文件夹选择窗口可以调整大小，带有地址栏、侧边栏和文件夹视图。通过 SSH 连接时，或者 Linux 上没有选择器时，需要手动输入文件夹。选择器打开时按 `[t]`，也可以改为手动输入。
 
 恢复完成后，frost 会在访达、文件资源管理器或你的 Linux 文件管理器中显示恢复的内容。如果只恢复了一个文件，macOS 和 Windows 会选中显示它，Linux 则会打开它所在的文件夹。其他情况下，会打开共同包含所有恢复内容的最深层文件夹。通过 SSH 连接、没有图形界面或者恢复失败时，不会打开任何窗口。
 

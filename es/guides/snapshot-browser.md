@@ -65,7 +65,7 @@ Después de `[r]`, elige dónde van los archivos:
 
 Antes de escribir nada, frost te muestra dónde irá cada cosa. Pulsa `[enter]` para restaurar, `[c]` para cambiar la carpeta o `[esc]` para cancelar. Las confirmaciones y los resultados largos se desplazan con `[pgup]` y `[pgdn]`.
 
-"New folder elsewhere" abre el selector de carpetas de tu sistema: Finder en macOS, el Explorador de archivos en Windows, y zenity, qarma o matedialog en Linux. Por SSH, o en Linux sin selector, escribes la carpeta a mano. Pulsa `[t]` con el selector abierto para escribirla de todos modos.
+"New folder elsewhere" abre el selector de carpetas de tu sistema: Finder en macOS, el Explorador de archivos en Windows, y zenity, qarma o matedialog en Linux. En Windows, puedes cambiar el tamaño de la ventana del selector, que tiene barra de direcciones, barra lateral y vista de carpetas. Por SSH, o en Linux sin selector, escribes la carpeta a mano. Pulsa `[t]` con el selector abierto para escribirla de todos modos.
 
 Cuando termina una restauración, frost muestra lo restaurado en Finder, el Explorador de archivos o el gestor de archivos de Linux. Si es un solo archivo, aparece seleccionado en macOS y Windows; en Linux, se abre su carpeta. En los demás casos, se abre la carpeta más profunda que contiene todo lo restaurado. No se abre nada por SSH, sin pantalla gráfica o cuando la restauración falla.
 
