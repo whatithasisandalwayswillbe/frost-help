@@ -28,6 +28,7 @@ O inicializador `frost` fica em `/usr/local/bin` ou `~/.local/bin` no macOS e no
 | Registro do que já foi enviado | `~/.cache/frost/manifest-<repo>.jsonl` | `%LocalAppData%\frost\manifest-<repo>.jsonl` |
 | Onde seus backups foram abertos pela última vez | `~/.cache/frost/storage-<config>.json` | `%LocalAppData%\frost\storage-<config>.json` |
 | Última busca por atualizações | `~/.cache/frost/update.json` | `%LocalAppData%\frost\update.json` |
+| Quando a tarefa agendada foi criada e quando rodou seu último backup | `~/.cache/frost/schedule-<config>.json` | `%LocalAppData%\frost\schedule-<config>.json` |
 | Log dos backups agendados | `~/.cache/frost/frost.log` | `%LocalAppData%\frost\frost.log` |
 
 Com o systemd, os backups agendados gravam o log no journal em vez do `frost.log`. Veja [Backups automáticos](#scheduling), que também mostra onde fica a tarefa agendada.

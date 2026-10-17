@@ -34,7 +34,7 @@ Este paso enumera los nombres y patrones que frost deja fuera de todas las copia
 
 ### Programación
 
-Elige cada cuánto hace frost copias por su cuenta: cada hora, cada 6 o 12 horas, a diario o cada semana. Elige "Off" (desactivado) para hacer copias solo cuando ejecutes `frost backup`. Hay más intervalos disponibles con `frost config set`. Consulta [Copias de seguridad automáticas](#scheduling).
+Elige cada cuánto hace frost copias por su cuenta: cada hora, cada 6 o 12 horas, a diario o cada semana. Elige "Off" (desactivado) para hacer copias solo cuando ejecutes `frost backup`. Con `frost config set` puedes elegir otros intervalos y la hora de las copias. Consulta [Copias de seguridad automáticas](#scheduling).
 
 ### Frase de recuperación
 

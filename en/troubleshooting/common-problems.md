@@ -12,7 +12,7 @@ The key file is missing. If this computer already has storage set up, run `frost
 
 ## "a backup or restore is already running"
 
-Another frost process is using your backups, usually a scheduled backup. Wait for it to finish and try again. Deleting frost's lock file doesn't stop the other process.
+Another frost process is using your backups, usually a scheduled backup. When it is one, frost says "a scheduled backup is already running" and when it started. Wait for it to finish and try again. Deleting frost's lock file doesn't stop the other process.
 
 ## "the key on this machine doesn't match"
 
@@ -66,6 +66,14 @@ A program was writing to those files during the backup, so the snapshot kept the
 
 A folder on your list wasn't there, so frost backed up the rest. Plug the drive back in, or if the folder moved, update your list with `frost init`.
 
+## "config.toml changed, but updating the scheduled job failed"
+
+You edited `config.toml`, and frost couldn't update the scheduled job to match. The rest of the message says why. If it names a setting, fix it in `config.toml`. frost tries again with every command until it works.
+
+## "config.toml changed where backups go"
+
+You changed where backups go in `config.toml`, and frost found a problem with the new location the first time it used it. The rest of the message says what. See [Moving your backups](#moving-backups).
+
 ## "scheduled job is missing"
 
 The scheduled job was deleted or switched off. Put it back with `frost config set schedule.enabled true`.
@@ -75,7 +83,7 @@ The scheduled job was deleted or switched off. Put it back with `frost config se
 - Check the "next backup" row in `frost status`.
 - On macOS, check frost's switch in System Settings > General > Login Items & Extensions. It's listed as Node.js Foundation.
 - On Windows, scheduled backups need you to be signed in, and don't run on battery power.
-- With cron or Task Scheduler, a backup due while the computer was off or asleep is skipped.
+- With `schedule.catch_up` set to `false`, a backup due while the computer was off or asleep is skipped.
 - Read the log. See [Automatic backups](#scheduling).
 
 ## "verification failed"

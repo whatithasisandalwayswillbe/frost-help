@@ -34,7 +34,7 @@ Dieser Schritt listet die Namen und Muster auf, die frost bei jedem Backup ausl�
 
 ### Zeitplan
 
-Wähle, wie oft frost von selbst sichert: stündlich, alle 6 oder 12 Stunden, täglich oder wöchentlich. Wähle „Off“ (aus), um nur zu sichern, wenn du `frost backup` ausführst. Weitere Intervalle gibt es mit `frost config set`. Siehe [Automatische Backups](#scheduling).
+Wähle, wie oft frost von selbst sichert: stündlich, alle 6 oder 12 Stunden, täglich oder wöchentlich. Wähle „Off“ (aus), um nur zu sichern, wenn du `frost backup` ausführst. Weitere Intervalle und die Uhrzeit der Backups stellst du mit `frost config set` ein. Siehe [Automatische Backups](#scheduling).
 
 ### Wiederherstellungsphrase
 

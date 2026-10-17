@@ -12,28 +12,55 @@ frost config set schedule.every 6h
 
 As opções são `hourly`, `2h`, `3h`, `4h`, `6h`, `8h`, `12h`, `daily` e `weekly`. O padrão é `daily`.
 
-Para desligar os backups automáticos, ou ligá-los de novo:
+Para escolher quando os backups rodam, defina um horário no formato de 24 horas e, para os backups semanais, o dia:
+
+```sh
+frost config set schedule.time 09:30
+frost config set schedule.day friday
+```
+
+Os padrões são `15:00` e `sunday`. Para desligar os backups automáticos, ou ligá-los de novo:
 
 ```sh
 frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-As duas mudanças atualizam a tarefa agendada na hora.
+Cada mudança atualiza a tarefa agendada na hora. No macOS e no Windows, uma mudança feita durante um backup agendado é aplicada assim que esse backup termina. Se você editar o `config.toml` por conta própria, o próximo comando do frost atualiza a tarefa.
 
 ## Quando os backups rodam
 
-| Agendador | Diário | Semanal | Mais frequente |
-| --- | --- | --- | --- |
-| launchd (macOS) e cron (Linux) | 03:17 | Domingos às 03:17 | Aos 17 minutos de cada hora |
-| Agendador de Tarefas (Windows) | 03:17 | Domingos às 03:17 | A cada poucas horas, contando a partir de quando a tarefa foi criada |
-| systemd (Linux) | Meia-noite | Segundas à meia-noite | Na hora cheia |
+Os backups rodam no horário de `schedule.time`, na hora local do computador:
 
-Os horários seguem a hora local do computador. O systemd atrasa cada execução em até 5 minutos, ao acaso.
+| `schedule.every` | Faz backup |
+| --- | --- |
+| `daily` | Todo dia nesse horário |
+| `weekly` | Toda semana no dia `schedule.day`, nesse horário |
+| `2h` a `12h` | Nesse horário, e a cada intervalo antes e depois dele. `6h` a partir das `15:00` roda às 03:00, 09:00, 15:00 e 21:00 |
+| `hourly` | A cada hora, nos minutos desse horário |
+
+O systemd atrasa cada execução em até 5 minutos, ao acaso.
 
 ## Backups perdidos
 
-O launchd e o systemd recuperam o atraso. Se o computador estava desligado ou em repouso quando um backup deveria rodar, o backup roda quando ele acorda. O cron e o Agendador de Tarefas pulam as execuções que o computador perdeu, e a próxima acontece no horário.
+Se o computador estava desligado ou em repouso quando um backup deveria rodar, o frost faz o backup assim que ele volta. Não importa quantos backups ele perdeu, faz um só.
+
+| Agendador | Faz o backup perdido |
+| --- | --- |
+| launchd (macOS) | Quando o Mac acorda, ou quando você entra na sessão depois de ele ficar desligado |
+| systemd (Linux) | Quando o computador acorda ou liga, ou quando você entra na sessão se o lingering estiver desligado |
+| Agendador de Tarefas (Windows) | Assim que puder, quando o computador volta e você está com a sessão iniciada |
+| cron (Linux) | Até 15 minutos depois de o computador voltar |
+
+Com o cron, o frost verifica a cada 15 minutos e só faz backup quando um está na hora ou foi perdido. Um horário que já tem backup, agendado ou feito por você, não ganha um segundo backup.
+
+Para pular os backups perdidos, e o frost só fazer backup na hora certa:
+
+```sh
+frost config set schedule.catch_up false
+```
+
+Um backup agendado que começa antes de a rede voltar tenta de novo por cerca de 5 minutos. Se outro backup estiver rodando, ele espera esse terminar.
 
 No Windows, os backups agendados só rodam enquanto sua sessão do Windows estiver aberta. Eles não começam enquanto o computador está na bateria, e param se ele for desconectado da tomada. No macOS e com o systemd, os backups agendados rodam com prioridade baixa para não deixar o computador lento.
 

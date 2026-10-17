@@ -28,6 +28,7 @@ frost は、アプリケーション、設定、キャッシュを、コンピ�
 | アップロード済みのものの記録 | `~/.cache/frost/manifest-<repo>.jsonl` | `%LocalAppData%\frost\manifest-<repo>.jsonl` |
 | バックアップを最後に開いた場所 | `~/.cache/frost/storage-<config>.json` | `%LocalAppData%\frost\storage-<config>.json` |
 | 最新のアップデート確認 | `~/.cache/frost/update.json` | `%LocalAppData%\frost\update.json` |
+| スケジュールジョブを設定した時刻と、最後のバックアップの実行時刻 | `~/.cache/frost/schedule-<config>.json` | `%LocalAppData%\frost\schedule-<config>.json` |
 | スケジュールされたバックアップのログ | `~/.cache/frost/frost.log` | `%LocalAppData%\frost\frost.log` |
 
 systemd の場合、スケジュールされたバックアップのログは `frost.log` ではなくジャーナルに書き込まれます。スケジュールジョブの場所も含めて、[自動バックアップ](#scheduling)を参照してください。

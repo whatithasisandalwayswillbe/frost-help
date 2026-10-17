@@ -28,7 +28,7 @@ Pour passer chez un autre fournisseur, ce qui implique de changer plusieurs rég
 
 ## Contrôles avant l'enregistrement
 
-`frost config set` vérifie un nouvel emplacement de stockage avant de l'enregistrer. Il refuse un emplacement sans dépôt frost ou avec un dépôt créé avec une autre clé. Si l'ancien emplacement contient des instantanés du même dépôt mais que le nouveau n'en contient pas, il refuse aussi ce changement. `frost config edit` présente ces mêmes problèmes sous forme d'avertissements : il peut donc encore enregistrer un changement que `set` refuse.
+`frost config set` vérifie un nouvel emplacement de stockage avant de l'enregistrer. Il refuse un emplacement sans dépôt frost ou avec un dépôt créé avec une autre clé. Si l'ancien emplacement contient des instantanés du même dépôt mais que le nouveau n'en contient pas, il refuse aussi ce changement. `frost config edit` présente ces mêmes problèmes sous forme d'avertissements : il peut donc encore enregistrer un changement que `set` refuse. Si vous changez l'emplacement en modifiant vous-même `config.toml`, frost affiche ces avertissements la première fois qu'il l'utilise.
 
 ## Si frost ne trouve pas vos sauvegardes
 

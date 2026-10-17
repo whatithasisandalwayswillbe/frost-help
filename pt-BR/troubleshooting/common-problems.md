@@ -12,7 +12,7 @@ O arquivo da chave está faltando. Se este computador já tem o armazenamento co
 
 ## "a backup or restore is already running"
 
-Outro processo do frost está usando seus backups, normalmente um backup agendado. Espere terminar e tente de novo. Apagar o arquivo de bloqueio do frost não interrompe o outro processo.
+Outro processo do frost está usando seus backups, normalmente um backup agendado. Nesse caso, o frost mostra "a scheduled backup is already running" e quando ele começou. Espere terminar e tente de novo. Apagar o arquivo de bloqueio do frost não interrompe o outro processo.
 
 ## "the key on this machine doesn't match"
 
@@ -66,6 +66,14 @@ Um programa estava gravando nesses arquivos durante o backup, então o snapshot 
 
 Uma pasta da sua lista não estava lá, então o frost fez backup do resto. Conecte o disco de novo ou, se a pasta mudou de lugar, atualize a lista com `frost init`.
 
+## "config.toml changed, but updating the scheduled job failed"
+
+Você editou o `config.toml`, e o frost não conseguiu atualizar a tarefa agendada para combinar. O resto da mensagem diz por quê. Se ela citar uma configuração, corrija-a no `config.toml`. O frost tenta de novo a cada comando até dar certo.
+
+## "config.toml changed where backups go"
+
+Você mudou no `config.toml` onde os backups ficam, e o frost encontrou um problema no novo local na primeira vez que o usou. O resto da mensagem diz qual. Veja [Mover seus backups](#moving-backups).
+
 ## "scheduled job is missing"
 
 A tarefa agendada foi apagada ou desligada. Recrie a tarefa com `frost config set schedule.enabled true`.
@@ -75,7 +83,7 @@ A tarefa agendada foi apagada ou desligada. Recrie a tarefa com `frost config se
 - Confira a linha "next backup" do `frost status`.
 - No macOS, confira o botão do frost em Ajustes do Sistema > Geral > Itens de Início e Extensões (System Settings > General > Login Items & Extensions). Ele aparece como Node.js Foundation.
 - No Windows, os backups agendados exigem que sua sessão do Windows esteja aberta e não rodam na bateria.
-- Com o cron ou o Agendador de Tarefas, um backup que deveria rodar com o computador desligado ou em repouso é pulado.
+- Com `schedule.catch_up` em `false`, um backup que deveria rodar com o computador desligado ou em repouso é pulado.
 - Leia o log. Veja [Backups automáticos](#scheduling).
 
 ## "verification failed"

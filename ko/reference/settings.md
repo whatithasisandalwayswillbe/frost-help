@@ -1,6 +1,6 @@
 # 설정 항목
 
-frost는 설정 폴더의 `config.toml`에 설정을 저장합니다. 설정은 `frost init`, `frost config set`, `frost config edit`로 바꿀 수 있습니다.
+frost는 설정 폴더의 `config.toml`에 설정을 저장합니다. 설정은 `frost init`, `frost config set`, `frost config edit`로 바꾸거나, 아무 텍스트 편집기에서 바꿀 수 있습니다.
 
 ## 설정 읽기와 바꾸기
 
@@ -21,7 +21,7 @@ frost config set paths ~/Documents ~/Pictures
 
 - 목록은 항목마다 값을 하나씩 받으며, `set`은 목록 전체를 대체합니다.
 - `true`와 `false`로 설정을 켜고 끕니다.
-- `schedule.enabled`나 `schedule.every`를 바꾸면 예약 작업에 바로 반영됩니다.
+- `schedule` 설정을 바꾸면 예약 작업에 바로 반영됩니다. macOS와 Windows에서는 예약 백업이 실행 중일 때 바꾼 설정은 그 백업이 끝나는 대로 반영되므로, 백업이 멈추지 않습니다.
 - 스토리지 위치를 바꾸면 frost가 저장하기 전에 새 위치를 확인합니다. 자세한 내용은 [백업 옮기기](#moving-backups)를 참고하세요.
 
 ## 파일 편집하기
@@ -34,6 +34,15 @@ frost는 지정한 편집기에서 `config.toml`의 사본을 엽니다. 지정�
 
 파일을 해석할 수 없으면 frost가 문제가 있는 곳을 알려 주고 다시 열지 묻습니다. 그래서 오타 하나로 예약된 백업이 멈추는 일은 없습니다. 알 수 없는 설정도 오류로 처리하므로, 이름을 잘못 쓴 설정이 그냥 지나가지 않습니다.
 
+## 직접 편집하기
+
+`config.toml`을 아무 텍스트 편집기에서 열고 저장해도 됩니다. frost는 실행할 때마다 이 파일을 읽으므로, 대부분의 변경은 다음 실행부터 반영됩니다. 두 가지 변경만 한 단계가 더 필요하며, 다음에 frost 명령어를 무엇이든 실행할 때 frost가 처리합니다.
+
+- 일정을 바꾸면 예약 작업을 업데이트하고 "config.toml changed. Scheduled job updated"(config.toml이 바뀌어 예약 작업을 업데이트했습니다)라고 표시합니다. Linux에서는 다음 예약 백업도 이 일을 합니다. 예약 백업이 실행 중일 때의 변경은 `frost config set`과 마찬가지로 그 백업이 끝날 때까지 기다립니다.
+- 스토리지 위치를 바꾸면, frost가 처음 사용할 때 `frost config edit`와 같은 확인을 합니다. 문제가 있으면 경고로 보여 줍니다.
+
+저장하기 전에 파일을 확인하는 것은 없습니다. 파일을 해석할 수 없으면 고칠 때까지 frost 명령어가 알려 줍니다.
+
 ## 모든 설정
 
 | 키 | 기본값 | 의미 |
@@ -42,6 +51,9 @@ frost는 지정한 편집기에서 `config.toml`의 사본을 엽니다. 지정�
 | `exclude` | `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules`, `.cache` | 제외할 이름과 패턴. [파일 제외](#excluding-files)를 참고하세요 |
 | `schedule.enabled` | `true` | 자동으로 백업할지 |
 | `schedule.every` | `daily` | `hourly`, `2h`, `3h`, `4h`, `6h`, `8h`, `12h`, `daily`, `weekly` 중 하나 |
+| `schedule.time` | `15:00` | 백업 시각(24시간제). 자세한 내용은 [자동 백업](#scheduling)을 참고하세요 |
+| `schedule.day` | `sunday` | 매주 백업하는 요일. `sunday`부터 `saturday`까지 |
+| `schedule.catch_up` | `true` | 백업을 놓쳤을 때 컴퓨터가 돌아오면 백업합니다. `false`면 놓친 백업을 건너뜁니다 |
 | `verify.sample` | `20` | 표본 검사에서 내려받을 청크 수. `0`이면 검사를 끕니다 |
 | `update.auto` | `true` | 예약된 백업 후 새 릴리스를 설치할지. `false`면 알려 주기만 합니다 |
 | `storage.backend` | | `permafrost` 또는 `s3` |

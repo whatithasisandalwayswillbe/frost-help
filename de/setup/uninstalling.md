@@ -10,7 +10,7 @@ frost hat keinen Befehl zum Deinstallieren, aber das Entfernen dauert nur ein pa
 frost config set schedule.enabled false
 ```
 
-Damit wird der Auftrag aus dem Zeitplaner deines Betriebssystems entfernt. Unter Linux mit systemd wird außerdem Lingering wieder ausgeschaltet, sofern frost aufgezeichnet hat, dass es Lingering eingeschaltet hat.
+Damit wird der Auftrag aus dem Zeitplaner deines Betriebssystems entfernt. Meldet frost, dass der Auftrag entfernt wird, sobald das laufende Backup fertig ist, warte damit bis zum Ende dieses Backups, bevor du weitermachst. Bis dahin meldet `frost status`, dass bereits ein Backup oder eine Wiederherstellung läuft. Unter Linux mit systemd wird außerdem Lingering wieder ausgeschaltet, sofern frost aufgezeichnet hat, dass es Lingering eingeschaltet hat.
 
 ## 2. Die Dateien von frost löschen
 

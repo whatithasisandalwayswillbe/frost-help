@@ -12,7 +12,7 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 
 ## "a backup or restore is already running"
 
-別の frost のプロセスがバックアップを使用中です。たいていはスケジュールされたバックアップです。終わるのを待ってから、もう一度試してください。frost のロックファイルを削除しても、そのプロセスは止まりません。
+別の frost のプロセスがバックアップを使用中です。たいていはスケジュールされたバックアップです。その場合、frost は "a scheduled backup is already running" と、それが始まった時刻を表示します。終わるのを待ってから、もう一度試してください。frost のロックファイルを削除しても、そのプロセスは止まりません。
 
 ## "the key on this machine doesn't match"
 
@@ -66,6 +66,14 @@ frost はそれらのファイルをスキップし、残りを保存しまし�
 
 リストにあるフォルダが見つからなかったため、frost は残りをバックアップしました。ドライブを接続し直すか、フォルダが移動した場合は `frost init` でリストを更新してください。
 
+## "config.toml changed, but updating the scheduled job failed"
+
+`config.toml` を編集したものの、frost がスケジュールジョブをそれに合わせて更新できませんでした。理由はメッセージの続きに書かれています。設定名が書かれていれば、`config.toml` でその設定を直してください。frost はうまくいくまで、コマンドを実行するたびに再試行します。
+
+## "config.toml changed where backups go"
+
+`config.toml` でバックアップの保存先を変えたところ、frost が新しい場所を最初に使ったときに問題が見つかりました。内容はメッセージの続きに書かれています。詳しくは[バックアップの移動](#moving-backups)を参照してください。
+
 ## "scheduled job is missing"
 
 スケジュールジョブが削除されたか、オフになっています。`frost config set schedule.enabled true` で元に戻せます。
@@ -75,7 +83,7 @@ frost はそれらのファイルをスキップし、残りを保存しまし�
 - `frost status` の "next backup" の行を確認します。
 - macOS では、システム設定 > 一般 > ログイン項目と機能拡張 (System Settings > General > Login Items & Extensions) で frost のスイッチを確認します。Node.js Foundation という名前で表示されています。
 - Windows では、スケジュールされたバックアップにはサインインが必要で、バッテリーで動いている間は実行されません。
-- cron やタスク スケジューラでは、予定の時刻にコンピュータの電源が切れていたりスリープしていたりすると、そのバックアップはとばされます。
+- `schedule.catch_up` が `false` のとき、予定の時刻にコンピュータの電源が切れていたりスリープしていたりすると、そのバックアップはとばされます。
 - ログを確認します。詳しくは[自動バックアップ](#scheduling)を参照してください。
 
 ## "verification failed"

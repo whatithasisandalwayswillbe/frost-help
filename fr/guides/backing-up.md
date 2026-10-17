@@ -93,6 +93,19 @@ Après une sauvegarde qui enregistre un instantané, frost télécharge quelques
 
 Si une sauvegarde s'arrête en cours de route, à cause d'une connexion perdue, d'un portable refermé ou de `Ctrl+C`, rien de ce qui a déjà été envoyé n'est perdu. frost note les blocs au fur et à mesure de l'envoi, et la sauvegarde suivante les saute.
 
+## Près d'une sauvegarde planifiée
+
+Si une sauvegarde planifiée commence dans l'heure, ou s'est terminée dans l'heure précédente, `frost backup` vous le signale et demande avant de commencer :
+
+```text
+┌  backup  s3://my-backups/frost/
+│
+│  A scheduled backup starts in 40m, at 15:00.
+│  Back up now anyway? [Y/n]
+```
+
+Appuyez sur Entrée pour sauvegarder quand même, ou tapez `n` pour arrêter. Pour les plannings de moins de 4 heures, la fenêtre correspond au quart de l'intervalle. Une sauvegarde terminée ne compte que si elle a réussi et que vous n'avez pas sauvegardé depuis. frost ne pose la question que dans un terminal, et jamais pour une prévisualisation ni avec `--path` ou `--exclude`.
+
 ## Une à la fois
 
-Une sauvegarde ou une restauration en ligne de commande verrouille son cache local pendant son exécution. Si une autre commande a besoin de ce cache, frost affiche « a backup or restore is already running, try again when it's done » (une sauvegarde ou une restauration est déjà en cours, réessayez quand elle sera terminée). Le navigateur d'instantanés libère le verrou du cache : il peut donc rester ouvert et restaurer des fichiers pendant une sauvegarde. Chaque dossier de cache et chaque ordinateur ont leur propre verrou.
+Une sauvegarde ou une restauration en ligne de commande verrouille son cache local pendant son exécution. Si une autre commande a besoin de ce cache, frost affiche « a backup or restore is already running, try again when it's done » (une sauvegarde ou une restauration est déjà en cours, réessayez quand elle sera terminée). Si l'autre est une sauvegarde planifiée, frost affiche « a scheduled backup is already running » (une sauvegarde planifiée est déjà en cours) et l'heure de son début. Une sauvegarde planifiée qui trouve le cache verrouillé attend à la place, jusqu'à une heure. Le navigateur d'instantanés libère le verrou du cache : il peut donc rester ouvert et restaurer des fichiers pendant une sauvegarde. Chaque dossier de cache et chaque ordinateur ont leur propre verrou.

@@ -34,7 +34,7 @@ This step lists the names and patterns frost leaves out of every backup. The lis
 
 ### Schedule
 
-Choose how often frost backs up on its own: hourly, every 6 or 12 hours, daily or weekly. Choose "Off" to only back up when you run `frost backup`. Other intervals are available with `frost config set`. See [Automatic backups](#scheduling).
+Choose how often frost backs up on its own: hourly, every 6 or 12 hours, daily or weekly. Choose "Off" to only back up when you run `frost backup`. Other intervals, and the time backups run, are set with `frost config set`. See [Automatic backups](#scheduling).
 
 ### Recovery phrase
 

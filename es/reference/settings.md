@@ -1,6 +1,6 @@
 # Ajustes
 
-frost guarda sus ajustes en `config.toml`, dentro de su carpeta de configuración. Puedes cambiarlos con `frost init`, `frost config set` o `frost config edit`.
+frost guarda sus ajustes en `config.toml`, dentro de su carpeta de configuración. Puedes cambiarlos con `frost init`, `frost config set` o `frost config edit`, o en cualquier editor de texto.
 
 ## Leer y cambiar ajustes
 
@@ -21,7 +21,7 @@ frost config set paths ~/Documents ~/Pictures
 
 - Una lista recibe un valor por elemento, y `set` sustituye la lista entera.
 - `true` y `false` activan y desactivan ajustes.
-- Cambiar `schedule.enabled` o `schedule.every` actualiza la tarea programada al momento.
+- Cambiar un ajuste de `schedule` actualiza la tarea programada al momento. En macOS y Windows, un cambio hecho mientras se ejecuta una copia programada se aplica en cuanto esa copia termina, así que no se interrumpe.
 - Si cambias dónde está tu almacenamiento, frost comprueba la nueva ubicación antes de guardarla. Consulta [Mover tus copias de seguridad](#moving-backups).
 
 ## Editar el archivo
@@ -34,6 +34,15 @@ frost abre una copia de `config.toml` en el editor que indiques, o en `$VISUAL` 
 
 Si el archivo no se puede interpretar, frost te señala el problema y te ofrece abrirlo de nuevo, así que una errata no puede estropear tus copias programadas. Los ajustes desconocidos cuentan como errores, así que un nombre mal escrito no pasa desapercibido.
 
+## Editarlo tú mismo
+
+También puedes abrir `config.toml` en cualquier editor de texto y guardarlo. frost lo lee cada vez que se ejecuta, así que la mayoría de los cambios se aplican desde la siguiente ejecución. Dos tipos de cambio necesitan un paso más, que frost da la próxima vez que ejecutes cualquier comando de frost:
+
+- Si cambias la programación, frost actualiza la tarea programada y lo indica con "config.toml changed. Scheduled job updated" (config.toml cambió; tarea programada actualizada). En Linux, la siguiente copia programada también lo hace. Un cambio hecho mientras se ejecuta una copia programada espera a que termine, igual que con `frost config set`.
+- Una nueva ubicación de almacenamiento recibe las mismas comprobaciones que con `frost config edit` la primera vez que frost la usa. Cualquier problema aparece como aviso.
+
+Nada comprueba el archivo antes de que lo guardes. Si no se puede interpretar, los comandos de frost lo indican hasta que lo arregles.
+
 ## Todos los ajustes
 
 | Clave | Valor predeterminado | Significado |
@@ -42,6 +51,9 @@ Si el archivo no se puede interpretar, frost te señala el problema y te ofrece 
 | `exclude` | `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules`, `.cache` | Nombres y patrones que se excluyen. Consulta [Excluir archivos](#excluding-files) |
 | `schedule.enabled` | `true` | Hacer copias automáticamente |
 | `schedule.every` | `daily` | `hourly`, `2h`, `3h`, `4h`, `6h`, `8h`, `12h`, `daily` o `weekly` |
+| `schedule.time` | `15:00` | La hora de las copias, en formato de 24 horas. Consulta [Copias de seguridad automáticas](#scheduling) |
+| `schedule.day` | `sunday` | El día de las copias semanales, de `sunday` a `saturday` |
+| `schedule.catch_up` | `true` | Hace una copia cuando tu equipo vuelve tras perderse una. `false` se salta las copias perdidas |
 | `verify.sample` | `20` | Cuántos fragmentos descarga la comprobación aleatoria. `0` la desactiva |
 | `update.auto` | `true` | Instalar versiones nuevas después de las copias programadas. `false` solo te avisa de ellas |
 | `storage.backend` | | `permafrost` o `s3` |

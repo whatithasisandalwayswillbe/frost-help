@@ -93,6 +93,19 @@ frost 不会创建文件系统快照或数据库快照。对于总是处于使�
 
 如果备份中途停止，比如网络断开、合上笔记本电脑或按了 `Ctrl+C`，已经上传的内容不会白费。frost 会在上传的同时记录数据块，下一次备份会跳过它们。
 
+## 临近计划备份时
+
+如果计划备份会在一小时内开始，或在过去一小时内刚结束，`frost backup` 会告诉你，并在开始前询问：
+
+```text
+┌  backup  s3://my-backups/frost/
+│
+│  A scheduled backup starts in 40m, at 15:00.
+│  Back up now anyway? [Y/n]
+```
+
+按 Enter 照样备份，输入 `n` 则停止。如果计划的间隔不到 4 小时，这个时间范围是间隔的四分之一。刚结束的计划备份只有在成功、并且之后你没有再备份过时才算数。frost 只在终端里询问，预览备份或使用 `--path`、`--exclude` 时不会询问。
+
 ## 一次只运行一个
 
-备份或命令行恢复在运行时会锁住本地缓存。如果另一个命令也需要使用这份缓存，frost 会提示 "a backup or restore is already running, try again when it's done"（已有备份或恢复在运行，请等它结束后再试）。快照浏览器会释放缓存锁，所以备份运行时，你仍可打开浏览器并从中恢复。不同的缓存文件夹和不同的电脑各有自己的锁。
+备份或命令行恢复在运行时会锁住本地缓存。如果另一个命令也需要使用这份缓存，frost 会提示 "a backup or restore is already running, try again when it's done"（已有备份或恢复在运行，请等它结束后再试）。如果另一个是计划备份，frost 会提示 "a scheduled backup is already running"（计划备份正在运行），并说明它何时开始。计划备份遇到缓存被锁时，则会等待，最多等一小时。快照浏览器会释放缓存锁，所以备份运行时，你仍可打开浏览器并从中恢复。不同的缓存文件夹和不同的电脑各有自己的锁。

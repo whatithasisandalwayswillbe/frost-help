@@ -28,6 +28,7 @@ Der `frost`-Starter liegt unter macOS und Linux in `/usr/local/bin` oder `~/.loc
 | Liste dessen, was hochgeladen ist | `~/.cache/frost/manifest-<repo>.jsonl` | `%LocalAppData%\frost\manifest-<repo>.jsonl` |
 | Wo deine Backups zuletzt geöffnet wurden | `~/.cache/frost/storage-<config>.json` | `%LocalAppData%\frost\storage-<config>.json` |
 | Letzte Suche nach Updates | `~/.cache/frost/update.json` | `%LocalAppData%\frost\update.json` |
+| Wann der geplante Auftrag eingerichtet wurde und wann dein letztes Backup lief | `~/.cache/frost/schedule-<config>.json` | `%LocalAppData%\frost\schedule-<config>.json` |
 | Protokoll geplanter Backups | `~/.cache/frost/frost.log` | `%LocalAppData%\frost\frost.log` |
 
 Mit systemd schreiben geplante Backups ins Journal statt in `frost.log`. Siehe [Automatische Backups](#scheduling), wo auch steht, wo der geplante Auftrag liegt.

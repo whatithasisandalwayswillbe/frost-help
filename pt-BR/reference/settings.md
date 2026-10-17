@@ -1,6 +1,6 @@
 # Configurações
 
-O frost guarda as configurações em `config.toml`, na pasta de configuração dele. Você pode mudá-las com `frost init`, `frost config set` ou `frost config edit`.
+O frost guarda as configurações em `config.toml`, na pasta de configuração dele. Você pode mudá-las com `frost init`, `frost config set` ou `frost config edit`, ou em qualquer editor de texto.
 
 ## Ler e mudar configurações
 
@@ -21,7 +21,7 @@ frost config set paths ~/Documents ~/Pictures
 
 - Uma lista recebe um valor por item, e o `set` substitui a lista inteira.
 - `true` e `false` ligam e desligam configurações.
-- Mudar `schedule.enabled` ou `schedule.every` atualiza a tarefa agendada na hora.
+- Mudar uma configuração de `schedule` atualiza a tarefa agendada na hora. No macOS e no Windows, uma mudança feita enquanto um backup agendado roda é aplicada assim que esse backup termina, então ele não é interrompido.
 - Se você mudar onde fica o armazenamento, o frost confere o novo local antes de salvar. Veja [Mover seus backups](#moving-backups).
 
 ## Editar o arquivo
@@ -34,6 +34,15 @@ O frost abre uma cópia do `config.toml` no editor que você indicar, ou em `$VI
 
 Se o arquivo não puder ser interpretado, o frost aponta o problema e oferece abri-lo de novo, então um erro de digitação não estraga seus backups agendados. Configurações desconhecidas contam como erro, então um nome escrito errado não passa despercebido.
 
+## Editar você mesmo
+
+Você também pode abrir o `config.toml` em qualquer editor de texto e salvá-lo. O frost lê o arquivo toda vez que roda, então a maioria das mudanças vale a partir da próxima execução. Dois tipos de mudança precisam de um passo a mais, que o frost dá na próxima vez que você rodar qualquer comando do frost:
+
+- Uma mudança no agendamento atualiza a tarefa agendada, e o frost avisa com "config.toml changed. Scheduled job updated" (o config.toml mudou; tarefa agendada atualizada). No Linux, o próximo backup agendado também faz isso. Uma mudança feita enquanto um backup agendado roda espera ele terminar, como acontece com o `frost config set`.
+- Um novo local de armazenamento passa pelas mesmas verificações do `frost config edit` na primeira vez que o frost o usa. Qualquer problema aparece como aviso.
+
+Nada confere o arquivo antes de você salvar. Se ele não puder ser interpretado, os comandos do frost avisam até você corrigir.
+
 ## Todas as configurações
 
 | Chave | Padrão | Significado |
@@ -42,6 +51,9 @@ Se o arquivo não puder ser interpretado, o frost aponta o problema e oferece ab
 | `exclude` | `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules`, `.cache` | Nomes e padrões deixados de fora. Veja [Excluir arquivos](#excluding-files) |
 | `schedule.enabled` | `true` | Fazer backup automaticamente |
 | `schedule.every` | `daily` | `hourly`, `2h`, `3h`, `4h`, `6h`, `8h`, `12h`, `daily` ou `weekly` |
+| `schedule.time` | `15:00` | O horário dos backups, no formato de 24 horas. Veja [Backups automáticos](#scheduling) |
+| `schedule.day` | `sunday` | O dia dos backups semanais, de `sunday` a `saturday` |
+| `schedule.catch_up` | `true` | Faz backup quando o computador volta depois de perder um. `false` pula os backups perdidos |
 | `verify.sample` | `20` | Quantos blocos a verificação por amostragem baixa. `0` desliga a verificação |
 | `update.auto` | `true` | Instalar versões novas depois dos backups agendados. `false` só avisa sobre elas |
 | `storage.backend` | | `permafrost` ou `s3` |

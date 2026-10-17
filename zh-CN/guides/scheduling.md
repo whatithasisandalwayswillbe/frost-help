@@ -12,28 +12,55 @@ frost config set schedule.every 6h
 
 可选值有 `hourly`、`2h`、`3h`、`4h`、`6h`、`8h`、`12h`、`daily` 和 `weekly`，默认是 `daily`。
 
-关闭或重新开启自动备份：
+要选择备份的时间，可以设置一个 24 小时制的时间，并为每周备份选定星期几：
+
+```sh
+frost config set schedule.time 09:30
+frost config set schedule.day friday
+```
+
+默认值是 `15:00` 和 `sunday`。关闭或重新开启自动备份：
 
 ```sh
 frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-这两种修改都会立即更新计划任务。
+每项修改都会立即更新计划任务。在 macOS 和 Windows 上，计划备份进行期间做的修改，会在那次备份结束后立即生效。 如果你自己编辑 `config.toml`，下一个 frost 命令会更新计划任务。
 
 ## 备份在什么时候运行
 
-| 计划程序 | 每天 | 每周 | 更频繁 |
-| --- | --- | --- | --- |
-| launchd（macOS）和 cron（Linux） | 03:17 | 每周日 03:17 | 每小时的第 17 分钟 |
-| 任务计划程序（Windows） | 03:17 | 每周日 03:17 | 每隔几小时一次，从设置计划任务的时间开始计算 |
-| systemd（Linux） | 午夜 | 每周一午夜 | 每个整点 |
+备份在 `schedule.time` 运行，按电脑的本地时间计算：
 
-时间按电脑的本地时间计算。systemd 每次会随机推迟最多 5 分钟启动。
+| `schedule.every` | 备份时间 |
+| --- | --- |
+| `daily` | 每天的这个时间 |
+| `weekly` | 每周 `schedule.day` 的这个时间 |
+| `2h` 到 `12h` | 这个时间，以及它前后每隔一个间隔的时间。从 `15:00` 起算的 `6h` 会在 03:00、09:00、15:00 和 21:00 运行 |
+| `hourly` | 每小时一次，在这个时间的分钟数运行 |
+
+systemd 每次会随机推迟最多 5 分钟启动。
 
 ## 错过的备份
 
-launchd 和 systemd 会补跑。如果备份到点时电脑处于关机或睡眠状态，备份会在电脑唤醒后运行。cron 和任务计划程序会跳过错过的那次，下一次照常按时运行。
+如果备份到点时电脑处于关机或睡眠状态，frost 会在电脑恢复后备份。不管错过了多少次，都只备份一次。
+
+| 计划程序 | 补上错过的备份 |
+| --- | --- |
+| launchd（macOS） | Mac 唤醒时，或关机后你登录时 |
+| systemd（Linux） | 电脑唤醒或启动时；如果 lingering 没有开启，则在你登录时 |
+| 任务计划程序（Windows） | 电脑恢复且你已登录后尽快运行 |
+| cron（Linux） | 电脑恢复后 15 分钟内 |
+
+使用 cron 时，frost 每 15 分钟检查一次，只在有备份到期或被错过时才备份。某个时间点已经备份过的话，无论是计划备份还是你自己运行的，都不会再备份第二次。
+
+如果想跳过错过的备份，只按时备份：
+
+```sh
+frost config set schedule.catch_up false
+```
+
+如果计划备份启动时网络还没恢复，它会在大约 5 分钟内重试。如果另一个备份正在运行，它会等那个备份结束。
 
 在 Windows 上，只有你登录后才会运行计划备份。电脑使用电池供电时不会启动计划备份，拔掉电源时也会停止正在进行的计划备份。在 macOS 上以及使用 systemd 时，计划备份以低优先级运行，不会拖慢你的电脑。
 

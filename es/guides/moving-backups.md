@@ -28,7 +28,7 @@ Para pasar a otro proveedor, lo que supone cambiar varios ajustes a la vez, ejec
 
 ## Comprobaciones antes de guardar
 
-`frost config set` comprueba una nueva ubicación de almacenamiento antes de guardarla. Rechaza una ubicación sin repositorio de frost o con uno creado con otra clave. Si la ubicación anterior contiene instantáneas del mismo repositorio pero la nueva no, también rechaza el cambio. `frost config edit` muestra esos mismos problemas como avisos, así que todavía puede guardar un cambio que `set` rechaza.
+`frost config set` comprueba una nueva ubicación de almacenamiento antes de guardarla. Rechaza una ubicación sin repositorio de frost o con uno creado con otra clave. Si la ubicación anterior contiene instantáneas del mismo repositorio pero la nueva no, también rechaza el cambio. `frost config edit` muestra esos mismos problemas como avisos, así que todavía puede guardar un cambio que `set` rechaza. Si cambias la ubicación editando `config.toml` tú mismo, frost muestra esos avisos la primera vez que la usa.
 
 ## Si frost no encuentra tus copias
 

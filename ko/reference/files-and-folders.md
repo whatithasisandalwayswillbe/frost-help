@@ -28,6 +28,7 @@ frost는 애플리케이션, 설정, 캐시를 컴퓨터의 서로 다른 폴더
 | 업로드한 내용의 기록 | `~/.cache/frost/manifest-<repo>.jsonl` | `%LocalAppData%\frost\manifest-<repo>.jsonl` |
 | 백업을 마지막으로 연 위치 | `~/.cache/frost/storage-<config>.json` | `%LocalAppData%\frost\storage-<config>.json` |
 | 마지막 업데이트 확인 | `~/.cache/frost/update.json` | `%LocalAppData%\frost\update.json` |
+| 예약 작업을 설정한 시각과 마지막 백업이 실행된 시각 | `~/.cache/frost/schedule-<config>.json` | `%LocalAppData%\frost\schedule-<config>.json` |
 | 예약된 백업 로그 | `~/.cache/frost/frost.log` | `%LocalAppData%\frost\frost.log` |
 
 systemd를 쓰면 예약된 백업의 로그는 `frost.log`가 아니라 저널에 기록됩니다. 예약 작업의 위치도 함께 [자동 백업](#scheduling)에서 확인하세요.

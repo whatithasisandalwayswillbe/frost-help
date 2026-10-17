@@ -12,28 +12,55 @@ frost config set schedule.every 6h
 
 Les choix possibles sont `hourly`, `2h`, `3h`, `4h`, `6h`, `8h`, `12h`, `daily` et `weekly`. La valeur par défaut est `daily`.
 
-Pour désactiver les sauvegardes automatiques, ou les réactiver :
+Pour choisir quand les sauvegardes ont lieu, indiquez une heure au format 24 heures et, pour les sauvegardes hebdomadaires, le jour :
+
+```sh
+frost config set schedule.time 09:30
+frost config set schedule.day friday
+```
+
+Les valeurs par défaut sont `15:00` et `sunday`. Pour désactiver les sauvegardes automatiques, ou les réactiver :
 
 ```sh
 frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-Chacun de ces changements met à jour la tâche planifiée immédiatement.
+Chaque changement met à jour la tâche planifiée immédiatement. Sous macOS et Windows, un changement fait pendant une sauvegarde planifiée s'applique dès qu'elle se termine. Si vous modifiez `config.toml` vous-même, la commande frost suivante met à jour la tâche.
 
 ## Quand les sauvegardes ont lieu
 
-| Planificateur | Chaque jour | Chaque semaine | Plus souvent |
-| --- | --- | --- | --- |
-| launchd (macOS) et cron (Linux) | 03:17 | Le dimanche à 03:17 | À la 17e minute de l'heure |
-| Planificateur de tâches (Windows) | 03:17 | Le dimanche à 03:17 | Toutes les quelques heures, à partir du moment où la tâche a été créée |
-| systemd (Linux) | Minuit | Le lundi à minuit | À l'heure pile |
+Les sauvegardes ont lieu à l'heure de `schedule.time`, à l'heure locale de votre ordinateur :
 
-Les heures sont celles de votre ordinateur. systemd décale chaque exécution de 5 minutes au maximum, au hasard.
+| `schedule.every` | Sauvegarde |
+| --- | --- |
+| `daily` | Chaque jour à cette heure |
+| `weekly` | Chaque semaine le jour `schedule.day`, à cette heure |
+| `2h` à `12h` | À cette heure, puis à chaque intervalle avant et après. `6h` à partir de `15:00` s'exécute à 03:00, 09:00, 15:00 et 21:00 |
+| `hourly` | Toutes les heures, aux minutes de cette heure |
+
+systemd décale chaque exécution de 5 minutes au maximum, au hasard.
 
 ## Sauvegardes manquées
 
-launchd et systemd rattrapent le retard. Si votre ordinateur était éteint ou en veille au moment prévu, la sauvegarde a lieu à son réveil. cron et le Planificateur de tâches sautent les exécutions manquées, et la suivante a lieu à l'heure.
+Si votre ordinateur était éteint ou en veille au moment prévu, frost sauvegarde dès son retour. Quel que soit le nombre de sauvegardes manquées, il n'en fait qu'une.
+
+| Planificateur | Lance la sauvegarde manquée |
+| --- | --- |
+| launchd (macOS) | Au réveil du Mac, ou quand vous ouvrez une session après qu'il a été éteint |
+| systemd (Linux) | Au réveil ou au démarrage de l'ordinateur, ou quand vous ouvrez une session si le lingering est désactivé |
+| Planificateur de tâches (Windows) | Dès que possible, quand l'ordinateur est de retour et que votre session est ouverte |
+| cron (Linux) | Dans les 15 minutes qui suivent le retour de l'ordinateur |
+
+Avec cron, frost vérifie toutes les 15 minutes et ne sauvegarde que lorsqu'une sauvegarde est prévue ou a été manquée. Une heure déjà couverte, par une sauvegarde planifiée ou par une que vous avez lancée vous-même, ne donne pas lieu à une deuxième sauvegarde.
+
+Pour sauter les sauvegardes manquées, et ne sauvegarder qu'à l'heure prévue :
+
+```sh
+frost config set schedule.catch_up false
+```
+
+Une sauvegarde planifiée qui démarre avant le retour du réseau réessaie pendant environ 5 minutes. Si une autre sauvegarde est en cours, elle attend qu'elle se termine.
 
 Sous Windows, les sauvegardes planifiées ne s'exécutent que lorsque votre session est ouverte. Elles ne démarrent pas quand l'ordinateur est sur batterie, et s'arrêtent si vous le débranchez. Sous macOS et avec systemd, elles tournent en basse priorité pour ne pas ralentir votre ordinateur.
 

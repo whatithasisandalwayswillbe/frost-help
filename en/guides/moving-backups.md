@@ -28,7 +28,7 @@ To move to another provider, which means changing several settings at once, run 
 
 ## Checks before saving
 
-`frost config set` checks a new storage location before saving it. It refuses a location with no frost repository, or one made with another key. If the old location holds snapshots for the same repository but the new one doesn't, it refuses that change too. `frost config edit` shows the same problems as warnings, so it can still save a change that `set` refuses.
+`frost config set` checks a new storage location before saving it. It refuses a location with no frost repository, or one made with another key. If the old location holds snapshots for the same repository but the new one doesn't, it refuses that change too. `frost config edit` shows the same problems as warnings, so it can still save a change that `set` refuses. If you change the location by editing `config.toml` yourself, frost shows those warnings the first time it uses it.
 
 ## If frost can't find your backups
 

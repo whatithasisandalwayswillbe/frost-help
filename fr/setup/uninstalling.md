@@ -10,7 +10,7 @@ frost n'a pas de commande de désinstallation, mais le retirer ne prend que quel
 frost config set schedule.enabled false
 ```
 
-Cette commande retire la tâche du planificateur de votre système. Sous Linux avec systemd, elle désactive aussi lingering si frost a enregistré qu'il l'avait activé.
+Cette commande retire la tâche du planificateur de votre système. Si frost indique que la tâche sera retirée une fois la sauvegarde en cours terminée, attendez la fin de cette sauvegarde avant l'étape suivante. D'ici là, `frost status` indique qu'une sauvegarde ou une restauration est déjà en cours. Sous Linux avec systemd, elle désactive aussi lingering si frost a enregistré qu'il l'avait activé.
 
 ## 2. Supprimez les fichiers de frost
 
