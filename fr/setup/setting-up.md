@@ -34,7 +34,7 @@ Cette étape liste les noms et motifs que frost laisse de côté à chaque sauve
 
 ### Planification
 
-Choisissez la fréquence des sauvegardes automatiques : toutes les heures, toutes les 6 ou 12 heures, chaque jour ou chaque semaine. Choisissez « Off » (désactivé) pour ne sauvegarder que lorsque vous lancez `frost backup`. D'autres intervalles sont disponibles avec `frost config set`. Voir [Sauvegardes automatiques](#scheduling).
+Choisissez la fréquence des sauvegardes automatiques : toutes les heures, toutes les 6 ou 12 heures, chaque jour ou chaque semaine. Choisissez « Off » (désactivé) pour ne sauvegarder que lorsque vous lancez `frost backup`. D'autres intervalles, ainsi que l'heure des sauvegardes, se règlent avec `frost config set`. Voir [Sauvegardes automatiques](#scheduling).
 
 ### Phrase de récupération
 

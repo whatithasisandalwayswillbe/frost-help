@@ -12,28 +12,55 @@ frost config set schedule.every 6h
 
 Las opciones son `hourly`, `2h`, `3h`, `4h`, `6h`, `8h`, `12h`, `daily` y `weekly`. La predeterminada es `daily`.
 
-Para desactivar las copias automáticas, o volver a activarlas:
+Para elegir cuándo se hacen las copias, indica una hora en formato de 24 horas y, para las copias semanales, el día:
+
+```sh
+frost config set schedule.time 09:30
+frost config set schedule.day friday
+```
+
+Los valores predeterminados son `15:00` y `sunday`. Para desactivar las copias automáticas, o volver a activarlas:
 
 ```sh
 frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-Cualquiera de los dos cambios actualiza la tarea programada al momento.
+Cada cambio actualiza la tarea programada al momento. En macOS y Windows, un cambio hecho durante una copia programada se aplica en cuanto esa copia termina. Si editas `config.toml` tú mismo, el siguiente comando de frost actualiza la tarea.
 
 ## Cuándo se hacen las copias
 
-| Programador | A diario | Cada semana | Más a menudo |
-| --- | --- | --- | --- |
-| launchd (macOS) y cron (Linux) | 03:17 | Domingos a las 03:17 | En el minuto 17 de la hora |
-| Programador de tareas (Windows) | 03:17 | Domingos a las 03:17 | Cada pocas horas, contando desde que se creó la tarea |
-| systemd (Linux) | Medianoche | Lunes a medianoche | En punto |
+Las copias se hacen a la hora de `schedule.time`, en la hora local de tu equipo:
 
-Las horas son las locales de tu equipo. systemd retrasa cada ejecución hasta 5 minutos, al azar.
+| `schedule.every` | Hace la copia |
+| --- | --- |
+| `daily` | Todos los días a esa hora |
+| `weekly` | Cada semana el día `schedule.day`, a esa hora |
+| `2h` a `12h` | A esa hora, y cada intervalo antes y después. `6h` desde las `15:00` se ejecuta a las 03:00, 09:00, 15:00 y 21:00 |
+| `hourly` | Cada hora, en los minutos de esa hora |
+
+systemd retrasa cada ejecución hasta 5 minutos, al azar.
 
 ## Copias perdidas
 
-launchd y systemd se ponen al día. Si tu equipo estaba apagado o en reposo cuando tocaba una copia, la copia se hace al despertar. cron y el Programador de tareas se saltan las ejecuciones que el equipo se perdió, y la siguiente llega a su hora.
+Si tu equipo estaba apagado o en reposo cuando tocaba una copia, frost la hace en cuanto vuelve. Aunque se haya perdido varias, hace una sola copia.
+
+| Programador | Hace la copia perdida |
+| --- | --- |
+| launchd (macOS) | Cuando tu Mac se despierta, o cuando inicias sesión después de tenerlo apagado |
+| systemd (Linux) | Cuando tu equipo se despierta o arranca, o cuando inicias sesión si el lingering está desactivado |
+| Programador de tareas (Windows) | En cuanto puede, cuando tu equipo vuelve y tienes la sesión iniciada |
+| cron (Linux) | En los 15 minutos siguientes a que vuelva tu equipo |
+
+Con cron, frost comprueba cada 15 minutos y solo hace una copia cuando toca o cuando se perdió una. Si una hora ya está cubierta, por una copia programada o por una que hiciste tú, no se hace una segunda copia.
+
+Para saltarte las copias perdidas, de modo que frost solo copie a su hora:
+
+```sh
+frost config set schedule.catch_up false
+```
+
+Una copia programada que empieza antes de que vuelva tu red lo reintenta durante unos 5 minutos. Si hay otra copia en marcha, espera a que termine.
 
 En Windows, las copias programadas solo se ejecutan mientras tengas la sesión iniciada. No empiezan mientras el equipo funciona con batería, y se detienen si lo desenchufas. En macOS y con systemd, las copias programadas se ejecutan con baja prioridad para no ralentizar tu equipo.
 

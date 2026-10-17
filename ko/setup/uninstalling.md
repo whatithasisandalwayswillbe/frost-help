@@ -10,7 +10,7 @@ frost에는 제거 명령어가 없지만, 몇 단계면 지울 수 있습니다
 frost config set schedule.enabled false
 ```
 
-이 명령어는 운영 체제 스케줄러에서 작업을 제거합니다. systemd를 쓰는 Linux에서는 frost가 직접 켰다고 기록한 경우에만 lingering을 다시 끕니다.
+이 명령어는 운영 체제 스케줄러에서 작업을 제거합니다. 실행 중인 백업이 끝나면 작업을 제거한다고 frost가 표시하면, 그 백업이 끝날 때까지 기다린 뒤 다음 단계로 넘어가세요. 그 전까지는 `frost status`가 백업이나 복원이 실행 중이라고 표시합니다. systemd를 쓰는 Linux에서는 frost가 직접 켰다고 기록한 경우에만 lingering을 다시 끕니다.
 
 ## 2. frost 파일 삭제하기
 

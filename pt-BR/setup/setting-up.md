@@ -34,7 +34,7 @@ Esta etapa lista os nomes e padrões que o frost deixa de fora de todo backup. A
 
 ### Agendamento
 
-Escolha com que frequência o frost faz backup sozinho: a cada hora, a cada 6 ou 12 horas, diariamente ou semanalmente. Escolha "Off" (desligado) para fazer backup só quando você executar `frost backup`. Outros intervalos estão disponíveis com `frost config set`. Veja [Backups automáticos](#scheduling).
+Escolha com que frequência o frost faz backup sozinho: a cada hora, a cada 6 ou 12 horas, diariamente ou semanalmente. Escolha "Off" (desligado) para fazer backup só quando você executar `frost backup`. Outros intervalos e o horário dos backups podem ser definidos com `frost config set`. Veja [Backups automáticos](#scheduling).
 
 ### Frase de recuperação
 

@@ -34,7 +34,7 @@
 
 ### 计划
 
-选择 frost 自动备份的频率：每小时、每 6 或 12 小时、每天或每周。选择 "Off"（关闭）就只在你运行 `frost backup` 时才备份。其他间隔可以通过 `frost config set` 设置。参见[自动备份](#scheduling)。
+选择 frost 自动备份的频率：每小时、每 6 或 12 小时、每天或每周。选择 "Off"（关闭）就只在你运行 `frost backup` 时才备份。其他间隔以及备份的时间，都可以通过 `frost config set` 设置。参见[自动备份](#scheduling)。
 
 ### 恢复短语
 

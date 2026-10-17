@@ -28,6 +28,7 @@ Le lanceur `frost` se trouve dans `/usr/local/bin` ou `~/.local/bin` sous macOS 
 | Registre de ce qui a été envoyé | `~/.cache/frost/manifest-<repo>.jsonl` | `%LocalAppData%\frost\manifest-<repo>.jsonl` |
 | Dernier emplacement où vos sauvegardes ont été ouvertes | `~/.cache/frost/storage-<config>.json` | `%LocalAppData%\frost\storage-<config>.json` |
 | Dernière recherche de mise à jour | `~/.cache/frost/update.json` | `%LocalAppData%\frost\update.json` |
+| Quand la tâche planifiée a été installée et quand votre dernière sauvegarde a eu lieu | `~/.cache/frost/schedule-<config>.json` | `%LocalAppData%\frost\schedule-<config>.json` |
 | Journal des sauvegardes planifiées | `~/.cache/frost/frost.log` | `%LocalAppData%\frost\frost.log` |
 
 Avec systemd, les sauvegardes planifiées écrivent dans le journal système plutôt que dans `frost.log`. Voir [Sauvegardes automatiques](#scheduling), qui indique aussi où se trouve la tâche planifiée.

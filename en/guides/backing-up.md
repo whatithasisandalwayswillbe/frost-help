@@ -93,6 +93,19 @@ After a backup that saves a snapshot, frost downloads a few random chunks, 20 by
 
 If a backup stops partway, because of a lost connection, a closed laptop or `Ctrl+C`, nothing already uploaded is wasted. frost records chunks as they upload, and the next backup skips them.
 
+## Near a scheduled backup
+
+If a scheduled backup starts within the next hour, or finished within the last hour, `frost backup` says so and asks before it starts:
+
+```text
+┌  backup  s3://my-backups/frost/
+│
+│  A scheduled backup starts in 40m, at 15:00.
+│  Back up now anyway? [Y/n]
+```
+
+Press Enter to back up anyway, or type `n` to stop. For schedules less than 4 hours apart, the window is a quarter of the interval. A finished backup only counts if it worked and you haven't backed up since. frost only asks in a terminal, and not for a dry run or with `--path` or `--exclude`.
+
 ## One at a time
 
-A backup or command-line restore locks its local cache while it runs. If another command needs that cache, frost says "a backup or restore is already running, try again when it's done". The snapshot browser releases the cache lock, so it can stay open and restore while a backup runs. Different cache folders and computers have separate locks.
+A backup or command-line restore locks its local cache while it runs. If another command needs that cache, frost says "a backup or restore is already running, try again when it's done". When the other one is a scheduled backup, it says "a scheduled backup is already running" and when it started. A scheduled backup that finds the cache locked waits up to an hour instead. The snapshot browser releases the cache lock, so it can stay open and restore while a backup runs. Different cache folders and computers have separate locks.

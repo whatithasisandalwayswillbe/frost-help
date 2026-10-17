@@ -12,28 +12,55 @@ frost config set schedule.every 6h
 
 Zur Auswahl stehen `hourly`, `2h`, `3h`, `4h`, `6h`, `8h`, `12h`, `daily` und `weekly`. Standard ist `daily`.
 
-Um automatische Backups aus- oder wieder einzuschalten:
+Um festzulegen, wann Backups laufen, gib eine Uhrzeit im 24-Stunden-Format an und für wöchentliche Backups den Tag:
+
+```sh
+frost config set schedule.time 09:30
+frost config set schedule.day friday
+```
+
+Standard sind `15:00` und `sunday`. Um automatische Backups aus- oder wieder einzuschalten:
 
 ```sh
 frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-Beide Änderungen aktualisieren den geplanten Auftrag sofort.
+Jede Änderung aktualisiert den geplanten Auftrag sofort. Unter macOS und Windows wird eine Änderung während eines geplanten Backups übernommen, sobald dieses fertig ist. Bearbeitest du `config.toml` selbst, aktualisiert der nächste frost-Befehl den Auftrag.
 
 ## Wann Backups laufen
 
-| Zeitplaner | Täglich | Wöchentlich | Häufiger |
-| --- | --- | --- | --- |
-| launchd (macOS) und cron (Linux) | 03:17 | Sonntags um 03:17 | 17 Minuten nach der vollen Stunde |
-| Aufgabenplanung (Windows) | 03:17 | Sonntags um 03:17 | Alle paar Stunden, gerechnet ab dem Anlegen des Auftrags |
-| systemd (Linux) | Mitternacht | Montags um Mitternacht | Zur vollen Stunde |
+Backups laufen zur Uhrzeit aus `schedule.time`, in der Ortszeit deines Computers:
 
-Die Zeiten gelten in der Ortszeit deines Computers. systemd startet jeden Lauf zufällig bis zu 5 Minuten später.
+| `schedule.every` | Sichert |
+| --- | --- |
+| `daily` | Jeden Tag zu dieser Uhrzeit |
+| `weekly` | Jede Woche am Tag aus `schedule.day`, zu dieser Uhrzeit |
+| `2h` bis `12h` | Zu dieser Uhrzeit und in jedem Intervall davor und danach. `6h` ab `15:00` läuft um 03:00, 09:00, 15:00 und 21:00 |
+| `hourly` | Jede Stunde, zu den Minuten dieser Uhrzeit |
+
+systemd startet jeden Lauf zufällig bis zu 5 Minuten später.
 
 ## Verpasste Backups
 
-launchd und systemd holen verpasste Läufe nach. War dein Computer aus oder im Ruhezustand, als ein Backup fällig war, läuft das Backup, sobald er aufwacht. cron und die Aufgabenplanung überspringen verpasste Läufe, und der nächste kommt pünktlich.
+War dein Computer aus oder im Ruhezustand, als ein Backup fällig war, sichert frost, sobald er wieder da ist. Egal wie viele Backups er verpasst hat, frost sichert einmal.
+
+| Zeitplaner | Startet ein verpasstes Backup |
+| --- | --- |
+| launchd (macOS) | Wenn dein Mac aufwacht, oder wenn du dich anmeldest, nachdem er aus war |
+| systemd (Linux) | Wenn dein Computer aufwacht oder startet, oder wenn du dich anmeldest, falls Lingering aus ist |
+| Aufgabenplanung (Windows) | Sobald es geht, wenn dein Computer wieder da ist und du angemeldet bist |
+| cron (Linux) | Innerhalb von 15 Minuten, nachdem dein Computer wieder da ist |
+
+Mit cron prüft frost alle 15 Minuten und sichert nur, wenn ein Backup fällig ist oder verpasst wurde. Für eine Zeit, die schon abgedeckt ist, ob durch ein geplantes Backup oder eins, das du selbst gestartet hast, gibt es kein zweites Backup.
+
+Um verpasste Backups stattdessen zu überspringen, damit frost nur pünktlich sichert:
+
+```sh
+frost config set schedule.catch_up false
+```
+
+Ein geplantes Backup, das startet, bevor dein Netzwerk wieder da ist, versucht es etwa 5 Minuten lang erneut. Läuft gerade ein anderes Backup, wartet es, bis dieses fertig ist.
 
 Unter Windows laufen geplante Backups nur, solange du angemeldet bist. Sie starten nicht im Akkubetrieb und brechen ab, wenn du den Computer vom Strom trennst. Unter macOS und mit systemd laufen geplante Backups mit niedriger Priorität, damit sie deinen Computer nicht ausbremsen.
 

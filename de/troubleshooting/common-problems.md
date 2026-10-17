@@ -12,7 +12,7 @@ Die Schlüsseldatei fehlt. Ist auf diesem Computer schon ein Speicher eingericht
 
 ## „a backup or restore is already running“
 
-Ein anderer frost-Prozess nutzt gerade deine Backups, meistens ein geplantes Backup. Warte, bis er fertig ist, und versuch es dann erneut. Die Sperrdatei von frost zu löschen beendet den anderen Prozess nicht.
+Ein anderer frost-Prozess nutzt gerade deine Backups, meistens ein geplantes Backup. Ist es eins, meldet frost „a scheduled backup is already running“ und wann es gestartet ist. Warte, bis er fertig ist, und versuch es dann erneut. Die Sperrdatei von frost zu löschen beendet den anderen Prozess nicht.
 
 ## „the key on this machine doesn't match“
 
@@ -66,6 +66,14 @@ Ein Programm hat während des Backups in diese Dateien geschrieben, deshalb hat 
 
 Ein Ordner aus deiner Liste fehlte, also hat frost den Rest gesichert. Schließ das Laufwerk wieder an, oder aktualisiere deine Liste mit `frost init`, falls der Ordner umgezogen ist.
 
+## „config.toml changed, but updating the scheduled job failed“
+
+Du hast `config.toml` bearbeitet, und frost konnte den geplanten Auftrag nicht passend aktualisieren. Der Rest der Meldung nennt den Grund. Nennt sie eine Einstellung, korrigiere sie in `config.toml`. frost versucht es bei jedem Befehl erneut, bis es klappt.
+
+## „config.toml changed where backups go“
+
+Du hast in `config.toml` geändert, wohin Backups gehen, und frost hat beim ersten Gebrauch ein Problem mit dem neuen Ort gefunden. Der Rest der Meldung sagt, welches. Siehe [Backups verschieben](#moving-backups).
+
 ## „scheduled job is missing“
 
 Der geplante Auftrag wurde gelöscht oder ausgeschaltet. Stell ihn mit `frost config set schedule.enabled true` wieder her.
@@ -75,7 +83,7 @@ Der geplante Auftrag wurde gelöscht oder ausgeschaltet. Stell ihn mit `frost co
 - Sieh dir die Zeile „next backup“ in `frost status` an.
 - Prüf unter macOS den Schalter für frost unter Systemeinstellungen > Allgemein > Anmeldeobjekte & Erweiterungen (System Settings > General > Login Items & Extensions). Er heißt dort Node.js Foundation.
 - Unter Windows musst du für geplante Backups angemeldet sein, und sie laufen nicht im Akkubetrieb.
-- Mit cron oder der Aufgabenplanung wird ein Backup übersprungen, das fällig war, während der Computer aus war oder schlief.
+- Steht `schedule.catch_up` auf `false`, wird ein Backup übersprungen, das fällig war, während der Computer aus war oder schlief.
 - Lies das Protokoll. Siehe [Automatische Backups](#scheduling).
 
 ## „verification failed“

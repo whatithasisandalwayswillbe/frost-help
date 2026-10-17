@@ -10,7 +10,7 @@ frost no tiene un comando para desinstalarse, pero quitarlo solo lleva unos poco
 frost config set schedule.enabled false
 ```
 
-Esto quita la tarea del programador de tu sistema operativo. En Linux con systemd, también vuelve a desactivar lingering si frost dejó constancia de haberlo activado.
+Esto quita la tarea del programador de tu sistema operativo. Si frost dice que la tarea se quitará cuando termine la copia en marcha, espera a que termine antes del siguiente paso. Mientras no termine, `frost status` dice que ya hay una copia o restauración en marcha. En Linux con systemd, también vuelve a desactivar lingering si frost dejó constancia de haberlo activado.
 
 ## 2. Borra los archivos de frost
 

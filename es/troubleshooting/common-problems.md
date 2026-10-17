@@ -12,7 +12,7 @@ Falta el archivo de la clave. Si este equipo ya tiene el almacenamiento configur
 
 ## "a backup or restore is already running"
 
-Otro proceso de frost está usando tus copias, normalmente una copia programada. Espera a que termine y vuelve a intentarlo. Borrar el archivo de bloqueo de frost no detiene el otro proceso.
+Otro proceso de frost está usando tus copias, normalmente una copia programada. En ese caso, frost dice "a scheduled backup is already running" y cuándo empezó. Espera a que termine y vuelve a intentarlo. Borrar el archivo de bloqueo de frost no detiene el otro proceso.
 
 ## "the key on this machine doesn't match"
 
@@ -66,6 +66,14 @@ Un programa estaba escribiendo en esos archivos durante la copia, así que la in
 
 Una carpeta de tu lista no estaba, así que frost respaldó el resto. Vuelve a conectar el disco o, si la carpeta se movió, actualiza tu lista con `frost init`.
 
+## "config.toml changed, but updating the scheduled job failed"
+
+Editaste `config.toml` y frost no pudo actualizar la tarea programada para que coincida. El resto del mensaje dice por qué. Si menciona un ajuste, corrígelo en `config.toml`. frost lo vuelve a intentar con cada comando hasta que funcione.
+
+## "config.toml changed where backups go"
+
+Cambiaste en `config.toml` dónde se guardan las copias, y frost encontró un problema con la nueva ubicación la primera vez que la usó. El resto del mensaje dice cuál. Consulta [Mover tus copias de seguridad](#moving-backups).
+
 ## "scheduled job is missing"
 
 La tarea programada se borró o se desactivó. Recupérala con `frost config set schedule.enabled true`.
@@ -75,7 +83,7 @@ La tarea programada se borró o se desactivó. Recupérala con `frost config set
 - Revisa la fila "next backup" de `frost status`.
 - En macOS, revisa el interruptor de frost en Ajustes del Sistema > General > Ítems de inicio y extensiones (System Settings > General > Login Items & Extensions). Aparece como Node.js Foundation.
 - En Windows, las copias programadas requieren que tengas la sesión iniciada y no se hacen con batería.
-- Con cron o el Programador de tareas, una copia que tocaba con el equipo apagado o en reposo se salta.
+- Con `schedule.catch_up` en `false`, una copia que tocaba con el equipo apagado o en reposo se salta.
 - Lee el registro. Consulta [Copias de seguridad automáticas](#scheduling).
 
 ## "verification failed"

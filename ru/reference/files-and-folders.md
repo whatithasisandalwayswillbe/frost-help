@@ -28,6 +28,7 @@ frost хранит приложение, ваши настройки и свой
 | Учёт отправленного | `~/.cache/frost/manifest-<repo>.jsonl` | `%LocalAppData%\frost\manifest-<repo>.jsonl` |
 | Где копии открывались в последний раз | `~/.cache/frost/storage-<config>.json` | `%LocalAppData%\frost\storage-<config>.json` |
 | Последняя проверка обновлений | `~/.cache/frost/update.json` | `%LocalAppData%\frost\update.json` |
+| Когда было установлено задание по расписанию и когда выполнялась последняя копия | `~/.cache/frost/schedule-<config>.json` | `%LocalAppData%\frost\schedule-<config>.json` |
 | Журнал копирования по расписанию | `~/.cache/frost/frost.log` | `%LocalAppData%\frost\frost.log` |
 
 С systemd копирование по расписанию пишет журнал не в `frost.log`, а в журнал systemd. См. раздел [Автоматическое резервное копирование](#scheduling), где также указано, где лежит задание по расписанию.

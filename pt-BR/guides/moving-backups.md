@@ -28,7 +28,7 @@ Para ir para outro provedor, o que exige mudar várias configurações de uma ve
 
 ## Verificações antes de salvar
 
-O `frost config set` confere um novo local de armazenamento antes de salvá-lo. Ele recusa um local sem repositório do frost ou com um repositório criado com outra chave. Se o local antigo tem snapshots do mesmo repositório, mas o novo não, ele também recusa essa mudança. O `frost config edit` mostra esses mesmos problemas como avisos, então ainda consegue salvar uma mudança que o `set` recusa.
+O `frost config set` confere um novo local de armazenamento antes de salvá-lo. Ele recusa um local sem repositório do frost ou com um repositório criado com outra chave. Se o local antigo tem snapshots do mesmo repositório, mas o novo não, ele também recusa essa mudança. O `frost config edit` mostra esses mesmos problemas como avisos, então ainda consegue salvar uma mudança que o `set` recusa. Se você mudar o local editando o `config.toml` por conta própria, o frost mostra esses avisos na primeira vez que o usar.
 
 ## Se o frost não encontrar seus backups
 

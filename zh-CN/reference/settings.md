@@ -1,6 +1,6 @@
 # 设置项
 
-frost 把设置保存在配置文件夹中的 `config.toml` 里。你可以用 `frost init`、`frost config set` 或 `frost config edit` 修改它们。
+frost 把设置保存在配置文件夹中的 `config.toml` 里。你可以用 `frost init`、`frost config set` 或 `frost config edit` 修改它们，也可以用任何文本编辑器修改。
 
 ## 查看和修改设置
 
@@ -21,7 +21,7 @@ frost config set paths ~/Documents ~/Pictures
 
 - 列表的每一项是一个值，`set` 会替换整个列表。
 - 用 `true` 和 `false` 开启或关闭某项设置。
-- 修改 `schedule.enabled` 或 `schedule.every` 会立即更新计划任务。
+- 修改任何 `schedule` 设置都会立即更新计划任务。在 macOS 和 Windows 上，如果修改时计划备份正在运行，修改会在那次备份结束后立即生效，所以备份不会被中断。
 - 修改存储位置时，frost 会在保存之前先检查新位置。参见[迁移备份](#moving-backups)。
 
 ## 编辑配置文件
@@ -34,6 +34,15 @@ frost 会用你指定的编辑器打开 `config.toml` 的一份副本；如果�
 
 如果文件无法解析，frost 会指出问题所在，并提出重新打开它，所以一个笔误不会破坏你的计划备份。未知的设置也算作错误，所以拼错的名称不会悄悄混过去。
 
+## 自己编辑
+
+你也可以用任何文本编辑器打开 `config.toml` 并保存。frost 每次运行都会读取它，所以大多数修改从下一次运行起生效。有两类修改还需要多一步，frost 会在你下次运行任意 frost 命令时完成：
+
+- 修改了计划，frost 会更新计划任务，并提示 "config.toml changed. Scheduled job updated"（config.toml 已更改，计划任务已更新）。在 Linux 上，下一次计划备份也会这样做。 如果修改时计划备份正在运行，修改会等它结束，和 `frost config set` 一样。
+- 修改了存储位置，frost 第一次使用它时，会做和 `frost config edit` 一样的检查。有问题会显示为警告。
+
+保存之前没有任何检查。如果文件无法解析，frost 命令会一直提示，直到你修好它。
+
 ## 所有设置
 
 | 键 | 默认值 | 含义 |
@@ -42,6 +51,9 @@ frost 会用你指定的编辑器打开 `config.toml` 的一份副本；如果�
 | `exclude` | `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules`, `.cache` | 要跳过的名称和模式。参见[排除文件](#excluding-files) |
 | `schedule.enabled` | `true` | 自动备份 |
 | `schedule.every` | `daily` | `hourly`、`2h`、`3h`、`4h`、`6h`、`8h`、`12h`、`daily` 或 `weekly` |
+| `schedule.time` | `15:00` | 备份运行的时间，24 小时制。参见[自动备份](#scheduling) |
+| `schedule.day` | `sunday` | 每周备份在星期几运行，`sunday` 到 `saturday` |
+| `schedule.catch_up` | `true` | 错过备份后，在电脑恢复时补一次备份。`false` 会跳过错过的备份 |
 | `verify.sample` | `20` | 抽查时下载多少个数据块。`0` 表示关闭抽查 |
 | `update.auto` | `true` | 在计划备份之后安装新的发布版本。`false` 只通知你有新版本 |
 | `storage.backend` | | `permafrost` 或 `s3` |

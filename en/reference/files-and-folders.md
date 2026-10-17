@@ -28,6 +28,7 @@ The `frost` launcher is in `/usr/local/bin` or `~/.local/bin` on macOS and Linux
 | Record of what's uploaded | `~/.cache/frost/manifest-<repo>.jsonl` | `%LocalAppData%\frost\manifest-<repo>.jsonl` |
 | Where your backups were last opened | `~/.cache/frost/storage-<config>.json` | `%LocalAppData%\frost\storage-<config>.json` |
 | Latest update check | `~/.cache/frost/update.json` | `%LocalAppData%\frost\update.json` |
+| When the scheduled job was set up and your last backup ran | `~/.cache/frost/schedule-<config>.json` | `%LocalAppData%\frost\schedule-<config>.json` |
 | Scheduled backup log | `~/.cache/frost/frost.log` | `%LocalAppData%\frost\frost.log` |
 
 With systemd, scheduled backups log to the journal instead of `frost.log`. See [Automatic backups](#scheduling), which also lists where the scheduled job lives.

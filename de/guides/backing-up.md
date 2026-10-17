@@ -93,6 +93,19 @@ Nach einem Backup, das einen Snapshot speichert, lädt frost einige zufällige B
 
 Bricht ein Backup mittendrin ab, wegen einer verlorenen Verbindung, eines zugeklappten Laptops oder `Ctrl+C`, ist nichts von dem verloren, was schon hochgeladen wurde. frost vermerkt die Blöcke während des Hochladens, und das nächste Backup überspringt sie.
 
+## Kurz vor oder nach einem geplanten Backup
+
+Startet ein geplantes Backup innerhalb der nächsten Stunde oder ist eins in der letzten Stunde fertig geworden, sagt `frost backup` das und fragt, bevor es startet:
+
+```text
+┌  backup  s3://my-backups/frost/
+│
+│  A scheduled backup starts in 40m, at 15:00.
+│  Back up now anyway? [Y/n]
+```
+
+Drück Enter, um trotzdem zu sichern, oder tippe `n`, um abzubrechen. Bei Zeitplänen mit weniger als 4 Stunden Abstand ist das Zeitfenster ein Viertel des Intervalls. Ein fertiges Backup zählt nur, wenn es geklappt hat und du seitdem nicht gesichert hast. frost fragt nur im Terminal, und nicht bei einer Vorschau oder mit `--path` oder `--exclude`.
+
 ## Eins nach dem anderen
 
-Ein Backup oder eine Wiederherstellung über die Kommandozeile sperrt während des Laufs den lokalen Cache. Braucht ein anderer Befehl diesen Cache, meldet frost „a backup or restore is already running, try again when it's done“ (es läuft bereits ein Backup oder eine Wiederherstellung, versuch es danach noch einmal). Der Snapshot-Browser gibt die Cache-Sperre frei, sodass er geöffnet bleiben und Dateien wiederherstellen kann, während ein Backup läuft. Andere Cache-Ordner und Computer haben eigene Sperren.
+Ein Backup oder eine Wiederherstellung über die Kommandozeile sperrt während des Laufs den lokalen Cache. Braucht ein anderer Befehl diesen Cache, meldet frost „a backup or restore is already running, try again when it's done“ (es läuft bereits ein Backup oder eine Wiederherstellung, versuch es danach noch einmal). Ist das andere ein geplantes Backup, meldet frost „a scheduled backup is already running“ (es läuft bereits ein geplantes Backup) und wann es gestartet ist. Ein geplantes Backup, das den Cache gesperrt vorfindet, wartet stattdessen bis zu einer Stunde. Der Snapshot-Browser gibt die Cache-Sperre frei, sodass er geöffnet bleiben und Dateien wiederherstellen kann, während ein Backup läuft. Andere Cache-Ordner und Computer haben eigene Sperren.

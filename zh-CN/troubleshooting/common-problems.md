@@ -12,7 +12,7 @@ frost 找不到 `config.toml`。运行 `frost init`。如果你使用了 `--conf
 
 ## "a backup or restore is already running"
 
-另一个 frost 进程正在使用你的备份，通常是计划备份。等它结束后再试。删除 frost 的锁文件并不能停止那个进程。
+另一个 frost 进程正在使用你的备份，通常是计划备份。如果是计划备份，frost 会提示 "a scheduled backup is already running"，并说明它何时开始。等它结束后再试。删除 frost 的锁文件并不能停止那个进程。
 
 ## "the key on this machine doesn't match"
 
@@ -66,6 +66,14 @@ frost 跳过了这些文件，其余内容照常保存。常见原因有：你�
 
 列表中的某个文件夹不在，所以 frost 备份了其余的文件夹。把移动硬盘重新插上；如果文件夹换了位置，就用 `frost init` 更新你的列表。
 
+## "config.toml changed, but updating the scheduled job failed"
+
+你编辑了 `config.toml`，但 frost 无法让计划任务与之一致。消息的其余部分说明了原因。如果提到了某个设置，请在 `config.toml` 里修正它。frost 每次运行命令都会重试，直到成功。
+
+## "config.toml changed where backups go"
+
+你在 `config.toml` 里修改了备份的位置，frost 第一次使用新位置时发现了问题。消息的其余部分说明了是什么问题。参见[迁移备份](#moving-backups)。
+
 ## "scheduled job is missing"
 
 计划任务被删除或关闭了。用 `frost config set schedule.enabled true` 恢复它。
@@ -75,7 +83,7 @@ frost 跳过了这些文件，其余内容照常保存。常见原因有：你�
 - 查看 `frost status` 中的 "next backup" 这一行。
 - 在 macOS 上，检查“系统设置 > 通用 > 登录项与扩展”（System Settings > General > Login Items & Extensions）中 frost 的开关。它显示为 Node.js Foundation。
 - 在 Windows 上，计划备份需要你保持登录，并且使用电池供电时不会运行。
-- 使用 cron 或任务计划程序时，如果备份到点时电脑处于关机或睡眠状态，这次备份会被跳过。
+- 如果 `schedule.catch_up` 设为 `false`，备份到点时电脑处于关机或睡眠状态，这次备份会被跳过。
 - 查看日志。参见[自动备份](#scheduling)。
 
 ## "verification failed"

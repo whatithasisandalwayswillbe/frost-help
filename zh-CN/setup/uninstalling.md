@@ -10,7 +10,7 @@ frost 没有卸载命令，不过手动删除它只需要几个步骤。
 frost config set schedule.enabled false
 ```
 
-这会把计划任务从操作系统的计划程序中删除。在使用 systemd 的 Linux 上，如果 frost 记录过自己开启了 lingering，它也会把 lingering 关掉。
+这会把计划任务从操作系统的计划程序中删除。如果 frost 提示计划任务会在正在运行的备份结束后删除，请等那次备份结束后再进行下一步。在那之前，`frost status` 会提示已有备份或恢复在运行。在使用 systemd 的 Linux 上，如果 frost 记录过自己开启了 lingering，它也会把 lingering 关掉。
 
 ## 2. 删除 frost 的文件
 

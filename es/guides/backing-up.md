@@ -93,6 +93,19 @@ Después de una copia que guarda una instantánea, frost descarga unos cuantos f
 
 Si una copia se detiene a medias, por una conexión perdida, un portátil cerrado o `Ctrl+C`, no se desperdicia nada de lo ya subido. frost anota los fragmentos a medida que se suben, y la siguiente copia se los salta.
 
+## Cerca de una copia programada
+
+Si una copia programada empieza en la próxima hora, o terminó en la última hora, `frost backup` te lo dice y pregunta antes de empezar:
+
+```text
+┌  backup  s3://my-backups/frost/
+│
+│  A scheduled backup starts in 40m, at 15:00.
+│  Back up now anyway? [Y/n]
+```
+
+Pulsa Intro para hacer la copia igualmente, o escribe `n` para parar. En programaciones de menos de 4 horas, el margen es una cuarta parte del intervalo. Una copia terminada solo cuenta si salió bien y no has hecho otra desde entonces. frost solo pregunta en una terminal, y no lo hace en una vista previa ni con `--path` o `--exclude`.
+
 ## De una en una
 
-Una copia o restauración desde la línea de comandos bloquea su caché local mientras se ejecuta. Si otro comando necesita esa caché, frost muestra "a backup or restore is already running, try again when it's done" (ya hay una copia o restauración en marcha; inténtalo cuando termine). El explorador de instantáneas libera el bloqueo de la caché, así que puede seguir abierto y restaurar archivos mientras se hace una copia. Cada carpeta de caché y cada equipo tienen su propio bloqueo.
+Una copia o restauración desde la línea de comandos bloquea su caché local mientras se ejecuta. Si otro comando necesita esa caché, frost muestra "a backup or restore is already running, try again when it's done" (ya hay una copia o restauración en marcha; inténtalo cuando termine). Si la otra es una copia programada, dice "a scheduled backup is already running" (ya hay una copia programada en marcha) y cuándo empezó. Una copia programada que encuentra la caché bloqueada espera en su lugar, hasta una hora. El explorador de instantáneas libera el bloqueo de la caché, así que puede seguir abierto y restaurar archivos mientras se hace una copia. Cada carpeta de caché y cada equipo tienen su propio bloqueo.

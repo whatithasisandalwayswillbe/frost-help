@@ -12,7 +12,7 @@ frost가 `config.toml`을 찾지 못했습니다. `frost init`을 실행하세�
 
 ## "a backup or restore is already running"
 
-다른 frost 프로세스가 백업을 사용하고 있습니다. 대개 예약된 백업입니다. 끝날 때까지 기다렸다가 다시 시도하세요. frost의 잠금 파일을 지워도 그 프로세스는 멈추지 않습니다.
+다른 frost 프로세스가 백업을 사용하고 있습니다. 대개 예약된 백업입니다. 그런 경우 frost는 "a scheduled backup is already running"이라고 표시하고 언제 시작했는지 알려 줍니다. 끝날 때까지 기다렸다가 다시 시도하세요. frost의 잠금 파일을 지워도 그 프로세스는 멈추지 않습니다.
 
 ## "the key on this machine doesn't match"
 
@@ -66,6 +66,14 @@ frost는 그 파일들을 건너뛰고 나머지를 저장했습니다. 흔한 �
 
 목록에 있는 폴더가 없어서 frost가 나머지만 백업했습니다. 드라이브를 다시 연결하거나, 폴더를 옮겼다면 `frost init`으로 목록을 고치세요.
 
+## "config.toml changed, but updating the scheduled job failed"
+
+`config.toml`을 편집했지만 frost가 예약 작업을 그에 맞게 업데이트하지 못했습니다. 이유는 메시지 뒷부분에 나옵니다. 설정 이름이 나오면 `config.toml`에서 그 설정을 고치세요. frost는 성공할 때까지 명령어를 실행할 때마다 다시 시도합니다.
+
+## "config.toml changed where backups go"
+
+`config.toml`에서 백업이 저장되는 곳을 바꿨는데, frost가 새 위치를 처음 사용할 때 문제를 발견했습니다. 무엇이 문제인지는 메시지 뒷부분에 나옵니다. [백업 옮기기](#moving-backups)를 참고하세요.
+
 ## "scheduled job is missing"
 
 예약 작업이 삭제되었거나 꺼졌습니다. `frost config set schedule.enabled true`로 되살리세요.
@@ -75,7 +83,7 @@ frost는 그 파일들을 건너뛰고 나머지를 저장했습니다. 흔한 �
 - `frost status`의 "next backup" 줄을 확인하세요.
 - macOS에서는 시스템 설정 > 일반 > 로그인 항목 및 확장 프로그램(System Settings > General > Login Items & Extensions)에서 frost의 스위치를 확인하세요. Node.js Foundation이라는 이름으로 표시됩니다.
 - Windows에서는 예약된 백업을 실행하려면 로그인한 상태여야 하며, 배터리로 동작하는 동안에는 실행되지 않습니다.
-- cron이나 작업 스케줄러에서는 컴퓨터가 꺼져 있거나 잠자기 상태일 때 예정된 백업을 건너뜁니다.
+- `schedule.catch_up`이 `false`면 컴퓨터가 꺼져 있거나 잠자기 상태일 때 예정된 백업을 건너뜁니다.
 - 로그를 확인하세요. 자세한 내용은 [자동 백업](#scheduling)을 참고하세요.
 
 ## "verification failed"

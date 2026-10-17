@@ -28,6 +28,7 @@ frost 把应用程序、你的设置和它的缓存分别存放在电脑上的�
 | 已上传内容的记录 | `~/.cache/frost/manifest-<repo>.jsonl` | `%LocalAppData%\frost\manifest-<repo>.jsonl` |
 | 上次打开备份的位置 | `~/.cache/frost/storage-<config>.json` | `%LocalAppData%\frost\storage-<config>.json` |
 | 最近一次更新检查 | `~/.cache/frost/update.json` | `%LocalAppData%\frost\update.json` |
+| 计划任务的设置时间和最近一次备份的运行时间 | `~/.cache/frost/schedule-<config>.json` | `%LocalAppData%\frost\schedule-<config>.json` |
 | 计划备份日志 | `~/.cache/frost/frost.log` | `%LocalAppData%\frost\frost.log` |
 
 使用 systemd 时，计划备份的日志写入系统日志（journal），而不是 `frost.log`。参见[自动备份](#scheduling)，那里也列出了计划任务的位置。

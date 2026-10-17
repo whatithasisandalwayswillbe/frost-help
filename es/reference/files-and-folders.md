@@ -28,6 +28,7 @@ El lanzador `frost` está en `/usr/local/bin` o `~/.local/bin` en macOS y Linux,
 | Registro de lo que se ha subido | `~/.cache/frost/manifest-<repo>.jsonl` | `%LocalAppData%\frost\manifest-<repo>.jsonl` |
 | Dónde se abrieron tus copias por última vez | `~/.cache/frost/storage-<config>.json` | `%LocalAppData%\frost\storage-<config>.json` |
 | Última búsqueda de actualizaciones | `~/.cache/frost/update.json` | `%LocalAppData%\frost\update.json` |
+| Cuándo se instaló la tarea programada y cuándo se hizo tu última copia | `~/.cache/frost/schedule-<config>.json` | `%LocalAppData%\frost\schedule-<config>.json` |
 | Registro de las copias programadas | `~/.cache/frost/frost.log` | `%LocalAppData%\frost\frost.log` |
 
 Con systemd, las copias programadas escriben su registro en el journal en lugar de en `frost.log`. Consulta [Copias de seguridad automáticas](#scheduling), donde también se indica dónde está la tarea programada.

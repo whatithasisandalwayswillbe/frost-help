@@ -28,7 +28,7 @@ Für einen Umzug zu einem anderen Anbieter, bei dem sich mehrere Einstellungen a
 
 ## Prüfungen vor dem Speichern
 
-`frost config set` prüft einen neuen Speicherort, bevor es ihn speichert. Es lehnt einen Ort ohne frost-Repository ab oder einen mit einem Repository, das mit einem anderen Schlüssel erstellt wurde. Enthält der alte Ort Snapshots desselben Repositorys, der neue aber nicht, lehnt es auch diese Änderung ab. `frost config edit` zeigt dieselben Probleme als Warnungen an und kann eine Änderung, die `set` ablehnt, deshalb trotzdem speichern.
+`frost config set` prüft einen neuen Speicherort, bevor es ihn speichert. Es lehnt einen Ort ohne frost-Repository ab oder einen mit einem Repository, das mit einem anderen Schlüssel erstellt wurde. Enthält der alte Ort Snapshots desselben Repositorys, der neue aber nicht, lehnt es auch diese Änderung ab. `frost config edit` zeigt dieselben Probleme als Warnungen an und kann eine Änderung, die `set` ablehnt, deshalb trotzdem speichern. Änderst du den Ort, indem du `config.toml` selbst bearbeitest, zeigt frost diese Warnungen, wenn es ihn zum ersten Mal nutzt.
 
 ## Wenn frost deine Backups nicht findet
 

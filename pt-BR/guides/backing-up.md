@@ -93,6 +93,19 @@ Depois de um backup que salva um snapshot, o frost baixa alguns blocos aleatóri
 
 Se um backup parar no meio, por causa de uma conexão perdida, de um notebook fechado ou de `Ctrl+C`, nada do que já foi enviado se perde. O frost registra os blocos conforme eles são enviados, e o próximo backup pula esses blocos.
 
+## Perto de um backup agendado
+
+Se um backup agendado começa na próxima hora, ou terminou na última hora, o `frost backup` avisa e pergunta antes de começar:
+
+```text
+┌  backup  s3://my-backups/frost/
+│
+│  A scheduled backup starts in 40m, at 15:00.
+│  Back up now anyway? [Y/n]
+```
+
+Aperte Enter para fazer o backup mesmo assim, ou digite `n` para parar. Em agendamentos com menos de 4 horas de intervalo, a janela é um quarto do intervalo. Um backup que terminou só conta se deu certo e você não fez outro desde então. O frost só pergunta em um terminal, e não pergunta numa prévia nem com `--path` ou `--exclude`.
+
 ## Um de cada vez
 
-Um backup ou uma restauração pela linha de comando bloqueia o cache local enquanto roda. Se outro comando precisar desse cache, o frost mostra "a backup or restore is already running, try again when it's done" (já há um backup ou uma restauração em andamento; tente de novo quando terminar). O navegador de snapshots libera o bloqueio do cache, então pode ficar aberto e restaurar arquivos enquanto um backup roda. Cada pasta de cache e cada computador têm seu próprio bloqueio.
+Um backup ou uma restauração pela linha de comando bloqueia o cache local enquanto roda. Se outro comando precisar desse cache, o frost mostra "a backup or restore is already running, try again when it's done" (já há um backup ou uma restauração em andamento; tente de novo quando terminar). Se o outro for um backup agendado, ele mostra "a scheduled backup is already running" (já há um backup agendado em andamento) e quando começou. Um backup agendado que encontra o cache bloqueado espera, por até uma hora. O navegador de snapshots libera o bloqueio do cache, então pode ficar aberto e restaurar arquivos enquanto um backup roda. Cada pasta de cache e cada computador têm seu próprio bloqueio.

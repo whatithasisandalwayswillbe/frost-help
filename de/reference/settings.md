@@ -1,6 +1,6 @@
 # Einstellungen
 
-frost speichert seine Einstellungen in `config.toml` in seinem Konfigurationsordner. Du kannst sie mit `frost init`, `frost config set` oder `frost config edit` ändern.
+frost speichert seine Einstellungen in `config.toml` in seinem Konfigurationsordner. Du kannst sie mit `frost init`, `frost config set` oder `frost config edit` ändern, oder in einem beliebigen Texteditor.
 
 ## Einstellungen lesen und ändern
 
@@ -21,7 +21,7 @@ frost config set paths ~/Documents ~/Pictures
 
 - Eine Liste nimmt einen Wert pro Eintrag, und `set` ersetzt die ganze Liste.
 - `true` und `false` schalten Einstellungen ein und aus.
-- Eine Änderung an `schedule.enabled` oder `schedule.every` aktualisiert den geplanten Auftrag sofort.
+- Eine Änderung an einer `schedule`-Einstellung aktualisiert den geplanten Auftrag sofort. Unter macOS und Windows wird eine Änderung, die du während eines geplanten Backups machst, übernommen, sobald dieses fertig ist, damit es nicht abbricht.
 - Änderst du den Ort deines Speichers, prüft frost den neuen Ort, bevor es ihn speichert. Siehe [Backups verschieben](#moving-backups).
 
 ## Die Datei bearbeiten
@@ -34,6 +34,15 @@ frost öffnet eine Kopie von `config.toml` im angegebenen Editor, ansonsten in `
 
 Lässt sich die Datei nicht einlesen, zeigt dir frost das Problem und bietet an, sie erneut zu öffnen. Ein Tippfehler kann deine geplanten Backups also nicht lahmlegen. Unbekannte Einstellungen gelten als Fehler, damit ein falsch geschriebener Name nicht unbemerkt durchrutscht.
 
+## Selbst bearbeiten
+
+Du kannst `config.toml` auch in einem beliebigen Texteditor öffnen und speichern. frost liest die Datei bei jedem Start, daher gelten die meisten Änderungen ab dem nächsten Lauf. Zwei Arten von Änderungen brauchen einen Schritt mehr, den frost beim nächsten frost-Befehl erledigt, egal welchem:
+
+- Ein geänderter Zeitplan aktualisiert den geplanten Auftrag, und frost meldet „config.toml changed. Scheduled job updated“ (config.toml wurde geändert, geplanter Auftrag aktualisiert). Unter Linux erledigt das auch das nächste geplante Backup. Eine Änderung während eines geplanten Backups wartet, bis es fertig ist, genau wie mit `frost config set`.
+- Ein neuer Speicherort bekommt beim ersten Gebrauch dieselben Prüfungen wie mit `frost config edit`. Probleme erscheinen als Warnungen.
+
+Vor dem Speichern prüft nichts die Datei. Lässt sie sich nicht einlesen, melden frost-Befehle das, bis du sie korrigierst.
+
 ## Alle Einstellungen
 
 | Schlüssel | Standard | Bedeutung |
@@ -42,6 +51,9 @@ Lässt sich die Datei nicht einlesen, zeigt dir frost das Problem und bietet an,
 | `exclude` | `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules`, `.cache` | Namen und Muster, die ausgelassen werden. Siehe [Dateien ausschließen](#excluding-files) |
 | `schedule.enabled` | `true` | Automatisch sichern |
 | `schedule.every` | `daily` | `hourly`, `2h`, `3h`, `4h`, `6h`, `8h`, `12h`, `daily` oder `weekly` |
+| `schedule.time` | `15:00` | Die Uhrzeit der Backups im 24-Stunden-Format. Siehe [Automatische Backups](#scheduling) |
+| `schedule.day` | `sunday` | Der Tag wöchentlicher Backups, `sunday` bis `saturday` |
+| `schedule.catch_up` | `true` | Ein verpasstes Backup nachholen, sobald dein Computer wieder da ist. `false` überspringt verpasste Backups |
 | `verify.sample` | `20` | Wie viele Blöcke die Stichprobenprüfung herunterlädt. `0` schaltet sie aus |
 | `update.auto` | `true` | Neue Versionen nach geplanten Backups installieren. `false` informiert nur darüber |
 | `storage.backend` | | `permafrost` oder `s3` |

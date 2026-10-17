@@ -1,6 +1,6 @@
 # 設定項目
 
-frost は、設定フォルダにある `config.toml` に設定を保存します。設定は `frost init`、`frost config set`、`frost config edit` で変更できます。
+frost は、設定フォルダにある `config.toml` に設定を保存します。設定は `frost init`、`frost config set`、`frost config edit` のほか、任意のテキストエディタでも変更できます。
 
 ## 設定を読む・変える
 
@@ -21,7 +21,7 @@ frost config set paths ~/Documents ~/Pictures
 
 - リストは 1 項目につき 1 つの値を受け取り、`set` はリスト全体を置き換えます。
 - 設定のオンとオフは `true` と `false` で切り替えます。
-- `schedule.enabled` や `schedule.every` を変えると、スケジュールジョブにすぐ反映されます。
+- `schedule` の設定を変えると、スケジュールジョブにすぐ反映されます。macOS と Windows では、スケジュールされたバックアップの実行中に変えた場合、そのバックアップが終わりしだい反映するので、バックアップが止まることはありません。
 - ストレージの場所を変えると、frost は保存する前に新しい場所を確認します。詳しくは[バックアップの移動](#moving-backups)を参照してください。
 
 ## ファイルを編集する
@@ -34,6 +34,15 @@ frost は `config.toml` のコピーを、指定したエディタで開きま�
 
 ファイルを解釈できない場合は、frost が問題の箇所を示し、もう一度開くかどうかを尋ねます。そのため、入力ミスでスケジュールされたバックアップが動かなくなることはありません。不明な設定もエラーとして扱うので、名前のつづり間違いが見過ごされることもありません。
 
+## 自分で編集する
+
+`config.toml` を任意のテキストエディタで開いて保存することもできます。frost は実行するたびにこのファイルを読むので、ほとんどの変更は次の実行から反映されます。2 種類の変更だけはもう 1 手順必要で、次に frost のコマンドを何か実行したときに frost が行います。
+
+- スケジュールを変えると、スケジュールジョブを更新し、"config.toml changed. Scheduled job updated" (config.toml が変更されたため、スケジュールジョブを更新しました) と表示します。Linux では、次のスケジュールされたバックアップもこれを行います。 スケジュールされたバックアップの実行中の変更は、`frost config set` と同じく、それが終わるまで待ちます。
+- ストレージの場所を変えると、frost が最初に使うときに `frost config edit` と同じ確認をします。問題があれば警告として表示します。
+
+保存する前にファイルを確認するものはありません。ファイルを解釈できない場合、直すまで frost のコマンドがそのことを伝えます。
+
 ## すべての設定
 
 | キー | 既定値 | 意味 |
@@ -42,6 +51,9 @@ frost は `config.toml` のコピーを、指定したエディタで開きま�
 | `exclude` | `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules`, `.cache` | 除外する名前とパターン。[ファイルの除外](#excluding-files)を参照してください |
 | `schedule.enabled` | `true` | 自動でバックアップする |
 | `schedule.every` | `daily` | `hourly`、`2h`、`3h`、`4h`、`6h`、`8h`、`12h`、`daily`、`weekly` のいずれか |
+| `schedule.time` | `15:00` | バックアップの時刻 (24 時間制)。詳しくは[自動バックアップ](#scheduling)を参照してください |
+| `schedule.day` | `sunday` | 毎週のバックアップの曜日。`sunday` から `saturday` まで |
+| `schedule.catch_up` | `true` | バックアップを逃したとき、コンピュータが戻ってからバックアップする。`false` なら逃したバックアップはとばす |
 | `verify.sample` | `20` | 抜き取りチェックでダウンロードするチャンクの数。`0` でチェックをオフにします |
 | `update.auto` | `true` | スケジュールされたバックアップのあとに新しいリリースをインストールする。`false` なら知らせるだけです |
 | `storage.backend` | | `permafrost` または `s3` |

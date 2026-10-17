@@ -10,7 +10,7 @@ O frost não tem um comando de desinstalação, mas removê-lo leva só alguns p
 frost config set schedule.enabled false
 ```
 
-Isso remove a tarefa do agendador do sistema operacional. No Linux com systemd, também desliga o lingering de novo se o frost tiver registrado que o ligou.
+Isso remove a tarefa do agendador do sistema operacional. Se o frost disser que a tarefa será removida quando o backup em andamento terminar, espere esse backup terminar antes do próximo passo. Até lá, o `frost status` diz que já há um backup ou uma restauração em andamento. No Linux com systemd, também desliga o lingering de novo se o frost tiver registrado que o ligou.
 
 ## 2. Apague os arquivos do frost
 

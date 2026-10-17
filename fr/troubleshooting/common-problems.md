@@ -12,7 +12,7 @@ Le fichier de clé est absent. Si cet ordinateur a déjà un stockage configuré
 
 ## « a backup or restore is already running »
 
-Un autre processus frost utilise vos sauvegardes, en général une sauvegarde planifiée. Attendez qu'il se termine et réessayez. Supprimer le fichier de verrou de frost n'arrête pas l'autre processus.
+Un autre processus frost utilise vos sauvegardes, en général une sauvegarde planifiée. Dans ce cas, frost affiche « a scheduled backup is already running » et l'heure de son début. Attendez qu'il se termine et réessayez. Supprimer le fichier de verrou de frost n'arrête pas l'autre processus.
 
 ## « the key on this machine doesn't match »
 
@@ -66,6 +66,14 @@ Un programme écrivait dans ces fichiers pendant la sauvegarde : l'instantané a
 
 Un dossier de votre liste était absent, alors frost a sauvegardé le reste. Rebranchez le disque ou, si le dossier a été déplacé, mettez à jour votre liste avec `frost init`.
 
+## « config.toml changed, but updating the scheduled job failed »
+
+Vous avez modifié `config.toml`, et frost n'a pas pu mettre à jour la tâche planifiée en conséquence. La suite du message explique pourquoi. S'il cite un réglage, corrigez-le dans `config.toml`. frost réessaie à chaque commande jusqu'à ce que cela fonctionne.
+
+## « config.toml changed where backups go »
+
+Vous avez changé dans `config.toml` l'endroit où vont les sauvegardes, et frost a trouvé un problème avec le nouvel emplacement la première fois qu'il l'a utilisé. La suite du message dit lequel. Voir [Déplacer vos sauvegardes](#moving-backups).
+
 ## « scheduled job is missing »
 
 La tâche planifiée a été supprimée ou désactivée. Remettez-la en place avec `frost config set schedule.enabled true`.
@@ -75,7 +83,7 @@ La tâche planifiée a été supprimée ou désactivée. Remettez-la en place av
 - Regardez la ligne « next backup » de `frost status`.
 - Sous macOS, vérifiez l'interrupteur de frost dans Réglages Système > Général > Ouverture et extensions (System Settings > General > Login Items & Extensions). Il apparaît sous le nom Node.js Foundation.
 - Sous Windows, les sauvegardes planifiées exigent une session ouverte et ne se lancent pas sur batterie.
-- Avec cron ou le Planificateur de tâches, une sauvegarde prévue pendant que l'ordinateur était éteint ou en veille est sautée.
+- Avec `schedule.catch_up` à `false`, une sauvegarde prévue pendant que l'ordinateur était éteint ou en veille est sautée.
 - Consultez le journal. Voir [Sauvegardes automatiques](#scheduling).
 
 ## « verification failed »
