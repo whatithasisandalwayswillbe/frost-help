@@ -2,6 +2,8 @@
 
 Your backups can move to another folder, bucket or provider without uploading everything again.
 
+Permafrost has no folder to move, so backups can't move into or out of it this way. To switch to or from Permafrost, start a separate set of backups with `frost init`.
+
 | You want to | Do this |
 | --- | --- |
 | Move your backups to another folder or bucket | Move the whole repository folder, then point frost at the new location. Nothing uploads again |

@@ -22,6 +22,8 @@ frost не находит `config.toml`. Выполните `frost init`. Есл
 
 Сообщения вроде «has no frost repository» значат, что копий нет там, где их ищет frost. В ошибке указано, где их открывали в последний раз и как к ним вернуться. Подробнее в разделе [Перенос резервных копий](#moving-backups).
 
+Если копии пропали из Permafrost, а ключ доступа по-прежнему работает, скорее всего, их удалили с помощью этого ключа. Сразу напишите на care@getfro.st. Если ваш ключ может быть у кого-то ещё, получите новый на [getfro.st/perma/recover](https://getfro.st/perma/recover).
+
 ## Мастер не может подключиться
 
 Мастер объясняет проблему и возвращает вас к ответу, который скорее всего в ней виноват.
@@ -37,6 +39,7 @@ frost не находит `config.toml`. Выполните `frost init`. Есл
 | Nothing answered at that address | Адрес и порт |
 | The server's certificate isn't valid for that address | Адрес и то, что сертификат сервера к нему подходит |
 | the storage didn't answer in time | Подключение к интернету, затем попробуйте снова |
+| can't reach Permafrost | Подключение к интернету, затем попробуйте снова |
 
 ## «This storage doesn't support conditional writes»
 

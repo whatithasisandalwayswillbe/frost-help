@@ -22,6 +22,8 @@ O seu armazenamento tem backups feitos com outra chave. Execute `frost key verif
 
 Mensagens como "has no frost repository" significam que seus backups não estão onde o frost está procurando. O erro diz onde eles foram abertos pela última vez e como voltar a eles. Veja [Mover seus backups](#moving-backups).
 
+Se seus backups sumiram do Permafrost e a sua chave de acesso ainda funciona, o mais provável é que tenham sido apagados com essa chave. Escreva imediatamente para care@getfro.st. Se outra pessoa puder ter a sua chave, consiga uma nova em [getfro.st/perma/recover](https://getfro.st/perma/recover).
+
 ## A configuração não consegue se conectar
 
 A configuração explica o problema e leva você de volta à resposta que mais provavelmente o causou.
@@ -37,6 +39,7 @@ A configuração explica o problema e leva você de volta à resposta que mais p
 | Nothing answered at that address | O endereço e a porta |
 | The server's certificate isn't valid for that address | O endereço, e se o certificado do servidor o cobre |
 | the storage didn't answer in time | A sua conexão com a internet; depois, tente de novo |
+| can't reach Permafrost | A sua conexão com a internet; depois, tente de novo |
 
 ## "This storage doesn't support conditional writes"
 

@@ -2,6 +2,8 @@
 
 Vos sauvegardes peuvent passer dans un autre dossier, un autre bucket ou chez un autre fournisseur sans que tout soit renvoyé.
 
+Permafrost n'a pas de dossier à déplacer, donc vos sauvegardes ne peuvent pas entrer dans Permafrost ni en sortir de cette façon. Pour passer à Permafrost ou le quitter, démarrez un ensemble de sauvegardes séparé avec `frost init`.
+
 | Vous voulez | Faites ceci |
 | --- | --- |
 | Déplacer vos sauvegardes vers un autre dossier ou un autre bucket | Déplacez tout le dossier du dépôt, puis indiquez à frost le nouvel emplacement. Rien n'est renvoyé |

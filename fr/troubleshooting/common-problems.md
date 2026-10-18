@@ -22,6 +22,8 @@ Votre stockage contient des sauvegardes faites avec une autre clé. Lancez `fros
 
 Des messages comme « has no frost repository » signifient que vos sauvegardes ne sont pas là où frost les cherche. L'erreur indique où elles ont été ouvertes pour la dernière fois et comment y revenir. Voir [Déplacer vos sauvegardes](#moving-backups).
 
+Si vos sauvegardes ont disparu de Permafrost alors que votre clé d'accès fonctionne toujours, elles ont très probablement été supprimées avec cette clé. Écrivez sans attendre à care@getfro.st. Si quelqu'un d'autre pourrait avoir votre clé, obtenez-en une nouvelle sur [getfro.st/perma/recover](https://getfro.st/perma/recover).
+
 ## L'assistant n'arrive pas à se connecter
 
 L'assistant explique le problème et vous ramène à la réponse la plus probablement en cause.
@@ -37,6 +39,7 @@ L'assistant explique le problème et vous ramène à la réponse la plus probabl
 | Nothing answered at that address | L'adresse et le port |
 | The server's certificate isn't valid for that address | L'adresse, et que le certificat du serveur la couvre |
 | the storage didn't answer in time | Votre connexion internet, puis réessayez |
+| can't reach Permafrost | Votre connexion internet, puis réessayez |
 
 ## « This storage doesn't support conditional writes »
 

@@ -22,6 +22,8 @@ frost가 `config.toml`을 찾지 못했습니다. `frost init`을 실행하세�
 
 "has no frost repository" 같은 메시지는 frost가 찾는 곳에 백업이 없다는 뜻입니다. 오류에는 백업을 마지막으로 연 위치와 되돌아가는 방법이 표시됩니다. 자세한 내용은 [백업 옮기기](#moving-backups)를 참고하세요.
 
+액세스 키가 아직 작동하는데 백업이 Permafrost에서 사라졌다면, 그 키로 삭제되었을 가능성이 큽니다. 바로 care@getfro.st로 이메일을 보내세요. 다른 사람이 키를 가지고 있을 수 있다면 [getfro.st/perma/recover](https://getfro.st/perma/recover)에서 새 키를 받으세요.
+
 ## 설정 도우미가 연결하지 못함
 
 설정 도우미는 문제를 설명하고, 원인일 가능성이 가장 큰 답으로 돌아갑니다.
@@ -37,6 +39,7 @@ frost가 `config.toml`을 찾지 못했습니다. `frost init`을 실행하세�
 | Nothing answered at that address | 주소와 포트 |
 | The server's certificate isn't valid for that address | 주소, 그리고 서버 인증서가 그 주소를 포함하는지 |
 | the storage didn't answer in time | 인터넷 연결. 그런 다음 다시 시도하세요 |
+| can't reach Permafrost | 인터넷 연결. 그런 다음 다시 시도하세요 |
 
 ## "This storage doesn't support conditional writes"
 

@@ -22,6 +22,8 @@ frost 找不到 `config.toml`。运行 `frost init`。如果你使用了 `--conf
 
 "has no frost repository" 这类提示，意味着你的备份不在 frost 正在查找的位置。错误信息会说明它们上次是在哪里打开的，以及如何找回它们。参见[迁移备份](#moving-backups)。
 
+如果你的访问密钥仍然有效，备份却从 Permafrost 消失了，那它们很可能是用这个密钥删除的。请立即发邮件到 care@getfro.st。如果别人可能拿到了你的密钥，请到 [getfro.st/perma/recover](https://getfro.st/perma/recover) 领取新密钥。
+
 ## 设置程序无法连接
 
 设置程序会说明问题所在，并带你回到最可能出错的那个答案。
@@ -37,6 +39,7 @@ frost 找不到 `config.toml`。运行 `frost init`。如果你使用了 `--conf
 | Nothing answered at that address | 地址和端口 |
 | The server's certificate isn't valid for that address | 地址，以及服务器证书是否涵盖这个地址 |
 | the storage didn't answer in time | 你的网络连接，然后重试 |
+| can't reach Permafrost | 你的网络连接，然后重试 |
 
 ## "This storage doesn't support conditional writes"
 

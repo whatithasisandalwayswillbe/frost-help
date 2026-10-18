@@ -2,6 +2,8 @@
 
 Tus copias pueden pasar a otra carpeta, otro bucket u otro proveedor sin volver a subirlo todo.
 
+Permafrost no tiene una carpeta que mover, así que tus copias no pueden entrar ni salir de Permafrost de esta forma. Para pasarte a Permafrost o dejarlo, empieza un conjunto de copias aparte con `frost init`.
+
 | Quieres | Haz esto |
 | --- | --- |
 | Mover tus copias a otra carpeta u otro bucket | Mueve la carpeta del repositorio entera y apunta frost a la nueva ubicación. No se vuelve a subir nada |

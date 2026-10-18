@@ -2,6 +2,8 @@
 
 Deine Backups können in einen anderen Ordner, einen anderen Bucket oder zu einem anderen Anbieter umziehen, ohne dass alles erneut hochgeladen wird.
 
+Permafrost hat keinen Ordner, den du verschieben könntest. Deshalb können Backups auf diesem Weg weder zu Permafrost noch von dort umziehen. Um zu Permafrost oder davon weg zu wechseln, beginne mit `frost init` einen separaten Satz Backups.
+
 | Du willst | So geht's |
 | --- | --- |
 | Deine Backups in einen anderen Ordner oder Bucket verschieben | Verschieb den ganzen Repository-Ordner und verweise frost dann auf den neuen Ort. Nichts wird erneut hochgeladen |

@@ -22,6 +22,8 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 
 "has no frost repository" のようなメッセージは、frost が探している場所にバックアップがないことを意味します。エラーには、最後に開いた場所と、そこに戻る方法が表示されます。詳しくは[バックアップの移動](#moving-backups)を参照してください。
 
+アクセスキーがまだ使えるのにバックアップが Permafrost から消えている場合は、そのキーを使って削除された可能性が高いです。すぐに care@getfro.st にメールしてください。ほかの人がキーを持っているかもしれない場合は、[getfro.st/perma/recover](https://getfro.st/perma/recover) で新しいキーを受け取ってください。
+
 ## セットアップが接続できない
 
 セットアップは問題を説明し、原因の可能性が最も高い答えに戻ります。
@@ -37,6 +39,7 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 | Nothing answered at that address | アドレスとポート |
 | The server's certificate isn't valid for that address | アドレスと、サーバーの証明書がそのアドレスに対応しているか |
 | the storage didn't answer in time | インターネット接続。そのあとでもう一度試します |
+| can't reach Permafrost | インターネット接続。そのあとでもう一度試します |
 
 ## "This storage doesn't support conditional writes"
 

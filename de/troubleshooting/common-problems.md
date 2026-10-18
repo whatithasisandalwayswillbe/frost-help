@@ -22,6 +22,8 @@ In deinem Speicher liegen Backups, die mit einem anderen Schlüssel erstellt wur
 
 Meldungen wie „has no frost repository“ bedeuten, dass deine Backups nicht dort liegen, wo frost sucht. Die Fehlermeldung sagt, wo sie zuletzt geöffnet wurden und wie du wieder zu ihnen kommst. Siehe [Backups verschieben](#moving-backups).
 
+Sind deine Backups aus Permafrost verschwunden, obwohl dein Zugriffsschlüssel noch funktioniert, wurden sie höchstwahrscheinlich mit diesem Schlüssel gelöscht. Schreib sofort an care@getfro.st. Falls jemand anderes deinen Schlüssel haben könnte, hol dir unter [getfro.st/perma/recover](https://getfro.st/perma/recover) einen neuen.
+
 ## Die Einrichtung kann sich nicht verbinden
 
 Die Einrichtung erklärt das Problem und bringt dich zu der Antwort zurück, die es am wahrscheinlichsten verursacht hat.
@@ -37,6 +39,7 @@ Die Einrichtung erklärt das Problem und bringt dich zu der Antwort zurück, die
 | Nothing answered at that address | Adresse und Port |
 | The server's certificate isn't valid for that address | Die Adresse, und ob das Zertifikat des Servers sie abdeckt |
 | the storage didn't answer in time | Deine Internetverbindung, dann versuch es erneut |
+| can't reach Permafrost | Deine Internetverbindung, dann versuch es erneut |
 
 ## „This storage doesn't support conditional writes“
 

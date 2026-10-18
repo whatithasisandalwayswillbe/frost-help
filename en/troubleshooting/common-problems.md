@@ -22,6 +22,8 @@ Your storage holds backups made with a different key. Run `frost key verify` and
 
 Messages like "has no frost repository" mean your backups aren't where frost is looking. The error says where they were last opened and how to get back to them. See [Moving your backups](#moving-backups).
 
+If your backups are gone from Permafrost while your access key still works, they were most likely deleted using that key. Email care@getfro.st straight away. If someone else might have your key, get a new one at [getfro.st/perma/recover](https://getfro.st/perma/recover).
+
 ## Setup can't connect
 
 Setup explains the problem and goes back to the answer most likely to blame.
@@ -37,6 +39,7 @@ Setup explains the problem and goes back to the answer most likely to blame.
 | Nothing answered at that address | The address and port |
 | The server's certificate isn't valid for that address | The address, and that the server's certificate covers it |
 | the storage didn't answer in time | Your internet connection, then try again |
+| can't reach Permafrost | Your internet connection, then try again |
 
 ## "This storage doesn't support conditional writes"
 

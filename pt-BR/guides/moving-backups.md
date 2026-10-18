@@ -2,6 +2,8 @@
 
 Seus backups podem ir para outra pasta, outro bucket ou outro provedor sem que tudo seja enviado de novo.
 
+O Permafrost não tem uma pasta para mover, então seus backups não podem entrar nem sair do Permafrost dessa forma. Para passar a usar o Permafrost ou deixar de usá-lo, comece um conjunto separado de backups com `frost init`.
+
 | Você quer | Faça isto |
 | --- | --- |
 | Mover seus backups para outra pasta ou outro bucket | Mova a pasta inteira do repositório e aponte o frost para o novo local. Nada é enviado de novo |
