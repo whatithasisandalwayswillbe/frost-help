@@ -4,6 +4,8 @@ Permafrost is hosted storage made for frost. Connecting takes a single access ke
 
 Your backups are encrypted on your computer before they're uploaded, the same as with any other storage. Permafrost can't read them.
 
+Manage your Permafrost account at [getfro.st/perma/portal](https://getfro.st/perma/portal). In the snapshot browser, press `[h]` then `[p]` to open it. This shortcut is available only for the default Permafrost service.
+
 ## Getting a key
 
 1. Run `frost init` and choose **Permafrost**.

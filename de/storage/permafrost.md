@@ -4,6 +4,8 @@ Permafrost ist ein gehosteter Speicher, der für frost gemacht ist. Zum Verbinde
 
 Deine Backups werden auf deinem Computer verschlüsselt, bevor sie hochgeladen werden, genau wie bei jedem anderen Speicher. Permafrost kann sie nicht lesen.
 
+Dein Permafrost-Konto verwaltest du unter [getfro.st/perma/portal](https://getfro.st/perma/portal). Drück im Snapshot-Browser `[h]` und dann `[p]`, um es zu öffnen. Diese Tastenkombination gibt es nur beim standardmäßigen Permafrost-Dienst.
+
 ## Einen Schlüssel bekommen
 
 1. Starte `frost init` und wähle **Permafrost**.

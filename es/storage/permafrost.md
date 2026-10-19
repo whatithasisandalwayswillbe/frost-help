@@ -4,6 +4,8 @@ Permafrost es un almacenamiento alojado hecho para frost. Para conectarte basta 
 
 Tus copias se cifran en tu equipo antes de subirse, igual que con cualquier otro almacenamiento. Permafrost no puede leerlas.
 
+Gestiona tu cuenta de Permafrost en [getfro.st/perma/portal](https://getfro.st/perma/portal). En el explorador de instantáneas, pulsa `[h]` y luego `[p]` para abrirla. Este atajo solo está disponible con el servicio Permafrost predeterminado.
+
 ## Conseguir una clave
 
 1. Ejecuta `frost init` y elige **Permafrost**.

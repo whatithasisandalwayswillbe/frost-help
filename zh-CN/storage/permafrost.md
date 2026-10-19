@@ -4,6 +4,8 @@ Permafrost 是专为 frost 打造的托管存储。连接只需要一个访问�
 
 和其他存储一样，你的备份在上传之前就已经在你的电脑上加密了。Permafrost 读不到它们。
 
+在 [getfro.st/perma/portal](https://getfro.st/perma/portal) 管理你的 Permafrost 账户。在快照浏览器中，先按 `[h]`，再按 `[p]` 即可打开。此快捷键仅适用于默认的 Permafrost 服务。
+
 ## 获取密钥
 
 1. 运行 `frost init`，选择 **Permafrost**。

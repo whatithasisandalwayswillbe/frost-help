@@ -4,6 +4,8 @@ Permafrost est un stockage hébergé conçu pour frost. Pour vous connecter, une
 
 Vos sauvegardes sont chiffrées sur votre ordinateur avant l'envoi, comme avec n'importe quel autre stockage. Permafrost ne peut pas les lire.
 
+Gérez votre compte Permafrost sur [getfro.st/perma/portal](https://getfro.st/perma/portal). Dans le navigateur d’instantanés, appuyez sur `[h]`, puis sur `[p]` pour l’ouvrir. Ce raccourci est disponible uniquement avec le service Permafrost par défaut.
+
 ## Obtenir une clé
 
 1. Lancez `frost init` et choisissez **Permafrost**.

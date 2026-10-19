@@ -4,6 +4,8 @@ Permafrost は、frost のために作られたホスト型ストレージです
 
 ほかのストレージと同じように、バックアップはアップロード前にコンピュータ上で暗号化されます。Permafrost が中身を読むことはできません。
 
+Permafrost アカウントは [getfro.st/perma/portal](https://getfro.st/perma/portal) で管理できます。スナップショットブラウザーで `[h]`、続いて `[p]` を押すと開きます。このショートカットは、標準の Permafrost サービスでのみ使えます。
+
 ## キーを取得する
 
 1. `frost init` を実行し、**Permafrost** を選びます。

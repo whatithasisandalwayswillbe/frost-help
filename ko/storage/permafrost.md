@@ -4,6 +4,8 @@ Permafrost는 frost를 위해 만든 호스팅 스토리지입니다. 연결에�
 
 다른 스토리지와 마찬가지로 백업은 업로드 전에 컴퓨터에서 암호화됩니다. Permafrost는 그 내용을 읽을 수 없습니다.
 
+[getfro.st/perma/portal](https://getfro.st/perma/portal)에서 Permafrost 계정을 관리할 수 있습니다. 스냅샷 탐색기에서 `[h]`를 누른 다음 `[p]`를 누르면 열립니다. 이 단축키는 기본 Permafrost 서비스에서만 사용할 수 있습니다.
+
 ## 키 받기
 
 1. `frost init`을 실행하고 **Permafrost**를 고릅니다.
