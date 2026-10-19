@@ -40,7 +40,9 @@ frost guarda tus copias en una sola carpeta de tu almacenamiento, llamada reposi
 | `snapshots/` | Una pequeña cabecera cifrada por instantánea: cuándo se tomó, en qué equipo y de qué carpetas |
 | `trees/` | Qué fragmentos contienen la lista de archivos de cada instantánea |
 
-Los nombres de los objetos son ID de aspecto aleatorio, así que tu proveedor nunca ve los nombres de tus archivos. [Seguridad y privacidad](#security) detalla lo que puede ver un proveedor.
+Los nombres de los objetos son ID de aspecto aleatorio, así que quien gestiona tu almacenamiento nunca ve los nombres de tus archivos. [Seguridad y privacidad](#security) detalla lo que puede ver el almacenamiento.
+
+En un servidor propio o un disco local, cada objeto es un archivo con ese nombre dentro de la carpeta del repositorio. En un bucket S3, es un objeto con el mismo nombre, así que un repositorio se puede copiar entre ellos. Consulta [Mover tus copias de seguridad](#moving-backups).
 
 ## La caché local
 

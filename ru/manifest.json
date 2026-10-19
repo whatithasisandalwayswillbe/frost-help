@@ -31,11 +31,10 @@
             "pages": [
                 { "id": "choosing-storage", "title": "Выбор хранилища", "path": "ru/storage/choosing-storage.md" },
                 { "id": "permafrost", "title": "Permafrost", "path": "ru/storage/permafrost.md" },
-                { "id": "amazon-s3", "title": "Amazon S3", "path": "ru/storage/amazon-s3.md" },
-                { "id": "cloudflare-r2", "title": "Cloudflare R2", "path": "ru/storage/cloudflare-r2.md" },
-                { "id": "backblaze-b2", "title": "Backblaze B2", "path": "ru/storage/backblaze-b2.md" },
-                { "id": "wasabi", "title": "Wasabi", "path": "ru/storage/wasabi.md" },
-                { "id": "other-s3", "title": "Другие S3-совместимые хранилища", "path": "ru/storage/other-s3.md" }
+                { "id": "cloud-providers", "title": "Облачные провайдеры", "path": "ru/storage/cloud-providers.md" },
+                { "id": "other-s3", "title": "Другие S3-совместимые хранилища", "path": "ru/storage/other-s3.md" },
+                { "id": "self-hosted", "title": "Собственный сервер", "path": "ru/storage/self-hosted.md" },
+                { "id": "local-drive", "title": "Локальный диск", "path": "ru/storage/local-drive.md" }
             ]
         },
         {

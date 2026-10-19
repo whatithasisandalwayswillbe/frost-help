@@ -54,4 +54,4 @@ pnpm remove -g getfrost
 
 ## 3. Borra tus copias, si quieres
 
-Tus copias se quedan en tu almacenamiento hasta que las borres. Con un proveedor S3, están en una carpeta de tu bucket, `frost` salvo que hayas elegido otra. Borra esa carpeta para eliminarlas. Sin tu frase de recuperación, nadie puede leer lo que quede en ella.
+Tus copias se quedan en tu almacenamiento hasta que las borres. En un servidor propio o un disco local, están en la carpeta que elegiste en el asistente. En un bucket S3, están en una carpeta del bucket, `frost` salvo que hayas elegido otra. Borra esa carpeta para eliminarlas. Sin tu frase de recuperación, nadie puede leer lo que quede en ella.

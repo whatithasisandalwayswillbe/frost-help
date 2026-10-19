@@ -1,11 +1,11 @@
 # Primeros pasos
 
-frost hace copias de seguridad de tus carpetas en el almacenamiento que elijas, y lo cifra todo en tu equipo antes de subirlo. Esta página te lleva desde la instalación de frost hasta tu primera copia de seguridad.
+frost hace copias de seguridad de tus carpetas en el almacenamiento que elijas, desde tu propio servidor o un disco hasta un proveedor en la nube, y lo cifra todo en tu equipo antes de guardarlo. Esta página te lleva desde la instalación de frost hasta tu primera copia de seguridad.
 
 ## Qué necesitas
 
 - Un Mac, o un equipo con Linux o Windows, con un procesador Intel, AMD o ARM de 64 bits.
-- Un lugar donde guardar tus copias: una clave de acceso de [Permafrost](#permafrost) o un bucket en un [proveedor compatible con S3](#choosing-storage).
+- Un lugar donde guardar tus copias: un servidor al que llegues por SSH, un disco, una clave de acceso de [Permafrost](#permafrost) o un bucket compatible con S3. [Elegir almacenamiento](#choosing-storage) los compara.
 - Una ventana de terminal de al menos 56 columnas de ancho y 18 filas de alto, para el asistente de configuración a pantalla completa.
 
 No necesitas instalar Node.js ni nada más antes. frost trae su propio entorno de ejecución.
@@ -34,14 +34,14 @@ frost init
 
 El asistente de configuración pregunta una sola cosa en cada pantalla:
 
-1. **Almacenamiento.** Dónde se guardan tus copias. Elige Permafrost o un proveedor compatible con S3 y pega las claves que te pida.
+1. **Almacenamiento.** Dónde se guardan tus copias. Elige Permafrost, un servicio compatible con S3, tu propio servidor o un disco, y responde a lo que te pida.
 2. **Carpetas.** Las carpetas que quieres respaldar, como `~/Documents`.
 3. **Exclusiones.** Archivos y carpetas que no se copian. Ya vienen algunos habituales, como `node_modules`.
 4. **Programación.** Cada cuánto hace frost copias por su cuenta, o si no las hace.
 5. **Frase de recuperación.** 24 palabras que desbloquean tus copias. Apúntalas.
 6. **Revisión.** Compruébalo todo y pulsa `[s]` para guardar.
 
-> Tu frase de recuperación es la única forma de leer tus copias de seguridad si pierdes este equipo. Nadie puede recuperarla por ti, ni tu proveedor de almacenamiento ni los autores de frost.
+> Tu frase de recuperación es la única forma de leer tus copias de seguridad si pierdes este equipo. Nadie puede recuperarla por ti, ni quien guarda tus copias ni los autores de frost.
 
 [Configurar frost](#setting-up) explica cada pantalla.
 

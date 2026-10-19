@@ -11,7 +11,7 @@ frost backup
 frost показывает, что изменилось, сколько отправлено и чем закончилась выборочная проверка:
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
@@ -26,7 +26,7 @@ frost показывает, что изменилось, сколько отпр
 Если ничего не изменилось, frost не сохраняет новый снимок:
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
@@ -34,7 +34,7 @@ frost показывает, что изменилось, сколько отпр
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
-С Permafrost в конце резервного копирования появляется предупреждение `storage`, если Permafrost нужно что-то сообщить, например что хранилище почти заполнено.
+В конце резервного копирования появляется предупреждение `storage`, если хранилищу нужно ваше внимание, например когда учётная запись Permafrost, диск сервера или локальный диск почти заполнены.
 
 Если автоматическое копирование включено, запускать эту команду самому придётся редко. Подробнее в разделе [Автоматическое резервное копирование](#scheduling).
 
@@ -98,7 +98,7 @@ frost не делает снимков файловой системы или б
 Если копирование по расписанию начнётся в ближайший час или закончилось в последний час, `frost backup` сообщает об этом и спрашивает, прежде чем начать:
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  A scheduled backup starts in 40m, at 15:00.
 │  Back up now anyway? [Y/n]

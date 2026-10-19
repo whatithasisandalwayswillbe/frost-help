@@ -2,7 +2,7 @@
 
 Votre phrase de récupération, c'est votre clé de chiffrement écrite sous forme de 24 mots. C'est le seul moyen de lire vos sauvegardes.
 
-> Si vous perdez la phrase de récupération et l'ordinateur, vos sauvegardes sont perdues. Personne ne peut les récupérer : ni votre fournisseur de stockage, ni Permafrost, ni les auteurs de frost.
+> Si vous perdez la phrase de récupération et l'ordinateur, vos sauvegardes sont perdues. Personne ne peut les récupérer : ni la personne qui stocke vos sauvegardes, ni Permafrost, ni les auteurs de frost.
 
 ## La conserver en lieu sûr
 

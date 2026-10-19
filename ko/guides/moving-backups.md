@@ -1,12 +1,12 @@
 # 백업 옮기기
 
-모든 내용을 다시 업로드하지 않고도 백업을 다른 폴더, 버킷, 제공업체로 옮길 수 있습니다.
+모든 내용을 다시 업로드하지 않고도 백업을 다른 폴더, 드라이브, 서버, 버킷, 제공업체로 옮길 수 있습니다.
 
 Permafrost에는 옮길 폴더가 없으므로, 이 방법으로는 백업을 Permafrost로 옮기거나 Permafrost에서 옮겨 올 수 없습니다. Permafrost로 바꾸거나 Permafrost에서 다른 곳으로 바꾸려면 `frost init`으로 별도의 백업을 새로 시작하세요.
 
 | 하고 싶은 일 | 방법 |
 | --- | --- |
-| 백업을 다른 폴더나 버킷으로 옮기기 | 리포지토리 폴더 전체를 옮긴 뒤, frost에 새 위치를 지정합니다. 다시 업로드하는 것은 없습니다 |
+| 백업을 다른 폴더, 드라이브, 서버, 버킷으로 옮기기 | 리포지토리 폴더 전체를 옮긴 뒤, frost에 새 위치를 지정합니다. 다시 업로드하는 것은 없습니다 |
 | 다른 곳에서 별도의 백업을 새로 시작하기 | `frost init`을 실행하고 비어 있는 새 위치를 고릅니다. 기존 백업은 그대로 남지만, frost는 새 백업만 보여 줍니다 |
 | 옮기기 전의 백업으로 돌아가기 | frost에 이전 위치를 다시 지정합니다 |
 
@@ -14,7 +14,20 @@ Permafrost에는 옮길 폴더가 없으므로, 이 방법으로는 백업을 Pe
 
 리포지토리는 스토리지에서 `frost.repo`, `chunks/`, `snapshots/`, `trees/`가 들어 있는 폴더입니다. 이 네 가지를 안에 든 모든 객체와 함께 옮기거나 복사하고, 이름은 그대로 두세요. `frost.repo`만 옮겨서는 백업이 옮겨지지 않습니다.
 
-그런 다음 frost에 백업이 있는 곳을 알려 줍니다. 다른 버킷으로 옮긴 경우:
+셀프 호스팅 서버, 로컬 드라이브, S3 스토리지에는 같은 파일이 들어가므로, rsync, rclone, 파일 관리자로 리포지토리를 서로 복사할 수 있습니다. 예를 들어 다음 명령은 드라이브의 백업을 서버로 복사합니다.
+
+```sh
+rsync -a /Volumes/Backup/frost/ me@nas.local:frost/
+```
+
+그런 다음 frost에 백업이 있는 곳을 알려 줍니다. 드라이브나 서버의 다른 폴더로 옮긴 경우:
+
+```sh
+frost config set storage.local.path /Volumes/Backup2/frost
+frost config set storage.sftp.path backups/frost
+```
+
+다른 버킷으로 옮긴 경우:
 
 ```sh
 frost config set storage.s3.bucket new-bucket
@@ -26,7 +39,7 @@ frost config set storage.s3.bucket new-bucket
 frost config set storage.s3.prefix backups/frost
 ```
 
-다른 제공업체로 옮기려면 여러 설정을 한꺼번에 바꿔야 하므로, `frost init`을 실행하고 새 제공업체를 고르세요. 설정 도우미가 백업을 찾아 연결합니다.
+다른 종류의 스토리지나 다른 제공업체로 옮기려면 여러 설정을 한꺼번에 바꿔야 하므로, `frost init`을 실행하고 새 위치를 고르세요. 설정 도우미가 백업을 찾아 연결합니다.
 
 ## 저장하기 전 확인
 

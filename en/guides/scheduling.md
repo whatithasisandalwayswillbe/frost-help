@@ -60,7 +60,7 @@ To skip missed backups instead, so frost only backs up on time:
 frost config set schedule.catch_up false
 ```
 
-A scheduled backup that starts before your network is back tries again for about 5 minutes. If another backup is running, it waits for it to finish.
+A scheduled backup that starts before your network is back, or before a drive or share is mounted, tries again for about 5 minutes. With a [local drive](#local-drive), the drive has to be connected when the backup runs. [Self-hosted](#self-hosted) storage logs in with frost's own SSH key, so it works without you. If another backup is running, it waits for it to finish.
 
 On Windows, scheduled backups run only while you're signed in. They don't start while the computer runs on battery, and stop if it's unplugged. On macOS and with systemd, scheduled backups run at low priority so they don't slow your computer down.
 

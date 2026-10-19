@@ -1,11 +1,11 @@
 # Premiers pas
 
-frost sauvegarde vos dossiers vers le stockage de votre choix, et chiffre tout sur votre ordinateur avant l'envoi. Cette page vous accompagne de l'installation de frost jusqu'à votre première sauvegarde.
+frost sauvegarde vos dossiers vers le stockage de votre choix, de votre propre serveur ou d'un disque jusqu'à un fournisseur cloud, et chiffre tout sur votre ordinateur avant de l'y ranger. Cette page vous accompagne de l'installation de frost jusqu'à votre première sauvegarde.
 
 ## Ce qu'il vous faut
 
 - Un Mac, ou un ordinateur sous Linux ou Windows, avec un processeur Intel, AMD ou ARM 64 bits.
-- Un endroit où garder vos sauvegardes : une clé d'accès [Permafrost](#permafrost), ou un bucket chez un [fournisseur compatible S3](#choosing-storage).
+- Un endroit où garder vos sauvegardes : un serveur accessible par SSH, un disque, une clé d'accès [Permafrost](#permafrost) ou un bucket compatible S3. [Choisir un stockage](#choosing-storage) les compare.
 - Une fenêtre de terminal d'au moins 56 colonnes de large et 18 lignes de haut, pour l'assistant de configuration en plein écran.
 
 Inutile d'installer Node.js ou quoi que ce soit d'autre au préalable. frost embarque son propre environnement d'exécution.
@@ -34,14 +34,14 @@ frost init
 
 L'assistant pose une seule question par écran :
 
-1. **Stockage.** L'endroit où vont vos sauvegardes. Choisissez Permafrost ou un fournisseur compatible S3, puis collez les clés demandées.
+1. **Stockage.** L'endroit où vont vos sauvegardes. Choisissez Permafrost, un service compatible S3, votre propre serveur ou un disque, puis répondez à ce qui est demandé.
 2. **Dossiers.** Les dossiers à sauvegarder, comme `~/Documents`.
 3. **Exclusions.** Les fichiers et dossiers à laisser de côté. Quelques classiques, comme `node_modules`, sont déjà remplis.
 4. **Planification.** La fréquence des sauvegardes automatiques, ou leur désactivation.
 5. **Phrase de récupération.** 24 mots qui déverrouillent vos sauvegardes. Notez-les.
 6. **Récapitulatif.** Vérifiez tout, puis appuyez sur `[s]` pour enregistrer.
 
-> Votre phrase de récupération est le seul moyen de lire vos sauvegardes si vous perdez cet ordinateur. Personne ne peut la retrouver pour vous, ni votre fournisseur de stockage ni les auteurs de frost.
+> Votre phrase de récupération est le seul moyen de lire vos sauvegardes si vous perdez cet ordinateur. Personne ne peut la retrouver pour vous, ni la personne qui stocke vos sauvegardes ni les auteurs de frost.
 
 [Configurer frost](#setting-up) détaille chaque écran.
 

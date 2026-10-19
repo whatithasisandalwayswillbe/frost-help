@@ -9,13 +9,14 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  s3://my-backups/frost/  key 6f154dc10058
+┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
 │  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
+│  storage      1.2 TB of 4 TB used
 │
 ├  snapshots
 │
@@ -35,7 +36,7 @@ Die erste Zeile zeigt die Version von frost, deinen Speicher und den Fingerabdru
 | health | Das Ergebnis der letzten Stichprobenprüfung |
 | updates | Ob Updates automatisch laufen und ob eine neue Version erschienen ist |
 | protected | Dateien und Größe des neuesten Snapshots und wie viele Snapshots du hast |
-| storage | Bei Permafrost, wie viel von deinem Speicher belegt ist. Eine Warnung von Permafrost, etwa bei fast vollem Speicher, steht davor |
+| storage | Wie viel von deinem Speicher belegt ist: bei Permafrost gemessen am Limit des Kontos, bei einem eigenen Server oder lokalen Laufwerk an der Festplatte. Eine Warnung, etwa bei fast vollem Speicher, steht davor |
 | missing | Snapshots, die dieser Computer kannte, die aber nicht mehr im Speicher liegen |
 
 Die Liste zeigt deine 10 neuesten Snapshots. Die Spalte `new` gibt an, wie viele neue Daten jeder hinzugefügt hat. Um alle aufzulisten:
@@ -71,7 +72,7 @@ Die Zeile health listet auf, was fehlgeschlagen ist. Meist heißt das, dass dein
 1. Führ `frost backup` aus. Jeder fehlende Block, dessen Daten noch auf deinem Computer liegen, wird erneut hochgeladen.
 2. Führ `frost status --verify` aus, um noch einmal zu prüfen.
 
-Daten, die nicht mehr auf deinem Computer liegen, lassen sich nicht erneut hochladen, und ältere Snapshots, die sie brauchen, lassen sich nicht vollständig wiederherstellen. Ein Block, der noch vorhanden, aber beschädigt ist, wird beim Backup nicht automatisch ersetzt. Beschaffe eine intakte Kopie von deinem Anbieter oder aus einem unabhängigen Backup und prüfe erneut.
+Daten, die nicht mehr auf deinem Computer liegen, lassen sich nicht erneut hochladen, und ältere Snapshots, die sie brauchen, lassen sich nicht vollständig wiederherstellen. Ein Block, der noch vorhanden, aber beschädigt ist, wird beim Backup nicht automatisch ersetzt. Beschaffe eine intakte Kopie aus den eigenen Sicherungen deines Speichers oder aus einer unabhängigen Kopie und prüfe erneut.
 
 ## Fehlende Snapshots
 

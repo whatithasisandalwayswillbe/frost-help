@@ -20,6 +20,7 @@ frost は、アプリケーション、設定、キャッシュを、コンピ�
 | --- | --- | --- |
 | 設定 | `~/.config/frost/config.toml` | `%AppData%\frost\config.toml` |
 | キー | `~/.config/frost/key` | `%AppData%\frost\key` |
+| セルフホスト用の SSH キー | `~/.config/frost/ssh/frost_ed25519` | `%AppData%\frost\ssh\frost_ed25519` |
 
 ## キャッシュ
 

@@ -40,10 +40,34 @@ frost 找不到 `config.toml`。运行 `frost init`。如果你使用了 `--conf
 | The server's certificate isn't valid for that address | 地址，以及服务器证书是否涵盖这个地址 |
 | the storage didn't answer in time | 你的网络连接，然后重试 |
 | can't reach Permafrost | 你的网络连接，然后重试 |
+| Can't find that server | SSH 地址和你的网络 |
+| The server didn't answer | SSH 地址，以及服务器是否已开机 |
+| That server doesn't offer SFTP | 服务器的 SSH 或文件服务设置中是否开启了 SFTP |
+| The server sent text before SFTP started | 服务器上的登录脚本，比如 `.bashrc`，是否输出了内容。让它只在交互式 shell 中输出 |
+| There's no folder ... on ... | 文件夹的路径。它所在的上级文件夹必须存在 |
+| The server won't let frost write in that folder | frost 登录所用账户对该文件夹的权限 |
+| ... isn't there. Connect the drive and try again | 磁盘是否已连接，路径是否正确 |
+| frost can't write in that folder | 文件夹的权限。在 macOS 上，参见[macOS 权限](#macos-permissions) |
+| frost doesn't follow links or junctions to a backup folder | 使用文件夹的真实路径 |
+| That drive is read-only | 使用一块可以写入的磁盘 |
 
 ## "This storage doesn't support conditional writes"
 
-你的服务商不支持 frost 需要的一项功能，frost 要靠它防止多台电脑互相覆盖备份记录。换密钥或改设置都解决不了。请选择其他服务商。参见[选择存储](#choosing-storage)。
+你的存储不支持 frost 需要的一项功能，frost 要靠它防止多台电脑互相覆盖备份记录。换密钥或改设置都解决不了。请选择其他存储。参见[选择存储](#choosing-storage)。
+
+自托管服务器或磁盘的提示不同。服务器会显示 "can't make hard links"，或者文件夹显示 "on a filesystem that can't create a file only when its name is free"。请使用 ext4、Btrfs、XFS、ZFS、APFS 或 NTFS 这类文件系统上的文件夹。
+
+## "the server didn't accept frost's SSH key"
+
+你的自托管服务器拒绝了 frost 的密钥，比如密钥已从 `authorized_keys` 中删除。运行 `frost init`，重新添加密钥。参见[自托管](#self-hosted)。
+
+## "the server's SSH host key has changed"
+
+服务器的身份变化时，frost 会像 ssh 一样拒绝连接。如果你重装了服务器，或者它换了新地址，请用 `ssh-keygen -R <host>` 删除旧密钥，然后再次运行 `frost init`。否则，请先查明密钥为什么变了，再去连接。
+
+## "... isn't there. Connect the drive and try again"
+
+你的备份所在的磁盘没有连接，或者文件夹的路径变了。请连接磁盘。如果 Windows 给它分配了另一个盘符，参见[本地磁盘](#local-drive)。
 
 ## "the Permafrost access key was rejected"
 

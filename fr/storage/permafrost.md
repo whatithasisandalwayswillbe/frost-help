@@ -41,9 +41,11 @@ Les erreurs de Permafrost en donnent la raison. Les commandes qui accèdent à v
 
 Dans l'assistant, les deux premiers s'affichent sous la forme « Permafrost didn't accept that access key » et « Permafrost won't store backups with that access key », suivis de la même raison.
 
-## Votre propre serveur
+## Un serveur compatible
 
-Tout le monde peut faire tourner un serveur qui parle l'[API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Un serveur compatible doit respecter ses règles sur les objets et les erreurs, notamment refuser les envois vides. frost réessaie automatiquement quand un serveur est occupé.
+À la place du serveur par défaut, frost peut utiliser n'importe quel serveur qui parle l'[API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). C'est pour les personnes qui font tourner un tel serveur. Pour sauvegarder vers un ordinateur à vous, [Serveur auto-hébergé](#self-hosted) n'a besoin que de SSH.
+
+Un serveur compatible doit respecter les règles de l'API sur les objets et les erreurs, notamment refuser les envois vides. frost réessaie automatiquement quand un serveur est occupé.
 
 Avant de lancer l'assistant pour la première fois, créez `config.toml` dans le dossier de configuration de frost, indiqué dans [Fichiers et dossiers](#files-and-folders), avec ces réglages. Remplacez l'adresse par celle de votre serveur :
 

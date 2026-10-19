@@ -20,6 +20,7 @@ El lanzador `frost` está en `/usr/local/bin` o `~/.local/bin` en macOS y Linux,
 | --- | --- | --- |
 | Ajustes | `~/.config/frost/config.toml` | `%AppData%\frost\config.toml` |
 | Clave | `~/.config/frost/key` | `%AppData%\frost\key` |
+| Clave SSH para un servidor propio | `~/.config/frost/ssh/frost_ed25519` | `%AppData%\frost\ssh\frost_ed25519` |
 
 ## Caché
 

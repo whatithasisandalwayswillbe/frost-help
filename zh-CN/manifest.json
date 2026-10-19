@@ -31,11 +31,10 @@
             "pages": [
                 { "id": "choosing-storage", "title": "选择存储", "path": "zh-CN/storage/choosing-storage.md" },
                 { "id": "permafrost", "title": "Permafrost", "path": "zh-CN/storage/permafrost.md" },
-                { "id": "amazon-s3", "title": "Amazon S3", "path": "zh-CN/storage/amazon-s3.md" },
-                { "id": "cloudflare-r2", "title": "Cloudflare R2", "path": "zh-CN/storage/cloudflare-r2.md" },
-                { "id": "backblaze-b2", "title": "Backblaze B2", "path": "zh-CN/storage/backblaze-b2.md" },
-                { "id": "wasabi", "title": "Wasabi", "path": "zh-CN/storage/wasabi.md" },
-                { "id": "other-s3", "title": "其他 S3 兼容存储", "path": "zh-CN/storage/other-s3.md" }
+                { "id": "cloud-providers", "title": "云服务商", "path": "zh-CN/storage/cloud-providers.md" },
+                { "id": "other-s3", "title": "其他 S3 兼容存储", "path": "zh-CN/storage/other-s3.md" },
+                { "id": "self-hosted", "title": "自托管", "path": "zh-CN/storage/self-hosted.md" },
+                { "id": "local-drive", "title": "本地磁盘", "path": "zh-CN/storage/local-drive.md" }
             ]
         },
         {

@@ -5,7 +5,7 @@ Si tu equipo se pierde, se estropea o lo cambias por otro, puedes recuperar tus 
 ## Qué necesitas
 
 - Tu frase de recuperación de 24 palabras.
-- Los datos de tu almacenamiento: tu clave de acceso de Permafrost, o el nombre del bucket y las claves de acceso de tu proveedor S3.
+- Los datos de tu almacenamiento: la dirección SSH y la carpeta de tu servidor, tu disco, tu clave de acceso de Permafrost, o el nombre y las claves de acceso de tu bucket.
 
 Si todavía tienes el equipo antiguo, `frost key show` te muestra la frase.
 

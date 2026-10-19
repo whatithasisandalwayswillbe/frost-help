@@ -9,13 +9,14 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  s3://my-backups/frost/  key 6f154dc10058
+┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
 │  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
+│  storage      1.2 TB of 4 TB used
 │
 ├  snapshots
 │
@@ -35,7 +36,7 @@ frost status
 | health | 최근 표본 검사 결과 |
 | updates | 업데이트가 자동인지, 새 릴리스가 나왔는지 |
 | protected | 최신 스냅샷의 파일 수와 크기, 그리고 전체 스냅샷 수 |
-| storage | Permafrost를 쓸 때 스토리지를 얼마나 쓰고 있는지. 스토리지가 거의 찼다는 경고처럼 Permafrost의 경고가 있으면 맨 앞에 나옵니다 |
+| storage | 스토리지를 얼마나 쓰고 있는지. Permafrost 계정이면 한도 대비 사용량, 셀프 호스팅 서버나 로컬 드라이브면 디스크 사용량입니다. 스토리지가 거의 찼다는 경고처럼 경고가 있으면 맨 앞에 나옵니다 |
 | missing | 이 컴퓨터가 알고 있었지만 스토리지에서 사라진 스냅샷 |
 
 목록에는 최신 스냅샷 10개가 표시됩니다. `new` 열은 각 스냅샷이 새로 추가한 데이터 양입니다. 모두 보려면 다음을 실행합니다.
@@ -71,7 +72,7 @@ health 줄에 실패한 내용이 표시됩니다. 대개 스토리지가 청크
 1. `frost backup`을 실행합니다. 없어진 청크 가운데 데이터가 아직 컴퓨터에 남아 있는 것은 다시 업로드됩니다.
 2. `frost status --verify`를 실행해 다시 확인합니다.
 
-컴퓨터에서 이미 사라진 데이터는 다시 업로드할 수 없으며, 그 데이터가 필요한 이전 스냅샷은 완전히 복원할 수 없습니다. 스토리지에 남아 있지만 손상된 청크는 백업이 자동으로 교체하지 않습니다. 제공업체나 별도의 독립적인 백업에서 정상 사본을 되찾은 뒤 다시 확인하세요.
+컴퓨터에서 이미 사라진 데이터는 다시 업로드할 수 없으며, 그 데이터가 필요한 이전 스냅샷은 완전히 복원할 수 없습니다. 스토리지에 남아 있지만 손상된 청크는 백업이 자동으로 교체하지 않습니다. 스토리지 자체의 백업이나 별도의 독립적인 사본에서 정상 사본을 되찾은 뒤 다시 확인하세요.
 
 ## 사라진 스냅샷
 

@@ -11,7 +11,7 @@ frost backup
 O frost mostra o que mudou, quanto enviou e o resultado da verificação por amostragem:
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
@@ -26,7 +26,7 @@ Um arquivo conta como alterado quando muda o conteúdo, o tamanho, as permissõe
 Se nada mudou, o frost não salva um snapshot novo:
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
@@ -34,7 +34,7 @@ Se nada mudou, o frost não salva um snapshot novo:
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
-Com o Permafrost, um backup termina com um aviso `storage` quando o Permafrost tem algo a avisar, como o armazenamento estar quase cheio.
+Um backup termina com um aviso `storage` quando o seu armazenamento precisa de atenção, como quando uma conta do Permafrost, o disco de um servidor ou um disco local está quase cheio.
 
 Com os backups automáticos ligados, você raramente precisa executar isso. Veja [Backups automáticos](#scheduling).
 
@@ -98,7 +98,7 @@ Se um backup parar no meio, por causa de uma conexão perdida, de um notebook fe
 Se um backup agendado começa na próxima hora, ou terminou na última hora, o `frost backup` avisa e pergunta antes de começar:
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  A scheduled backup starts in 40m, at 15:00.
 │  Back up now anyway? [Y/n]

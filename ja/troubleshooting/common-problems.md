@@ -40,10 +40,34 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 | The server's certificate isn't valid for that address | アドレスと、サーバーの証明書がそのアドレスに対応しているか |
 | the storage didn't answer in time | インターネット接続。そのあとでもう一度試します |
 | can't reach Permafrost | インターネット接続。そのあとでもう一度試します |
+| Can't find that server | SSH アドレスとネットワーク |
+| The server didn't answer | SSH アドレスと、サーバーの電源が入っているか |
+| That server doesn't offer SFTP | サーバーの SSH やファイルサービスの設定で SFTP がオンになっているか |
+| The server sent text before SFTP started | `.bashrc` などサーバーのログインスクリプトが何かを出力していないか。対話型シェルでだけ出力するようにします |
+| There's no folder ... on ... | フォルダのパス。その親フォルダは存在している必要があります |
+| The server won't let frost write in that folder | frost がログインするアカウントに対するフォルダの権限 |
+| ... isn't there. Connect the drive and try again | ドライブが接続されていて、パスが正しいか |
+| frost can't write in that folder | フォルダの権限。macOS では[macOS の権限](#macos-permissions)を参照してください |
+| frost doesn't follow links or junctions to a backup folder | フォルダの実際のパスを使います |
+| That drive is read-only | 書き込めるドライブを使います |
 
 ## "This storage doesn't support conditional writes"
 
-コンピュータ同士がバックアップ記録を上書きし合わないようにするために frost が必要とする機能に、プロバイダーが対応していません。キーや設定を変えても解決しません。別のプロバイダーを選んでください。詳しくは[ストレージの選び方](#choosing-storage)を参照してください。
+コンピュータ同士がバックアップ記録を上書きし合わないようにするために frost が必要とする機能に、ストレージが対応していません。キーや設定を変えても解決しません。別のストレージを選んでください。詳しくは[ストレージの選び方](#choosing-storage)を参照してください。
+
+セルフホストのサーバーやドライブでは、別の言い方で表示されます。サーバーが "can't make hard links" と表示するか、フォルダが "on a filesystem that can't create a file only when its name is free" と表示されます。ext4、Btrfs、XFS、ZFS、APFS、NTFS などのファイルシステム上のフォルダを使ってください。
+
+## "the server didn't accept frost's SSH key"
+
+セルフホストのサーバーが frost のキーを拒否しました。たとえば、キーが `authorized_keys` から削除された場合です。`frost init` を実行して、キーをもう一度追加してください。詳しくは[セルフホスト](#self-hosted)を参照してください。
+
+## "the server's SSH host key has changed"
+
+サーバーの身元が変わると、frost は ssh と同じように接続を拒否します。サーバーを再インストールした場合や、サーバーのアドレスが変わった場合は、`ssh-keygen -R <host>` で古いキーを削除し、もう一度 `frost init` を実行します。それ以外の場合は、接続する前にキーが変わった理由を確かめてください。
+
+## "... isn't there. Connect the drive and try again"
+
+バックアップのあるドライブが接続されていないか、フォルダのパスが変わりました。ドライブを接続してください。Windows で別のドライブ文字が割り当てられた場合は、[ローカルドライブ](#local-drive)を参照してください。
 
 ## "the Permafrost access key was rejected"
 

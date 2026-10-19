@@ -5,7 +5,7 @@ Wenn dein Computer verloren geht, kaputtgeht oder ersetzt wird, kannst du deine 
 ## Was du brauchst
 
 - Deine Wiederherstellungsphrase aus 24 Wörtern.
-- Die Zugangsdaten deines Speichers: deinen Permafrost-Zugriffsschlüssel oder den Bucket-Namen und die Zugriffsschlüssel deines S3-Anbieters.
+- Die Angaben zu deinem Speicher: die SSH-Adresse und den Ordner deines Servers, dein Laufwerk, deinen Permafrost-Zugriffsschlüssel oder den Namen und die Zugriffsschlüssel deines Buckets.
 
 Hast du den alten Computer noch, zeigt `frost key show` die Phrase an.
 

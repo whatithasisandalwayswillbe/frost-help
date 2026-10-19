@@ -56,11 +56,15 @@ frost は `config.toml` のコピーを、指定したエディタで開きま�
 | `schedule.catch_up` | `true` | バックアップを逃したとき、コンピュータが戻ってからバックアップする。`false` なら逃したバックアップはとばす |
 | `verify.sample` | `20` | 抜き取りチェックでダウンロードするチャンクの数。`0` でチェックをオフにします |
 | `update.auto` | `true` | スケジュールされたバックアップのあとに新しいリリースをインストールする。`false` なら知らせるだけです |
-| `storage.backend` | | `permafrost` または `s3` |
+| `storage.backend` | | `permafrost`、`s3`、[セルフホスト](#self-hosted)なら `sftp`、[ローカルドライブ](#local-drive)なら `local` |
+| `storage.sftp.host` | | サーバーの SSH アドレス。たとえば `me@nas.local`、または SSH 設定の `Host` |
+| `storage.sftp.port` | `0` | サーバーの SSH ポート。`0` なら SSH 設定のポート、なければ 22 を使います |
+| `storage.sftp.path` | `frost` | サーバー上のフォルダ。相対パスはサーバー上のホームフォルダが起点です |
+| `storage.local.path` | | ドライブ上のフォルダの絶対パス |
 | `storage.permafrost.url` | | 空なら既定のサーバー `https://permafrost.wihiaawb.com`。それ以外は `https://` のアドレス。自分のコンピュータ上のサーバーなら `http://` も使えます |
 | `storage.permafrost.token` | | Permafrost のアクセスキー |
 | `storage.s3.endpoint` | | `s3.us-east-1.amazonaws.com` など。完全な `https://` のアドレスも使え、`http://` のアドレスにすると TLS が無効になります |
-| `storage.s3.region` | | プロバイダーがリージョンを使わないなら空のまま |
+| `storage.s3.region` | | サーバーやプロバイダーがリージョンを使わないなら空のまま |
 | `storage.s3.bucket` | | バケット名。あらかじめ作っておく必要があります |
 | `storage.s3.prefix` | `frost` | バックアップを入れるバケット内のフォルダ。空ならバケットの最上位 |
 | `storage.s3.access_key_id` | | アクセスキー ID |

@@ -56,11 +56,15 @@ frost 会用你指定的编辑器打开 `config.toml` 的一份副本；如果�
 | `schedule.catch_up` | `true` | 错过备份后，在电脑恢复时补一次备份。`false` 会跳过错过的备份 |
 | `verify.sample` | `20` | 抽查时下载多少个数据块。`0` 表示关闭抽查 |
 | `update.auto` | `true` | 在计划备份之后安装新的发布版本。`false` 只通知你有新版本 |
-| `storage.backend` | | `permafrost` 或 `s3` |
+| `storage.backend` | | `permafrost`、`s3`、用于[自托管](#self-hosted)的 `sftp`，或用于[本地磁盘](#local-drive)的 `local` |
+| `storage.sftp.host` | | 服务器的 SSH 地址，比如 `me@nas.local`，或者 SSH 配置中的某个 `Host` |
+| `storage.sftp.port` | `0` | 服务器的 SSH 端口。`0` 表示使用 SSH 配置中的端口，没有则用 22 |
+| `storage.sftp.path` | `frost` | 服务器上的文件夹。相对路径从你在服务器上的主文件夹开始 |
+| `storage.local.path` | | 磁盘上文件夹的完整路径 |
 | `storage.permafrost.url` | | 留空表示使用默认服务器 `https://permafrost.wihiaawb.com`。否则填写 `https://` 地址，或者对于你自己电脑上的服务器，填写 `http://` 地址 |
 | `storage.permafrost.token` | | 你的 Permafrost 访问密钥 |
 | `storage.s3.endpoint` | | 比如 `s3.us-east-1.amazonaws.com`。也可以填写完整的 `https://` 地址，填写 `http://` 地址则会关闭 TLS |
-| `storage.s3.region` | | 如果你的服务商不使用区域，就留空 |
+| `storage.s3.region` | | 如果你的服务器或服务商不使用区域，就留空 |
 | `storage.s3.bucket` | | 存储桶的名称。存储桶必须已经存在 |
 | `storage.s3.prefix` | `frost` | 存储桶中存放备份的文件夹。留空表示存储桶的顶层 |
 | `storage.s3.access_key_id` | | 你的访问密钥 ID |

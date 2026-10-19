@@ -9,13 +9,14 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  s3://my-backups/frost/  key 6f154dc10058
+┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
 │  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
+│  storage      1.2 TB of 4 TB used
 │
 ├  snapshots
 │
@@ -35,7 +36,7 @@ A primeira linha mostra a versão do frost, o seu armazenamento e a impressão d
 | health | O resultado da última verificação por amostragem |
 | updates | Se as atualizações são automáticas e se saiu uma versão nova |
 | protected | Os arquivos e o tamanho do snapshot mais recente, e quantos snapshots você tem |
-| storage | Com o Permafrost, quanto do seu armazenamento você usa. Um aviso do Permafrost, como o de armazenamento quase cheio, aparece primeiro |
+| storage | Quanto do seu armazenamento está em uso: uma conta do Permafrost em relação ao limite dela, ou o disco de um servidor próprio ou de um disco local. Um aviso, como o de armazenamento quase cheio, aparece primeiro quando existe |
 | missing | Snapshots que este computador conhecia e que não estão mais no armazenamento |
 
 A lista mostra seus 10 snapshots mais recentes. A coluna `new` indica quantos dados novos cada um acrescentou. Para ver todos:
@@ -71,7 +72,7 @@ A linha health lista o que falhou. Normalmente, isso significa que o armazenamen
 1. Execute `frost backup`. Qualquer bloco perdido cujos dados ainda estejam no seu computador é enviado de novo.
 2. Execute `frost status --verify` para conferir de novo.
 
-Dados que não estão mais no seu computador não podem ser enviados de novo, e os snapshots antigos que precisam deles não poderão ser restaurados por completo. Um backup não substitui automaticamente um bloco que ainda está no armazenamento, mas está danificado. Recupere uma cópia íntegra com o seu provedor ou de um backup independente e verifique de novo.
+Dados que não estão mais no seu computador não podem ser enviados de novo, e os snapshots antigos que precisam deles não poderão ser restaurados por completo. Um backup não substitui automaticamente um bloco que ainda está no armazenamento, mas está danificado. Recupere uma cópia íntegra dos backups do próprio armazenamento ou de uma cópia independente e verifique de novo.
 
 ## Snapshots desaparecidos
 

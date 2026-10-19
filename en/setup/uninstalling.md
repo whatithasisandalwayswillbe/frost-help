@@ -54,4 +54,4 @@ pnpm remove -g getfrost
 
 ## 3. Delete your backups, if you want to
 
-Your backups stay in your storage until you delete them. With an S3 provider, they're in one folder of your bucket, `frost` unless you chose another. Delete that folder to remove them. Without your recovery phrase, nobody can read what's left in it.
+Your backups stay in your storage until you delete them. On a self-hosted server or a local drive, they're in the folder you chose in setup. In an S3 bucket, they're in one folder of the bucket, `frost` unless you chose another. Delete that folder to remove them. Without your recovery phrase, nobody can read what's left in it.

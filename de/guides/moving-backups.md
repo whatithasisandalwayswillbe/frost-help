@@ -1,12 +1,12 @@
 # Backups verschieben
 
-Deine Backups können in einen anderen Ordner, einen anderen Bucket oder zu einem anderen Anbieter umziehen, ohne dass alles erneut hochgeladen wird.
+Deine Backups können in einen anderen Ordner, auf ein anderes Laufwerk, auf einen anderen Server, in einen anderen Bucket oder zu einem anderen Anbieter umziehen, ohne dass alles erneut hochgeladen wird.
 
 Permafrost hat keinen Ordner, den du verschieben könntest. Deshalb können Backups auf diesem Weg weder zu Permafrost noch von dort umziehen. Um zu Permafrost oder davon weg zu wechseln, beginne mit `frost init` einen separaten Satz Backups.
 
 | Du willst | So geht's |
 | --- | --- |
-| Deine Backups in einen anderen Ordner oder Bucket verschieben | Verschieb den ganzen Repository-Ordner und verweise frost dann auf den neuen Ort. Nichts wird erneut hochgeladen |
+| Deine Backups in einen anderen Ordner, auf ein anderes Laufwerk, auf einen anderen Server oder in einen anderen Bucket verschieben | Verschieb den ganzen Repository-Ordner und verweise frost dann auf den neuen Ort. Nichts wird erneut hochgeladen |
 | Woanders einen separaten Satz Backups beginnen | Starte `frost init` und wähle den neuen, leeren Ort. Deine alten Backups bleiben, wo sie sind, aber frost zeigt nur die neuen an |
 | Zu Backups zurückkehren, von denen du weggezogen bist | Verweise frost wieder auf den alten Ort |
 
@@ -14,7 +14,20 @@ Permafrost hat keinen Ordner, den du verschieben könntest. Deshalb können Back
 
 Das Repository ist der Ordner in deinem Speicher, der `frost.repo`, `chunks/`, `snapshots/` und `trees/` enthält. Verschieb oder kopiere alle vier mit jedem Objekt darin und lass ihre Namen genau so, wie sie sind. Nur `frost.repo` zu verschieben verschiebt deine Backups nicht.
 
-Sag frost danach, wo sie liegen. Für einen anderen Bucket:
+Ein eigener Server, ein lokales Laufwerk und S3-Speicher enthalten alle dieselben Dateien, du kannst ein Repository also mit rsync, rclone oder einem Dateimanager zwischen ihnen kopieren. Dieser Befehl kopiert zum Beispiel Backups von einem Laufwerk auf einen Server:
+
+```sh
+rsync -a /Volumes/Backup/frost/ me@nas.local:frost/
+```
+
+Sag frost danach, wo sie liegen. Für einen anderen Ordner auf einem Laufwerk oder Server:
+
+```sh
+frost config set storage.local.path /Volumes/Backup2/frost
+frost config set storage.sftp.path backups/frost
+```
+
+Für einen anderen Bucket:
 
 ```sh
 frost config set storage.s3.bucket new-bucket
@@ -26,7 +39,7 @@ Für einen anderen Ordner im Bucket:
 frost config set storage.s3.prefix backups/frost
 ```
 
-Für einen Umzug zu einem anderen Anbieter, bei dem sich mehrere Einstellungen auf einmal ändern, starte `frost init` und wähle den neuen Anbieter. Die Einrichtung findet deine Backups und verbindet sich mit ihnen.
+Für einen Umzug zu einer anderen Art von Speicher oder einem anderen Anbieter, bei dem sich mehrere Einstellungen auf einmal ändern, starte `frost init` und wähle das Neue aus. Die Einrichtung findet deine Backups und verbindet sich mit ihnen.
 
 ## Prüfungen vor dem Speichern
 

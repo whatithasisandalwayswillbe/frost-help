@@ -40,10 +40,34 @@ Setup explains the problem and goes back to the answer most likely to blame.
 | The server's certificate isn't valid for that address | The address, and that the server's certificate covers it |
 | the storage didn't answer in time | Your internet connection, then try again |
 | can't reach Permafrost | Your internet connection, then try again |
+| Can't find that server | The SSH address, and your network |
+| The server didn't answer | The SSH address, and that the server is on |
+| That server doesn't offer SFTP | SFTP is turned on in the server's SSH or file service settings |
+| The server sent text before SFTP started | A login script on the server, like `.bashrc`, prints something. Make it print only in interactive shells |
+| There's no folder ... on ... | The folder's path. The folder it goes in has to exist |
+| The server won't let frost write in that folder | The folder's permissions, for the account frost logs in as |
+| ... isn't there. Connect the drive and try again | The drive is connected, and the path is right |
+| frost can't write in that folder | The folder's permissions. On macOS, see [macOS permissions](#macos-permissions) |
+| frost doesn't follow links or junctions to a backup folder | Use the folder's real path |
+| That drive is read-only | Use a drive you can write to |
 
 ## "This storage doesn't support conditional writes"
 
-Your provider doesn't support a feature frost needs to keep computers from overwriting each other's backup records. Different keys or settings won't fix it. Choose another provider. See [Choosing storage](#choosing-storage).
+Your storage doesn't support a feature frost needs to keep computers from overwriting each other's backup records. Different keys or settings won't fix it. Choose other storage. See [Choosing storage](#choosing-storage).
+
+A self-hosted server or a drive says it differently. The server "can't make hard links", or the folder is "on a filesystem that can't create a file only when its name is free". Use a folder on a filesystem like ext4, Btrfs, XFS, ZFS, APFS or NTFS.
+
+## "the server didn't accept frost's SSH key"
+
+Your self-hosted server refused frost's key, for example after the key was removed from `authorized_keys`. Run `frost init` and add the key again. See [Self-hosted](#self-hosted).
+
+## "the server's SSH host key has changed"
+
+frost refuses to connect when the server's identity changes, the same as ssh does. If you reinstalled the server or it got a new address, remove its old key with `ssh-keygen -R <host>` and run `frost init` again. Otherwise, find out why the key changed before you connect.
+
+## "... isn't there. Connect the drive and try again"
+
+Your backups are on a drive that isn't connected, or the folder's path changed. Connect the drive. If Windows gave it another letter, see [Local drive](#local-drive).
 
 ## "the Permafrost access key was rejected"
 

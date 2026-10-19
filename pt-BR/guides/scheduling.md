@@ -60,7 +60,7 @@ Para pular os backups perdidos, e o frost só fazer backup na hora certa:
 frost config set schedule.catch_up false
 ```
 
-Um backup agendado que começa antes de a rede voltar tenta de novo por cerca de 5 minutos. Se outro backup estiver rodando, ele espera esse terminar.
+Um backup agendado que começa antes de a rede voltar, ou antes de um disco ou compartilhamento de rede ser montado, tenta de novo por cerca de 5 minutos. Com um [disco local](#local-drive), o disco precisa estar conectado quando o backup roda. [Servidor próprio](#self-hosted) entra com a própria chave SSH do frost, então funciona sem você. Se outro backup estiver rodando, ele espera esse terminar.
 
 No Windows, os backups agendados só rodam enquanto sua sessão do Windows estiver aberta. Eles não começam enquanto o computador está na bateria, e param se ele for desconectado da tomada. No macOS e com o systemd, os backups agendados rodam com prioridade baixa para não deixar o computador lento.
 

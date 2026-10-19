@@ -54,4 +54,4 @@ pnpm remove -g getfrost
 
 ## 3. Apague seus backups, se quiser
 
-Seus backups ficam no armazenamento até você apagá-los. Com um provedor S3, eles estão em uma pasta do seu bucket, `frost`, a menos que você tenha escolhido outra. Apague essa pasta para removê-los. Sem a sua frase de recuperação, ninguém consegue ler o que sobrar nela.
+Seus backups ficam no armazenamento até você apagá-los. Em um servidor próprio ou um disco local, eles estão na pasta que você escolheu na configuração. Em um bucket S3, estão em uma pasta do bucket, `frost`, a menos que você tenha escolhido outra. Apague essa pasta para removê-los. Sem a sua frase de recuperação, ninguém consegue ler o que sobrar nela.

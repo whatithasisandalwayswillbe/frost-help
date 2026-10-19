@@ -20,6 +20,7 @@ frost는 애플리케이션, 설정, 캐시를 컴퓨터의 서로 다른 폴더
 | --- | --- | --- |
 | 설정 | `~/.config/frost/config.toml` | `%AppData%\frost\config.toml` |
 | 키 | `~/.config/frost/key` | `%AppData%\frost\key` |
+| 셀프 호스팅용 SSH 키 | `~/.config/frost/ssh/frost_ed25519` | `%AppData%\frost\ssh\frost_ed25519` |
 
 ## 캐시
 

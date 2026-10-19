@@ -2,7 +2,7 @@
 
 Deine Wiederherstellungsphrase ist dein Verschlüsselungsschlüssel, geschrieben als 24 Wörter. Sie ist die einzige Möglichkeit, deine Backups zu lesen.
 
-> Verlierst du die Wiederherstellungsphrase und den Computer, sind deine Backups verloren. Niemand kann sie wiederherstellen: weder dein Speicheranbieter noch Permafrost noch die Entwickler von frost.
+> Verlierst du die Wiederherstellungsphrase und den Computer, sind deine Backups verloren. Niemand kann sie wiederherstellen: weder wer deine Backups aufbewahrt noch Permafrost noch die Entwickler von frost.
 
 ## Sicher aufbewahren
 

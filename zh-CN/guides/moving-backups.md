@@ -1,12 +1,12 @@
 # 迁移备份
 
-你的备份可以迁移到另一个文件夹、存储桶或服务商，而不需要重新上传所有内容。
+你的备份可以迁移到另一个文件夹、磁盘、服务器、存储桶或服务商，而不需要重新上传所有内容。
 
 Permafrost 没有可以移动的文件夹，所以无法用这种方式把备份迁入或迁出 Permafrost。要改用 Permafrost 或不再使用它，请用 `frost init` 开始一组新的独立备份。
 
 | 你想要 | 这样做 |
 | --- | --- |
-| 把备份迁移到另一个文件夹或存储桶 | 移动整个仓库文件夹，然后让 frost 指向新的位置。不会重新上传任何内容 |
+| 把备份迁移到另一个文件夹、磁盘、服务器或存储桶 | 移动整个仓库文件夹，然后让 frost 指向新的位置。不会重新上传任何内容 |
 | 在别处开始一组新的独立备份 | 运行 `frost init`，选择新的空位置。旧的备份会留在原处，但 frost 只会显示新的那组 |
 | 回到之前迁走的备份 | 让 frost 重新指向旧的位置 |
 
@@ -14,7 +14,20 @@ Permafrost 没有可以移动的文件夹，所以无法用这种方式把备份
 
 仓库是存储中包含 `frost.repo`、`chunks/`、`snapshots/` 和 `trees/` 的那个文件夹。把这四项连同其中的每一个对象一起移动或复制，并保持它们的名称完全不变。只移动 `frost.repo` 并不能迁移你的备份。
 
-然后告诉 frost 备份在哪里。换到另一个存储桶：
+自托管服务器、本地磁盘和 S3 存储中存放的是相同的文件，所以你可以用 rsync、rclone 或文件管理器在它们之间复制仓库。例如，下面的命令把备份从磁盘复制到服务器：
+
+```sh
+rsync -a /Volumes/Backup/frost/ me@nas.local:frost/
+```
+
+然后告诉 frost 备份在哪里。换到磁盘或服务器上的另一个文件夹：
+
+```sh
+frost config set storage.local.path /Volumes/Backup2/frost
+frost config set storage.sftp.path backups/frost
+```
+
+换到另一个存储桶：
 
 ```sh
 frost config set storage.s3.bucket new-bucket
@@ -26,7 +39,7 @@ frost config set storage.s3.bucket new-bucket
 frost config set storage.s3.prefix backups/frost
 ```
 
-换到另一个服务商时，需要同时修改好几项设置，所以请运行 `frost init` 并选择新的服务商。设置程序会找到你的备份并连接上去。
+换到另一种存储或另一个服务商时，需要同时修改好几项设置，所以请运行 `frost init` 并选择新的位置。设置程序会找到你的备份并连接上去。
 
 ## 保存前的检查
 

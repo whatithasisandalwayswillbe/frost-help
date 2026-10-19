@@ -9,13 +9,14 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  s3://my-backups/frost/  key 6f154dc10058
+┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
 │  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
+│  storage      1.2 TB of 4 TB used
 │
 ├  snapshots
 │
@@ -35,7 +36,7 @@ frost status
 | health | 最近一次抽查的结果 |
 | updates | 是否自动更新，以及是否有新版本发布 |
 | protected | 最新快照中的文件数和总大小，以及你一共有多少个快照 |
-| storage | 使用 Permafrost 时，显示你用了多少存储空间。如果 Permafrost 有警告，比如存储快满了，会先显示警告 |
+| storage | 你的存储用了多少：Permafrost 账户相对于其上限的用量，或者自托管服务器、本地磁盘的磁盘用量。如果有警告，比如存储快满了，会先显示警告 |
 | missing | 这台电脑曾经知道、但已不在存储中的快照 |
 
 列表显示最新的 10 个快照。`new` 列表示每个快照新增了多少数据。要列出全部快照：
@@ -71,7 +72,7 @@ health 这一行会列出失败的项目。这通常意味着你的存储丢失�
 1. 运行 `frost backup`。只要数据还在你的电脑上，缺失的数据块都会重新上传。
 2. 运行 `frost status --verify` 再检查一次。
 
-已经不在你电脑上的数据无法重新上传，需要这些数据的旧快照也就无法完整恢复。如果数据块仍在存储中但已经损坏，备份不会自动替换它。请从服务商或另一份独立备份中找回完好的副本，然后再次检查。
+已经不在你电脑上的数据无法重新上传，需要这些数据的旧快照也就无法完整恢复。如果数据块仍在存储中但已经损坏，备份不会自动替换它。请从存储自身的备份或另一份独立副本中找回完好的副本，然后再次检查。
 
 ## 缺失的快照
 

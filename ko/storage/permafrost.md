@@ -41,9 +41,11 @@ Permafrost의 오류 메시지에는 이유가 담겨 있습니다. 백업에 �
 
 설정 도우미에서는 앞의 두 가지가 "Permafrost didn't accept that access key"와 "Permafrost won't store backups with that access key"로 표시되고, 그 뒤에 같은 이유가 붙습니다.
 
-## 직접 운영하는 서버
+## 호환 서버
 
-[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md)를 지원하는 서버는 누구나 운영할 수 있습니다. 호환 서버는 빈 업로드 거부를 포함해 API의 객체 및 오류 규칙을 따라야 합니다. 서버가 바쁘면 frost가 자동으로 다시 시도합니다.
+frost는 기본 서버 대신 [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md)를 지원하는 어떤 서버든 쓸 수 있습니다. 이미 그런 서버를 운영하는 사람을 위한 기능입니다. 내 컴퓨터에 백업하려면 [셀프 호스팅](#self-hosted) 스토리지는 SSH만 있으면 됩니다.
+
+호환 서버는 빈 업로드 거부를 포함해 API의 객체 및 오류 규칙을 따라야 합니다. 서버가 바쁘면 frost가 자동으로 다시 시도합니다.
 
 처음 설정하기 전에 frost의 설정 폴더에 `config.toml`을 만들고 아래 설정을 넣으세요. 위치는 [파일 및 폴더](#files-and-folders)에 나와 있습니다. 주소는 자신의 서버 주소로 바꾸세요.
 

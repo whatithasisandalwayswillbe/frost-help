@@ -1,35 +1,47 @@
 # Escolher o armazenamento
 
-O frost guarda seus backups no Permafrost ou em qualquer provedor compatível com S3 que aceite gravações condicionais. Em todos os casos, tudo é criptografado antes de sair do seu computador, então o seu provedor não consegue ler nada.
+O frost pode guardar seus backups no seu próprio servidor, em um disco, no Permafrost ou em um serviço compatível com S3. Onde quer que fiquem, tudo é criptografado antes no seu computador, então quem mantém o armazenamento não consegue ler seus arquivos.
 
 ## Suas opções
 
-- **[Permafrost](#permafrost)** é um armazenamento hospedado feito para o frost. Ele precisa só de uma chave de acesso, sem bucket, região ou endpoint para configurar.
-- **Armazenamento compatível com S3** usa um bucket que você cria em um provedor como [Amazon S3](#amazon-s3), [Cloudflare R2](#cloudflare-r2), [Backblaze B2](#backblaze-b2) ou [Wasabi](#wasabi), ou em um servidor que você mesmo mantém, como o [MinIO](#other-s3).
+| Armazenamento | Bom para | O que você precisa |
+| --- | --- | --- |
+| [Servidor próprio](#self-hosted) | Um NAS, servidor doméstico ou VPS que você mantém | Acesso por SSH |
+| [Disco local](#local-drive) | Um disco USB ou um segundo disco | Um disco conectado quando os backups rodam |
+| [Permafrost](#permafrost) | Armazenamento hospedado feito para o frost | Uma chave de acesso |
+| [Provedores de nuvem](#cloud-providers) | Amazon S3, Cloudflare R2, Backblaze B2 ou Wasabi | Um bucket e as chaves dele |
+| [Outro armazenamento compatível com S3](#other-s3) | Um servidor S3 que você mantém, como Ceph ou SeaweedFS, ou outro serviço S3 | Um bucket e as chaves dele |
+
+Com um servidor próprio ou um disco local, seus backups ficam em um hardware que você controla, sem conta em lugar nenhum. O Permafrost e os provedores de nuvem guardam os backups fora de casa, sem uma máquina sua para manter.
 
 ## Gravações condicionais
 
-O frost precisa de um armazenamento que aceite gravações condicionais atômicas (`If-None-Match: *`). Elas impedem que dois computadores sobrescrevam os registros de backup um do outro. A configuração testa isso ao se conectar e recusa o armazenamento que falhar. Se o provedor não oferece suporte, nenhuma outra chave ou configuração resolve.
+O frost precisa de um armazenamento que consiga criar um arquivo em um único passo, só se o nome dele estiver livre. Isso impede que dois computadores sobrescrevam os registros de backup um do outro. A configuração testa isso ao se conectar e recusa o armazenamento que falhar. Se o armazenamento não oferece suporte, nenhuma outra chave ou configuração resolve.
 
-| Provedor | Gravações condicionais |
+| Armazenamento | Gravações condicionais |
 | --- | --- |
+| Servidor próprio | Suportadas por servidores OpenSSH, em sistemas de arquivos com links físicos, como ext4, Btrfs, XFS, ZFS, APFS e NTFS |
+| Disco local | Suportadas em NTFS, APFS, ext4, Btrfs e XFS. Outros sistemas de arquivos precisam passar no teste da configuração |
 | Permafrost | Suportadas |
 | Amazon S3 | [Documentadas](https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-writes.html) |
 | Cloudflare R2 | [Documentadas](https://developers.cloudflare.com/r2/api/s3/api/) |
-| MinIO | Implementadas no servidor. A sua versão precisa passar no teste da configuração |
+| Ceph | Implementadas no servidor. A sua versão precisa passar no teste da configuração |
+| SeaweedFS | [Documentadas](https://github.com/seaweedfs/seaweedfs/wiki/S3-Conditional-Operations). A sua versão precisa passar no teste da configuração |
+| MinIO | Implementadas no servidor, que não é mais mantido. A sua versão precisa passar no teste da configuração |
 | Backblaze B2 | Não confirmadas. A [referência de upload](https://www.backblaze.com/apidocs/s3-put-object) não cita `If-None-Match` |
 | Wasabi | Não confirmadas. A [referência da API](https://docs.wasabi.com/apidocs/operations-on-objects) não comprova o suporte |
 | Garage | Sem suporte, segundo o responsável pelo projeto |
 
-Isso foi conferido na documentação e no código-fonte de cada provedor em 2 de outubro de 2026, sem testes reais. O que vale é o teste da própria configuração.
+Os dados dos serviços S3 foram conferidos na documentação e no código-fonte de cada projeto em outubro de 2026, sem testes reais. O que vale é o teste da própria configuração.
 
 ## O que levar em conta
 
-- **Custo para restaurar.** Alguns provedores cobram pelos downloads. Uma restauração completa baixa tudo, e cada verificação por amostragem baixa uma pequena amostra.
+- **Uma cópia fora de casa.** Um disco ou um servidor em casa pode se perder no mesmo incêndio ou roubo que o seu computador. Um servidor em outro lugar, o Permafrost ou um provedor de nuvem, não. Guarde uma segunda cópia independente de tudo o que for insubstituível em outro lugar.
+- **Custo para restaurar.** Alguns provedores de nuvem cobram pelos downloads. Uma restauração completa baixa tudo, e cada verificação por amostragem baixa uma pequena amostra.
 - **Classes de armazenamento de arquivamento.** O frost lê os blocos diretamente, então não mova os objetos dele para uma classe de arquivamento que precise ser descongelada antes da leitura.
-- **Exclusão e expiração.** O frost nunca apaga seus backups. Não crie regras de ciclo de vida que apaguem ou façam expirar objetos da pasta dele, porque os snapshots compartilham blocos.
-- **Chaves limitadas.** Dê ao frost uma chave de acesso que só alcance o próprio bucket.
+- **Exclusão e expiração.** O frost nunca apaga seus backups. Não crie regras de ciclo de vida nem tarefas de limpeza que apaguem ou façam expirar arquivos da pasta dele, porque os snapshots compartilham blocos.
+- **Acesso limitado.** Dê ao frost uma chave de acesso que só alcance o próprio bucket, ou uma conta no servidor que não consiga mudar mais nada que importe para você.
 
 ## Trocar de armazenamento depois
 
-Você pode mover seus backups para outro provedor sem enviar tudo de novo. Veja [Mover seus backups](#moving-backups).
+Você pode mover seus backups para outro tipo de armazenamento sem enviar tudo de novo. Veja [Mover seus backups](#moving-backups).

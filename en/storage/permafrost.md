@@ -41,9 +41,11 @@ Permafrost's errors say why. Commands that access your backups stop with that me
 
 During setup, the first two read "Permafrost didn't accept that access key" and "Permafrost won't store backups with that access key", followed by the same reason.
 
-## Your own server
+## A compatible server
 
-Anyone can run a server that speaks the [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). A compatible server must follow its object and error rules, including refusing empty uploads. frost retries automatically when a server is busy.
+Instead of the default server, frost can use any server that speaks the [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). This is for people who run such a server. To back up to a computer of your own, [Self-hosted](#self-hosted) storage only needs SSH.
+
+A compatible server must follow the API's object and error rules, including refusing empty uploads. frost retries automatically when a server is busy.
 
 Before your first setup, create `config.toml` in frost's config folder, as listed in [Files and folders](#files-and-folders), with these settings. Replace the address with your server's:
 

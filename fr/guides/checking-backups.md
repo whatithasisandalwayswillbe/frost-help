@@ -9,13 +9,14 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  s3://my-backups/frost/  key 6f154dc10058
+┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
 │  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
+│  storage      1.2 TB of 4 TB used
 │
 ├  snapshots
 │
@@ -35,7 +36,7 @@ La première ligne indique la version de frost, votre stockage et l'empreinte de
 | health | Le résultat de la dernière vérification par échantillonnage |
 | updates | Si les mises à jour sont automatiques, et si une nouvelle version est sortie |
 | protected | Le nombre de fichiers et la taille du dernier instantané, et le nombre total d'instantanés |
-| storage | Avec Permafrost, la part de votre stockage que vous utilisez. L'avertissement de Permafrost, s'il y en a un, vient en premier, par exemple pour un stockage presque plein |
+| storage | La part de votre stockage utilisée : un compte Permafrost par rapport à sa limite, ou le disque d'un serveur auto-hébergé ou d'un disque local. Un avertissement, s'il y en a un, vient en premier, par exemple pour un stockage presque plein |
 | missing | Des instantanés connus de cet ordinateur qui ne sont plus dans le stockage |
 
 La liste affiche vos 10 instantanés les plus récents. La colonne `new` indique la quantité de données nouvelles ajoutée par chacun. Pour les afficher tous :
@@ -71,7 +72,7 @@ La ligne health liste ce qui a échoué. En général, cela signifie que votre s
 1. Lancez `frost backup`. Tout bloc manquant dont les données sont encore sur votre ordinateur est renvoyé.
 2. Lancez `frost status --verify` pour vérifier à nouveau.
 
-Les données qui ne sont plus sur votre ordinateur ne peuvent pas être renvoyées, et les anciens instantanés qui en ont besoin ne pourront pas être restaurés entièrement. Une sauvegarde ne remplace pas automatiquement un bloc encore présent mais endommagé. Récupérez une copie intacte auprès de votre fournisseur ou dans une sauvegarde indépendante, puis vérifiez à nouveau.
+Les données qui ne sont plus sur votre ordinateur ne peuvent pas être renvoyées, et les anciens instantanés qui en ont besoin ne pourront pas être restaurés entièrement. Une sauvegarde ne remplace pas automatiquement un bloc encore présent mais endommagé. Récupérez une copie intacte dans les propres sauvegardes de votre stockage ou dans une copie indépendante, puis vérifiez à nouveau.
 
 ## Instantanés manquants
 

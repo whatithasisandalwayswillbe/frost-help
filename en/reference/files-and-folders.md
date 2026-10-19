@@ -20,6 +20,7 @@ The `frost` launcher is in `/usr/local/bin` or `~/.local/bin` on macOS and Linux
 | --- | --- | --- |
 | Settings | `~/.config/frost/config.toml` | `%AppData%\frost\config.toml` |
 | Key | `~/.config/frost/key` | `%AppData%\frost\key` |
+| SSH key for a self-hosted server | `~/.config/frost/ssh/frost_ed25519` | `%AppData%\frost\ssh\frost_ed25519` |
 
 ## Cache
 

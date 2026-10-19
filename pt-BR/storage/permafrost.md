@@ -41,9 +41,11 @@ Os erros do Permafrost dizem o motivo. Os comandos que acessam seus backups para
 
 Na configuração, os dois primeiros aparecem como "Permafrost didn't accept that access key" e "Permafrost won't store backups with that access key", seguidos do mesmo motivo.
 
-## O seu próprio servidor
+## Um servidor compatível
 
-Qualquer pessoa pode rodar um servidor que fale a [API do Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Um servidor compatível precisa seguir as regras da API para objetos e erros, inclusive recusar envios vazios. O frost tenta de novo automaticamente quando um servidor está ocupado.
+Em vez do servidor padrão, o frost pode usar qualquer servidor que fale a [API do Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Isso é para quem já mantém um servidor assim. Para fazer backup em um computador seu, [Servidor próprio](#self-hosted) só precisa de SSH.
+
+Um servidor compatível precisa seguir as regras da API para objetos e erros, inclusive recusar envios vazios. O frost tenta de novo automaticamente quando um servidor está ocupado.
 
 Antes de executar o assistente pela primeira vez, crie `config.toml` na pasta de configuração do frost, indicada em [Arquivos e pastas](#files-and-folders), com estas configurações. Troque o endereço pelo do seu servidor:
 

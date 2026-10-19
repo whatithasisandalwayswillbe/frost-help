@@ -29,6 +29,10 @@ El permiso se mantiene cuando frost se actualiza.
 
 Cuando macOS bloquea una copia, el error de frost indica qué app o archivo tienes que permitir.
 
+## Discos y carpetas compartidas en red
+
+macOS también pide permiso antes de que un programa use discos extraíbles y carpetas compartidas en red. Eso incluye hacer copias en un [disco local](#local-drive) y hacer copias de carpetas que están en un disco. Pregunta por tu aplicación de terminal en las copias que ejecutas tú, y por el entorno de ejecución de frost en las programadas. El acceso total al disco también cubre los discos y las carpetas compartidas.
+
 ## iCloud Drive
 
 frost no descarga los archivos que iCloud guarda solo en la nube, así que una copia nunca llena tu disco ni se queda esperando descargas. Esos archivos se omiten y se enumeran. Para respaldarlos, haz que Finder los mantenga descargados en este Mac.

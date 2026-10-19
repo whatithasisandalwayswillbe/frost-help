@@ -11,7 +11,7 @@ frost backup
 frost は、何が変わったか、どれだけアップロードしたか、そして抜き取りチェックの結果を表示します。
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
@@ -26,7 +26,7 @@ frost は、何が変わったか、どれだけアップロードしたか、�
 何も変わっていなければ、frost は新しいスナップショットを保存しません。
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
@@ -34,7 +34,7 @@ frost は、何が変わったか、どれだけアップロードしたか、�
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
-Permafrost を使っている場合、ストレージがほぼいっぱいなど Permafrost から知らせることがあると、バックアップの最後に `storage` の警告が表示されます。
+Permafrost のアカウント、サーバーのディスク、ローカルドライブがほぼいっぱいになったときなど、ストレージに注意が必要な場合は、バックアップの最後に `storage` の警告が表示されます。
 
 自動バックアップをオンにしていれば、このコマンドを自分で実行することはほとんどありません。詳しくは[自動バックアップ](#scheduling)を参照してください。
 
@@ -98,7 +98,7 @@ macOS では、一部のフォルダを frost が読むために、あなたの�
 スケジュールされたバックアップが 1 時間以内に始まる場合や、直前の 1 時間以内に終わった場合、`frost backup` はそのことを伝え、始める前に確認します。
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  A scheduled backup starts in 40m, at 15:00.
 │  Back up now anyway? [Y/n]

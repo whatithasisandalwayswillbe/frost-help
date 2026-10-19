@@ -1,12 +1,12 @@
 # Moving your backups
 
-Your backups can move to another folder, bucket or provider without uploading everything again.
+Your backups can move to another folder, drive, server, bucket or provider without uploading everything again.
 
 Permafrost has no folder to move, so backups can't move into or out of it this way. To switch to or from Permafrost, start a separate set of backups with `frost init`.
 
 | You want to | Do this |
 | --- | --- |
-| Move your backups to another folder or bucket | Move the whole repository folder, then point frost at the new location. Nothing uploads again |
+| Move your backups to another folder, drive, server or bucket | Move the whole repository folder, then point frost at the new location. Nothing uploads again |
 | Start a separate set of backups somewhere else | Run `frost init` and choose the new, empty location. Your old backups stay where they are, but frost only shows the new ones |
 | Go back to backups you moved away from | Point frost at the old location again |
 
@@ -14,7 +14,20 @@ Permafrost has no folder to move, so backups can't move into or out of it this w
 
 The repository is the folder in your storage that holds `frost.repo`, `chunks/`, `snapshots/` and `trees/`. Move or copy all four, with every object inside them, and keep their names exactly as they are. Moving only `frost.repo` doesn't move your backups.
 
-Then tell frost where they are. For a different bucket:
+Self-hosted, local drive and S3 storage all keep the same files, so you can copy a repository between them with rsync, rclone or a file manager. For example, this copies backups from a drive to a server:
+
+```sh
+rsync -a /Volumes/Backup/frost/ me@nas.local:frost/
+```
+
+Then tell frost where they are. For a different folder on a drive or a server:
+
+```sh
+frost config set storage.local.path /Volumes/Backup2/frost
+frost config set storage.sftp.path backups/frost
+```
+
+For a different bucket:
 
 ```sh
 frost config set storage.s3.bucket new-bucket
@@ -26,7 +39,7 @@ For a different folder inside the bucket:
 frost config set storage.s3.prefix backups/frost
 ```
 
-To move to another provider, which means changing several settings at once, run `frost init` and choose the new provider. Setup finds your backups and connects to them.
+To move to another kind of storage or another provider, which means changing several settings at once, run `frost init` and choose the new one. Setup finds your backups and connects to them.
 
 ## Checks before saving
 

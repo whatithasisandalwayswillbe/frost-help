@@ -40,7 +40,9 @@ frost keeps your backups in one folder in your storage, called the repository. I
 | `snapshots/` | A small encrypted header for each snapshot: when it was taken, on which computer and of which folders |
 | `trees/` | Which chunks hold each snapshot's file list |
 
-Object names are random-looking IDs, so your provider never sees your file names. [Security and privacy](#security) lists what a provider can see.
+Object names are random-looking IDs, so whoever runs your storage never sees your file names. [Security and privacy](#security) lists what the storage can see.
+
+On a self-hosted server or a local drive, each object is a file with that name inside the repository folder. In an S3 bucket, it's an object with the same name, so a repository can be copied between them. See [Moving your backups](#moving-backups).
 
 ## The local cache
 

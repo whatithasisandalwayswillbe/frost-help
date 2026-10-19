@@ -54,4 +54,4 @@ pnpm remove -g getfrost
 
 ## 3. Supprimez vos sauvegardes, si vous le souhaitez
 
-Vos sauvegardes restent dans votre stockage tant que vous ne les supprimez pas. Avec un fournisseur S3, elles sont dans un dossier de votre bucket, `frost` sauf si vous en avez choisi un autre. Supprimez ce dossier pour les effacer. Sans votre phrase de récupération, personne ne peut lire ce qui y reste.
+Vos sauvegardes restent dans votre stockage tant que vous ne les supprimez pas. Sur un serveur auto-hébergé ou un disque local, elles sont dans le dossier choisi pendant la configuration. Dans un bucket S3, elles sont dans un dossier du bucket, `frost` sauf si vous en avez choisi un autre. Supprimez ce dossier pour les effacer. Sans votre phrase de récupération, personne ne peut lire ce qui y reste.

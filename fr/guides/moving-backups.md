@@ -1,12 +1,12 @@
 # Déplacer vos sauvegardes
 
-Vos sauvegardes peuvent passer dans un autre dossier, un autre bucket ou chez un autre fournisseur sans que tout soit renvoyé.
+Vos sauvegardes peuvent passer dans un autre dossier, sur un autre disque ou un autre serveur, dans un autre bucket ou chez un autre fournisseur sans que tout soit renvoyé.
 
 Permafrost n'a pas de dossier à déplacer, donc vos sauvegardes ne peuvent pas entrer dans Permafrost ni en sortir de cette façon. Pour passer à Permafrost ou le quitter, démarrez un ensemble de sauvegardes séparé avec `frost init`.
 
 | Vous voulez | Faites ceci |
 | --- | --- |
-| Déplacer vos sauvegardes vers un autre dossier ou un autre bucket | Déplacez tout le dossier du dépôt, puis indiquez à frost le nouvel emplacement. Rien n'est renvoyé |
+| Déplacer vos sauvegardes vers un autre dossier, disque, serveur ou bucket | Déplacez tout le dossier du dépôt, puis indiquez à frost le nouvel emplacement. Rien n'est renvoyé |
 | Démarrer un ensemble de sauvegardes séparé ailleurs | Lancez `frost init` et choisissez le nouvel emplacement vide. Vos anciennes sauvegardes restent où elles sont, mais frost n'affiche plus que les nouvelles |
 | Réutiliser les sauvegardes d'un ancien emplacement | Indiquez de nouveau l'ancien emplacement à frost |
 
@@ -14,7 +14,20 @@ Permafrost n'a pas de dossier à déplacer, donc vos sauvegardes ne peuvent pas 
 
 Le dépôt est le dossier de votre stockage qui contient `frost.repo`, `chunks/`, `snapshots/` et `trees/`. Déplacez ou copiez les quatre, avec tous les objets qu'ils contiennent, et gardez leurs noms exactement tels quels. Déplacer seulement `frost.repo` ne déplace pas vos sauvegardes.
 
-Indiquez ensuite à frost où elles se trouvent. Pour un autre bucket :
+Un serveur auto-hébergé, un disque local et un stockage S3 contiennent tous les mêmes fichiers, donc vous pouvez copier un dépôt de l'un à l'autre avec rsync, rclone ou un gestionnaire de fichiers. Par exemple, cette commande copie des sauvegardes d'un disque vers un serveur :
+
+```sh
+rsync -a /Volumes/Backup/frost/ me@nas.local:frost/
+```
+
+Indiquez ensuite à frost où elles se trouvent. Pour un autre dossier sur un disque ou un serveur :
+
+```sh
+frost config set storage.local.path /Volumes/Backup2/frost
+frost config set storage.sftp.path backups/frost
+```
+
+Pour un autre bucket :
 
 ```sh
 frost config set storage.s3.bucket new-bucket
@@ -26,7 +39,7 @@ Pour un autre dossier dans le bucket :
 frost config set storage.s3.prefix backups/frost
 ```
 
-Pour passer chez un autre fournisseur, ce qui implique de changer plusieurs réglages à la fois, lancez `frost init` et choisissez le nouveau fournisseur. L'assistant trouve vos sauvegardes et s'y connecte.
+Pour passer à un autre type de stockage ou chez un autre fournisseur, ce qui implique de changer plusieurs réglages à la fois, lancez `frost init` et choisissez la nouvelle destination. L'assistant trouve vos sauvegardes et s'y connecte.
 
 ## Contrôles avant l'enregistrement
 

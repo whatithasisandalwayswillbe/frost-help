@@ -40,7 +40,9 @@ frost range vos sauvegardes dans un seul dossier de votre stockage, appelé dép
 | `snapshots/` | Un petit en-tête chiffré par instantané : sa date, l'ordinateur et les dossiers concernés |
 | `trees/` | Les blocs qui contiennent la liste de fichiers de chaque instantané |
 
-Les noms des objets sont des identifiants d'apparence aléatoire, votre fournisseur ne voit donc jamais vos noms de fichiers. [Sécurité et confidentialité](#security) détaille ce qu'un fournisseur peut voir.
+Les noms des objets sont des identifiants d'apparence aléatoire, la personne qui gère votre stockage ne voit donc jamais vos noms de fichiers. [Sécurité et confidentialité](#security) détaille ce que le stockage peut voir.
+
+Sur un serveur auto-hébergé ou un disque local, chaque objet est un fichier portant ce nom dans le dossier du dépôt. Dans un bucket S3, c'est un objet du même nom, donc un dépôt peut être copié de l'un à l'autre. Voir [Déplacer vos sauvegardes](#moving-backups).
 
 ## Le cache local
 

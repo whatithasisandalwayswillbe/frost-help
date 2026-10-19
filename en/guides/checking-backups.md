@@ -9,13 +9,14 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  s3://my-backups/frost/  key 6f154dc10058
+┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
 │  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
+│  storage      1.2 TB of 4 TB used
 │
 ├  snapshots
 │
@@ -35,7 +36,7 @@ The first line shows frost's version, your storage and your key's fingerprint. T
 | health | The result of the latest spot check |
 | updates | Whether updates are automatic, and whether a new release is out |
 | protected | The files and size in the newest snapshot, and how many snapshots you have |
-| storage | With Permafrost, how much of your storage you use. Permafrost's warning comes first when it has one, such as storage that's nearly full |
+| storage | How much of your storage is used: a Permafrost account against its limit, or the disk of a self-hosted server or local drive. A warning comes first when there is one, such as storage that's nearly full |
 | missing | Snapshots this computer knew about that are no longer in storage |
 
 The list shows your 10 newest snapshots. The `new` column is how much new data each one added. To list them all:
@@ -71,7 +72,7 @@ The health row lists what failed. Usually it means your storage lost or damaged 
 1. Run `frost backup`. Any missing chunk whose data is still on your computer is uploaded again.
 2. Run `frost status --verify` to check again.
 
-Data that's no longer on your computer can't be uploaded again, and older snapshots that need it can't fully restore. A chunk that's still present but damaged isn't automatically replaced by a backup. Recover a good copy from your provider or an independent backup, and check again.
+Data that's no longer on your computer can't be uploaded again, and older snapshots that need it can't fully restore. A chunk that's still present but damaged isn't automatically replaced by a backup. Recover a good copy from your storage's own backups or an independent copy, and check again.
 
 ## Missing snapshots
 

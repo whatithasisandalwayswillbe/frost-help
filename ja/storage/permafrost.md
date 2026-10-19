@@ -41,9 +41,11 @@ Permafrost のエラーには理由が書かれています。バックアップ
 
 セットアップでは、最初の 2 つは "Permafrost didn't accept that access key" と "Permafrost won't store backups with that access key" と表示され、そのあとに同じ理由が続きます。
 
-## 自分のサーバー
+## 互換サーバー
 
-[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) に対応したサーバーは、誰でも運用できます。互換サーバーは、空のアップロードを拒否することも含め、API のオブジェクトとエラーの規則に従う必要があります。サーバーが混み合っている場合、frost は自動的に再試行します。
+frost は、既定のサーバーの代わりに、[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) に対応した任意のサーバーを使えます。これは、そうしたサーバーをすでに運用している人向けです。自分のコンピュータにバックアップするなら、[セルフホスト](#self-hosted)のストレージは SSH だけで使えます。
+
+互換サーバーは、空のアップロードを拒否することも含め、API のオブジェクトとエラーの規則に従う必要があります。サーバーが混み合っている場合、frost は自動的に再試行します。
 
 最初のセットアップの前に、frost の設定フォルダに `config.toml` を作り、次の設定を入れてください。場所は[ファイルとフォルダ](#files-and-folders)に載っています。アドレスを自分のサーバーのものに置き換えます。
 

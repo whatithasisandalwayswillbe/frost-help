@@ -60,7 +60,7 @@ Para saltarte las copias perdidas, de modo que frost solo copie a su hora:
 frost config set schedule.catch_up false
 ```
 
-Una copia programada que empieza antes de que vuelva tu red lo reintenta durante unos 5 minutos. Si hay otra copia en marcha, espera a que termine.
+Una copia programada que empieza antes de que vuelva tu red, o antes de que se monte un disco o una carpeta compartida, lo reintenta durante unos 5 minutos. Con un [disco local](#local-drive), el disco tiene que estar conectado cuando se hace la copia. [Servidor propio](#self-hosted) inicia sesión con la propia clave SSH de frost, así que funciona sin ti. Si hay otra copia en marcha, espera a que termine.
 
 En Windows, las copias programadas solo se ejecutan mientras tengas la sesión iniciada. No empiezan mientras el equipo funciona con batería, y se detienen si lo desenchufas. En macOS y con systemd, las copias programadas se ejecutan con baja prioridad para no ralentizar tu equipo.
 

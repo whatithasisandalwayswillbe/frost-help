@@ -56,11 +56,15 @@ Vor dem Speichern prüft nichts die Datei. Lässt sie sich nicht einlesen, melde
 | `schedule.catch_up` | `true` | Ein verpasstes Backup nachholen, sobald dein Computer wieder da ist. `false` überspringt verpasste Backups |
 | `verify.sample` | `20` | Wie viele Blöcke die Stichprobenprüfung herunterlädt. `0` schaltet sie aus |
 | `update.auto` | `true` | Neue Versionen nach geplanten Backups installieren. `false` informiert nur darüber |
-| `storage.backend` | | `permafrost` oder `s3` |
+| `storage.backend` | | `permafrost`, `s3`, `sftp` für [Eigener Server](#self-hosted) oder `local` für ein [lokales Laufwerk](#local-drive) |
+| `storage.sftp.host` | | Die SSH-Adresse deines Servers, zum Beispiel `me@nas.local`, oder ein `Host` aus deiner SSH-Konfiguration |
+| `storage.sftp.port` | `0` | Der SSH-Port des Servers. `0` nimmt den Port aus deiner SSH-Konfiguration oder 22 |
+| `storage.sftp.path` | `frost` | Der Ordner auf dem Server. Ein relativer Pfad beginnt in deinem Home-Ordner dort |
+| `storage.local.path` | | Der vollständige Pfad des Ordners auf einem Laufwerk |
 | `storage.permafrost.url` | | Leer für den Standardserver, `https://permafrost.wihiaawb.com`. Sonst eine `https://`-Adresse, oder `http://` für einen Server auf deinem eigenen Computer |
 | `storage.permafrost.token` | | Dein Permafrost-Zugriffsschlüssel |
 | `storage.s3.endpoint` | | Etwa `s3.us-east-1.amazonaws.com`. Eine vollständige `https://`-Adresse geht auch, und eine `http://`-Adresse schaltet TLS aus |
-| `storage.s3.region` | | Leer, wenn dein Anbieter keine Regionen nutzt |
+| `storage.s3.region` | | Leer, wenn dein Server oder Anbieter keine Regionen nutzt |
 | `storage.s3.bucket` | | Der Name des Buckets. Er muss schon existieren |
 | `storage.s3.prefix` | `frost` | Der Ordner im Bucket, der deine Backups enthält. Leer für die oberste Ebene des Buckets |
 | `storage.s3.access_key_id` | | Deine Zugriffsschlüssel-ID |

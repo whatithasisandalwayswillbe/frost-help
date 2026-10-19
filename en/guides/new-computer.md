@@ -5,7 +5,7 @@ If your computer is lost, broken or replaced, you can get your files back on ano
 ## What you need
 
 - Your 24-word recovery phrase.
-- The details of your storage: your Permafrost access key, or your S3 provider's bucket name and access keys.
+- The details of your storage: your server's SSH address and folder, your drive, your Permafrost access key, or your bucket's name and access keys.
 
 If you still have the old computer, `frost key show` prints the phrase.
 

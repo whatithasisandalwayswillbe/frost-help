@@ -54,4 +54,4 @@ pnpm remove -g getfrost
 
 ## 3. Deine Backups löschen, falls gewünscht
 
-Deine Backups bleiben in deinem Speicher, bis du sie löschst. Bei einem S3-Anbieter liegen sie in einem Ordner deines Buckets, `frost`, sofern du keinen anderen gewählt hast. Lösch diesen Ordner, um sie zu entfernen. Ohne deine Wiederherstellungsphrase kann niemand lesen, was darin noch liegt.
+Deine Backups bleiben in deinem Speicher, bis du sie löschst. Auf einem eigenen Server oder einem lokalen Laufwerk liegen sie in dem Ordner, den du in der Einrichtung gewählt hast. In einem S3-Bucket liegen sie in einem Ordner des Buckets, `frost`, sofern du keinen anderen gewählt hast. Lösch diesen Ordner, um sie zu entfernen. Ohne deine Wiederherstellungsphrase kann niemand lesen, was darin noch liegt.

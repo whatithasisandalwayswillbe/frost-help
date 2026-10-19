@@ -41,9 +41,11 @@ Permafrost 的错误信息会说明原因。需要访问备份的命令会带着
 
 在设置程序中，前两条会显示为 "Permafrost didn't accept that access key" 和 "Permafrost won't store backups with that access key"，后面跟着同样的原因。
 
-## 你自己的服务器
+## 兼容的服务器
 
-任何人都可以运行一个支持 [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) 的服务器。兼容的服务器必须遵守其中的对象和错误规则，包括拒绝空的上传。服务器繁忙时，frost 会自动重试。
+除了默认服务器，frost 还可以使用任何支持 [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) 的服务器。这适合已经在运行这类服务器的人。如果要备份到你自己的电脑上，[自托管](#self-hosted)存储只需要 SSH。
+
+兼容的服务器必须遵守 API 的对象和错误规则，包括拒绝空的上传。服务器繁忙时，frost 会自动重试。
 
 第一次设置之前，请在 frost 的配置文件夹中创建 `config.toml`，填入下面的设置。文件夹位置见[文件与文件夹](#files-and-folders)。请把地址换成自己服务器的地址：
 

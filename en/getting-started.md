@@ -1,11 +1,11 @@
 # Getting started
 
-frost backs up your folders to storage you choose, and encrypts everything on your computer before it's uploaded. This page takes you from installing frost to your first backup.
+frost backs up your folders to storage you choose, from your own server or a drive to a cloud provider, and encrypts everything on your computer before it's stored. This page takes you from installing frost to your first backup.
 
 ## What you need
 
 - A Mac, Linux or Windows computer with a 64-bit Intel, AMD or ARM processor.
-- Somewhere to keep your backups: a [Permafrost](#permafrost) access key, or a bucket with an [S3-compatible provider](#choosing-storage).
+- Somewhere to keep your backups: a server you can reach over SSH, a drive, a [Permafrost](#permafrost) access key or an S3-compatible bucket. [Choosing storage](#choosing-storage) compares them.
 - A terminal window at least 56 columns wide and 18 rows tall, for the full-screen setup.
 
 You don't need to install Node.js or anything else first. frost brings its own runtime.
@@ -34,14 +34,14 @@ frost init
 
 Setup asks one thing per screen:
 
-1. **Storage.** Where your backups go. Pick Permafrost or an S3-compatible provider, and paste the keys it asks for.
+1. **Storage.** Where your backups go. Pick Permafrost, an S3-compatible service, your own server or a drive, and answer what it asks.
 2. **Folders.** The folders to back up, like `~/Documents`.
 3. **Skip.** Files and folders to leave out. A few common ones, like `node_modules`, are filled in already.
 4. **Schedule.** How often frost backs up on its own, or off.
 5. **Recovery phrase.** 24 words that unlock your backups. Write them down.
 6. **Review.** Check everything, then press `[s]` to save.
 
-> Your recovery phrase is the only way to read your backups if this computer is lost. Nobody can recover it for you, not your storage provider and not the frost authors.
+> Your recovery phrase is the only way to read your backups if this computer is lost. Nobody can recover it for you, not whoever stores your backups and not the frost authors.
 
 [Setting up frost](#setting-up) explains each screen.
 

@@ -60,7 +60,7 @@ Um verpasste Backups stattdessen zu überspringen, damit frost nur pünktlich si
 frost config set schedule.catch_up false
 ```
 
-Ein geplantes Backup, das startet, bevor dein Netzwerk wieder da ist, versucht es etwa 5 Minuten lang erneut. Läuft gerade ein anderes Backup, wartet es, bis dieses fertig ist.
+Ein geplantes Backup, das startet, bevor dein Netzwerk wieder da ist oder ein Laufwerk oder eine Freigabe eingehängt ist, versucht es etwa 5 Minuten lang erneut. Bei einem [lokalen Laufwerk](#local-drive) muss das Laufwerk angeschlossen sein, wenn das Backup läuft. [Eigener Server](#self-hosted) meldet sich mit dem eigenen SSH-Schlüssel von frost an und funktioniert deshalb ohne dich. Läuft gerade ein anderes Backup, wartet es, bis dieses fertig ist.
 
 Unter Windows laufen geplante Backups nur, solange du angemeldet bist. Sie starten nicht im Akkubetrieb und brechen ab, wenn du den Computer vom Strom trennst. Unter macOS und mit systemd laufen geplante Backups mit niedriger Priorität, damit sie deinen Computer nicht ausbremsen.
 

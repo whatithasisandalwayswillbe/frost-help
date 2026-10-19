@@ -20,6 +20,7 @@ O inicializador `frost` fica em `/usr/local/bin` ou `~/.local/bin` no macOS e no
 | --- | --- | --- |
 | Configurações | `~/.config/frost/config.toml` | `%AppData%\frost\config.toml` |
 | Chave | `~/.config/frost/key` | `%AppData%\frost\key` |
+| Chave SSH para um servidor próprio | `~/.config/frost/ssh/frost_ed25519` | `%AppData%\frost\ssh\frost_ed25519` |
 
 ## Cache
 

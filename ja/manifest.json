@@ -31,11 +31,10 @@
             "pages": [
                 { "id": "choosing-storage", "title": "ストレージの選び方", "path": "ja/storage/choosing-storage.md" },
                 { "id": "permafrost", "title": "Permafrost", "path": "ja/storage/permafrost.md" },
-                { "id": "amazon-s3", "title": "Amazon S3", "path": "ja/storage/amazon-s3.md" },
-                { "id": "cloudflare-r2", "title": "Cloudflare R2", "path": "ja/storage/cloudflare-r2.md" },
-                { "id": "backblaze-b2", "title": "Backblaze B2", "path": "ja/storage/backblaze-b2.md" },
-                { "id": "wasabi", "title": "Wasabi", "path": "ja/storage/wasabi.md" },
-                { "id": "other-s3", "title": "その他の S3 互換ストレージ", "path": "ja/storage/other-s3.md" }
+                { "id": "cloud-providers", "title": "クラウドプロバイダー", "path": "ja/storage/cloud-providers.md" },
+                { "id": "other-s3", "title": "その他の S3 互換ストレージ", "path": "ja/storage/other-s3.md" },
+                { "id": "self-hosted", "title": "セルフホスト", "path": "ja/storage/self-hosted.md" },
+                { "id": "local-drive", "title": "ローカルドライブ", "path": "ja/storage/local-drive.md" }
             ]
         },
         {

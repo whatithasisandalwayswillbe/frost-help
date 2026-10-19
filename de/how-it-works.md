@@ -40,7 +40,9 @@ frost legt deine Backups in einem einzigen Ordner in deinem Speicher ab, dem Rep
 | `snapshots/` | Ein kleiner verschlüsselter Kopf pro Snapshot: wann er erstellt wurde, auf welchem Computer und von welchen Ordnern |
 | `trees/` | Welche Blöcke die Dateiliste jedes Snapshots enthalten |
 
-Die Objektnamen sind zufällig aussehende IDs, dein Anbieter sieht also nie deine Dateinamen. [Sicherheit und Datenschutz](#security) listet auf, was ein Anbieter sehen kann.
+Die Objektnamen sind zufällig aussehende IDs, wer deinen Speicher betreibt, sieht also nie deine Dateinamen. [Sicherheit und Datenschutz](#security) listet auf, was der Speicher sehen kann.
+
+Auf einem eigenen Server oder einem lokalen Laufwerk ist jedes Objekt eine Datei mit diesem Namen im Repository-Ordner. In einem S3-Bucket ist es ein Objekt mit demselben Namen, sodass sich ein Repository zwischen ihnen kopieren lässt. Siehe [Backups verschieben](#moving-backups).
 
 ## Der lokale Cache
 

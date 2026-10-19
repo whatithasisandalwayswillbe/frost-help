@@ -1,24 +1,37 @@
 # Otro almacenamiento compatible con S3
 
-Usa cualquier otro servicio que hable el protocolo S3, como MinIO, Ceph o un proveedor sin configuración propia en el asistente. Tiene que admitir escrituras condicionales. Consulta [Elegir almacenamiento](#choosing-storage).
+Usa un servidor S3 que gestiones tú, como Ceph o SeaweedFS, o cualquier otro servicio que hable el protocolo S3 y no tenga configuración propia en el asistente. Tiene que admitir escrituras condicionales, algo que el asistente comprueba. Consulta [Elegir almacenamiento](#choosing-storage).
+
+Si quieres hacer copias en una máquina tuya sin mantener un servidor S3, [Servidor propio](#self-hosted) es más sencillo. Solo necesita SSH.
 
 ## En el asistente
 
-Ejecuta `frost init` y elige **Other S3-compatible**.
+Ejecuta `frost init`, elige **S3-compatible** y después **Other S3-compatible**.
 
 | El asistente pregunta | Respuesta |
 | --- | --- |
-| What's the S3 endpoint? | El nombre de host que indique la documentación de tu proveedor. Un nombre de host solo, sin `https://`, significa HTTPS |
-| Which region? | Solo si tu proveedor la pide. Si no, déjalo en blanco |
+| What's the S3 endpoint? | El nombre de host que indique la documentación de tu servidor o proveedor. Un nombre de host solo, sin `https://`, significa HTTPS |
+| Which region? | Solo si tu servidor o proveedor la pide. Si no, déjalo en blanco |
 | What's the bucket called? | Su nombre, exactamente como lo creaste. El bucket ya tiene que existir |
-| Paste the access key ID. | De la consola de tu proveedor |
-| Paste the secret access key. | De la consola de tu proveedor |
+| Paste the access key ID. | De la consola de tu servidor o proveedor |
+| Paste the secret access key. | De la consola de tu servidor o proveedor |
 
 frost guarda tus copias en una carpeta `frost` dentro del bucket.
 
+## Servidores que gestionas tú
+
+| Servidor | Qué conviene saber |
+| --- | --- |
+| Ceph | Su RADOS Gateway admite escrituras condicionales. Dale al asistente la dirección y el puerto de la pasarela |
+| SeaweedFS | Su pasarela S3 documenta las escrituras condicionales. Dale al asistente su dirección, como `http://<server>:8333` |
+| MinIO | Admite escrituras condicionales, pero ya no se mantiene, así que no recibe correcciones. Un servidor existente sigue funcionando si supera la comprobación del asistente. Dale al asistente su dirección, como `https://<server>:9000` |
+| Garage | No admite escrituras condicionales, así que frost no puede usarlo |
+
+Crea antes el bucket y una clave de acceso con las herramientas del servidor.
+
 ## Un servidor sin TLS
 
-Para un servidor de pruebas en tu propio equipo o tu red, indica el endpoint con `http://`, como `http://localhost:9000`. Eso desactiva TLS en todas las peticiones, así que úsalo solo en una red de confianza. Poner `storage.s3.insecure` a `true` selecciona HTTP cuando el endpoint no tiene esquema. Un `https://` o `http://` explícito tiene prioridad.
+Para un servidor en tu propio equipo o tu red, indica el endpoint con `http://`, como `http://localhost:9000`. Eso desactiva TLS en todas las peticiones, así que úsalo solo en una red de confianza. Poner `storage.s3.insecure` a `true` selecciona HTTP cuando el endpoint no tiene esquema. Un `https://` o `http://` explícito tiene prioridad.
 
 ## La carpeta dentro del bucket
 
@@ -30,7 +43,3 @@ Después de completar el asistente, para usar otra carpeta o la raíz del bucket
 2. Vuelve a ejecutar `frost init`. Su pantalla de revisión te avisa de que así empieza un conjunto de copias aparte. Pulsa `[s]` para seguir.
 
 Si ya tienes copias, muévelas en su lugar, como se explica en [Mover tus copias de seguridad](#moving-backups).
-
-## MinIO
-
-El servidor de MinIO admite escrituras condicionales, pero la versión que uses tiene que superar la comprobación del asistente. Crea un bucket y una clave de acceso en la consola de MinIO y dale al asistente la dirección y el puerto de tu servidor MinIO, como `https://<server>:9000`.

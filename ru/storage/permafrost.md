@@ -41,9 +41,11 @@ frost config set storage.permafrost.token <new key>
 
 В мастере первые два сообщения выглядят как «Permafrost didn't accept that access key» и «Permafrost won't store backups with that access key», а после них следует та же причина.
 
-## Собственный сервер
+## Совместимый сервер
 
-Любой может запустить сервер, поддерживающий [API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Совместимый сервер должен соблюдать правила API для объектов и ошибок, включая отказ от пустых загрузок. Если сервер занят, frost автоматически повторяет запрос.
+Вместо сервера по умолчанию frost может работать с любым сервером, поддерживающим [API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Этот вариант для тех, у кого уже есть такой сервер. Чтобы делать копии на своём компьютере, вариант [Собственный сервер](#self-hosted) требует только SSH.
+
+Совместимый сервер должен соблюдать правила API для объектов и ошибок, включая отказ от пустых загрузок. Если сервер занят, frost автоматически повторяет запрос.
 
 Перед первой настройкой создайте файл `config.toml` в папке конфигурации frost, указанной в разделе [Файлы и папки](#files-and-folders), с такими настройками. Замените адрес на адрес своего сервера:
 

@@ -29,6 +29,10 @@ A permissão continua valendo quando o frost é atualizado.
 
 Quando o macOS bloqueia um backup, o erro do frost diz qual app ou arquivo você precisa permitir.
 
+## Discos e compartilhamentos de rede
+
+O macOS também pergunta antes de um programa usar discos removíveis e compartilhamentos de rede. Isso inclui fazer backup em um [disco local](#local-drive) e fazer backup de pastas que estão em um disco. Ele pergunta pelo seu app de terminal nos backups que você executa e pelo ambiente de execução do frost nos agendados. O acesso total ao disco também cobre discos e compartilhamentos.
+
 ## iCloud Drive
 
 O frost não baixa os arquivos que o iCloud mantém só na nuvem, então um backup nunca enche o seu disco nem fica esperando downloads. Esses arquivos são pulados e listados. Para incluí-los no backup, faça o Finder mantê-los baixados neste Mac.

@@ -29,6 +29,10 @@ Die Berechtigung bleibt erhalten, wenn frost aktualisiert wird.
 
 Blockiert macOS ein Backup, nennt dir die Fehlermeldung von frost die App oder Datei, die du erlauben musst.
 
+## Laufwerke und Netzwerkfreigaben
+
+macOS fragt auch, bevor ein Programm Wechseldatenträger und Netzwerkfreigaben nutzt. Das betrifft Backups auf ein [lokales Laufwerk](#local-drive) und Backups von Ordnern auf einem Laufwerk. Für Backups, die du selbst startest, fragt es nach deiner Terminal-App, für geplante nach der Laufzeitumgebung von frost. Festplattenvollzugriff deckt Laufwerke und Freigaben ebenfalls ab.
+
 ## iCloud Drive
 
 frost lädt keine Dateien herunter, die iCloud nur online vorhält. Ein Backup füllt also nie deine Festplatte und wartet nie auf Downloads. Diese Dateien werden übersprungen und aufgelistet. Um sie zu sichern, lass den Finder sie dauerhaft auf diesem Mac geladen halten.

@@ -31,11 +31,10 @@
             "pages": [
                 { "id": "choosing-storage", "title": "Choosing storage", "path": "en/storage/choosing-storage.md" },
                 { "id": "permafrost", "title": "Permafrost", "path": "en/storage/permafrost.md" },
-                { "id": "amazon-s3", "title": "Amazon S3", "path": "en/storage/amazon-s3.md" },
-                { "id": "cloudflare-r2", "title": "Cloudflare R2", "path": "en/storage/cloudflare-r2.md" },
-                { "id": "backblaze-b2", "title": "Backblaze B2", "path": "en/storage/backblaze-b2.md" },
-                { "id": "wasabi", "title": "Wasabi", "path": "en/storage/wasabi.md" },
-                { "id": "other-s3", "title": "Other S3-compatible storage", "path": "en/storage/other-s3.md" }
+                { "id": "cloud-providers", "title": "Cloud providers", "path": "en/storage/cloud-providers.md" },
+                { "id": "other-s3", "title": "Other S3-compatible storage", "path": "en/storage/other-s3.md" },
+                { "id": "self-hosted", "title": "Self-hosted", "path": "en/storage/self-hosted.md" },
+                { "id": "local-drive", "title": "Local drive", "path": "en/storage/local-drive.md" }
             ]
         },
         {

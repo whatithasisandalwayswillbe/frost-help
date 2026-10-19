@@ -40,10 +40,34 @@ frost не находит `config.toml`. Выполните `frost init`. Есл
 | The server's certificate isn't valid for that address | Адрес и то, что сертификат сервера к нему подходит |
 | the storage didn't answer in time | Подключение к интернету, затем попробуйте снова |
 | can't reach Permafrost | Подключение к интернету, затем попробуйте снова |
+| Can't find that server | SSH-адрес и вашу сеть |
+| The server didn't answer | SSH-адрес и то, что сервер включён |
+| That server doesn't offer SFTP | Включён ли SFTP в настройках SSH или файловых служб сервера |
+| The server sent text before SFTP started | Не выводит ли что-нибудь сценарий входа на сервере, например `.bashrc`. Пусть он выводит текст только в интерактивных оболочках |
+| There's no folder ... on ... | Путь к папке. Папка, в которой она лежит, должна существовать |
+| The server won't let frost write in that folder | Права на папку для учётной записи, под которой входит frost |
+| ... isn't there. Connect the drive and try again | Подключён ли диск и верен ли путь |
+| frost can't write in that folder | Права на папку. В macOS смотрите раздел [Разрешения macOS](#macos-permissions) |
+| frost doesn't follow links or junctions to a backup folder | Используйте настоящий путь к папке |
+| That drive is read-only | Используйте диск, на который можно записывать |
 
 ## «This storage doesn't support conditional writes»
 
-Ваш провайдер не поддерживает функцию, без которой frost не может уберечь компьютеры от перезаписи служебных записей копий друг друга. Другие ключи или настройки не помогут. Выберите другого провайдера. Подробнее в разделе [Выбор хранилища](#choosing-storage).
+Ваше хранилище не поддерживает функцию, без которой frost не может уберечь компьютеры от перезаписи служебных записей копий друг друга. Другие ключи или настройки не помогут. Выберите другое хранилище. Подробнее в разделе [Выбор хранилища](#choosing-storage).
+
+Собственный сервер или диск сообщает об этом иначе. Сервер «can't make hard links», или папка находится «on a filesystem that can't create a file only when its name is free». Используйте папку на файловой системе вроде ext4, Btrfs, XFS, ZFS, APFS или NTFS.
+
+## «the server didn't accept frost's SSH key»
+
+Ваш собственный сервер отверг ключ frost, например после того, как ключ удалили из `authorized_keys`. Выполните `frost init` и добавьте ключ снова. Подробнее в разделе [Собственный сервер](#self-hosted).
+
+## «the server's SSH host key has changed»
+
+frost отказывается подключаться, когда меняется идентичность сервера, так же как ssh. Если вы переустановили сервер или у него новый адрес, удалите его старый ключ командой `ssh-keygen -R <host>` и снова выполните `frost init`. В остальных случаях сначала выясните, почему ключ изменился, и только потом подключайтесь.
+
+## «... isn't there. Connect the drive and try again»
+
+Ваши копии лежат на диске, который не подключён, или изменился путь к папке. Подключите диск. Если Windows назначила ему другую букву, смотрите раздел [Локальный диск](#local-drive).
 
 ## «the Permafrost access key was rejected»
 

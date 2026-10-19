@@ -2,7 +2,7 @@
 
 A sua frase de recuperação é a sua chave de criptografia escrita como 24 palavras. Ela é a única forma de ler seus backups.
 
-> Se você perder a frase de recuperação e o computador, seus backups estão perdidos. Ninguém consegue recuperá-los: nem o seu provedor de armazenamento, nem o Permafrost, nem os autores do frost.
+> Se você perder a frase de recuperação e o computador, seus backups estão perdidos. Ninguém consegue recuperá-los: nem quem guarda seus backups, nem o Permafrost, nem os autores do frost.
 
 ## Guarde bem
 

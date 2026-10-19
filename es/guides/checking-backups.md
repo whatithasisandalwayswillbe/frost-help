@@ -9,13 +9,14 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  s3://my-backups/frost/  key 6f154dc10058
+┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
 │  health       ok 21 objects checked 2h ago
 │  updates      automatic
 │  protected    1,204 files, 2.1 GB, in 3 snapshots
+│  storage      1.2 TB of 4 TB used
 │
 ├  snapshots
 │
@@ -35,7 +36,7 @@ La primera línea muestra la versión de frost, tu almacenamiento y la huella de
 | health | El resultado de la última comprobación aleatoria |
 | updates | Si las actualizaciones son automáticas, y si ha salido una versión nueva |
 | protected | Los archivos y el tamaño de la instantánea más reciente, y cuántas instantáneas tienes |
-| storage | Con Permafrost, cuánto de tu almacenamiento usas. Si Permafrost tiene un aviso, como que el almacenamiento está casi lleno, aparece primero |
+| storage | Cuánto de tu almacenamiento está en uso: una cuenta de Permafrost frente a su límite, o el disco de un servidor propio o de un disco local. Si hay un aviso, como que el almacenamiento está casi lleno, aparece primero |
 | missing | Instantáneas que este equipo conocía y que ya no están en el almacenamiento |
 
 La lista muestra tus 10 instantáneas más recientes. La columna `new` indica cuántos datos nuevos añadió cada una. Para verlas todas:
@@ -71,7 +72,7 @@ La fila health enumera lo que ha fallado. Normalmente significa que tu almacenam
 1. Ejecuta `frost backup`. Cualquier fragmento perdido cuyos datos sigan en tu equipo se vuelve a subir.
 2. Ejecuta `frost status --verify` para volver a comprobar.
 
-Los datos que ya no están en tu equipo no se pueden volver a subir, y las instantáneas antiguas que los necesitan no se podrán restaurar por completo. Una copia no sustituye automáticamente los fragmentos que siguen en el almacenamiento pero están dañados. Recupera una copia en buen estado de tu proveedor o de una copia de seguridad independiente y vuelve a comprobar.
+Los datos que ya no están en tu equipo no se pueden volver a subir, y las instantáneas antiguas que los necesitan no se podrán restaurar por completo. Una copia no sustituye automáticamente los fragmentos que siguen en el almacenamiento pero están dañados. Recupera una copia en buen estado de las propias copias de tu almacenamiento o de una copia independiente y vuelve a comprobar.
 
 ## Instantáneas desaparecidas
 

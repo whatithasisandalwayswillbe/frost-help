@@ -40,10 +40,34 @@ El asistente explica el problema y te devuelve a la respuesta que con más proba
 | The server's certificate isn't valid for that address | La dirección, y que el certificado del servidor la cubre |
 | the storage didn't answer in time | Tu conexión a internet; después, vuelve a intentarlo |
 | can't reach Permafrost | Tu conexión a internet; después, vuelve a intentarlo |
+| Can't find that server | La dirección SSH y tu red |
+| The server didn't answer | La dirección SSH, y que el servidor esté encendido |
+| That server doesn't offer SFTP | Que SFTP esté activado en los ajustes de SSH o de servicios de archivos del servidor |
+| The server sent text before SFTP started | Que un script de inicio de sesión del servidor, como `.bashrc`, no muestre nada. Haz que solo muestre texto en shells interactivas |
+| There's no folder ... on ... | La ruta de la carpeta. La carpeta que la contiene tiene que existir |
+| The server won't let frost write in that folder | Los permisos de la carpeta para la cuenta con la que inicia sesión frost |
+| ... isn't there. Connect the drive and try again | Que el disco esté conectado y la ruta sea correcta |
+| frost can't write in that folder | Los permisos de la carpeta. En macOS, consulta [Permisos de macOS](#macos-permissions) |
+| frost doesn't follow links or junctions to a backup folder | Usa la ruta real de la carpeta |
+| That drive is read-only | Usa un disco en el que puedas escribir |
 
 ## "This storage doesn't support conditional writes"
 
-Tu proveedor no admite una función que frost necesita para que los equipos no sobrescriban los registros de copia de los demás. Ni otras claves ni otros ajustes lo arreglan. Elige otro proveedor. Consulta [Elegir almacenamiento](#choosing-storage).
+Tu almacenamiento no admite una función que frost necesita para que los equipos no sobrescriban los registros de copia de los demás. Ni otras claves ni otros ajustes lo arreglan. Elige otro almacenamiento. Consulta [Elegir almacenamiento](#choosing-storage).
+
+Un servidor propio o un disco lo dice de otra manera. El servidor "can't make hard links", o la carpeta está "on a filesystem that can't create a file only when its name is free". Usa una carpeta en un sistema de archivos como ext4, Btrfs, XFS, ZFS, APFS o NTFS.
+
+## "the server didn't accept frost's SSH key"
+
+Tu servidor propio rechazó la clave de frost, por ejemplo después de quitarla de `authorized_keys`. Ejecuta `frost init` y vuelve a añadir la clave. Consulta [Servidor propio](#self-hosted).
+
+## "the server's SSH host key has changed"
+
+frost se niega a conectarse cuando cambia la identidad del servidor, igual que ssh. Si reinstalaste el servidor o tiene una dirección nueva, borra su clave antigua con `ssh-keygen -R <host>` y vuelve a ejecutar `frost init`. Si no, averigua por qué cambió la clave antes de conectarte.
+
+## "... isn't there. Connect the drive and try again"
+
+Tus copias están en un disco que no está conectado, o la ruta de la carpeta cambió. Conecta el disco. Si Windows le dio otra letra, consulta [Disco local](#local-drive).
 
 ## "the Permafrost access key was rejected"
 

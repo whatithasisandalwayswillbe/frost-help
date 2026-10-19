@@ -56,11 +56,15 @@ Nada comprueba el archivo antes de que lo guardes. Si no se puede interpretar, l
 | `schedule.catch_up` | `true` | Hace una copia cuando tu equipo vuelve tras perderse una. `false` se salta las copias perdidas |
 | `verify.sample` | `20` | Cuántos fragmentos descarga la comprobación aleatoria. `0` la desactiva |
 | `update.auto` | `true` | Instalar versiones nuevas después de las copias programadas. `false` solo te avisa de ellas |
-| `storage.backend` | | `permafrost` o `s3` |
+| `storage.backend` | | `permafrost`, `s3`, `sftp` para [Servidor propio](#self-hosted), o `local` para un [disco local](#local-drive) |
+| `storage.sftp.host` | | La dirección SSH de tu servidor, como `me@nas.local`, o un `Host` de tu configuración de SSH |
+| `storage.sftp.port` | `0` | El puerto SSH del servidor. `0` usa el puerto de tu configuración de SSH, o el 22 |
+| `storage.sftp.path` | `frost` | La carpeta del servidor. Una ruta relativa empieza en tu carpeta personal del servidor |
+| `storage.local.path` | | La ruta completa de la carpeta en un disco |
 | `storage.permafrost.url` | | Vacío para el servidor predeterminado, `https://permafrost.wihiaawb.com`. Si no, una dirección `https://`, o `http://` para un servidor en tu propio equipo |
 | `storage.permafrost.token` | | Tu clave de acceso de Permafrost |
 | `storage.s3.endpoint` | | Como `s3.us-east-1.amazonaws.com`. También vale una dirección completa `https://`, y una `http://` desactiva TLS |
-| `storage.s3.region` | | Vacío si tu proveedor no usa regiones |
+| `storage.s3.region` | | Vacío si tu servidor o proveedor no usa regiones |
 | `storage.s3.bucket` | | El nombre del bucket. Ya tiene que existir |
 | `storage.s3.prefix` | `frost` | La carpeta del bucket que contiene tus copias. Vacío para la raíz del bucket |
 | `storage.s3.access_key_id` | | Tu ID de clave de acceso |

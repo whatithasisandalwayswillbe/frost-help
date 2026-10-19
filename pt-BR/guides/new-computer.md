@@ -5,7 +5,7 @@ Se o seu computador for perdido, quebrar ou for trocado, você pode recuperar se
 ## O que você precisa
 
 - A sua frase de recuperação de 24 palavras.
-- Os dados do seu armazenamento: a sua chave de acesso do Permafrost, ou o nome do bucket e as chaves de acesso do seu provedor S3.
+- Os dados do seu armazenamento: o endereço SSH e a pasta do seu servidor, o seu disco, a sua chave de acesso do Permafrost, ou o nome e as chaves de acesso do seu bucket.
 
 Se você ainda tiver o computador antigo, o `frost key show` mostra a frase.
 

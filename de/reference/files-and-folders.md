@@ -20,6 +20,7 @@ Der `frost`-Starter liegt unter macOS und Linux in `/usr/local/bin` oder `~/.loc
 | --- | --- | --- |
 | Einstellungen | `~/.config/frost/config.toml` | `%AppData%\frost\config.toml` |
 | Schlüssel | `~/.config/frost/key` | `%AppData%\frost\key` |
+| SSH-Schlüssel für einen eigenen Server | `~/.config/frost/ssh/frost_ed25519` | `%AppData%\frost\ssh\frost_ed25519` |
 
 ## Cache
 

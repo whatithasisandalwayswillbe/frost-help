@@ -1,24 +1,37 @@
 # Anderer S3-kompatibler Speicher
 
-Nutze einen beliebigen anderen Dienst, der das S3-Protokoll spricht, etwa MinIO, Ceph oder einen Anbieter ohne eigene Vorlage in der Einrichtung. Er muss bedingte Schreibvorgänge unterstützen. Siehe [Speicher auswählen](#choosing-storage).
+Nutze einen S3-Server, den du selbst betreibst, etwa Ceph oder SeaweedFS, oder einen anderen Dienst, der das S3-Protokoll spricht und keine eigene Vorlage hat. Er muss bedingte Schreibvorgänge unterstützen, was die Einrichtung prüft. Siehe [Speicher auswählen](#choosing-storage).
+
+Willst du auf eine eigene Maschine sichern, ohne einen S3-Server zu betreiben, ist [Eigener Server](#self-hosted) einfacher. Dafür reicht SSH.
 
 ## In der Einrichtung
 
-Starte `frost init` und wähle **Other S3-compatible**.
+Starte `frost init`, wähle **S3-compatible** und dann **Other S3-compatible**.
 
 | Die Einrichtung fragt | Antwort |
 | --- | --- |
-| What's the S3 endpoint? | Der Hostname aus der Dokumentation deines Anbieters. Ein Hostname ohne `https://` bedeutet HTTPS |
-| Which region? | Nur wenn dein Anbieter danach fragt. Sonst leer lassen |
+| What's the S3 endpoint? | Der Hostname aus der Dokumentation deines Servers oder Anbieters. Ein Hostname ohne `https://` bedeutet HTTPS |
+| Which region? | Nur wenn dein Server oder Anbieter danach fragt. Sonst leer lassen |
 | What's the bucket called? | Sein Name, genau so, wie du ihn angelegt hast. Der Bucket muss schon existieren |
-| Paste the access key ID. | Aus der Konsole deines Anbieters |
-| Paste the secret access key. | Aus der Konsole deines Anbieters |
+| Paste the access key ID. | Aus der Konsole deines Servers oder Anbieters |
+| Paste the secret access key. | Aus der Konsole deines Servers oder Anbieters |
 
 frost legt deine Backups in einem Ordner `frost` im Bucket ab.
 
+## Server, die du betreibst
+
+| Server | Was du wissen solltest |
+| --- | --- |
+| Ceph | Sein RADOS Gateway unterstützt bedingte Schreibvorgänge. Gib der Einrichtung Adresse und Port des Gateways an |
+| SeaweedFS | Sein S3-Gateway dokumentiert bedingte Schreibvorgänge. Gib der Einrichtung seine Adresse an, etwa `http://<server>:8333` |
+| MinIO | Unterstützt bedingte Schreibvorgänge, wird aber nicht mehr gepflegt und bekommt keine Fehlerbehebungen. Ein vorhandener Server funktioniert weiter, wenn er den Test der Einrichtung besteht. Gib der Einrichtung seine Adresse an, etwa `https://<server>:9000` |
+| Garage | Unterstützt keine bedingten Schreibvorgänge, frost kann es also nicht nutzen |
+
+Leg den Bucket und einen Zugriffsschlüssel vorher mit den Werkzeugen des Servers an.
+
 ## Ein Server ohne TLS
 
-Für einen Testserver auf deinem eigenen Computer oder in deinem Netzwerk gibst du den Endpunkt mit `http://` an, etwa `http://localhost:9000`. Damit ist TLS für alle Anfragen ausgeschaltet, also tu das nur in einem Netzwerk, dem du vertraust. Wenn du `storage.s3.insecure` auf `true` setzt, wird HTTP für Endpunkte ohne Protokollangabe verwendet. Ein ausdrücklich angegebenes `https://` oder `http://` hat Vorrang.
+Für einen Server auf deinem eigenen Computer oder in deinem Netzwerk gibst du den Endpunkt mit `http://` an, etwa `http://localhost:9000`. Damit ist TLS für alle Anfragen ausgeschaltet, also tu das nur in einem Netzwerk, dem du vertraust. Wenn du `storage.s3.insecure` auf `true` setzt, wird HTTP für Endpunkte ohne Protokollangabe verwendet. Ein ausdrücklich angegebenes `https://` oder `http://` hat Vorrang.
 
 ## Der Ordner im Bucket
 
@@ -30,7 +43,3 @@ Um nach Abschluss der Einrichtung und vor deinem ersten Backup einen anderen Ord
 2. Starte `frost init` erneut. Der Übersichtsbildschirm warnt, dass damit ein separater Satz Backups beginnt. Drück `[s]`, um fortzufahren.
 
 Hast du schon Backups, verschieb sie stattdessen, wie unter [Backups verschieben](#moving-backups) beschrieben.
-
-## MinIO
-
-MinIO unterstützt bedingte Schreibvorgänge im Server, aber deine Version muss den Test der Einrichtung bestehen. Leg in der MinIO-Konsole einen Bucket und einen Zugriffsschlüssel an und gib der Einrichtung dann Adresse und Port deines MinIO-Servers an, etwa `https://<server>:9000`.

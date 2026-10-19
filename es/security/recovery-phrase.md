@@ -2,7 +2,7 @@
 
 Tu frase de recuperación es tu clave de cifrado escrita como 24 palabras. Es la única forma de leer tus copias de seguridad.
 
-> Si pierdes la frase de recuperación y el equipo, tus copias se pierden. Nadie puede recuperarlas: ni tu proveedor de almacenamiento, ni Permafrost, ni los autores de frost.
+> Si pierdes la frase de recuperación y el equipo, tus copias se pierden. Nadie puede recuperarlas: ni quien guarda tus copias, ni Permafrost, ni los autores de frost.
 
 ## Guárdala bien
 

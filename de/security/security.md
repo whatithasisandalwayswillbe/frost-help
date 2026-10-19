@@ -1,6 +1,6 @@
 # Sicherheit und Datenschutz
 
-frost verschlüsselt deine Backups auf deinem Computer, mit einem Schlüssel, den nur du hast, bevor irgendetwas hochgeladen wird. Weder dein Speicheranbieter noch der Betreiber von Permafrost noch die Entwickler von frost können sie lesen.
+frost verschlüsselt deine Backups auf deinem Computer, mit einem Schlüssel, den nur du hast, bevor irgendetwas gespeichert wird. Ohne den Schlüssel kann niemand sie lesen: kein Cloud-Anbieter, nicht der Betreiber von Permafrost, niemand sonst mit Zugriff auf deinen Server oder dein Laufwerk und nicht die Entwickler von frost.
 
 frost hat keine Konten und sammelt nichts über dich oder darüber, wie du es nutzt. Es verbindet sich nur mit deinem Speicher und mit GitHub, um nach Updates zu suchen und sie herunterzuladen.
 
@@ -16,9 +16,9 @@ frost verschlüsselt alles in deinen Backups: Dateiinhalte, Dateinamen, die Ordn
 | Blocknamen | HMAC-SHA256 des Blockinhalts, berechnet mit deinem Schlüssel |
 | Kompression | zstd, vor der Verschlüsselung, nur wenn die Daten dadurch kleiner werden |
 
-## Was dein Anbieter sehen kann
+## Was dein Speicher sehen kann
 
-Dein Speicheranbieter, ob ein S3-Dienst oder Permafrost, kann sehen:
+Wer deinen Speicher betreibt oder lesen kann, sieht Folgendes. Das ist ein Cloud-Anbieter oder Permafrost, bei einem eigenen Server oder einem Laufwerk jeder, der darauf Zugriff hat.
 
 - Wie viele Objekte du hast, wie groß sie sind und wann sie hochgeladen wurden.
 - Welche Objekte Blöcke, Snapshot-Köpfe oder Indizes von Dateilisten sind.
@@ -30,27 +30,29 @@ Er kann nicht prüfen, ob du eine bestimmte bekannte Datei hast. Sowohl die Bloc
 
 ## Wovor frost schützt
 
-- Davor, dass dein Anbieter oder jemand mit einer Kopie deines Buckets deine Dateien liest.
-- Vor jemandem im Netzwerk zwischen dir und deinem Speicher. Verbindungen nutzen TLS, außer du wählst einen S3-Endpunkt mit `http://` oder aktivierst `storage.s3.insecure` für einen Endpunkt ohne Protokollangabe. Permafrost erlaubt `http://` nur auf deinem eigenen Computer. Nutze unverschlüsseltes HTTP nur für lokale Tests. Jedes Backup-Objekt ist in beiden Fällen authentifiziert.
+- Davor, dass jemand, der deinen Speicher betreibt oder erreicht, deine Dateien liest, auch mit einer Kopie deines Buckets, des Ordners auf deinem Server oder deines Laufwerks.
+- Vor jemandem im Netzwerk zwischen dir und deinem Speicher. Verbindungen nutzen TLS oder SSH, außer du wählst einen S3-Endpunkt mit `http://` oder aktivierst `storage.s3.insecure` für einen Endpunkt ohne Protokollangabe. Permafrost erlaubt `http://` nur auf deinem eigenen Computer. Nutze unverschlüsseltes HTTP nur für lokale Tests. Jedes Backup-Objekt ist in beiden Fällen authentifiziert.
+- Vor jemandem, der sich als dein eigener Server ausgibt. SSH prüft den Host-Schlüssel des Servers und lehnt einen geänderten ab. Siehe [Eigener Server](#self-hosted).
 - Vor Manipulation. Ein verändertes, vertauschtes oder abgeschnittenes Objekt lässt sich nicht entschlüsseln, und frost akzeptiert es nie stillschweigend.
 - Davor, dass eine Wiederherstellung außerhalb des gewählten Ordners schreibt.
 - Vor manipulierten frost-Downloads. Jede Version ist signiert, und die Installationsprogramme, das npm-Paket `getfrost` und `frost update` prüfen die Signatur, bevor sie etwas installieren.
 
 ## Wovor es nicht schützen kann
 
-- **Vor jemandem mit Zugriff auf deinen Computer.** Die Schlüsseldatei liegt auf deinem Computer, damit geplante Backups laufen können. Wer sie lesen oder Programme unter deinem Namen ausführen kann, kann deine Backups lesen. Nutze eine vollständige Festplattenverschlüsselung und eine Bildschirmsperre.
-- **Vor Datenverlust im Speicher.** Dein Anbieter könnte deine Objekte löschen oder zurückhalten. Stichprobenprüfungen können das bemerken, aber frost kann es nicht verhindern. Halte von allem, was du auf keinen Fall verlieren darfst, eine zweite, unabhängige Kopie vor.
-- **Vor versteckten Snapshots.** Ein Anbieter könnte deine neuesten Snapshots verstecken und nur ältere ausliefern. Ein Computer, der die neueren schon gesehen hat, meldet sie als fehlend, ein neuer Computer kann es aber nicht erkennen. Jeder ausgelieferte Snapshot ist trotzdem echt.
+- **Vor jemandem mit Zugriff auf deinen Computer.** Die Schlüsseldatei liegt auf deinem Computer, damit geplante Backups laufen können, ebenso der SSH-Schlüssel von frost für einen eigenen Server. Wer die Schlüsseldatei lesen oder Programme unter deinem Namen ausführen kann, kann deine Backups lesen. Nutze eine vollständige Festplattenverschlüsselung und eine Bildschirmsperre.
+- **Vor Datenverlust im Speicher.** Wer deinen Speicher kontrolliert, könnte deine Objekte löschen oder zurückhalten, und ein Laufwerk kann kaputtgehen oder verloren gehen. Stichprobenprüfungen können das bemerken, aber frost kann es nicht verhindern. Halte von allem, was du auf keinen Fall verlieren darfst, eine zweite, unabhängige Kopie vor, und zwar nicht auf dem Laufwerk neben deinem Computer.
+- **Vor versteckten Snapshots.** Der Speicher könnte deine neuesten Snapshots verstecken und nur ältere ausliefern. Ein Computer, der die neueren schon gesehen hat, meldet sie als fehlend, ein neuer Computer kann es aber nicht erkennen. Jeder ausgelieferte Snapshot ist trotzdem echt.
 - **Vor Rückschlüssen aus Zeitpunkten und Größen.** Wann du sicherst und wie viel, ist sichtbar, wie oben beschrieben.
 
 ## Dateien auf deinem Computer
 
-Unter macOS und Linux legt frost seine privaten Dateien mit Berechtigungen nur für deinen Benutzer an. Vorhandene Berechtigungen und vom Zeitplaner angelegte Protokolle können davon abweichen. Unter Windows übernehmen die Dateien die Berechtigungen deines Benutzerprofils. Bewahre Konfiguration und Cache in Ordnern auf, die andere Benutzer nicht lesen können.
+Unter macOS und Linux legt frost seine privaten Dateien mit Berechtigungen nur für deinen Benutzer an. Vorhandene Berechtigungen und vom Zeitplaner angelegte Protokolle können davon abweichen. Unter Windows übernehmen die Dateien die Berechtigungen deines Benutzerprofils, außer dem SSH-Schlüssel von frost, dessen Ordner nur dein Konto öffnen kann. Bewahre Konfiguration und Cache in Ordnern auf, die andere Benutzer nicht lesen können.
 
 | Datei | Inhalt |
 | --- | --- |
 | `key` | Deine Wiederherstellungsphrase, im Klartext |
 | `config.toml` | Deine Einstellungen und die Zugangsdaten für deinen Speicher |
+| `ssh/frost_ed25519` | Der SSH-Schlüssel von frost für einen eigenen Server |
 | `manifest-*.jsonl` | Block-IDs, Dateipfade, Größen und Änderungszeiten. Sie verlässt deinen Computer nie |
 | `frost.log` | Die Ausgabe geplanter Backups, einschließlich Pfaden, die sich nicht lesen ließen |
 
@@ -60,7 +62,7 @@ Unter macOS und Linux legt frost seine privaten Dateien mit Berechtigungen nur f
 
 - Bewahre deine Wiederherstellungsphrase offline auf, auf Papier oder in einem Passwortmanager, dem du vertraust.
 - Führ ab und zu `frost key verify` aus, um sicherzugehen, dass die aufgeschriebene Phrase stimmt.
-- Gib frost Zugangsdaten, die nur seinen eigenen Bucket erreichen.
+- Gib frost Zugangsdaten, die nur seinen eigenen Bucket erreichen, oder ein Serverkonto, das sonst nichts ändern kann, was dir wichtig ist.
 - Wirf ab und zu einen Blick auf `frost status` und geh jedem Problem mit dem Zustand sofort nach.
 
 ## Ein Sicherheitsproblem melden

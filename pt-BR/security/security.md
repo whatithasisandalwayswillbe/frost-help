@@ -1,6 +1,6 @@
 # Segurança e privacidade
 
-O frost criptografa seus backups no seu computador, com uma chave que só você tem, antes de enviar qualquer coisa. Nem o seu provedor de armazenamento, nem quem opera o Permafrost, nem os autores do frost conseguem lê-los.
+O frost criptografa seus backups no seu computador, com uma chave que só você tem, antes de guardar qualquer coisa. Ninguém sem a chave consegue lê-los: nem um provedor de nuvem, nem quem opera o Permafrost, nem outra pessoa com acesso ao seu servidor ou ao seu disco, nem os autores do frost.
 
 O frost não tem contas e não coleta nada sobre você nem sobre como você o usa. Ele só se conecta ao seu armazenamento e ao GitHub, para verificar e baixar atualizações.
 
@@ -16,9 +16,9 @@ O frost criptografa tudo o que está nos seus backups: o conteúdo dos arquivos,
 | Nomes dos blocos | HMAC-SHA256 do conteúdo do bloco, calculado com a sua chave |
 | Compactação | zstd, antes da criptografia, só quando deixa os dados menores |
 
-## O que o seu provedor consegue ver
+## O que o seu armazenamento consegue ver
 
-O seu provedor de armazenamento, seja um serviço S3 ou o Permafrost, consegue ver:
+Quem mantém o seu armazenamento, ou consegue lê-lo, vê o que está abaixo. É um provedor de nuvem ou o Permafrost, ou, em um servidor próprio ou um disco, qualquer pessoa com acesso a ele.
 
 - Quantos objetos você tem, o tamanho deles e quando foram enviados.
 - Quais objetos são blocos, cabeçalhos de snapshot ou índices de listas de arquivos.
@@ -30,27 +30,29 @@ Ele não consegue verificar se você tem um determinado arquivo conhecido. Tanto
 
 ## Contra o que o frost protege
 
-- O seu provedor, ou alguém com uma cópia do seu bucket, lendo seus arquivos.
-- Alguém na rede entre você e o seu armazenamento. As conexões usam TLS, a menos que você escolha um endpoint S3 com `http://` ou ative `storage.s3.insecure` para um endpoint sem esquema. O Permafrost só permite `http://` no seu próprio computador. Use HTTP sem criptografia apenas para testes locais. Cada objeto do backup é autenticado em qualquer caso.
+- Quem mantém ou alcança o seu armazenamento lendo seus arquivos, inclusive alguém com uma cópia do seu bucket, da pasta do seu servidor ou do seu disco.
+- Alguém na rede entre você e o seu armazenamento. As conexões usam TLS ou SSH, a menos que você escolha um endpoint S3 com `http://` ou ative `storage.s3.insecure` para um endpoint sem esquema. O Permafrost só permite `http://` no seu próprio computador. Use HTTP sem criptografia apenas para testes locais. Cada objeto do backup é autenticado em qualquer caso.
+- Alguém se passando pelo seu servidor próprio. O SSH confere a chave de host do servidor e recusa uma que tenha mudado. Veja [Servidor próprio](#self-hosted).
 - Adulteração. Um objeto alterado, trocado ou truncado não é descriptografado, e o frost nunca o aceita em silêncio.
 - Uma restauração gravando fora da pasta que você escolheu.
 - Downloads do frost adulterados. Cada versão é assinada, e os instaladores, o pacote `getfrost` do npm e o `frost update` conferem a assinatura antes de instalar qualquer coisa.
 
 ## Contra o que ele não protege
 
-- **Alguém com acesso ao seu computador.** O arquivo da chave fica no seu computador para que os backups agendados funcionem. Quem conseguir lê-lo, ou executar programas como você, consegue ler seus backups. Use criptografia de disco completo e bloqueio de tela.
-- **Perda de dados no armazenamento.** O seu provedor pode apagar ou reter seus objetos. As verificações por amostragem podem perceber isso, mas o frost não consegue impedir. Mantenha uma segunda cópia independente de tudo o que você não pode perder.
-- **Snapshots escondidos.** Um provedor poderia esconder seus snapshots mais recentes e servir só os antigos. Um computador que já viu os mais novos avisa que eles sumiram, mas um computador novo não tem como saber. Cada snapshot servido continua sendo autêntico.
+- **Alguém com acesso ao seu computador.** O arquivo da chave fica no seu computador para que os backups agendados funcionem, assim como a chave SSH do frost para um servidor próprio. Quem conseguir ler o arquivo da chave, ou executar programas como você, consegue ler seus backups. Use criptografia de disco completo e bloqueio de tela.
+- **Perda de dados no armazenamento.** Quem controla o seu armazenamento pode apagar ou reter seus objetos, e um disco pode falhar ou se perder. As verificações por amostragem podem perceber isso, mas o frost não consegue impedir. Mantenha uma segunda cópia independente de tudo o que você não pode perder, em um lugar que não seja o disco ao lado do seu computador.
+- **Snapshots escondidos.** O armazenamento poderia esconder seus snapshots mais recentes e servir só os antigos. Um computador que já viu os mais novos avisa que eles sumiram, mas um computador novo não tem como saber. Cada snapshot servido continua sendo autêntico.
 - **Horários e tamanhos.** Quando você faz backup, e de quanto, fica visível, como mostrado acima.
 
 ## Arquivos no seu computador
 
-No macOS e no Linux, o frost cria seus arquivos privados com permissões só para o seu usuário. As permissões existentes e os logs criados pelo agendador podem ser diferentes. No Windows, os arquivos herdam as permissões do seu perfil de usuário. Mantenha a configuração e o cache em pastas que outros usuários não possam ler.
+No macOS e no Linux, o frost cria seus arquivos privados com permissões só para o seu usuário. As permissões existentes e os logs criados pelo agendador podem ser diferentes. No Windows, os arquivos herdam as permissões do seu perfil de usuário, exceto a chave SSH do frost, cuja pasta só a sua conta consegue abrir. Mantenha a configuração e o cache em pastas que outros usuários não possam ler.
 
 | Arquivo | Contém |
 | --- | --- |
 | `key` | A sua frase de recuperação, em texto puro |
 | `config.toml` | Suas configurações e as credenciais do armazenamento |
+| `ssh/frost_ed25519` | A chave SSH do frost para um servidor próprio |
 | `manifest-*.jsonl` | IDs de blocos, caminhos de arquivos, tamanhos e datas de modificação. Ele nunca sai do seu computador |
 | `frost.log` | A saída dos backups agendados, incluindo os caminhos que não puderam ser lidos |
 
@@ -60,7 +62,7 @@ No macOS e no Linux, o frost cria seus arquivos privados com permissões só par
 
 - Guarde a sua frase de recuperação fora do computador, em papel ou em um gerenciador de senhas de confiança.
 - Execute `frost key verify` de vez em quando para garantir que a frase anotada está certa.
-- Dê ao frost credenciais de armazenamento que só alcancem o próprio bucket.
+- Dê ao frost credenciais de armazenamento que só alcancem o próprio bucket, ou uma conta no servidor que não consiga mudar mais nada que importe para você.
 - Confira o `frost status` de vez em quando e investigue na hora qualquer problema de integridade.
 
 ## Relatar um problema de segurança

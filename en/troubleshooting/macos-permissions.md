@@ -29,6 +29,10 @@ The permission carries over when frost updates.
 
 When macOS blocks a backup, frost's error says which app or file to allow.
 
+## Drives and network shares
+
+macOS also asks before a program uses removable drives and network shares. That covers backing up to a [local drive](#local-drive), and backing up folders on a drive. It asks about your terminal app for backups you run yourself, and about frost's runtime for scheduled ones. Full Disk Access covers drives and shares too.
+
 ## iCloud Drive
 
 frost doesn't download files that iCloud keeps only online, so a backup never fills your disk or waits on downloads. Those files are skipped and listed. To back them up, have Finder keep them downloaded on this Mac.

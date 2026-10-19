@@ -56,11 +56,15 @@ frost는 지정한 편집기에서 `config.toml`의 사본을 엽니다. 지정�
 | `schedule.catch_up` | `true` | 백업을 놓쳤을 때 컴퓨터가 돌아오면 백업합니다. `false`면 놓친 백업을 건너뜁니다 |
 | `verify.sample` | `20` | 표본 검사에서 내려받을 청크 수. `0`이면 검사를 끕니다 |
 | `update.auto` | `true` | 예약된 백업 후 새 릴리스를 설치할지. `false`면 알려 주기만 합니다 |
-| `storage.backend` | | `permafrost` 또는 `s3` |
+| `storage.backend` | | `permafrost`, `s3`, [셀프 호스팅](#self-hosted)은 `sftp`, [로컬 드라이브](#local-drive)는 `local` |
+| `storage.sftp.host` | | 서버의 SSH 주소. 예: `me@nas.local`, 또는 SSH 설정의 `Host` |
+| `storage.sftp.port` | `0` | 서버의 SSH 포트. `0`이면 SSH 설정의 포트를, 없으면 22를 씁니다 |
+| `storage.sftp.path` | `frost` | 서버의 폴더. 상대 경로는 서버의 홈 폴더에서 시작합니다 |
+| `storage.local.path` | | 드라이브에 있는 폴더의 전체 경로 |
 | `storage.permafrost.url` | | 비워 두면 기본 서버인 `https://permafrost.wihiaawb.com`을 씁니다. 그 밖에는 `https://` 주소, 또는 자신의 컴퓨터에서 도는 서버라면 `http://` 주소 |
 | `storage.permafrost.token` | | Permafrost 액세스 키 |
 | `storage.s3.endpoint` | | `s3.us-east-1.amazonaws.com` 등. 전체 `https://` 주소도 쓸 수 있으며, `http://` 주소를 쓰면 TLS가 꺼집니다 |
-| `storage.s3.region` | | 제공업체가 리전을 쓰지 않으면 비워 둡니다 |
+| `storage.s3.region` | | 서버나 제공업체가 리전을 쓰지 않으면 비워 둡니다 |
 | `storage.s3.bucket` | | 버킷 이름. 미리 만들어 두어야 합니다 |
 | `storage.s3.prefix` | `frost` | 백업을 담는 버킷 안의 폴더. 비워 두면 버킷 최상위입니다 |
 | `storage.s3.access_key_id` | | 액세스 키 ID |

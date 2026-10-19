@@ -20,6 +20,7 @@ frost хранит приложение, ваши настройки и свой
 | --- | --- | --- |
 | Настройки | `~/.config/frost/config.toml` | `%AppData%\frost\config.toml` |
 | Ключ | `~/.config/frost/key` | `%AppData%\frost\key` |
+| SSH-ключ для собственного сервера | `~/.config/frost/ssh/frost_ed25519` | `%AppData%\frost\ssh\frost_ed25519` |
 
 ## Кэш
 

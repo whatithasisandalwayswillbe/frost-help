@@ -11,10 +11,11 @@ In einem Terminal öffnet `frost init` eine Einrichtung im Vollbild. Sie braucht
 Wähle, wo deine Backups liegen sollen:
 
 - **Permafrost**, die empfohlene Option. Du brauchst nur einen Zugriffsschlüssel und sonst nichts, und wenn du noch keinen hast, öffnet frost getfro.st/perma, damit du dir einen holen kannst. Siehe [Permafrost](#permafrost).
-- **Backblaze B2**, **Amazon S3**, **Cloudflare R2** oder **Wasabi**. Die Einrichtung fragt nur, was dieser Anbieter braucht, und sagt dir, wo du jede Antwort findest.
-- **Other S3-compatible** (anderer S3-kompatibler Dienst), für MinIO, Ceph und andere Dienste, die das S3-Protokoll sprechen.
+- **S3-compatible** (S3-kompatibel), das eine zweite Liste öffnet: **Amazon S3**, **Backblaze B2**, **Cloudflare R2**, **Wasabi** oder **Other S3-compatible** (anderer S3-kompatibler Dienst) für Ceph, SeaweedFS und andere Dienste, die das S3-Protokoll sprechen. Die Einrichtung fragt nur, was dieser Dienst braucht, und sagt dir, wo du jede Antwort findest. Siehe [Cloud-Anbieter](#cloud-providers) und [Anderer S3-kompatibler Speicher](#other-s3).
+- **Self-hosted** (eigener Server), für einen Ordner auf deinem eigenen Server über SSH. Die Einrichtung fragt nach der Adresse des Servers und dem Ordner und hilft dir, den SSH-Schlüssel von frost auf den Server zu bringen. Siehe [Eigener Server](#self-hosted).
+- **Local drive** (lokales Laufwerk), für einen Ordner auf einem internen oder externen Laufwerk. Die Einrichtung fragt nach dem vollständigen Pfad des Ordners. Siehe [Lokales Laufwerk](#local-drive).
 
-Jeder Anbieter hat eine eigene Seite im Bereich Speicher. Wenn du einen geheimen Schlüssel einfügst, blendet `[tab]` ihn ein oder aus.
+Wenn du einen geheimen Schlüssel einfügst, blendet `[tab]` ihn ein oder aus.
 
 Sobald du alles beantwortet hast, verbindet sich frost und prüft, ob es ein kleines Testobjekt schreiben, lesen, auflisten und löschen kann und ob der Speicher bedingte Schreibvorgänge unterstützt. Geht etwas schief, erklärt die Einrichtung das in einfachen Worten und bringt dich zu der Antwort zurück, die es am wahrscheinlichsten verursacht hat. Alles andere, was du eingegeben hast, bleibt erhalten.
 
@@ -71,4 +72,4 @@ Für einen neuen Speicherort nutze `frost config edit`, bestätige die Warnung, 
 
 ## Ohne Vollbild-Terminal
 
-Läuft frost nicht in einem interaktiven Terminal, zum Beispiel bei umgeleiteter Eingabe, stellt `frost init` einfache Fragen, eine pro Zeile. Statt der Anbieterliste bietet es Permafrost oder einen allgemeinen S3-kompatiblen Bucket an und fragt zusätzlich nach dem Ordner im Bucket. Listen werden mit Kommas getrennt, und `-` lässt die Ausschlussliste leer. Auch hier öffnet frost getfro.st/perma, wenn du einen neuen Permafrost-Schlüssel brauchst.
+Läuft frost nicht in einem interaktiven Terminal, zum Beispiel bei umgeleiteter Eingabe, stellt `frost init` einfache Fragen, eine pro Zeile. Es bietet Permafrost, einen allgemeinen S3-kompatiblen Bucket, Self-hosted und Local drive an, ohne die Liste der S3-Dienste, und fragt zusätzlich nach dem Ordner in einem Bucket. Listen werden mit Kommas getrennt, und `-` lässt die Ausschlussliste leer. Auch hier öffnet frost getfro.st/perma, wenn du einen neuen Permafrost-Schlüssel brauchst, und kann seinen SSH-Schlüssel auf deinen Server bringen: ssh fragt nach deinem Passwort, oder frost gibt die Zeile aus, die du selbst hinzufügst.

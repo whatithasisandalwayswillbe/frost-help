@@ -40,10 +40,34 @@ A configuração explica o problema e leva você de volta à resposta que mais p
 | The server's certificate isn't valid for that address | O endereço, e se o certificado do servidor o cobre |
 | the storage didn't answer in time | A sua conexão com a internet; depois, tente de novo |
 | can't reach Permafrost | A sua conexão com a internet; depois, tente de novo |
+| Can't find that server | O endereço SSH e a sua rede |
+| The server didn't answer | O endereço SSH, e se o servidor está ligado |
+| That server doesn't offer SFTP | Se o SFTP está ativado nas configurações de SSH ou de serviços de arquivos do servidor |
+| The server sent text before SFTP started | Se um script de login do servidor, como `.bashrc`, mostra alguma coisa. Faça ele mostrar texto só em shells interativos |
+| There's no folder ... on ... | O caminho da pasta. A pasta que a contém precisa existir |
+| The server won't let frost write in that folder | As permissões da pasta para a conta com que o frost entra |
+| ... isn't there. Connect the drive and try again | Se o disco está conectado e o caminho está certo |
+| frost can't write in that folder | As permissões da pasta. No macOS, veja [Permissões do macOS](#macos-permissions) |
+| frost doesn't follow links or junctions to a backup folder | Use o caminho real da pasta |
+| That drive is read-only | Use um disco em que você possa gravar |
 
 ## "This storage doesn't support conditional writes"
 
-O seu provedor não oferece um recurso de que o frost precisa para evitar que computadores sobrescrevam os registros de backup uns dos outros. Outras chaves ou configurações não resolvem. Escolha outro provedor. Veja [Escolher o armazenamento](#choosing-storage).
+O seu armazenamento não oferece um recurso de que o frost precisa para evitar que computadores sobrescrevam os registros de backup uns dos outros. Outras chaves ou configurações não resolvem. Escolha outro armazenamento. Veja [Escolher o armazenamento](#choosing-storage).
+
+Um servidor próprio ou um disco diz isso de outro jeito. O servidor "can't make hard links", ou a pasta está "on a filesystem that can't create a file only when its name is free". Use uma pasta em um sistema de arquivos como ext4, Btrfs, XFS, ZFS, APFS ou NTFS.
+
+## "the server didn't accept frost's SSH key"
+
+O seu servidor próprio recusou a chave do frost, por exemplo depois que ela foi removida de `authorized_keys`. Execute `frost init` e adicione a chave de novo. Veja [Servidor próprio](#self-hosted).
+
+## "the server's SSH host key has changed"
+
+O frost se recusa a conectar quando a identidade do servidor muda, como faz o ssh. Se você reinstalou o servidor ou ele ganhou um endereço novo, remova a chave antiga com `ssh-keygen -R <host>` e execute `frost init` de novo. Caso contrário, descubra por que a chave mudou antes de se conectar.
+
+## "... isn't there. Connect the drive and try again"
+
+Seus backups estão em um disco que não está conectado, ou o caminho da pasta mudou. Conecte o disco. Se o Windows deu outra letra a ele, veja [Disco local](#local-drive).
 
 ## "the Permafrost access key was rejected"
 

@@ -11,7 +11,7 @@ frost backup
 frost는 무엇이 바뀌었는지, 얼마나 업로드했는지, 표본 검사 결과가 어떤지 보여 줍니다.
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
@@ -26,7 +26,7 @@ frost는 무엇이 바뀌었는지, 얼마나 업로드했는지, 표본 검사 
 아무것도 바뀌지 않았다면 frost는 새 스냅샷을 저장하지 않습니다.
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
@@ -34,7 +34,7 @@ frost는 무엇이 바뀌었는지, 얼마나 업로드했는지, 표본 검사 
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
-Permafrost를 쓸 때 스토리지가 거의 찼다는 등 Permafrost가 알려 줄 것이 있으면, 백업이 끝날 때 `storage` 경고가 표시됩니다.
+Permafrost 계정, 서버의 디스크, 로컬 드라이브가 거의 찼을 때처럼 스토리지에 주의가 필요하면, 백업이 끝날 때 `storage` 경고가 표시됩니다.
 
 자동 백업을 켜 두면 이 명령어를 직접 실행할 일은 거의 없습니다. 자세한 내용은 [자동 백업](#scheduling)을 참고하세요.
 
@@ -98,7 +98,7 @@ macOS에서는 일부 폴더를 frost가 읽으려면 사용자의 허락이 필
 예약 백업이 1시간 안에 시작되거나 지난 1시간 안에 끝났다면, `frost backup`이 이를 알리고 시작하기 전에 물어봅니다.
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  A scheduled backup starts in 40m, at 15:00.
 │  Back up now anyway? [Y/n]

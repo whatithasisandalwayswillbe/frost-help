@@ -20,6 +20,7 @@ frost 把应用程序、你的设置和它的缓存分别存放在电脑上的�
 | --- | --- | --- |
 | 设置 | `~/.config/frost/config.toml` | `%AppData%\frost\config.toml` |
 | 密钥 | `~/.config/frost/key` | `%AppData%\frost\key` |
+| 自托管服务器的 SSH 密钥 | `~/.config/frost/ssh/frost_ed25519` | `%AppData%\frost\ssh\frost_ed25519` |
 
 ## 缓存
 

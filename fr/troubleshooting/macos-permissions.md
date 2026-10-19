@@ -29,6 +29,10 @@ L'autorisation est conservée lors des mises à jour de frost.
 
 Quand macOS bloque une sauvegarde, l'erreur de frost indique quelle app ou quel fichier autoriser.
 
+## Disques et partages réseau
+
+macOS demande aussi la permission avant qu'un programme utilise des disques amovibles ou des partages réseau. Cela concerne les sauvegardes vers un [disque local](#local-drive) et les sauvegardes de dossiers situés sur un disque. Il pose la question pour votre application de terminal quand vous lancez vous-même une sauvegarde, et pour l'environnement d'exécution de frost pour les sauvegardes planifiées. L'accès complet au disque couvre aussi les disques et les partages.
+
 ## iCloud Drive
 
 frost ne télécharge pas les fichiers qu'iCloud conserve uniquement en ligne : une sauvegarde ne remplit donc jamais votre disque et n'attend jamais de téléchargement. Ces fichiers sont ignorés et listés. Pour les sauvegarder, demandez au Finder de les garder téléchargés sur ce Mac.

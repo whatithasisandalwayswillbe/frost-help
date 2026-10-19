@@ -2,7 +2,7 @@
 
 Your recovery phrase is your encryption key, written as 24 words. It's the only way to read your backups.
 
-> If you lose the recovery phrase and the computer, your backups are gone. Nobody can recover them: not your storage provider, not Permafrost and not the frost authors.
+> If you lose the recovery phrase and the computer, your backups are gone. Nobody can recover them: not whoever stores your backups, not Permafrost and not the frost authors.
 
 ## Keeping it safe
 

@@ -60,7 +60,7 @@ Pour sauter les sauvegardes manquées, et ne sauvegarder qu'à l'heure prévue :
 frost config set schedule.catch_up false
 ```
 
-Une sauvegarde planifiée qui démarre avant le retour du réseau réessaie pendant environ 5 minutes. Si une autre sauvegarde est en cours, elle attend qu'elle se termine.
+Une sauvegarde planifiée qui démarre avant le retour du réseau, ou avant qu'un disque ou un partage soit monté, réessaie pendant environ 5 minutes. Avec un [disque local](#local-drive), le disque doit être branché pendant la sauvegarde. [Serveur auto-hébergé](#self-hosted) se connecte avec la propre clé SSH de frost, donc il fonctionne sans vous. Si une autre sauvegarde est en cours, elle attend qu'elle se termine.
 
 Sous Windows, les sauvegardes planifiées ne s'exécutent que lorsque votre session est ouverte. Elles ne démarrent pas quand l'ordinateur est sur batterie, et s'arrêtent si vous le débranchez. Sous macOS et avec systemd, elles tournent en basse priorité pour ne pas ralentir votre ordinateur.
 

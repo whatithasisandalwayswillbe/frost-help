@@ -11,10 +11,11 @@ En una terminal, `frost init` abre un asistente a pantalla completa. Necesita un
 Elige dónde van tus copias:
 
 - **Permafrost**, la opción recomendada. Solo necesita una clave de acceso y nada más, y si todavía no tienes clave, frost abre getfro.st/perma para que consigas una. Consulta [Permafrost](#permafrost).
-- **Backblaze B2**, **Amazon S3**, **Cloudflare R2** o **Wasabi**. El asistente pregunta solo lo que necesita ese proveedor y te dice dónde encontrar cada respuesta.
-- **Other S3-compatible** (otro compatible con S3), para MinIO, Ceph y otros servicios que hablan el protocolo S3.
+- **S3-compatible** (compatible con S3), que abre una segunda lista: **Amazon S3**, **Backblaze B2**, **Cloudflare R2**, **Wasabi**, u **Other S3-compatible** (otro compatible con S3) para Ceph, SeaweedFS y otros servicios que hablan el protocolo S3. El asistente pregunta solo lo que necesita ese servicio y te dice dónde encontrar cada respuesta. Consulta [Proveedores en la nube](#cloud-providers) y [Otro almacenamiento compatible con S3](#other-s3).
+- **Self-hosted** (servidor propio), para una carpeta en tu propio servidor por SSH. El asistente pregunta la dirección del servidor y la carpeta, y te ayuda a añadir la clave SSH de frost al servidor. Consulta [Servidor propio](#self-hosted).
+- **Local drive** (disco local), para una carpeta en un disco interno o externo. El asistente pregunta la ruta completa de la carpeta. Consulta [Disco local](#local-drive).
 
-Cada proveedor tiene su propia página en la sección Almacenamiento. Cuando pegas una clave secreta, `[tab]` la muestra u oculta.
+Cuando pegas una clave secreta, `[tab]` la muestra u oculta.
 
 Cuando terminas de responder, frost se conecta y comprueba que puede escribir, leer, listar y borrar un pequeño objeto de prueba, y que el almacenamiento admite escrituras condicionales. Si algo falla, el asistente te lo explica con palabras sencillas y te devuelve a la respuesta que con más probabilidad lo ha causado. Todo lo demás que escribiste se conserva.
 
@@ -71,4 +72,4 @@ Para una ubicación nueva, usa `frost config edit`, acepta el aviso, guarda y ej
 
 ## Sin una terminal a pantalla completa
 
-Cuando frost no se ejecuta en una terminal interactiva, por ejemplo con la entrada redirigida, `frost init` hace preguntas sencillas, una por línea. En lugar de la lista de proveedores, ofrece Permafrost o un bucket genérico compatible con S3, y también pregunta por la carpeta dentro del bucket. Las listas se separan con comas, y `-` deja vacía la lista de exclusiones. En este modo, frost también abre getfro.st/perma si necesitas una clave de Permafrost.
+Cuando frost no se ejecuta en una terminal interactiva, por ejemplo con la entrada redirigida, `frost init` hace preguntas sencillas, una por línea. Ofrece Permafrost, un bucket genérico compatible con S3, Self-hosted y Local drive, sin la lista de servicios S3, y también pregunta por la carpeta dentro de un bucket. Las listas se separan con comas, y `-` deja vacía la lista de exclusiones. En este modo, frost también abre getfro.st/perma si necesitas una clave de Permafrost, y puede añadir su clave SSH a tu servidor: ssh te pide la contraseña, o frost muestra la línea para que la añadas tú.

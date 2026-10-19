@@ -5,7 +5,7 @@ Si votre ordinateur est perdu, cassé ou remplacé, vous pouvez récupérer vos 
 ## Ce qu'il vous faut
 
 - Votre phrase de récupération de 24 mots.
-- Les informations de votre stockage : votre clé d'accès Permafrost, ou le nom du bucket et les clés d'accès de votre fournisseur S3.
+- Les informations de votre stockage : l'adresse SSH et le dossier de votre serveur, votre disque, votre clé d'accès Permafrost, ou le nom et les clés d'accès de votre bucket.
 
 Si vous avez encore l'ancien ordinateur, `frost key show` affiche la phrase.
 

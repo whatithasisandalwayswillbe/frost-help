@@ -11,7 +11,7 @@ frost backup
 frost 会显示哪些内容有变化、上传了多少数据，以及抽查的结果：
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  changes      3 added, 1 changed
 │  files        1,204 (2.1 GB)
@@ -26,7 +26,7 @@ frost 会显示哪些内容有变化、上传了多少数据，以及抽查的�
 如果什么都没变，frost 不会保存新快照：
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
@@ -34,7 +34,7 @@ frost 会显示哪些内容有变化、上传了多少数据，以及抽查的�
 └  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
-使用 Permafrost 时，如果 Permafrost 有事要告诉你，比如存储快满了，备份结束时会显示一条 `storage` 警告。
+当你的存储需要注意时，比如 Permafrost 账户、服务器的磁盘或本地磁盘快满了，备份结束时会显示一条 `storage` 警告。
 
 开启自动备份后，你很少需要自己运行这个命令。参见[自动备份](#scheduling)。
 
@@ -98,7 +98,7 @@ frost 不会创建文件系统快照或数据库快照。对于总是处于使�
 如果计划备份会在一小时内开始，或在过去一小时内刚结束，`frost backup` 会告诉你，并在开始前询问：
 
 ```text
-┌  backup  s3://my-backups/frost/
+┌  backup  sftp://me@nas.local/~/frost
 │
 │  A scheduled backup starts in 40m, at 15:00.
 │  Back up now anyway? [Y/n]

@@ -40,7 +40,9 @@ O frost guarda seus backups em uma única pasta do seu armazenamento, chamada re
 | `snapshots/` | Um pequeno cabeçalho criptografado para cada snapshot: quando foi tirado, em qual computador e de quais pastas |
 | `trees/` | Quais blocos guardam a lista de arquivos de cada snapshot |
 
-Os nomes dos objetos são IDs com cara de aleatórios, então o seu provedor nunca vê os nomes dos seus arquivos. [Segurança e privacidade](#security) lista o que um provedor consegue ver.
+Os nomes dos objetos são IDs com cara de aleatórios, então quem mantém o seu armazenamento nunca vê os nomes dos seus arquivos. [Segurança e privacidade](#security) lista o que o armazenamento consegue ver.
+
+Em um servidor próprio ou um disco local, cada objeto é um arquivo com esse nome dentro da pasta do repositório. Em um bucket S3, é um objeto com o mesmo nome, então um repositório pode ser copiado entre eles. Veja [Mover seus backups](#moving-backups).
 
 ## O cache local
 

@@ -40,10 +40,34 @@ frost가 `config.toml`을 찾지 못했습니다. `frost init`을 실행하세�
 | The server's certificate isn't valid for that address | 주소, 그리고 서버 인증서가 그 주소를 포함하는지 |
 | the storage didn't answer in time | 인터넷 연결. 그런 다음 다시 시도하세요 |
 | can't reach Permafrost | 인터넷 연결. 그런 다음 다시 시도하세요 |
+| Can't find that server | SSH 주소와 네트워크 |
+| The server didn't answer | SSH 주소, 그리고 서버가 켜져 있는지 |
+| That server doesn't offer SFTP | 서버의 SSH나 파일 서비스 설정에서 SFTP가 켜져 있는지 |
+| The server sent text before SFTP started | `.bashrc` 같은 서버의 로그인 스크립트가 무언가를 출력하는지. 대화형 셸에서만 출력하게 하세요 |
+| There's no folder ... on ... | 폴더 경로. 그 상위 폴더는 있어야 합니다 |
+| The server won't let frost write in that folder | frost가 로그인하는 계정에 대한 폴더 권한 |
+| ... isn't there. Connect the drive and try again | 드라이브가 연결되어 있고 경로가 맞는지 |
+| frost can't write in that folder | 폴더 권한. macOS라면 [macOS 권한](#macos-permissions)을 참고하세요 |
+| frost doesn't follow links or junctions to a backup folder | 폴더의 실제 경로를 쓰세요 |
+| That drive is read-only | 쓸 수 있는 드라이브를 쓰세요 |
 
 ## "This storage doesn't support conditional writes"
 
-컴퓨터끼리 서로의 백업 기록을 덮어쓰지 않도록 frost에 필요한 기능을 제공업체가 지원하지 않습니다. 키나 설정을 바꿔도 해결되지 않습니다. 다른 제공업체를 고르세요. 자세한 내용은 [스토리지 선택](#choosing-storage)을 참고하세요.
+컴퓨터끼리 서로의 백업 기록을 덮어쓰지 않도록 frost에 필요한 기능을 스토리지가 지원하지 않습니다. 키나 설정을 바꿔도 해결되지 않습니다. 다른 스토리지를 고르세요. 자세한 내용은 [스토리지 선택](#choosing-storage)을 참고하세요.
+
+셀프 호스팅 서버나 드라이브에서는 다르게 표시됩니다. 서버가 "can't make hard links"라고 하거나, 폴더가 "on a filesystem that can't create a file only when its name is free"라고 표시됩니다. ext4, Btrfs, XFS, ZFS, APFS, NTFS 같은 파일 시스템에 있는 폴더를 쓰세요.
+
+## "the server didn't accept frost's SSH key"
+
+셀프 호스팅 서버가 frost의 키를 거부했습니다. 예를 들어 키가 `authorized_keys`에서 지워진 경우입니다. `frost init`을 실행하고 키를 다시 추가하세요. 자세한 내용은 [셀프 호스팅](#self-hosted)을 참고하세요.
+
+## "the server's SSH host key has changed"
+
+서버의 신원이 바뀌면 frost는 ssh와 마찬가지로 연결을 거부합니다. 서버를 다시 설치했거나 서버 주소가 바뀌었다면 `ssh-keygen -R <host>`로 이전 키를 지운 뒤 `frost init`을 다시 실행하세요. 그런 경우가 아니라면 연결하기 전에 키가 바뀐 이유를 확인하세요.
+
+## "... isn't there. Connect the drive and try again"
+
+백업이 있는 드라이브가 연결되어 있지 않거나, 폴더 경로가 바뀌었습니다. 드라이브를 연결하세요. Windows가 다른 드라이브 문자를 지정했다면 [로컬 드라이브](#local-drive)를 참고하세요.
 
 ## "the Permafrost access key was rejected"
 

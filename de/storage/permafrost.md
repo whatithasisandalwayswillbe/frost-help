@@ -41,9 +41,11 @@ Die Fehlermeldungen von Permafrost nennen den Grund. Befehle, die auf deine Back
 
 In der Einrichtung lauten die ersten beiden „Permafrost didn't accept that access key“ und „Permafrost won't store backups with that access key“, gefolgt vom selben Grund.
 
-## Dein eigener Server
+## Ein kompatibler Server
 
-Jeder kann einen Server betreiben, der die [Permafrost-API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) spricht. Ein kompatibler Server muss deren Regeln für Objekte und Fehler befolgen und dabei auch leere Uploads ablehnen. frost versucht es automatisch erneut, wenn ein Server ausgelastet ist.
+Statt des Standardservers kann frost jeden Server nutzen, der die [Permafrost-API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) spricht. Das ist für Leute gedacht, die einen solchen Server betreiben. Um auf einen eigenen Computer zu sichern, braucht [Eigener Server](#self-hosted) nur SSH.
+
+Ein kompatibler Server muss die Regeln der API für Objekte und Fehler befolgen und dabei auch leere Uploads ablehnen. frost versucht es automatisch erneut, wenn ein Server ausgelastet ist.
 
 Erstelle vor deiner ersten Einrichtung eine Datei `config.toml` im Konfigurationsordner von frost, der unter [Dateien und Ordner](#files-and-folders) aufgeführt ist, mit diesen Einstellungen. Ersetze die Adresse durch die deines Servers:
 

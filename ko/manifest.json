@@ -31,11 +31,10 @@
             "pages": [
                 { "id": "choosing-storage", "title": "스토리지 선택", "path": "ko/storage/choosing-storage.md" },
                 { "id": "permafrost", "title": "Permafrost", "path": "ko/storage/permafrost.md" },
-                { "id": "amazon-s3", "title": "Amazon S3", "path": "ko/storage/amazon-s3.md" },
-                { "id": "cloudflare-r2", "title": "Cloudflare R2", "path": "ko/storage/cloudflare-r2.md" },
-                { "id": "backblaze-b2", "title": "Backblaze B2", "path": "ko/storage/backblaze-b2.md" },
-                { "id": "wasabi", "title": "Wasabi", "path": "ko/storage/wasabi.md" },
-                { "id": "other-s3", "title": "기타 S3 호환 스토리지", "path": "ko/storage/other-s3.md" }
+                { "id": "cloud-providers", "title": "클라우드 제공업체", "path": "ko/storage/cloud-providers.md" },
+                { "id": "other-s3", "title": "기타 S3 호환 스토리지", "path": "ko/storage/other-s3.md" },
+                { "id": "self-hosted", "title": "셀프 호스팅", "path": "ko/storage/self-hosted.md" },
+                { "id": "local-drive", "title": "로컬 드라이브", "path": "ko/storage/local-drive.md" }
             ]
         },
         {
