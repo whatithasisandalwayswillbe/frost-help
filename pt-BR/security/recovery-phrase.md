@@ -46,10 +46,10 @@ Digite as 24 palavras em ordem, separadas por espaços. Maiúsculas não fazem d
 
 | O frost diz | Significa |
 | --- | --- |
-| that's 23 words, a recovery phrase has 24 | Falta ou sobra uma palavra |
-| word 5 isn't a recovery phrase word | Essa palavra está escrita errado |
-| all the words are real, but they don't make a valid phrase | Duas palavras estão trocadas de lugar, ou uma é outra palavra real |
-| that's a valid phrase, but not the one for these backups | A frase é de outro conjunto de backups |
+| entered 23 words, but a recovery phrase must contain exactly 24 words | Falta ou sobra uma palavra |
+| word 5 is not a valid recovery word; check the spelling | Essa palavra está escrita errado |
+| all words are valid individually, but together they do not form a valid recovery phrase; check their order and spelling | Duas palavras estão trocadas de lugar, ou uma é outra palavra real |
+| that recovery phrase is valid, but it does not match these backups | A frase é de outro conjunto de backups |
 
 ## A impressão digital da chave
 

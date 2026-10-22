@@ -10,11 +10,11 @@ frost findet `config.toml` nicht. Starte `frost init`. Wenn du `--config-dir` od
 
 Die Schlüsseldatei fehlt. Ist auf diesem Computer schon ein Speicher eingerichtet, führ `frost key import` aus und tipp deine Wiederherstellungsphrase ein. Andernfalls starte `frost init`.
 
-## „a backup or restore is already running“
+## „a backup or restore operation is already in progress“
 
 Ein anderer frost-Prozess nutzt gerade deine Backups, meistens ein geplantes Backup. Ist es eins, meldet frost „a scheduled backup is already running“ und wann es gestartet ist. Warte, bis er fertig ist, und versuch es dann erneut. Die Sperrdatei von frost zu löschen beendet den anderen Prozess nicht.
 
-## „the key on this machine doesn't match“
+## „the local encryption key does not match“
 
 In deinem Speicher liegen Backups, die mit einem anderen Schlüssel erstellt wurden. Führ `frost key verify` aus und tipp die Phrase ein, die du aufgeschrieben hast, um herauszufinden, um welchen Schlüssel es geht. Ist es der richtige, führ damit `frost key import` aus.
 
@@ -30,32 +30,32 @@ Die Einrichtung erklärt das Problem und bringt dich zu der Antwort zurück, die
 
 | Die Einrichtung meldet | Prüfe |
 | --- | --- |
-| That access key ID wasn't recognised | Ob du die ganze Zugriffsschlüssel-ID kopiert hast |
-| The secret key doesn't match the access key ID | Ob du den ganzen geheimen Schlüssel kopiert hast und ob er zu dieser ID gehört |
-| There's no bucket with that name | Den Namen des Buckets, oder leg den Bucket zuerst an |
-| That key doesn't have the bucket permissions frost needs | Ob der Schlüssel im Bucket Objekte lesen, auflisten, schreiben und löschen darf |
-| The bucket is in a different region | Die Region oder den Endpunkt |
-| Can't find ... | Die Adresse und deine Internetverbindung |
-| Nothing answered at that address | Adresse und Port |
-| The server's certificate isn't valid for that address | Die Adresse, und ob das Zertifikat des Servers sie abdeckt |
-| the storage didn't answer in time | Deine Internetverbindung, dann versuch es erneut |
-| can't reach Permafrost | Deine Internetverbindung, dann versuch es erneut |
-| Can't find that server | Die SSH-Adresse und dein Netzwerk |
-| The server didn't answer | Die SSH-Adresse und ob der Server eingeschaltet ist |
-| That server doesn't offer SFTP | Ob SFTP in den SSH- oder Dateidienst-Einstellungen des Servers eingeschaltet ist |
-| The server sent text before SFTP started | Ob ein Anmeldeskript auf dem Server, etwa `.bashrc`, etwas ausgibt. Lass es nur in interaktiven Shells etwas ausgeben |
+| Access key ID not recognized | Ob du die ganze Zugriffsschlüssel-ID kopiert hast |
+| The secret key does not match the access key ID | Ob du den ganzen geheimen Schlüssel kopiert hast und ob er zu dieser ID gehört |
+| No bucket found with that name | Den Namen des Buckets, oder leg den Bucket zuerst an |
+| The provided key lacks necessary bucket permissions | Ob der Schlüssel im Bucket Objekte lesen, auflisten, schreiben und löschen darf |
+| The bucket is located in a different region | Die Region oder den Endpunkt |
+| Cannot resolve ... | Die Adresse und deine Internetverbindung |
+| No response from that address | Adresse und Port |
+| The server's TLS certificate is not valid for that address | Die Adresse, und ob das Zertifikat des Servers sie abdeckt |
+| the storage host timed out | Deine Internetverbindung, dann versuch es erneut |
+| cannot reach Permafrost | Deine Internetverbindung, dann versuch es erneut |
+| Cannot locate the server | Die SSH-Adresse und dein Netzwerk |
+| The server did not respond | Die SSH-Adresse und ob der Server eingeschaltet ist |
+| That server does not support SFTP | Ob SFTP in den SSH- oder Dateidienst-Einstellungen des Servers eingeschaltet ist |
+| server returned text before opening SFTP subsystem | Ob ein Anmeldeskript auf dem Server, etwa `.bashrc`, etwas ausgibt. Lass es nur in interaktiven Shells etwas ausgeben |
 | There's no folder ... on ... | Den Pfad des Ordners. Der Ordner, in dem er liegt, muss existieren |
-| The server won't let frost write in that folder | Die Berechtigungen des Ordners für das Konto, mit dem frost sich anmeldet |
-| ... isn't there. Connect the drive and try again | Ob das Laufwerk angeschlossen ist und der Pfad stimmt |
-| frost can't write in that folder | Die Berechtigungen des Ordners. Unter macOS siehe [macOS-Berechtigungen](#macos-permissions) |
-| frost doesn't follow links or junctions to a backup folder | Nutze den echten Pfad des Ordners |
+| The server denied write access to that folder | Die Berechtigungen des Ordners für das Konto, mit dem frost sich anmeldet |
+| ... not found. Connect the required drive and try again | Ob das Laufwerk angeschlossen ist und der Pfad stimmt |
+| Unable to write to that folder | Die Berechtigungen des Ordners. Unter macOS siehe [macOS-Berechtigungen](#macos-permissions) |
+| Symbolic links and directory junctions are not supported for backup folders | Nutze den echten Pfad des Ordners |
 | That drive is read-only | Nutze ein Laufwerk, auf das du schreiben kannst |
 
-## „This storage doesn't support conditional writes“
+## „This storage provider does not support conditional writes“
 
 Dein Speicher unterstützt eine Funktion nicht, die frost braucht, damit sich Computer nicht gegenseitig ihre Backup-Einträge überschreiben. Andere Schlüssel oder Einstellungen helfen nicht. Wähle einen anderen Speicher. Siehe [Speicher auswählen](#choosing-storage).
 
-Ein eigener Server oder ein Laufwerk sagt es anders. Der Server „can't make hard links“, oder der Ordner liegt „on a filesystem that can't create a file only when its name is free“. Nutze einen Ordner auf einem Dateisystem wie ext4, Btrfs, XFS, ZFS, APFS oder NTFS.
+Ein eigener Server oder ein Laufwerk sagt es anders. Der Server „cannot create hard links“, oder der Ordner liegt „on an unsupported filesystem“. Nutze einen Ordner auf einem Dateisystem wie ext4, Btrfs, XFS, ZFS, APFS oder NTFS.
 
 ## „the server didn't accept frost's SSH key“
 
@@ -65,7 +65,7 @@ Dein eigener Server hat den Schlüssel von frost abgelehnt, zum Beispiel nachdem
 
 frost verweigert die Verbindung, wenn sich die Identität des Servers ändert, genau wie ssh. Hast du den Server neu installiert oder hat er eine neue Adresse, entferne seinen alten Schlüssel mit `ssh-keygen -R <host>` und starte `frost init` erneut. Andernfalls finde heraus, warum sich der Schlüssel geändert hat, bevor du dich verbindest.
 
-## „... isn't there. Connect the drive and try again“
+## „... not found. Connect the required drive and try again“
 
 Deine Backups liegen auf einem Laufwerk, das nicht angeschlossen ist, oder der Pfad des Ordners hat sich geändert. Schließ das Laufwerk an. Hat Windows ihm einen anderen Buchstaben gegeben, siehe [Lokales Laufwerk](#local-drive).
 
@@ -85,7 +85,7 @@ Unter macOS liegt das meist an einer Datenschutzberechtigung. Die Fehlermeldung 
 
 frost hat diese Dateien übersprungen und den Rest gesichert. Häufige Ursachen sind Dateien, die du nicht lesen darfst, Dateien, die während des Backups gelöscht wurden, und unter macOS Dateien, die iCloud nur online vorhält.
 
-## Dateien, die „kept changing while they were read“
+## Dateien, die „continued changing while being read“
 
 Ein Programm hat während des Backups in diese Dateien geschrieben, deshalb hat der Snapshot ihre vorherige Kopie behalten. Schließ das Programm und sichere erneut, oder lass das nächste Backup sie mitnehmen.
 
@@ -117,11 +117,11 @@ Der geplante Auftrag wurde gelöscht oder ausgeschaltet. Stell ihn mit `frost co
 
 Eine Stichprobenprüfung hat fehlende oder beschädigte Daten in deinem Speicher gefunden. Siehe [Backups prüfen](#checking-backups).
 
-## „can't restore beside the originals“
+## „cannot restore alongside original files“
 
 Der Ordner neben den Originalen lässt sich nicht nutzen, oft weil der Snapshot von einem anderen Computer stammt. Nimm stattdessen `--to <dir>`. Siehe [Dateien wiederherstellen](#restoring).
 
-## „can't overwrite the originals“
+## „cannot overwrite original files“
 
 Der Snapshot stammt von einer anderen Art Computer, oder der Pfad zu den Originalen führt über einen Link, dem frost nicht vertraut. Nimm stattdessen `--beside` oder `--to <dir>`.
 
@@ -134,8 +134,8 @@ frost hat festgestellt, dass eine bereits geprüfte Datei geändert wurde oder d
 | frost meldet | Versuch es mit |
 | --- | --- |
 | no snapshot at or before ... | Einem späteren Zeitpunkt. Die Meldung nennt deinen ältesten Snapshot |
-| "maple" matches 2 snapshots, use more of the ID | Mehr Zeichen der ID, etwa `maple-absurd` |
-| can't read "..." as a snapshot ID or time | Anführungszeichen um Zeitangaben mit Leerzeichen, etwa `"3 days ago"` |
+| "maple" matches 2 snapshots; provide additional ID characters | Mehr Zeichen der ID, etwa `maple-absurd` |
+| cannot parse "..." as a snapshot ID or timestamp | Anführungszeichen um Zeitangaben mit Leerzeichen, etwa `"3 days ago"` |
 
 ## frost kann sich nicht selbst aktualisieren
 
@@ -146,11 +146,11 @@ Der Ordner von frost ist nicht beschreibbar, oder frost wurde aus dem Quellcode 
 | Das Installationsprogramm meldet | Was du tust |
 | --- | --- |
 | need OpenSSH 8.1+ to verify the frost release signature | Installiere oder aktualisiere OpenSSH. Unter Windows nimm stattdessen das PowerShell-Installationsprogramm |
-| checksums.txt isn't signed by the frost release key. Don't install this. | Installiere es nicht. Versuch es später erneut und [melde es](#getting-help), wenn es wieder passiert |
-| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | Installiere es nicht. Versuch es später erneut und [melde es](#getting-help), wenn es wieder passiert |
+| checksums.txt signature does not match official frost release key; installation aborted | Installiere es nicht. Versuch es später erneut und [melde es](#getting-help), wenn es wieder passiert |
+| runtime inside ... lacks valid OpenJS Foundation signature; installation aborted | Installiere es nicht. Versuch es später erneut und [melde es](#getting-help), wenn es wieder passiert |
 | checksum mismatch | Der Download ist beschädigt. Führ das Installationsprogramm erneut aus |
 | 32-bit ARM isn't supported by the bundled runtime | Für diesen Computer gibt es kein frost-Paket |
-| installing frost needs Node.js 22 or newer | Aktualisiere Node.js, oder nimm das Installationsprogramm statt npm oder pnpm |
+| installing frost requires Node.js v22 or newer | Aktualisiere Node.js, oder nimm das Installationsprogramm statt npm oder pnpm |
 
 ## `frost` wird nach der Installation nicht gefunden
 

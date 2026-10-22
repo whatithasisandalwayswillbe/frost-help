@@ -31,7 +31,7 @@ Se nada mudou, o frost não salva um snapshot novo:
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
 │
-└  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
+└  Already backed up. No changes detected since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
 Um backup termina com um aviso `storage` quando o seu armazenamento precisa de atenção, como quando uma conta do Permafrost, o disco de um servidor ou um disco local está quase cheio.
@@ -108,4 +108,4 @@ Aperte Enter para fazer o backup mesmo assim, ou digite `n` para parar. Em agend
 
 ## Um de cada vez
 
-Um backup ou uma restauração pela linha de comando bloqueia o cache local enquanto roda. Se outro comando precisar desse cache, o frost mostra "a backup or restore is already running, try again when it's done" (já há um backup ou uma restauração em andamento; tente de novo quando terminar). Se o outro for um backup agendado, ele mostra "a scheduled backup is already running" (já há um backup agendado em andamento) e quando começou. Um backup agendado que encontra o cache bloqueado espera, por até uma hora. O navegador de snapshots libera o bloqueio do cache, então pode ficar aberto e restaurar arquivos enquanto um backup roda. Cada pasta de cache e cada computador têm seu próprio bloqueio.
+Um backup ou uma restauração pela linha de comando bloqueia o cache local enquanto roda. Se outro comando precisar desse cache, o frost mostra "a backup or restore operation is already in progress; try again when it completes" (já há um backup ou uma restauração em andamento; tente de novo quando terminar). Se o outro for um backup agendado, ele mostra "a scheduled backup is already running" (já há um backup agendado em andamento) e quando começou. Um backup agendado que encontra o cache bloqueado espera, por até uma hora. O navegador de snapshots libera o bloqueio do cache, então pode ficar aberto e restaurar arquivos enquanto um backup roda. Cada pasta de cache e cada computador têm seu próprio bloqueio.

@@ -10,11 +10,11 @@ Run `frost init`, choose **S3-compatible**, then **Other S3-compatible**.
 
 | Setup asks | Answer |
 | --- | --- |
-| What's the S3 endpoint? | The host name from your server's or provider's docs. A host name on its own, without `https://`, means HTTPS |
+| What is the S3 endpoint? | The host name from your server's or provider's docs. A host name on its own, without `https://`, means HTTPS |
 | Which region? | Only if your server or provider asks for one. Leave it blank otherwise |
-| What's the bucket called? | Its name, exactly as you created it. The bucket must already exist |
-| Paste the access key ID. | From your server's or provider's console |
-| Paste the secret access key. | From your server's or provider's console |
+| What is the bucket name? | Its name, exactly as you created it. The bucket must already exist |
+| Paste the Access Key ID. | From your server's or provider's console |
+| Paste the Secret Access Key. | From your server's or provider's console |
 
 frost keeps your backups in a `frost` folder inside the bucket.
 

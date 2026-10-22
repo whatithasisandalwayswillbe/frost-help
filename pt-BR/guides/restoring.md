@@ -88,7 +88,7 @@ Os links simbólicos restaurados mantêm os destinos originais, que podem aponta
 Se uma restauração parar, por causa de uma conexão perdida, de `Ctrl+C` ou do computador entrando em repouso, o frost mostra o comando que continua de onde parou:
 
 ```text
-What's restored so far was kept. To carry on from there, run:
+Completed files and unfinished restore data have been preserved. To resume, run:
 
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```

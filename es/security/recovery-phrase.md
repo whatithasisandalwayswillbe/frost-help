@@ -46,10 +46,10 @@ Escribe las 24 palabras en orden, separadas por espacios. Da igual si usas mayú
 
 | frost dice | Significa |
 | --- | --- |
-| that's 23 words, a recovery phrase has 24 | Falta o sobra una palabra |
-| word 5 isn't a recovery phrase word | Esa palabra está mal escrita |
-| all the words are real, but they don't make a valid phrase | Hay dos palabras intercambiadas, o una es otra palabra real distinta |
-| that's a valid phrase, but not the one for these backups | La frase es de otro conjunto de copias |
+| entered 23 words, but a recovery phrase must contain exactly 24 words | Falta o sobra una palabra |
+| word 5 is not a valid recovery word; check the spelling | Esa palabra está mal escrita |
+| all words are valid individually, but together they do not form a valid recovery phrase; check their order and spelling | Hay dos palabras intercambiadas, o una es otra palabra real distinta |
+| that recovery phrase is valid, but it does not match these backups | La frase es de otro conjunto de copias |
 
 ## La huella de la clave
 

@@ -31,7 +31,7 @@ Hat sich nichts geändert, speichert frost keinen neuen Snapshot:
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
 │
-└  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
+└  Already backed up. No changes detected since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
 Ein Backup endet mit einer `storage`-Warnung, wenn dein Speicher Aufmerksamkeit braucht, etwa wenn ein Permafrost-Konto, die Festplatte eines Servers oder ein Laufwerk fast voll ist.
@@ -108,4 +108,4 @@ Drück Enter, um trotzdem zu sichern, oder tippe `n`, um abzubrechen. Bei Zeitpl
 
 ## Eins nach dem anderen
 
-Ein Backup oder eine Wiederherstellung über die Kommandozeile sperrt während des Laufs den lokalen Cache. Braucht ein anderer Befehl diesen Cache, meldet frost „a backup or restore is already running, try again when it's done“ (es läuft bereits ein Backup oder eine Wiederherstellung, versuch es danach noch einmal). Ist das andere ein geplantes Backup, meldet frost „a scheduled backup is already running“ (es läuft bereits ein geplantes Backup) und wann es gestartet ist. Ein geplantes Backup, das den Cache gesperrt vorfindet, wartet stattdessen bis zu einer Stunde. Der Snapshot-Browser gibt die Cache-Sperre frei, sodass er geöffnet bleiben und Dateien wiederherstellen kann, während ein Backup läuft. Andere Cache-Ordner und Computer haben eigene Sperren.
+Ein Backup oder eine Wiederherstellung über die Kommandozeile sperrt während des Laufs den lokalen Cache. Braucht ein anderer Befehl diesen Cache, meldet frost „a backup or restore operation is already in progress; try again when it completes“ (es läuft bereits ein Backup oder eine Wiederherstellung, versuch es danach noch einmal). Ist das andere ein geplantes Backup, meldet frost „a scheduled backup is already running“ (es läuft bereits ein geplantes Backup) und wann es gestartet ist. Ein geplantes Backup, das den Cache gesperrt vorfindet, wartet stattdessen bis zu einer Stunde. Der Snapshot-Browser gibt die Cache-Sperre frei, sodass er geöffnet bleiben und Dateien wiederherstellen kann, während ein Backup läuft. Andere Cache-Ordner und Computer haben eigene Sperren.

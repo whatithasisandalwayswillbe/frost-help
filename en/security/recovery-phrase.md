@@ -46,10 +46,10 @@ Type all 24 words in order, separated by spaces. Capital letters don't matter. T
 
 | frost says | It means |
 | --- | --- |
-| that's 23 words, a recovery phrase has 24 | A word is missing or extra |
-| word 5 isn't a recovery phrase word | That word is misspelled |
-| all the words are real, but they don't make a valid phrase | Two words are swapped, or one is a different real word |
-| that's a valid phrase, but not the one for these backups | The phrase belongs to another set of backups |
+| entered 23 words, but a recovery phrase must contain exactly 24 words | A word is missing or extra |
+| word 5 is not a valid recovery word; check the spelling | That word is misspelled |
+| all words are valid individually, but together they do not form a valid recovery phrase; check their order and spelling | Two words are swapped, or one is a different real word |
+| that recovery phrase is valid, but it does not match these backups | The phrase belongs to another set of backups |
 
 ## The key fingerprint
 

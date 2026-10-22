@@ -10,11 +10,11 @@ frost не находит `config.toml`. Выполните `frost init`. Есл
 
 Файла ключа нет. Если на этом компьютере хранилище уже настроено, выполните `frost key import` и введите фразу восстановления. Иначе выполните `frost init`.
 
-## «a backup or restore is already running»
+## «a backup or restore operation is already in progress»
 
 Ваши копии использует другой процесс frost, обычно копирование по расписанию. В этом случае frost сообщает "a scheduled backup is already running" и когда оно началось. Дождитесь его завершения и попробуйте снова. Удаление файла блокировки frost не остановит другой процесс.
 
-## «the key on this machine doesn't match»
+## «the local encryption key does not match»
 
 В хранилище лежат копии, сделанные другим ключом. Выполните `frost key verify` и введите записанную фразу, чтобы понять, какой это ключ. Если ключ тот, что нужен, выполните с ним `frost key import`.
 
@@ -30,32 +30,32 @@ frost не находит `config.toml`. Выполните `frost init`. Есл
 
 | Сообщение мастера | Что проверить |
 | --- | --- |
-| That access key ID wasn't recognised | Что вы скопировали идентификатор ключа доступа целиком |
-| The secret key doesn't match the access key ID | Что вы скопировали секретный ключ целиком и что он относится к этому идентификатору |
-| There's no bucket with that name | Имя бакета, или сначала создайте бакет |
-| That key doesn't have the bucket permissions frost needs | Что ключ может читать, перечислять, записывать и удалять объекты в бакете |
-| The bucket is in a different region | Регион или эндпоинт |
-| Can't find ... | Адрес и подключение к интернету |
-| Nothing answered at that address | Адрес и порт |
-| The server's certificate isn't valid for that address | Адрес и то, что сертификат сервера к нему подходит |
-| the storage didn't answer in time | Подключение к интернету, затем попробуйте снова |
-| can't reach Permafrost | Подключение к интернету, затем попробуйте снова |
-| Can't find that server | SSH-адрес и вашу сеть |
-| The server didn't answer | SSH-адрес и то, что сервер включён |
-| That server doesn't offer SFTP | Включён ли SFTP в настройках SSH или файловых служб сервера |
-| The server sent text before SFTP started | Не выводит ли что-нибудь сценарий входа на сервере, например `.bashrc`. Пусть он выводит текст только в интерактивных оболочках |
+| Access key ID not recognized | Что вы скопировали идентификатор ключа доступа целиком |
+| The secret key does not match the access key ID | Что вы скопировали секретный ключ целиком и что он относится к этому идентификатору |
+| No bucket found with that name | Имя бакета, или сначала создайте бакет |
+| The provided key lacks necessary bucket permissions | Что ключ может читать, перечислять, записывать и удалять объекты в бакете |
+| The bucket is located in a different region | Регион или эндпоинт |
+| Cannot resolve ... | Адрес и подключение к интернету |
+| No response from that address | Адрес и порт |
+| The server's TLS certificate is not valid for that address | Адрес и то, что сертификат сервера к нему подходит |
+| the storage host timed out | Подключение к интернету, затем попробуйте снова |
+| cannot reach Permafrost | Подключение к интернету, затем попробуйте снова |
+| Cannot locate the server | SSH-адрес и вашу сеть |
+| The server did not respond | SSH-адрес и то, что сервер включён |
+| That server does not support SFTP | Включён ли SFTP в настройках SSH или файловых служб сервера |
+| server returned text before opening SFTP subsystem | Не выводит ли что-нибудь сценарий входа на сервере, например `.bashrc`. Пусть он выводит текст только в интерактивных оболочках |
 | There's no folder ... on ... | Путь к папке. Папка, в которой она лежит, должна существовать |
-| The server won't let frost write in that folder | Права на папку для учётной записи, под которой входит frost |
-| ... isn't there. Connect the drive and try again | Подключён ли диск и верен ли путь |
-| frost can't write in that folder | Права на папку. В macOS смотрите раздел [Разрешения macOS](#macos-permissions) |
-| frost doesn't follow links or junctions to a backup folder | Используйте настоящий путь к папке |
+| The server denied write access to that folder | Права на папку для учётной записи, под которой входит frost |
+| ... not found. Connect the required drive and try again | Подключён ли диск и верен ли путь |
+| Unable to write to that folder | Права на папку. В macOS смотрите раздел [Разрешения macOS](#macos-permissions) |
+| Symbolic links and directory junctions are not supported for backup folders | Используйте настоящий путь к папке |
 | That drive is read-only | Используйте диск, на который можно записывать |
 
-## «This storage doesn't support conditional writes»
+## «This storage provider does not support conditional writes»
 
 Ваше хранилище не поддерживает функцию, без которой frost не может уберечь компьютеры от перезаписи служебных записей копий друг друга. Другие ключи или настройки не помогут. Выберите другое хранилище. Подробнее в разделе [Выбор хранилища](#choosing-storage).
 
-Собственный сервер или диск сообщает об этом иначе. Сервер «can't make hard links», или папка находится «on a filesystem that can't create a file only when its name is free». Используйте папку на файловой системе вроде ext4, Btrfs, XFS, ZFS, APFS или NTFS.
+Собственный сервер или диск сообщает об этом иначе. Сервер «cannot create hard links», или папка находится «on an unsupported filesystem». Используйте папку на файловой системе вроде ext4, Btrfs, XFS, ZFS, APFS или NTFS.
 
 ## «the server didn't accept frost's SSH key»
 
@@ -65,7 +65,7 @@ frost не находит `config.toml`. Выполните `frost init`. Есл
 
 frost отказывается подключаться, когда меняется идентичность сервера, так же как ssh. Если вы переустановили сервер или у него новый адрес, удалите его старый ключ командой `ssh-keygen -R <host>` и снова выполните `frost init`. В остальных случаях сначала выясните, почему ключ изменился, и только потом подключайтесь.
 
-## «... isn't there. Connect the drive and try again»
+## «... not found. Connect the required drive and try again»
 
 Ваши копии лежат на диске, который не подключён, или изменился путь к папке. Подключите диск. Если Windows назначила ему другую букву, смотрите раздел [Локальный диск](#local-drive).
 
@@ -85,7 +85,7 @@ Permafrost сейчас не принимает новые резервные к
 
 frost пропустил эти файлы и сохранил остальное. Обычные причины: нет прав на чтение, файлы удалили во время копирования, а в macOS ещё и файлы, которые iCloud хранит только в облаке.
 
-## Файлы, которые «kept changing while they were read»
+## Файлы, которые «continued changing while being read»
 
 Во время копирования какая-то программа писала в эти файлы, поэтому снимок сохранил их прежнюю копию. Закройте программу и сделайте копию снова или дождитесь следующей копии.
 
@@ -117,11 +117,11 @@ frost пропустил эти файлы и сохранил остально�
 
 Выборочная проверка нашла в хранилище недостающие или повреждённые данные. Подробнее в разделе [Проверка резервных копий](#checking-backups).
 
-## «can't restore beside the originals»
+## «cannot restore alongside original files»
 
 Папку рядом с оригиналами использовать нельзя, часто потому, что снимок сделан на другом компьютере. Используйте вместо этого `--to <dir>`. Подробнее в разделе [Восстановление файлов](#restoring).
 
-## «can't overwrite the originals»
+## «cannot overwrite original files»
 
 Снимок сделан на компьютере другого типа, или путь к оригиналам проходит через ссылку, которой frost не доверяет. Используйте вместо этого `--beside` или `--to <dir>`.
 
@@ -134,8 +134,8 @@ frost обнаружил, что уже проверенный файл изме
 | Что пишет frost | Что попробовать |
 | --- | --- |
 | no snapshot at or before ... | Более позднее время. В сообщении указан самый старый снимок |
-| "maple" matches 2 snapshots, use more of the ID | Больше символов идентификатора, например `maple-absurd` |
-| can't read "..." as a snapshot ID or time | Кавычки вокруг времени с пробелами, например `"3 days ago"` |
+| "maple" matches 2 snapshots; provide additional ID characters | Больше символов идентификатора, например `maple-absurd` |
+| cannot parse "..." as a snapshot ID or timestamp | Кавычки вокруг времени с пробелами, например `"3 days ago"` |
 
 ## frost не может обновиться сам
 
@@ -146,11 +146,11 @@ frost обнаружил, что уже проверенный файл изме
 | Что пишет установщик | Что сделать |
 | --- | --- |
 | need OpenSSH 8.1+ to verify the frost release signature | Установите или обновите OpenSSH. В Windows воспользуйтесь установщиком для PowerShell |
-| checksums.txt isn't signed by the frost release key. Don't install this. | Не устанавливайте. Попробуйте позже и [сообщите о проблеме](#getting-help), если она повторяется |
-| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | Не устанавливайте. Попробуйте позже и [сообщите о проблеме](#getting-help), если она повторяется |
+| checksums.txt signature does not match official frost release key; installation aborted | Не устанавливайте. Попробуйте позже и [сообщите о проблеме](#getting-help), если она повторяется |
+| runtime inside ... lacks valid OpenJS Foundation signature; installation aborted | Не устанавливайте. Попробуйте позже и [сообщите о проблеме](#getting-help), если она повторяется |
 | checksum mismatch | Загрузка повреждена. Запустите установщик снова |
 | 32-bit ARM isn't supported by the bundled runtime | Для этого компьютера пакета frost нет |
-| installing frost needs Node.js 22 or newer | Обновите Node.js или используйте установщик вместо npm и pnpm |
+| installing frost requires Node.js v22 or newer | Обновите Node.js или используйте установщик вместо npm и pnpm |
 
 ## После установки `frost` не находится
 

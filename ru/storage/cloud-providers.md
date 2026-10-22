@@ -33,10 +33,10 @@ frost нужно читать, перечислять, записывать и �
 
 | Вопрос мастера | Ответ |
 | --- | --- |
-| Which region is the bucket in? | Регион бакета, например `us-east-1` |
-| What's the bucket called? | Имя бакета, точно как при создании |
-| Paste the access key ID. | Идентификатор ключа доступа из IAM |
-| Paste the secret access key. | Показывается один раз, рядом с идентификатором ключа, при его создании |
+| Which region hosts the bucket? | Регион бакета, например `us-east-1` |
+| What is the bucket name? | Имя бакета, точно как при создании |
+| Paste the Access Key ID. | Идентификатор ключа доступа из IAM |
+| Paste the Secret Access Key. | Показывается один раз, рядом с идентификатором ключа, при его создании |
 
 frost подключается к `s3.<region>.amazonaws.com`. Держите его объекты в классе хранения, который можно читать сразу, например S3 Standard или S3 Standard-IA, а не в Glacier Flexible Retrieval или Glacier Deep Archive. Версионирование бакета не нужно.
 
@@ -50,8 +50,8 @@ R2 поддерживает условную запись, которая нуж
 
 | Вопрос мастера | Ответ |
 | --- | --- |
-| What's your Cloudflare account ID? | 32-символьный идентификатор со страницы обзора R2 |
-| What's the bucket called? | Имя бакета, точно как при создании |
+| What is your Cloudflare Account ID? | 32-символьный идентификатор со страницы обзора R2 |
+| What is the bucket name? | Имя бакета, точно как при создании |
 | Paste the Access Key ID. | Access Key ID нового API-токена |
 | Paste the Secret Access Key. | Показывается один раз, рядом с Access Key ID |
 
@@ -67,8 +67,8 @@ frost подключается к `<account-id>.r2.cloudflarestorage.com` с р�
 
 | Вопрос мастера | Ответ |
 | --- | --- |
-| What's the bucket's endpoint? | Эндпоинт со страницы бакета, например `s3.us-west-004.backblazeb2.com` |
-| What's the bucket called? | Имя бакета, точно как при создании |
+| What is the bucket endpoint? | Эндпоинт со страницы бакета, например `s3.us-west-004.backblazeb2.com` |
+| What is the bucket name? | Имя бакета, точно как при создании |
 | Paste the application key's keyID. | keyID нового ключа приложения |
 | Paste the applicationKey. | Показывается один раз, сразу после создания ключа |
 
@@ -83,9 +83,9 @@ frost определяет регион по эндпоинту.
 
 | Вопрос мастера | Ответ |
 | --- | --- |
-| Which region is the bucket in? | Регион бакета, например `us-east-1` |
-| What's the bucket called? | Имя бакета, точно как при создании |
-| Paste the access key. | Созданный вами ключ доступа |
-| Paste the secret key. | Показывается один раз, при создании ключа |
+| Which region hosts the bucket? | Регион бакета, например `us-east-1` |
+| What is the bucket name? | Имя бакета, точно как при создании |
+| Paste the Access Key. | Созданный вами ключ доступа |
+| Paste the Secret Key. | Показывается один раз, при создании ключа |
 
 frost подключается к `s3.<region>.wasabisys.com`.

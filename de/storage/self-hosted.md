@@ -14,7 +14,7 @@ Starte `frost init` und wähle **Self-hosted**.
 
 | Die Einrichtung fragt | Antwort |
 | --- | --- |
-| What's the server's SSH address? | Ein Benutzer und Host, zum Beispiel `me@nas.local`, oder ein `Host` aus deiner SSH-Konfiguration. Häng `:2222` an, wenn der Server einen anderen Port nutzt |
+| What is the server SSH address? | Ein Benutzer und Host, zum Beispiel `me@nas.local`, oder ein `Host` aus deiner SSH-Konfiguration. Häng `:2222` an, wenn der Server einen anderen Port nutzt |
 | Which folder on the server? | Standardmäßig `frost`, also in deinem Home-Ordner dort. Ein vollständiger Pfad wie `/srv/backups/frost` geht auch |
 
 Fehlt der letzte Teil des Ordners, legt die Einrichtung ihn an. Der Ordner, in dem er liegt, muss schon existieren.

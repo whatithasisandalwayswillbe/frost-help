@@ -14,7 +14,7 @@ Lancez `frost init` et choisissez **Self-hosted**.
 
 | L'assistant demande | Réponse |
 | --- | --- |
-| What's the server's SSH address? | Un utilisateur et un hôte, comme `me@nas.local`, ou un `Host` de votre configuration SSH. Ajoutez `:2222` pour un autre port |
+| What is the server SSH address? | Un utilisateur et un hôte, comme `me@nas.local`, ou un `Host` de votre configuration SSH. Ajoutez `:2222` pour un autre port |
 | Which folder on the server? | `frost` par défaut, qui se trouve dans votre dossier personnel sur le serveur. Un chemin complet comme `/srv/backups/frost` fonctionne aussi |
 
 L'assistant crée la dernière partie du dossier si elle manque. Le dossier qui la contient doit déjà exister.

@@ -33,10 +33,10 @@ frost には、バケット内のオブジェクトの読み取り、一覧、�
 
 | セットアップの質問 | 答え |
 | --- | --- |
-| Which region is the bucket in? | バケットのリージョン。たとえば `us-east-1` |
-| What's the bucket called? | 作成したとおりのバケット名 |
-| Paste the access key ID. | IAM のアクセスキー ID |
-| Paste the secret access key. | 作成時に一度だけ、アクセスキー ID の隣に表示されます |
+| Which region hosts the bucket? | バケットのリージョン。たとえば `us-east-1` |
+| What is the bucket name? | 作成したとおりのバケット名 |
+| Paste the Access Key ID. | IAM のアクセスキー ID |
+| Paste the Secret Access Key. | 作成時に一度だけ、アクセスキー ID の隣に表示されます |
 
 frost は `s3.<region>.amazonaws.com` に接続します。frost のオブジェクトは、S3 Standard や S3 Standard-IA のように、すぐに読み出せるストレージクラスに置き、Glacier Flexible Retrieval や Glacier Deep Archive には置かないでください。バケットのバージョニングは必要ありません。
 
@@ -50,8 +50,8 @@ R2 は、frost に必要な条件付き書き込みに対応しています。
 
 | セットアップの質問 | 答え |
 | --- | --- |
-| What's your Cloudflare account ID? | R2 の概要ページにある 32 文字の ID |
-| What's the bucket called? | 作成したとおりのバケット名 |
+| What is your Cloudflare Account ID? | R2 の概要ページにある 32 文字の ID |
+| What is the bucket name? | 作成したとおりのバケット名 |
 | Paste the Access Key ID. | 新しい API トークンの Access Key ID |
 | Paste the Secret Access Key. | 一度だけ、Access Key ID の隣に表示されます |
 
@@ -67,8 +67,8 @@ Backblaze のドキュメントには、B2 が frost に必要な条件付き書
 
 | セットアップの質問 | 答え |
 | --- | --- |
-| What's the bucket's endpoint? | バケットのページにあるエンドポイント。たとえば `s3.us-west-004.backblazeb2.com` |
-| What's the bucket called? | 作成したとおりのバケット名 |
+| What is the bucket endpoint? | バケットのページにあるエンドポイント。たとえば `s3.us-west-004.backblazeb2.com` |
+| What is the bucket name? | 作成したとおりのバケット名 |
 | Paste the application key's keyID. | 新しいアプリケーションキーの keyID |
 | Paste the applicationKey. | キーを作成した直後に一度だけ表示されます |
 
@@ -83,9 +83,9 @@ Wasabi のドキュメントからは、frost に必要な条件付き書き込�
 
 | セットアップの質問 | 答え |
 | --- | --- |
-| Which region is the bucket in? | バケットのリージョン。たとえば `us-east-1` |
-| What's the bucket called? | 作成したとおりのバケット名 |
-| Paste the access key. | 作成したアクセスキー |
-| Paste the secret key. | キーの作成時に一度だけ表示されます |
+| Which region hosts the bucket? | バケットのリージョン。たとえば `us-east-1` |
+| What is the bucket name? | 作成したとおりのバケット名 |
+| Paste the Access Key. | 作成したアクセスキー |
+| Paste the Secret Key. | キーの作成時に一度だけ表示されます |
 
 frost は `s3.<region>.wasabisys.com` に接続します。

@@ -33,10 +33,10 @@ frost에는 버킷 안 객체의 읽기, 조회, 쓰기, 삭제 권한이 필요
 
 | 설정 도우미의 질문 | 답 |
 | --- | --- |
-| Which region is the bucket in? | 버킷의 리전. 예: `us-east-1` |
-| What's the bucket called? | 만들 때와 똑같은 버킷 이름 |
-| Paste the access key ID. | IAM의 액세스 키 ID |
-| Paste the secret access key. | 만들 때 액세스 키 ID 옆에 한 번만 표시됩니다 |
+| Which region hosts the bucket? | 버킷의 리전. 예: `us-east-1` |
+| What is the bucket name? | 만들 때와 똑같은 버킷 이름 |
+| Paste the Access Key ID. | IAM의 액세스 키 ID |
+| Paste the Secret Access Key. | 만들 때 액세스 키 ID 옆에 한 번만 표시됩니다 |
 
 frost는 `s3.<region>.amazonaws.com`에 연결합니다. frost의 객체는 S3 Standard나 S3 Standard-IA처럼 바로 읽을 수 있는 스토리지 클래스에 두고, Glacier Flexible Retrieval이나 Glacier Deep Archive에는 두지 마세요. 버킷 버전 관리는 필요하지 않습니다.
 
@@ -50,8 +50,8 @@ R2는 frost에 필요한 조건부 쓰기를 지원합니다.
 
 | 설정 도우미의 질문 | 답 |
 | --- | --- |
-| What's your Cloudflare account ID? | R2 개요 페이지에 있는 32자리 ID |
-| What's the bucket called? | 만들 때와 똑같은 버킷 이름 |
+| What is your Cloudflare Account ID? | R2 개요 페이지에 있는 32자리 ID |
+| What is the bucket name? | 만들 때와 똑같은 버킷 이름 |
 | Paste the Access Key ID. | 새 API 토큰의 Access Key ID |
 | Paste the Secret Access Key. | Access Key ID 옆에 한 번만 표시됩니다 |
 
@@ -67,8 +67,8 @@ Backblaze 문서에는 B2가 frost에 필요한 조건부 쓰기를 지원하는
 
 | 설정 도우미의 질문 | 답 |
 | --- | --- |
-| What's the bucket's endpoint? | 버킷 페이지에 있는 엔드포인트. 예: `s3.us-west-004.backblazeb2.com` |
-| What's the bucket called? | 만들 때와 똑같은 버킷 이름 |
+| What is the bucket endpoint? | 버킷 페이지에 있는 엔드포인트. 예: `s3.us-west-004.backblazeb2.com` |
+| What is the bucket name? | 만들 때와 똑같은 버킷 이름 |
 | Paste the application key's keyID. | 새 애플리케이션 키의 keyID |
 | Paste the applicationKey. | 키를 만든 직후 한 번만 표시됩니다 |
 
@@ -83,9 +83,9 @@ Wasabi 문서로는 frost에 필요한 조건부 쓰기를 지원하는지 확�
 
 | 설정 도우미의 질문 | 답 |
 | --- | --- |
-| Which region is the bucket in? | 버킷의 리전. 예: `us-east-1` |
-| What's the bucket called? | 만들 때와 똑같은 버킷 이름 |
-| Paste the access key. | 만든 액세스 키 |
-| Paste the secret key. | 키를 만들 때 한 번만 표시됩니다 |
+| Which region hosts the bucket? | 버킷의 리전. 예: `us-east-1` |
+| What is the bucket name? | 만들 때와 똑같은 버킷 이름 |
+| Paste the Access Key. | 만든 액세스 키 |
+| Paste the Secret Key. | 키를 만들 때 한 번만 표시됩니다 |
 
 frost는 `s3.<region>.wasabisys.com`에 연결합니다.

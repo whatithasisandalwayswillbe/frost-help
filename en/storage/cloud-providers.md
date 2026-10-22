@@ -33,10 +33,10 @@ frost needs to read, list, write and delete objects in the bucket, although the 
 
 | Setup asks | Answer |
 | --- | --- |
-| Which region is the bucket in? | The bucket's region, like `us-east-1` |
-| What's the bucket called? | Its name, exactly as you created it |
-| Paste the access key ID. | The access key ID from IAM |
-| Paste the secret access key. | Shown once, next to the access key ID when you create it |
+| Which region hosts the bucket? | The bucket's region, like `us-east-1` |
+| What is the bucket name? | Its name, exactly as you created it |
+| Paste the Access Key ID. | The access key ID from IAM |
+| Paste the Secret Access Key. | Shown once, next to the access key ID when you create it |
 
 frost connects to `s3.<region>.amazonaws.com`. Keep its objects in a storage class that can be read straight away, like S3 Standard or S3 Standard-IA, not Glacier Flexible Retrieval or Glacier Deep Archive. Bucket versioning isn't needed.
 
@@ -50,8 +50,8 @@ R2 supports the conditional writes frost needs.
 
 | Setup asks | Answer |
 | --- | --- |
-| What's your Cloudflare account ID? | The 32-character ID from the R2 overview page |
-| What's the bucket called? | Its name, exactly as you created it |
+| What is your Cloudflare Account ID? | The 32-character ID from the R2 overview page |
+| What is the bucket name? | Its name, exactly as you created it |
 | Paste the Access Key ID. | The Access Key ID from your new API token |
 | Paste the Secret Access Key. | Shown once, next to the Access Key ID |
 
@@ -63,12 +63,12 @@ Backblaze's documentation doesn't say whether B2 supports the conditional writes
 
 1. Create a bucket in your Backblaze account.
 2. Note its endpoint: Buckets > your bucket > Endpoint. It looks like `s3.us-west-004.backblazeb2.com`.
-3. Create an application key: Application Keys > Add a New Application Key. Limit it to this bucket.
+3. Create an application key: Application Keys > Add a New Application Key. Restrict access to this bucket.
 
 | Setup asks | Answer |
 | --- | --- |
-| What's the bucket's endpoint? | The endpoint from the bucket's page, like `s3.us-west-004.backblazeb2.com` |
-| What's the bucket called? | Its name, exactly as you created it |
+| What is the bucket endpoint? | The endpoint from the bucket's page, like `s3.us-west-004.backblazeb2.com` |
+| What is the bucket name? | Its name, exactly as you created it |
 | Paste the application key's keyID. | The keyID of your new application key |
 | Paste the applicationKey. | Shown once, right after you create the key |
 
@@ -83,9 +83,9 @@ Wasabi's documentation doesn't establish whether it supports the conditional wri
 
 | Setup asks | Answer |
 | --- | --- |
-| Which region is the bucket in? | The bucket's region, like `us-east-1` |
-| What's the bucket called? | Its name, exactly as you created it |
-| Paste the access key. | The access key you created |
-| Paste the secret key. | Shown once, when you create the key |
+| Which region hosts the bucket? | The bucket's region, like `us-east-1` |
+| What is the bucket name? | Its name, exactly as you created it |
+| Paste the Access Key. | The access key you created |
+| Paste the Secret Key. | Shown once, when you create the key |
 
 frost connects to `s3.<region>.wasabisys.com`.

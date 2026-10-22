@@ -46,10 +46,10 @@ frost key import
 
 | frost의 메시지 | 의미 |
 | --- | --- |
-| that's 23 words, a recovery phrase has 24 | 단어가 하나 빠졌거나 하나 더 있습니다 |
-| word 5 isn't a recovery phrase word | 그 단어의 철자가 틀렸습니다 |
-| all the words are real, but they don't make a valid phrase | 두 단어의 순서가 바뀌었거나, 한 단어가 다른 실제 단어로 바뀌었습니다 |
-| that's a valid phrase, but not the one for these backups | 다른 백업의 복구 문구입니다 |
+| entered 23 words, but a recovery phrase must contain exactly 24 words | 단어가 하나 빠졌거나 하나 더 있습니다 |
+| word 5 is not a valid recovery word; check the spelling | 그 단어의 철자가 틀렸습니다 |
+| all words are valid individually, but together they do not form a valid recovery phrase; check their order and spelling | 두 단어의 순서가 바뀌었거나, 한 단어가 다른 실제 단어로 바뀌었습니다 |
+| that recovery phrase is valid, but it does not match these backups | 다른 백업의 복구 문구입니다 |
 
 ## 키 지문
 

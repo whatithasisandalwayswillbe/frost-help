@@ -14,7 +14,7 @@
 
 | 설정 도우미의 질문 | 답 |
 | --- | --- |
-| What's the server's SSH address? | `me@nas.local` 같은 사용자와 호스트, 또는 SSH 설정의 `Host`. 다른 포트를 쓰면 `:2222`처럼 덧붙입니다 |
+| What is the server SSH address? | `me@nas.local` 같은 사용자와 호스트, 또는 SSH 설정의 `Host`. 다른 포트를 쓰면 `:2222`처럼 덧붙입니다 |
 | Which folder on the server? | 기본값은 `frost`이며, 서버의 홈 폴더 안에 있습니다. `/srv/backups/frost` 같은 전체 경로도 됩니다 |
 
 폴더의 마지막 부분이 없으면 설정 도우미가 만듭니다. 그 상위 폴더는 미리 있어야 합니다.

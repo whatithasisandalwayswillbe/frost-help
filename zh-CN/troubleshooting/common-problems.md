@@ -10,11 +10,11 @@ frost 找不到 `config.toml`。运行 `frost init`。如果你使用了 `--conf
 
 密钥文件不见了。如果这台电脑已经设置好了存储，运行 `frost key import` 并输入你的恢复短语。否则，运行 `frost init`。
 
-## "a backup or restore is already running"
+## "a backup or restore operation is already in progress"
 
 另一个 frost 进程正在使用你的备份，通常是计划备份。如果是计划备份，frost 会提示 "a scheduled backup is already running"，并说明它何时开始。等它结束后再试。删除 frost 的锁文件并不能停止那个进程。
 
-## "the key on this machine doesn't match"
+## "the local encryption key does not match"
 
 你的存储中的备份是用另一个密钥创建的。运行 `frost key verify`，输入你抄写的恢复短语，看看它对应的是哪个密钥。如果它就是正确的那个，用它运行 `frost key import`。
 
@@ -30,32 +30,32 @@ frost 找不到 `config.toml`。运行 `frost init`。如果你使用了 `--conf
 
 | 设置程序的提示 | 检查 |
 | --- | --- |
-| That access key ID wasn't recognised | 你是否完整复制了访问密钥 ID |
-| The secret key doesn't match the access key ID | 你是否完整复制了私密密钥，以及它是否属于这个密钥 ID |
-| There's no bucket with that name | 存储桶的名称，或者先创建存储桶 |
-| That key doesn't have the bucket permissions frost needs | 这个密钥能否在存储桶中读取、列出、写入和删除对象 |
-| The bucket is in a different region | 区域或端点 |
-| Can't find ... | 地址，以及你的网络连接 |
-| Nothing answered at that address | 地址和端口 |
-| The server's certificate isn't valid for that address | 地址，以及服务器证书是否涵盖这个地址 |
-| the storage didn't answer in time | 你的网络连接，然后重试 |
-| can't reach Permafrost | 你的网络连接，然后重试 |
-| Can't find that server | SSH 地址和你的网络 |
-| The server didn't answer | SSH 地址，以及服务器是否已开机 |
-| That server doesn't offer SFTP | 服务器的 SSH 或文件服务设置中是否开启了 SFTP |
-| The server sent text before SFTP started | 服务器上的登录脚本，比如 `.bashrc`，是否输出了内容。让它只在交互式 shell 中输出 |
+| Access key ID not recognized | 你是否完整复制了访问密钥 ID |
+| The secret key does not match the access key ID | 你是否完整复制了私密密钥，以及它是否属于这个密钥 ID |
+| No bucket found with that name | 存储桶的名称，或者先创建存储桶 |
+| The provided key lacks necessary bucket permissions | 这个密钥能否在存储桶中读取、列出、写入和删除对象 |
+| The bucket is located in a different region | 区域或端点 |
+| Cannot resolve ... | 地址，以及你的网络连接 |
+| No response from that address | 地址和端口 |
+| The server's TLS certificate is not valid for that address | 地址，以及服务器证书是否涵盖这个地址 |
+| the storage host timed out | 你的网络连接，然后重试 |
+| cannot reach Permafrost | 你的网络连接，然后重试 |
+| Cannot locate the server | SSH 地址和你的网络 |
+| The server did not respond | SSH 地址，以及服务器是否已开机 |
+| That server does not support SFTP | 服务器的 SSH 或文件服务设置中是否开启了 SFTP |
+| server returned text before opening SFTP subsystem | 服务器上的登录脚本，比如 `.bashrc`，是否输出了内容。让它只在交互式 shell 中输出 |
 | There's no folder ... on ... | 文件夹的路径。它所在的上级文件夹必须存在 |
-| The server won't let frost write in that folder | frost 登录所用账户对该文件夹的权限 |
-| ... isn't there. Connect the drive and try again | 磁盘是否已连接，路径是否正确 |
-| frost can't write in that folder | 文件夹的权限。在 macOS 上，参见[macOS 权限](#macos-permissions) |
-| frost doesn't follow links or junctions to a backup folder | 使用文件夹的真实路径 |
+| The server denied write access to that folder | frost 登录所用账户对该文件夹的权限 |
+| ... not found. Connect the required drive and try again | 磁盘是否已连接，路径是否正确 |
+| Unable to write to that folder | 文件夹的权限。在 macOS 上，参见[macOS 权限](#macos-permissions) |
+| Symbolic links and directory junctions are not supported for backup folders | 使用文件夹的真实路径 |
 | That drive is read-only | 使用一块可以写入的磁盘 |
 
-## "This storage doesn't support conditional writes"
+## "This storage provider does not support conditional writes"
 
 你的存储不支持 frost 需要的一项功能，frost 要靠它防止多台电脑互相覆盖备份记录。换密钥或改设置都解决不了。请选择其他存储。参见[选择存储](#choosing-storage)。
 
-自托管服务器或磁盘的提示不同。服务器会显示 "can't make hard links"，或者文件夹显示 "on a filesystem that can't create a file only when its name is free"。请使用 ext4、Btrfs、XFS、ZFS、APFS 或 NTFS 这类文件系统上的文件夹。
+自托管服务器或磁盘的提示不同。服务器会显示 "cannot create hard links"，或者文件夹显示 "on an unsupported filesystem"。请使用 ext4、Btrfs、XFS、ZFS、APFS 或 NTFS 这类文件系统上的文件夹。
 
 ## "the server didn't accept frost's SSH key"
 
@@ -65,7 +65,7 @@ frost 找不到 `config.toml`。运行 `frost init`。如果你使用了 `--conf
 
 服务器的身份变化时，frost 会像 ssh 一样拒绝连接。如果你重装了服务器，或者它换了新地址，请用 `ssh-keygen -R <host>` 删除旧密钥，然后再次运行 `frost init`。否则，请先查明密钥为什么变了，再去连接。
 
-## "... isn't there. Connect the drive and try again"
+## "... not found. Connect the required drive and try again"
 
 你的备份所在的磁盘没有连接，或者文件夹的路径变了。请连接磁盘。如果 Windows 给它分配了另一个盘符，参见[本地磁盘](#local-drive)。
 
@@ -85,7 +85,7 @@ Permafrost 目前不接受你账户的新备份。错误信息会说明原因和
 
 frost 跳过了这些文件，其余内容照常保存。常见原因有：你没有读取权限的文件、在备份过程中被删除的文件，以及在 macOS 上 iCloud 只保存在云端的文件。
 
-## 文件 "kept changing while they were read"
+## 文件 "continued changing while being read"
 
 备份过程中有程序在写入这些文件，所以快照保留了它们之前的副本。关闭那个程序后再备份一次，或者等下一次备份时自然会补上。
 
@@ -117,11 +117,11 @@ frost 跳过了这些文件，其余内容照常保存。常见原因有：你�
 
 抽查发现你的存储中有数据缺失或损坏。参见[检查备份](#checking-backups)。
 
-## "can't restore beside the originals"
+## "cannot restore alongside original files"
 
 原文件旁边的文件夹无法使用，通常是因为快照来自另一台电脑。请改用 `--to <dir>`。参见[恢复文件](#restoring)。
 
-## "can't overwrite the originals"
+## "cannot overwrite original files"
 
 快照来自另一类系统，或者通往原文件的路径经过了一个 frost 不信任的链接。请改用 `--beside` 或 `--to <dir>`。
 
@@ -134,8 +134,8 @@ frost 发现已经检查过的文件发生了变化，或者尚未恢复完成�
 | frost 的提示 | 可以尝试 |
 | --- | --- |
 | no snapshot at or before ... | 更晚的时间。提示中会显示你最早的快照 |
-| "maple" matches 2 snapshots, use more of the ID | 输入更多的 ID 字符，比如 `maple-absurd` |
-| can't read "..." as a snapshot ID or time | 给带空格的时间加上引号，比如 `"3 days ago"` |
+| "maple" matches 2 snapshots; provide additional ID characters | 输入更多的 ID 字符，比如 `maple-absurd` |
+| cannot parse "..." as a snapshot ID or timestamp | 给带空格的时间加上引号，比如 `"3 days ago"` |
 
 ## frost 无法自我更新
 
@@ -146,11 +146,11 @@ frost 所在的文件夹不可写，或者它是从源代码构建的。参见[�
 | 安装程序的提示 | 该怎么做 |
 | --- | --- |
 | need OpenSSH 8.1+ to verify the frost release signature | 安装或更新 OpenSSH。在 Windows 上，请改用 PowerShell 安装程序 |
-| checksums.txt isn't signed by the frost release key. Don't install this. | 不要安装。稍后再试，如果一直出现，请[报告这个问题](#getting-help) |
-| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | 不要安装。稍后再试，如果一直出现，请[报告这个问题](#getting-help) |
+| checksums.txt signature does not match official frost release key; installation aborted | 不要安装。稍后再试，如果一直出现，请[报告这个问题](#getting-help) |
+| runtime inside ... lacks valid OpenJS Foundation signature; installation aborted | 不要安装。稍后再试，如果一直出现，请[报告这个问题](#getting-help) |
 | checksum mismatch | 下载的文件损坏了。重新运行安装程序 |
 | 32-bit ARM isn't supported by the bundled runtime | 没有适用于这台电脑的 frost 安装包 |
-| installing frost needs Node.js 22 or newer | 更新 Node.js，或者改用安装程序，不用 npm 或 pnpm |
+| installing frost requires Node.js v22 or newer | 更新 Node.js，或者改用安装程序，不用 npm 或 pnpm |
 
 ## 安装后找不到 `frost`
 

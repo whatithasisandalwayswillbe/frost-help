@@ -10,7 +10,7 @@ frost has no uninstall command, but removing it takes a few steps.
 frost config set schedule.enabled false
 ```
 
-This removes the job from your operating system's scheduler. If frost says the job is removed once the running backup finishes, wait for that backup to finish before the next step. Until it has, `frost status` says a backup or restore is already running. On Linux with systemd, it also turns lingering back off if frost recorded turning it on.
+This removes the job from your operating system's scheduler. If frost says the job is removed once the running backup finishes, wait for that backup to finish before the next step. Until it has, `frost status` says a backup or restore operation is already in progress. On Linux with systemd, it also turns lingering back off if frost recorded turning it on.
 
 ## 2. Delete frost's files
 

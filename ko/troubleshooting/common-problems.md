@@ -10,11 +10,11 @@ frost가 `config.toml`을 찾지 못했습니다. `frost init`을 실행하세�
 
 키 파일이 없습니다. 이 컴퓨터에 스토리지가 이미 설정되어 있다면 `frost key import`를 실행하고 복구 문구를 입력하세요. 그렇지 않다면 `frost init`을 실행하세요.
 
-## "a backup or restore is already running"
+## "a backup or restore operation is already in progress"
 
 다른 frost 프로세스가 백업을 사용하고 있습니다. 대개 예약된 백업입니다. 그런 경우 frost는 "a scheduled backup is already running"이라고 표시하고 언제 시작했는지 알려 줍니다. 끝날 때까지 기다렸다가 다시 시도하세요. frost의 잠금 파일을 지워도 그 프로세스는 멈추지 않습니다.
 
-## "the key on this machine doesn't match"
+## "the local encryption key does not match"
 
 스토리지에 다른 키로 만든 백업이 있습니다. `frost key verify`를 실행하고 적어 둔 복구 문구를 입력해 어떤 키인지 확인하세요. 올바른 키라면 그 문구로 `frost key import`를 실행하세요.
 
@@ -30,32 +30,32 @@ frost가 `config.toml`을 찾지 못했습니다. `frost init`을 실행하세�
 
 | 설정 도우미의 메시지 | 확인할 것 |
 | --- | --- |
-| That access key ID wasn't recognised | 액세스 키 ID를 빠짐없이 복사했는지 |
-| The secret key doesn't match the access key ID | 비밀 키를 빠짐없이 복사했는지, 그 키 ID의 것인지 |
-| There's no bucket with that name | 버킷 이름. 또는 버킷을 먼저 만드세요 |
-| That key doesn't have the bucket permissions frost needs | 키에 버킷 객체의 읽기, 조회, 쓰기, 삭제 권한이 있는지 |
-| The bucket is in a different region | 리전 또는 엔드포인트 |
-| Can't find ... | 주소와 인터넷 연결 |
-| Nothing answered at that address | 주소와 포트 |
-| The server's certificate isn't valid for that address | 주소, 그리고 서버 인증서가 그 주소를 포함하는지 |
-| the storage didn't answer in time | 인터넷 연결. 그런 다음 다시 시도하세요 |
-| can't reach Permafrost | 인터넷 연결. 그런 다음 다시 시도하세요 |
-| Can't find that server | SSH 주소와 네트워크 |
-| The server didn't answer | SSH 주소, 그리고 서버가 켜져 있는지 |
-| That server doesn't offer SFTP | 서버의 SSH나 파일 서비스 설정에서 SFTP가 켜져 있는지 |
-| The server sent text before SFTP started | `.bashrc` 같은 서버의 로그인 스크립트가 무언가를 출력하는지. 대화형 셸에서만 출력하게 하세요 |
+| Access key ID not recognized | 액세스 키 ID를 빠짐없이 복사했는지 |
+| The secret key does not match the access key ID | 비밀 키를 빠짐없이 복사했는지, 그 키 ID의 것인지 |
+| No bucket found with that name | 버킷 이름. 또는 버킷을 먼저 만드세요 |
+| The provided key lacks necessary bucket permissions | 키에 버킷 객체의 읽기, 조회, 쓰기, 삭제 권한이 있는지 |
+| The bucket is located in a different region | 리전 또는 엔드포인트 |
+| Cannot resolve ... | 주소와 인터넷 연결 |
+| No response from that address | 주소와 포트 |
+| The server's TLS certificate is not valid for that address | 주소, 그리고 서버 인증서가 그 주소를 포함하는지 |
+| the storage host timed out | 인터넷 연결. 그런 다음 다시 시도하세요 |
+| cannot reach Permafrost | 인터넷 연결. 그런 다음 다시 시도하세요 |
+| Cannot locate the server | SSH 주소와 네트워크 |
+| The server did not respond | SSH 주소, 그리고 서버가 켜져 있는지 |
+| That server does not support SFTP | 서버의 SSH나 파일 서비스 설정에서 SFTP가 켜져 있는지 |
+| server returned text before opening SFTP subsystem | `.bashrc` 같은 서버의 로그인 스크립트가 무언가를 출력하는지. 대화형 셸에서만 출력하게 하세요 |
 | There's no folder ... on ... | 폴더 경로. 그 상위 폴더는 있어야 합니다 |
-| The server won't let frost write in that folder | frost가 로그인하는 계정에 대한 폴더 권한 |
-| ... isn't there. Connect the drive and try again | 드라이브가 연결되어 있고 경로가 맞는지 |
-| frost can't write in that folder | 폴더 권한. macOS라면 [macOS 권한](#macos-permissions)을 참고하세요 |
-| frost doesn't follow links or junctions to a backup folder | 폴더의 실제 경로를 쓰세요 |
+| The server denied write access to that folder | frost가 로그인하는 계정에 대한 폴더 권한 |
+| ... not found. Connect the required drive and try again | 드라이브가 연결되어 있고 경로가 맞는지 |
+| Unable to write to that folder | 폴더 권한. macOS라면 [macOS 권한](#macos-permissions)을 참고하세요 |
+| Symbolic links and directory junctions are not supported for backup folders | 폴더의 실제 경로를 쓰세요 |
 | That drive is read-only | 쓸 수 있는 드라이브를 쓰세요 |
 
-## "This storage doesn't support conditional writes"
+## "This storage provider does not support conditional writes"
 
 컴퓨터끼리 서로의 백업 기록을 덮어쓰지 않도록 frost에 필요한 기능을 스토리지가 지원하지 않습니다. 키나 설정을 바꿔도 해결되지 않습니다. 다른 스토리지를 고르세요. 자세한 내용은 [스토리지 선택](#choosing-storage)을 참고하세요.
 
-셀프 호스팅 서버나 드라이브에서는 다르게 표시됩니다. 서버가 "can't make hard links"라고 하거나, 폴더가 "on a filesystem that can't create a file only when its name is free"라고 표시됩니다. ext4, Btrfs, XFS, ZFS, APFS, NTFS 같은 파일 시스템에 있는 폴더를 쓰세요.
+셀프 호스팅 서버나 드라이브에서는 다르게 표시됩니다. 서버가 "cannot create hard links"라고 하거나, 폴더가 "on an unsupported filesystem"라고 표시됩니다. ext4, Btrfs, XFS, ZFS, APFS, NTFS 같은 파일 시스템에 있는 폴더를 쓰세요.
 
 ## "the server didn't accept frost's SSH key"
 
@@ -65,7 +65,7 @@ frost가 `config.toml`을 찾지 못했습니다. `frost init`을 실행하세�
 
 서버의 신원이 바뀌면 frost는 ssh와 마찬가지로 연결을 거부합니다. 서버를 다시 설치했거나 서버 주소가 바뀌었다면 `ssh-keygen -R <host>`로 이전 키를 지운 뒤 `frost init`을 다시 실행하세요. 그런 경우가 아니라면 연결하기 전에 키가 바뀐 이유를 확인하세요.
 
-## "... isn't there. Connect the drive and try again"
+## "... not found. Connect the required drive and try again"
 
 백업이 있는 드라이브가 연결되어 있지 않거나, 폴더 경로가 바뀌었습니다. 드라이브를 연결하세요. Windows가 다른 드라이브 문자를 지정했다면 [로컬 드라이브](#local-drive)를 참고하세요.
 
@@ -85,7 +85,7 @@ macOS에서는 대개 개인정보 보호 권한 문제입니다. 오류에 무�
 
 frost는 그 파일들을 건너뛰고 나머지를 저장했습니다. 흔한 원인은 읽기 권한이 없는 파일, 백업 중에 삭제된 파일, 그리고 macOS에서 iCloud가 온라인에만 보관하는 파일입니다.
 
-## "kept changing while they were read"로 표시된 파일
+## "continued changing while being read"로 표시된 파일
 
 백업하는 동안 어떤 프로그램이 그 파일에 쓰고 있었기 때문에, 스냅샷에는 이전 사본이 남았습니다. 프로그램을 닫고 다시 백업하거나, 다음 백업에 맡기세요.
 
@@ -117,11 +117,11 @@ frost는 그 파일들을 건너뛰고 나머지를 저장했습니다. 흔한 �
 
 표본 검사에서 스토리지의 데이터가 빠졌거나 손상된 것을 발견했습니다. 자세한 내용은 [백업 확인](#checking-backups)을 참고하세요.
 
-## "can't restore beside the originals"
+## "cannot restore alongside original files"
 
 원본 옆의 폴더를 쓸 수 없습니다. 스냅샷이 다른 컴퓨터에서 온 경우가 많습니다. 대신 `--to <dir>`를 쓰세요. 자세한 내용은 [파일 복원](#restoring)을 참고하세요.
 
-## "can't overwrite the originals"
+## "cannot overwrite original files"
 
 스냅샷이 다른 종류의 컴퓨터에서 왔거나, 원본으로 가는 경로가 frost가 신뢰하지 않는 링크를 거칩니다. 대신 `--beside`나 `--to <dir>`를 쓰세요.
 
@@ -134,8 +134,8 @@ frost가 이미 확인한 파일이 변경되었거나, 아직 복원이 끝나�
 | frost의 메시지 | 시도할 것 |
 | --- | --- |
 | no snapshot at or before ... | 더 나중의 시각. 메시지에 가장 오래된 스냅샷이 표시됩니다 |
-| "maple" matches 2 snapshots, use more of the ID | `maple-absurd`처럼 ID를 더 길게 입력하기 |
-| can't read "..." as a snapshot ID or time | `"3 days ago"`처럼 공백이 있는 시각을 따옴표로 감싸기 |
+| "maple" matches 2 snapshots; provide additional ID characters | `maple-absurd`처럼 ID를 더 길게 입력하기 |
+| cannot parse "..." as a snapshot ID or timestamp | `"3 days ago"`처럼 공백이 있는 시각을 따옴표로 감싸기 |
 
 ## frost가 스스로 업데이트하지 못함
 
@@ -146,11 +146,11 @@ frost 폴더에 쓸 수 없거나, frost를 소스에서 빌드한 경우입니�
 | 설치 프로그램의 메시지 | 할 일 |
 | --- | --- |
 | need OpenSSH 8.1+ to verify the frost release signature | OpenSSH를 설치하거나 업데이트하세요. Windows에서는 PowerShell 설치 프로그램을 쓰세요 |
-| checksums.txt isn't signed by the frost release key. Don't install this. | 설치하지 마세요. 나중에 다시 시도하고, 계속 발생하면 [신고](#getting-help)하세요 |
-| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | 설치하지 마세요. 나중에 다시 시도하고, 계속 발생하면 [신고](#getting-help)하세요 |
+| checksums.txt signature does not match official frost release key; installation aborted | 설치하지 마세요. 나중에 다시 시도하고, 계속 발생하면 [신고](#getting-help)하세요 |
+| runtime inside ... lacks valid OpenJS Foundation signature; installation aborted | 설치하지 마세요. 나중에 다시 시도하고, 계속 발생하면 [신고](#getting-help)하세요 |
 | checksum mismatch | 내려받은 파일이 손상되었습니다. 설치 프로그램을 다시 실행하세요 |
 | 32-bit ARM isn't supported by the bundled runtime | 이 컴퓨터용 frost 패키지는 없습니다 |
-| installing frost needs Node.js 22 or newer | Node.js를 업데이트하거나, npm이나 pnpm 대신 설치 프로그램을 쓰세요 |
+| installing frost requires Node.js v22 or newer | Node.js를 업데이트하거나, npm이나 pnpm 대신 설치 프로그램을 쓰세요 |
 
 ## 설치한 뒤 `frost`를 찾을 수 없음
 

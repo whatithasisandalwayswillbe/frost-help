@@ -31,7 +31,7 @@ Si nada ha cambiado, frost no guarda una instantánea nueva:
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
 │
-└  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
+└  Already backed up. No changes detected since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
 Una copia termina con un aviso `storage` cuando tu almacenamiento necesita atención, como cuando una cuenta de Permafrost, el disco de un servidor o un disco local está casi lleno.
@@ -108,4 +108,4 @@ Pulsa Intro para hacer la copia igualmente, o escribe `n` para parar. En program
 
 ## De una en una
 
-Una copia o restauración desde la línea de comandos bloquea su caché local mientras se ejecuta. Si otro comando necesita esa caché, frost muestra "a backup or restore is already running, try again when it's done" (ya hay una copia o restauración en marcha; inténtalo cuando termine). Si la otra es una copia programada, dice "a scheduled backup is already running" (ya hay una copia programada en marcha) y cuándo empezó. Una copia programada que encuentra la caché bloqueada espera en su lugar, hasta una hora. El explorador de instantáneas libera el bloqueo de la caché, así que puede seguir abierto y restaurar archivos mientras se hace una copia. Cada carpeta de caché y cada equipo tienen su propio bloqueo.
+Una copia o restauración desde la línea de comandos bloquea su caché local mientras se ejecuta. Si otro comando necesita esa caché, frost muestra "a backup or restore operation is already in progress; try again when it completes" (ya hay una copia o restauración en marcha; inténtalo cuando termine). Si la otra es una copia programada, dice "a scheduled backup is already running" (ya hay una copia programada en marcha) y cuándo empezó. Una copia programada que encuentra la caché bloqueada espera en su lugar, hasta una hora. El explorador de instantáneas libera el bloqueo de la caché, así que puede seguir abierto y restaurar archivos mientras se hace una copia. Cada carpeta de caché y cada equipo tienen su propio bloqueo.

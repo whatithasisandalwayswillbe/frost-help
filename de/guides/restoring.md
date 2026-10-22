@@ -88,7 +88,7 @@ Wiederhergestellte symbolische Links behalten ihre ursprünglichen Ziele, und di
 Bricht eine Wiederherstellung ab, wegen einer verlorenen Verbindung, `Ctrl+C` oder weil der Computer in den Ruhezustand geht, gibt frost den Befehl aus, der sie fortsetzt:
 
 ```text
-What's restored so far was kept. To carry on from there, run:
+Completed files and unfinished restore data have been preserved. To resume, run:
 
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```

@@ -10,11 +10,11 @@ S3 서버를 운영하지 않고 내 장비에 백업하고 싶다면 [셀프 �
 
 | 설정 도우미의 질문 | 답 |
 | --- | --- |
-| What's the S3 endpoint? | 서버나 제공업체 문서에 나온 호스트 이름. `https://` 없이 호스트 이름만 쓰면 HTTPS로 연결합니다 |
+| What is the S3 endpoint? | 서버나 제공업체 문서에 나온 호스트 이름. `https://` 없이 호스트 이름만 쓰면 HTTPS로 연결합니다 |
 | Which region? | 서버나 제공업체가 요구할 때만 입력합니다. 그렇지 않으면 비워 둡니다 |
-| What's the bucket called? | 만들 때와 똑같은 버킷 이름. 버킷은 미리 만들어 두어야 합니다 |
-| Paste the access key ID. | 서버나 제공업체 콘솔에서 확인합니다 |
-| Paste the secret access key. | 서버나 제공업체 콘솔에서 확인합니다 |
+| What is the bucket name? | 만들 때와 똑같은 버킷 이름. 버킷은 미리 만들어 두어야 합니다 |
+| Paste the Access Key ID. | 서버나 제공업체 콘솔에서 확인합니다 |
+| Paste the Secret Access Key. | 서버나 제공업체 콘솔에서 확인합니다 |
 
 frost는 버킷 안의 `frost` 폴더에 백업을 저장합니다.
 

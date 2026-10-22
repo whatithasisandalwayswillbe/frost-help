@@ -88,7 +88,7 @@ Les liens symboliques restaurés gardent leurs cibles d'origine, qui peuvent poi
 Si une restauration s'arrête, à cause d'une connexion perdue, de `Ctrl+C` ou de la mise en veille de l'ordinateur, frost affiche la commande qui la reprend :
 
 ```text
-What's restored so far was kept. To carry on from there, run:
+Completed files and unfinished restore data have been preserved. To resume, run:
 
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```

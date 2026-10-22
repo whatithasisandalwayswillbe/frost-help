@@ -31,7 +31,7 @@ frost는 무엇이 바뀌었는지, 얼마나 업로드했는지, 표본 검사 
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
 │
-└  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
+└  Already backed up. No changes detected since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
 Permafrost 계정, 서버의 디스크, 로컬 드라이브가 거의 찼을 때처럼 스토리지에 주의가 필요하면, 백업이 끝날 때 `storage` 경고가 표시됩니다.
@@ -108,4 +108,4 @@ macOS에서는 일부 폴더를 frost가 읽으려면 사용자의 허락이 필
 
 ## 한 번에 하나씩
 
-백업이나 명령줄 복원은 실행 중에 로컬 캐시를 잠급니다. 다른 명령어가 같은 캐시를 필요로 하면 frost는 "a backup or restore is already running, try again when it's done"(이미 백업이나 복원이 실행 중이니 끝난 뒤 다시 시도하세요)라고 표시합니다. 다른 쪽이 예약 백업이면 "a scheduled backup is already running"(예약 백업이 이미 실행 중입니다)라고 표시하고 언제 시작했는지 알려 줍니다. 반대로 예약 백업이 잠긴 캐시를 만나면 최대 1시간까지 기다립니다. 스냅샷 브라우저는 캐시 잠금을 해제하므로, 백업 중에도 열어 두거나 복원할 수 있습니다. 캐시 폴더나 컴퓨터가 다르면 잠금도 별개입니다.
+백업이나 명령줄 복원은 실행 중에 로컬 캐시를 잠급니다. 다른 명령어가 같은 캐시를 필요로 하면 frost는 "a backup or restore operation is already in progress; try again when it completes"(이미 백업이나 복원이 실행 중이니 끝난 뒤 다시 시도하세요)라고 표시합니다. 다른 쪽이 예약 백업이면 "a scheduled backup is already running"(예약 백업이 이미 실행 중입니다)라고 표시하고 언제 시작했는지 알려 줍니다. 반대로 예약 백업이 잠긴 캐시를 만나면 최대 1시간까지 기다립니다. 스냅샷 브라우저는 캐시 잠금을 해제하므로, 백업 중에도 열어 두거나 복원할 수 있습니다. 캐시 폴더나 컴퓨터가 다르면 잠금도 별개입니다.

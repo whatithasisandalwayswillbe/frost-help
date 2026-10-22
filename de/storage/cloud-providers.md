@@ -33,10 +33,10 @@ frost muss im Bucket Objekte lesen, auflisten, schreiben und löschen können, a
 
 | Die Einrichtung fragt | Antwort |
 | --- | --- |
-| Which region is the bucket in? | Die Region des Buckets, zum Beispiel `us-east-1` |
-| What's the bucket called? | Sein Name, genau so, wie du ihn angelegt hast |
-| Paste the access key ID. | Die Zugriffsschlüssel-ID aus IAM |
-| Paste the secret access key. | Wird nur einmal angezeigt, neben der Zugriffsschlüssel-ID, wenn du ihn erstellst |
+| Which region hosts the bucket? | Die Region des Buckets, zum Beispiel `us-east-1` |
+| What is the bucket name? | Sein Name, genau so, wie du ihn angelegt hast |
+| Paste the Access Key ID. | Die Zugriffsschlüssel-ID aus IAM |
+| Paste the Secret Access Key. | Wird nur einmal angezeigt, neben der Zugriffsschlüssel-ID, wenn du ihn erstellst |
 
 frost verbindet sich mit `s3.<region>.amazonaws.com`. Belass seine Objekte in einer Speicherklasse, die sich sofort lesen lässt, etwa S3 Standard oder S3 Standard-IA, nicht Glacier Flexible Retrieval oder Glacier Deep Archive. Bucket-Versionierung ist nicht nötig.
 
@@ -50,8 +50,8 @@ R2 unterstützt die bedingten Schreibvorgänge, die frost braucht.
 
 | Die Einrichtung fragt | Antwort |
 | --- | --- |
-| What's your Cloudflare account ID? | Die 32-stellige ID von der R2-Übersichtsseite |
-| What's the bucket called? | Sein Name, genau so, wie du ihn angelegt hast |
+| What is your Cloudflare Account ID? | Die 32-stellige ID von der R2-Übersichtsseite |
+| What is the bucket name? | Sein Name, genau so, wie du ihn angelegt hast |
 | Paste the Access Key ID. | Die Access Key ID deines neuen API-Tokens |
 | Paste the Secret Access Key. | Wird nur einmal angezeigt, neben der Access Key ID |
 
@@ -67,8 +67,8 @@ Die Dokumentation von Backblaze sagt nicht, ob B2 die bedingten Schreibvorgänge
 
 | Die Einrichtung fragt | Antwort |
 | --- | --- |
-| What's the bucket's endpoint? | Der Endpunkt von der Seite des Buckets, zum Beispiel `s3.us-west-004.backblazeb2.com` |
-| What's the bucket called? | Sein Name, genau so, wie du ihn angelegt hast |
+| What is the bucket endpoint? | Der Endpunkt von der Seite des Buckets, zum Beispiel `s3.us-west-004.backblazeb2.com` |
+| What is the bucket name? | Sein Name, genau so, wie du ihn angelegt hast |
 | Paste the application key's keyID. | Die keyID deines neuen Anwendungsschlüssels |
 | Paste the applicationKey. | Wird nur einmal angezeigt, direkt nachdem du den Schlüssel erstellt hast |
 
@@ -83,9 +83,9 @@ Die Dokumentation von Wasabi belegt nicht, dass es die bedingten Schreibvorgäng
 
 | Die Einrichtung fragt | Antwort |
 | --- | --- |
-| Which region is the bucket in? | Die Region des Buckets, zum Beispiel `us-east-1` |
-| What's the bucket called? | Sein Name, genau so, wie du ihn angelegt hast |
-| Paste the access key. | Der Zugriffsschlüssel, den du erstellt hast |
-| Paste the secret key. | Wird nur einmal angezeigt, wenn du den Schlüssel erstellst |
+| Which region hosts the bucket? | Die Region des Buckets, zum Beispiel `us-east-1` |
+| What is the bucket name? | Sein Name, genau so, wie du ihn angelegt hast |
+| Paste the Access Key. | Der Zugriffsschlüssel, den du erstellt hast |
+| Paste the Secret Key. | Wird nur einmal angezeigt, wenn du den Schlüssel erstellst |
 
 frost verbindet sich mit `s3.<region>.wasabisys.com`.

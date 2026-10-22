@@ -55,6 +55,6 @@ Since then storage.s3.bucket changed from old-bucket to new-bucket.
 
 Do one of these:
   put it back:       frost config set storage.s3.bucket old-bucket
-  keep the change:   move the whole folder (frost.repo, chunks/, snapshots/ and trees/) to s3://new-bucket/frost/
+  keep the change:   move the entire repository folder (frost.repo, chunks/, snapshots/, and trees/) to s3://new-bucket/frost/
   start over there:  frost init (your old backups stay where they are)
 ```

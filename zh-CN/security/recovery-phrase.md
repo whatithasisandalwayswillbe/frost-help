@@ -46,10 +46,10 @@ frost key import
 
 | frost 的提示 | 含义 |
 | --- | --- |
-| that's 23 words, a recovery phrase has 24 | 少了一个或多了一个单词 |
-| word 5 isn't a recovery phrase word | 这个单词拼错了 |
-| all the words are real, but they don't make a valid phrase | 有两个单词顺序颠倒，或者某个单词被换成了另一个真实存在的单词 |
-| that's a valid phrase, but not the one for these backups | 这个恢复短语属于另一组备份 |
+| entered 23 words, but a recovery phrase must contain exactly 24 words | 少了一个或多了一个单词 |
+| word 5 is not a valid recovery word; check the spelling | 这个单词拼错了 |
+| all words are valid individually, but together they do not form a valid recovery phrase; check their order and spelling | 有两个单词顺序颠倒，或者某个单词被换成了另一个真实存在的单词 |
+| that recovery phrase is valid, but it does not match these backups | 这个恢复短语属于另一组备份 |
 
 ## 密钥指纹
 

@@ -10,11 +10,11 @@
 
 | 设置程序的问题 | 回答 |
 | --- | --- |
-| What's the S3 endpoint? | 服务器或服务商文档中给出的主机名。只写主机名而不带 `https://` 时，按 HTTPS 连接 |
+| What is the S3 endpoint? | 服务器或服务商文档中给出的主机名。只写主机名而不带 `https://` 时，按 HTTPS 连接 |
 | Which region? | 只有服务器或服务商要求时才填写，否则留空 |
-| What's the bucket called? | 存储桶的名称，与创建时完全一致。存储桶必须已经存在 |
-| Paste the access key ID. | 来自服务器或服务商的控制台 |
-| Paste the secret access key. | 来自服务器或服务商的控制台 |
+| What is the bucket name? | 存储桶的名称，与创建时完全一致。存储桶必须已经存在 |
+| Paste the Access Key ID. | 来自服务器或服务商的控制台 |
+| Paste the Secret Access Key. | 来自服务器或服务商的控制台 |
 
 frost 会把备份放在存储桶中的 `frost` 文件夹里。
 

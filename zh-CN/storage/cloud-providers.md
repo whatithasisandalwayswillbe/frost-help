@@ -33,10 +33,10 @@ frost 需要在存储桶中读取、列出、写入和删除对象，不过它�
 
 | 设置程序的问题 | 回答 |
 | --- | --- |
-| Which region is the bucket in? | 存储桶所在的区域，比如 `us-east-1` |
-| What's the bucket called? | 存储桶的名称，与创建时完全一致 |
-| Paste the access key ID. | IAM 中的访问密钥 ID |
-| Paste the secret access key. | 只在创建访问密钥时显示一次，就在访问密钥 ID 旁边 |
+| Which region hosts the bucket? | 存储桶所在的区域，比如 `us-east-1` |
+| What is the bucket name? | 存储桶的名称，与创建时完全一致 |
+| Paste the Access Key ID. | IAM 中的访问密钥 ID |
+| Paste the Secret Access Key. | 只在创建访问密钥时显示一次，就在访问密钥 ID 旁边 |
 
 frost 会连接到 `s3.<region>.amazonaws.com`。让它的对象保持在可以立即读取的存储类别中，比如 S3 Standard 或 S3 Standard-IA，而不是 Glacier Flexible Retrieval 或 Glacier Deep Archive。不需要开启存储桶版本控制。
 
@@ -50,8 +50,8 @@ R2 支持 frost 需要的条件写入。
 
 | 设置程序的问题 | 回答 |
 | --- | --- |
-| What's your Cloudflare account ID? | R2 概览页面上的 32 位 ID |
-| What's the bucket called? | 存储桶的名称，与创建时完全一致 |
+| What is your Cloudflare Account ID? | R2 概览页面上的 32 位 ID |
+| What is the bucket name? | 存储桶的名称，与创建时完全一致 |
 | Paste the Access Key ID. | 新 API 令牌的 Access Key ID |
 | Paste the Secret Access Key. | 只显示一次，就在 Access Key ID 旁边 |
 
@@ -67,8 +67,8 @@ Backblaze 的文档没有说明 B2 是否支持 frost 需要的条件写入。�
 
 | 设置程序的问题 | 回答 |
 | --- | --- |
-| What's the bucket's endpoint? | 存储桶页面上的端点，比如 `s3.us-west-004.backblazeb2.com` |
-| What's the bucket called? | 存储桶的名称，与创建时完全一致 |
+| What is the bucket endpoint? | 存储桶页面上的端点，比如 `s3.us-west-004.backblazeb2.com` |
+| What is the bucket name? | 存储桶的名称，与创建时完全一致 |
 | Paste the application key's keyID. | 新应用程序密钥的 keyID |
 | Paste the applicationKey. | 只在刚创建密钥后显示一次 |
 
@@ -83,9 +83,9 @@ frost 会根据端点推断出区域。
 
 | 设置程序的问题 | 回答 |
 | --- | --- |
-| Which region is the bucket in? | 存储桶所在的区域，比如 `us-east-1` |
-| What's the bucket called? | 存储桶的名称，与创建时完全一致 |
-| Paste the access key. | 你创建的访问密钥 |
-| Paste the secret key. | 只在创建密钥时显示一次 |
+| Which region hosts the bucket? | 存储桶所在的区域，比如 `us-east-1` |
+| What is the bucket name? | 存储桶的名称，与创建时完全一致 |
+| Paste the Access Key. | 你创建的访问密钥 |
+| Paste the Secret Key. | 只在创建密钥时显示一次 |
 
 frost 会连接到 `s3.<region>.wasabisys.com`。

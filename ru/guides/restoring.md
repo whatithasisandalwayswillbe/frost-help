@@ -88,7 +88,7 @@ frost restore maple-absurd-3f1c --overwrite
 Если восстановление остановилось, например из-за обрыва связи, `Ctrl+C` или ухода компьютера в сон, frost выводит команду, которая его продолжит:
 
 ```text
-What's restored so far was kept. To carry on from there, run:
+Completed files and unfinished restore data have been preserved. To resume, run:
 
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```

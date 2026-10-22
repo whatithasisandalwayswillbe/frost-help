@@ -10,11 +10,11 @@ Ejecuta `frost init`, elige **S3-compatible** y después **Other S3-compatible**
 
 | El asistente pregunta | Respuesta |
 | --- | --- |
-| What's the S3 endpoint? | El nombre de host que indique la documentación de tu servidor o proveedor. Un nombre de host solo, sin `https://`, significa HTTPS |
+| What is the S3 endpoint? | El nombre de host que indique la documentación de tu servidor o proveedor. Un nombre de host solo, sin `https://`, significa HTTPS |
 | Which region? | Solo si tu servidor o proveedor la pide. Si no, déjalo en blanco |
-| What's the bucket called? | Su nombre, exactamente como lo creaste. El bucket ya tiene que existir |
-| Paste the access key ID. | De la consola de tu servidor o proveedor |
-| Paste the secret access key. | De la consola de tu servidor o proveedor |
+| What is the bucket name? | Su nombre, exactamente como lo creaste. El bucket ya tiene que existir |
+| Paste the Access Key ID. | De la consola de tu servidor o proveedor |
+| Paste the Secret Access Key. | De la consola de tu servidor o proveedor |
 
 frost guarda tus copias en una carpeta `frost` dentro del bucket.
 

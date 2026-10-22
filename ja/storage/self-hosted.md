@@ -14,7 +14,7 @@
 
 | セットアップの質問 | 答え |
 | --- | --- |
-| What's the server's SSH address? | `me@nas.local` のようなユーザーとホスト、または SSH 設定の `Host`。ポートが違う場合は `:2222` のように付け足します |
+| What is the server SSH address? | `me@nas.local` のようなユーザーとホスト、または SSH 設定の `Host`。ポートが違う場合は `:2222` のように付け足します |
 | Which folder on the server? | 既定は `frost` で、サーバー上のホームフォルダの中にあります。`/srv/backups/frost` のような絶対パスも使えます |
 
 フォルダの最後の部分がなければ、セットアップが作ります。その親フォルダはあらかじめ存在している必要があります。

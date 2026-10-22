@@ -31,7 +31,7 @@ If nothing changed, frost doesn't save a new snapshot:
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
 │
-└  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
+└  Already backed up. No changes detected since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
 A backup ends with a `storage` warning when your storage needs attention, such as a Permafrost account, a server's disk or a drive that's nearly full.
@@ -108,4 +108,4 @@ Press Enter to back up anyway, or type `n` to stop. For schedules less than 4 ho
 
 ## One at a time
 
-A backup or command-line restore locks its local cache while it runs. If another command needs that cache, frost says "a backup or restore is already running, try again when it's done". When the other one is a scheduled backup, it says "a scheduled backup is already running" and when it started. A scheduled backup that finds the cache locked waits up to an hour instead. The snapshot browser releases the cache lock, so it can stay open and restore while a backup runs. Different cache folders and computers have separate locks.
+A backup or command-line restore locks its local cache while it runs. If another command needs that cache, frost says "a backup or restore operation is already in progress; try again when it completes". When the other one is a scheduled backup, it says "a scheduled backup is already running" and when it started. A scheduled backup that finds the cache locked waits up to an hour instead. The snapshot browser releases the cache lock, so it can stay open and restore while a backup runs. Different cache folders and computers have separate locks.

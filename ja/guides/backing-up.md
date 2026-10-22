@@ -31,7 +31,7 @@ frost は、何が変わったか、どれだけアップロードしたか、�
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
 │
-└  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
+└  Already backed up. No changes detected since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
 Permafrost のアカウント、サーバーのディスク、ローカルドライブがほぼいっぱいになったときなど、ストレージに注意が必要な場合は、バックアップの最後に `storage` の警告が表示されます。
@@ -108,4 +108,4 @@ macOS では、一部のフォルダを frost が読むために、あなたの�
 
 ## 一度に 1 つだけ
 
-バックアップやコマンドラインからの復元は、実行中にローカルキャッシュをロックします。別のコマンドが同じキャッシュを必要とすると、frost は "a backup or restore is already running, try again when it's done" (バックアップか復元が実行中です。終わってからもう一度試してください) と表示します。相手がスケジュールされたバックアップなら、"a scheduled backup is already running" (スケジュールされたバックアップが実行中です) と、それが始まった時刻を表示します。逆に、スケジュールされたバックアップがロックされたキャッシュに出会った場合は、最大 1 時間待ちます。スナップショットブラウザはキャッシュのロックを解放するので、バックアップ中も開いたままにでき、復元もできます。キャッシュフォルダやコンピュータが違えば、ロックも別です。
+バックアップやコマンドラインからの復元は、実行中にローカルキャッシュをロックします。別のコマンドが同じキャッシュを必要とすると、frost は "a backup or restore operation is already in progress; try again when it completes" (バックアップか復元が実行中です。終わってからもう一度試してください) と表示します。相手がスケジュールされたバックアップなら、"a scheduled backup is already running" (スケジュールされたバックアップが実行中です) と、それが始まった時刻を表示します。逆に、スケジュールされたバックアップがロックされたキャッシュに出会った場合は、最大 1 時間待ちます。スナップショットブラウザはキャッシュのロックを解放するので、バックアップ中も開いたままにでき、復元もできます。キャッシュフォルダやコンピュータが違えば、ロックも別です。

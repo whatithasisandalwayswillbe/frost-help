@@ -10,11 +10,11 @@ frost ne trouve pas `config.toml`. Lancez `frost init`. Si vous utilisez `--conf
 
 Le fichier de clé est absent. Si cet ordinateur a déjà un stockage configuré, lancez `frost key import` et tapez votre phrase de récupération. Sinon, lancez `frost init`.
 
-## « a backup or restore is already running »
+## « a backup or restore operation is already in progress »
 
 Un autre processus frost utilise vos sauvegardes, en général une sauvegarde planifiée. Dans ce cas, frost affiche « a scheduled backup is already running » et l'heure de son début. Attendez qu'il se termine et réessayez. Supprimer le fichier de verrou de frost n'arrête pas l'autre processus.
 
-## « the key on this machine doesn't match »
+## « the local encryption key does not match »
 
 Votre stockage contient des sauvegardes faites avec une autre clé. Lancez `frost key verify` et tapez la phrase que vous avez notée pour savoir de quelle clé il s'agit. Si c'est la bonne, lancez `frost key import` avec elle.
 
@@ -30,32 +30,32 @@ L'assistant explique le problème et vous ramène à la réponse la plus probabl
 
 | L'assistant affiche | À vérifier |
 | --- | --- |
-| That access key ID wasn't recognised | Que vous avez copié l'identifiant de clé d'accès en entier |
-| The secret key doesn't match the access key ID | Que vous avez copié la clé secrète en entier, et qu'elle correspond à cet identifiant |
-| There's no bucket with that name | Le nom du bucket, ou créez d'abord le bucket |
-| That key doesn't have the bucket permissions frost needs | Que la clé peut lire, lister, écrire et supprimer des objets dans le bucket |
-| The bucket is in a different region | La région ou l'endpoint |
-| Can't find ... | L'adresse et votre connexion internet |
-| Nothing answered at that address | L'adresse et le port |
-| The server's certificate isn't valid for that address | L'adresse, et que le certificat du serveur la couvre |
-| the storage didn't answer in time | Votre connexion internet, puis réessayez |
-| can't reach Permafrost | Votre connexion internet, puis réessayez |
-| Can't find that server | L'adresse SSH et votre réseau |
-| The server didn't answer | L'adresse SSH, et que le serveur est allumé |
-| That server doesn't offer SFTP | Que SFTP est activé dans les réglages SSH ou de services de fichiers du serveur |
-| The server sent text before SFTP started | Qu'un script de connexion du serveur, comme `.bashrc`, n'affiche rien. Ne le laissez afficher du texte que dans les shells interactifs |
+| Access key ID not recognized | Que vous avez copié l'identifiant de clé d'accès en entier |
+| The secret key does not match the access key ID | Que vous avez copié la clé secrète en entier, et qu'elle correspond à cet identifiant |
+| No bucket found with that name | Le nom du bucket, ou créez d'abord le bucket |
+| The provided key lacks necessary bucket permissions | Que la clé peut lire, lister, écrire et supprimer des objets dans le bucket |
+| The bucket is located in a different region | La région ou l'endpoint |
+| Cannot resolve ... | L'adresse et votre connexion internet |
+| No response from that address | L'adresse et le port |
+| The server's TLS certificate is not valid for that address | L'adresse, et que le certificat du serveur la couvre |
+| the storage host timed out | Votre connexion internet, puis réessayez |
+| cannot reach Permafrost | Votre connexion internet, puis réessayez |
+| Cannot locate the server | L'adresse SSH et votre réseau |
+| The server did not respond | L'adresse SSH, et que le serveur est allumé |
+| That server does not support SFTP | Que SFTP est activé dans les réglages SSH ou de services de fichiers du serveur |
+| server returned text before opening SFTP subsystem | Qu'un script de connexion du serveur, comme `.bashrc`, n'affiche rien. Ne le laissez afficher du texte que dans les shells interactifs |
 | There's no folder ... on ... | Le chemin du dossier. Le dossier qui le contient doit exister |
-| The server won't let frost write in that folder | Les autorisations du dossier pour le compte avec lequel frost se connecte |
-| ... isn't there. Connect the drive and try again | Que le disque est branché et que le chemin est le bon |
-| frost can't write in that folder | Les autorisations du dossier. Sous macOS, voir [Autorisations macOS](#macos-permissions) |
-| frost doesn't follow links or junctions to a backup folder | Utilisez le vrai chemin du dossier |
+| The server denied write access to that folder | Les autorisations du dossier pour le compte avec lequel frost se connecte |
+| ... not found. Connect the required drive and try again | Que le disque est branché et que le chemin est le bon |
+| Unable to write to that folder | Les autorisations du dossier. Sous macOS, voir [Autorisations macOS](#macos-permissions) |
+| Symbolic links and directory junctions are not supported for backup folders | Utilisez le vrai chemin du dossier |
 | That drive is read-only | Utilisez un disque sur lequel vous pouvez écrire |
 
-## « This storage doesn't support conditional writes »
+## « This storage provider does not support conditional writes »
 
 Votre stockage ne prend pas en charge une fonction dont frost a besoin pour empêcher les ordinateurs d'écraser leurs registres de sauvegarde respectifs. D'autres clés ou d'autres réglages n'y changeront rien. Choisissez un autre stockage. Voir [Choisir un stockage](#choosing-storage).
 
-Un serveur auto-hébergé ou un disque le dit autrement. Le serveur « can't make hard links », ou le dossier est « on a filesystem that can't create a file only when its name is free ». Utilisez un dossier sur un système de fichiers comme ext4, Btrfs, XFS, ZFS, APFS ou NTFS.
+Un serveur auto-hébergé ou un disque le dit autrement. Le serveur « cannot create hard links », ou le dossier est « on an unsupported filesystem ». Utilisez un dossier sur un système de fichiers comme ext4, Btrfs, XFS, ZFS, APFS ou NTFS.
 
 ## « the server didn't accept frost's SSH key »
 
@@ -65,7 +65,7 @@ Votre serveur auto-hébergé a refusé la clé de frost, par exemple après sa s
 
 frost refuse de se connecter quand l'identité du serveur change, comme ssh. Si vous avez réinstallé le serveur ou s'il a changé d'adresse, supprimez son ancienne clé avec `ssh-keygen -R <host>` et relancez `frost init`. Sinon, découvrez pourquoi la clé a changé avant de vous connecter.
 
-## « ... isn't there. Connect the drive and try again »
+## « ... not found. Connect the required drive and try again »
 
 Vos sauvegardes sont sur un disque qui n'est pas branché, ou le chemin du dossier a changé. Branchez le disque. Si Windows lui a donné une autre lettre, voir [Disque local](#local-drive).
 
@@ -85,7 +85,7 @@ Sous macOS, c'est en général une autorisation de confidentialité. L'erreur in
 
 frost a ignoré ces fichiers et enregistré le reste. Les causes courantes sont des fichiers que vous n'avez pas le droit de lire, des fichiers supprimés pendant la sauvegarde et, sous macOS, des fichiers qu'iCloud conserve uniquement en ligne.
 
-## Des fichiers qui « kept changing while they were read »
+## Des fichiers qui « continued changing while being read »
 
 Un programme écrivait dans ces fichiers pendant la sauvegarde : l'instantané a donc gardé leur copie précédente. Fermez le programme et relancez la sauvegarde, ou laissez la suivante s'en charger.
 
@@ -117,11 +117,11 @@ La tâche planifiée a été supprimée ou désactivée. Remettez-la en place av
 
 Une vérification par échantillonnage a trouvé des données manquantes ou abîmées dans votre stockage. Voir [Vérifier vos sauvegardes](#checking-backups).
 
-## « can't restore beside the originals »
+## « cannot restore alongside original files »
 
 Le dossier à côté des originaux n'est pas utilisable, souvent parce que l'instantané vient d'un autre ordinateur. Utilisez plutôt `--to <dir>`. Voir [Restaurer des fichiers](#restoring).
 
-## « can't overwrite the originals »
+## « cannot overwrite original files »
 
 L'instantané vient d'un autre type d'ordinateur, ou le chemin vers les originaux passe par un lien auquel frost ne fait pas confiance. Utilisez plutôt `--beside` ou `--to <dir>`.
 
@@ -134,8 +134,8 @@ frost a constaté qu’un fichier déjà vérifié avait changé, ou qu’un fic
 | frost affiche | Essayez |
 | --- | --- |
 | no snapshot at or before ... | Une date plus tardive. Le message indique votre instantané le plus ancien |
-| "maple" matches 2 snapshots, use more of the ID | Une plus grande partie de l'identifiant, comme `maple-absurd` |
-| can't read "..." as a snapshot ID or time | Des guillemets autour des dates qui contiennent des espaces, comme `"3 days ago"` |
+| "maple" matches 2 snapshots; provide additional ID characters | Une plus grande partie de l'identifiant, comme `maple-absurd` |
+| cannot parse "..." as a snapshot ID or timestamp | Des guillemets autour des dates qui contiennent des espaces, comme `"3 days ago"` |
 
 ## frost ne peut pas se mettre à jour
 
@@ -146,11 +146,11 @@ Le dossier de frost n'est pas accessible en écriture, ou frost a été compilé
 | L'installateur affiche | Que faire |
 | --- | --- |
 | need OpenSSH 8.1+ to verify the frost release signature | Installez ou mettez à jour OpenSSH. Sous Windows, utilisez plutôt l'installateur PowerShell |
-| checksums.txt isn't signed by the frost release key. Don't install this. | Ne l'installez pas. Réessayez plus tard, et [signalez-le](#getting-help) si le problème persiste |
-| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | Ne l'installez pas. Réessayez plus tard, et [signalez-le](#getting-help) si le problème persiste |
+| checksums.txt signature does not match official frost release key; installation aborted | Ne l'installez pas. Réessayez plus tard, et [signalez-le](#getting-help) si le problème persiste |
+| runtime inside ... lacks valid OpenJS Foundation signature; installation aborted | Ne l'installez pas. Réessayez plus tard, et [signalez-le](#getting-help) si le problème persiste |
 | checksum mismatch | Le téléchargement est abîmé. Relancez l'installateur |
 | 32-bit ARM isn't supported by the bundled runtime | Il n'existe pas de paquet frost pour cet ordinateur |
-| installing frost needs Node.js 22 or newer | Mettez à jour Node.js, ou utilisez l'installateur au lieu de npm ou pnpm |
+| installing frost requires Node.js v22 or newer | Mettez à jour Node.js, ou utilisez l'installateur au lieu de npm ou pnpm |
 
 ## `frost` est introuvable après l'installation
 

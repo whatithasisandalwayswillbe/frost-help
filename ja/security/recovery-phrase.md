@@ -46,10 +46,10 @@ frost key import
 
 | frost の表示 | 意味 |
 | --- | --- |
-| that's 23 words, a recovery phrase has 24 | 単語が 1 つ足りないか、多すぎます |
-| word 5 isn't a recovery phrase word | その単語のつづりが間違っています |
-| all the words are real, but they don't make a valid phrase | 2 つの単語が入れ替わっているか、1 つが別の実在する単語になっています |
-| that's a valid phrase, but not the one for these backups | 別のバックアップのフレーズです |
+| entered 23 words, but a recovery phrase must contain exactly 24 words | 単語が 1 つ足りないか、多すぎます |
+| word 5 is not a valid recovery word; check the spelling | その単語のつづりが間違っています |
+| all words are valid individually, but together they do not form a valid recovery phrase; check their order and spelling | 2 つの単語が入れ替わっているか、1 つが別の実在する単語になっています |
+| that recovery phrase is valid, but it does not match these backups | 別のバックアップのフレーズです |
 
 ## キーのフィンガープリント
 

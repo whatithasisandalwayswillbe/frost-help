@@ -31,7 +31,7 @@ frost 会显示哪些内容有变化、上传了多少数据，以及抽查的�
 │  files        1,204 (2.1 GB)
 │  verified     ok 3h ago, 21 objects checked
 │
-└  Already backed up. Nothing has changed since snapshot maple-absurd-3f1c, saved 3h ago.
+└  Already backed up. No changes detected since snapshot maple-absurd-3f1c, saved 3h ago.
 ```
 
 当你的存储需要注意时，比如 Permafrost 账户、服务器的磁盘或本地磁盘快满了，备份结束时会显示一条 `storage` 警告。
@@ -108,4 +108,4 @@ frost 不会创建文件系统快照或数据库快照。对于总是处于使�
 
 ## 一次只运行一个
 
-备份或命令行恢复在运行时会锁住本地缓存。如果另一个命令也需要使用这份缓存，frost 会提示 "a backup or restore is already running, try again when it's done"（已有备份或恢复在运行，请等它结束后再试）。如果另一个是计划备份，frost 会提示 "a scheduled backup is already running"（计划备份正在运行），并说明它何时开始。计划备份遇到缓存被锁时，则会等待，最多等一小时。快照浏览器会释放缓存锁，所以备份运行时，你仍可打开浏览器并从中恢复。不同的缓存文件夹和不同的电脑各有自己的锁。
+备份或命令行恢复在运行时会锁住本地缓存。如果另一个命令也需要使用这份缓存，frost 会提示 "a backup or restore operation is already in progress; try again when it completes"（已有备份或恢复在运行，请等它结束后再试）。如果另一个是计划备份，frost 会提示 "a scheduled backup is already running"（计划备份正在运行），并说明它何时开始。计划备份遇到缓存被锁时，则会等待，最多等一小时。快照浏览器会释放缓存锁，所以备份运行时，你仍可打开浏览器并从中恢复。不同的缓存文件夹和不同的电脑各有自己的锁。

@@ -10,11 +10,11 @@ S3 サーバーを運用せずに自分のマシンへバックアップした�
 
 | セットアップの質問 | 答え |
 | --- | --- |
-| What's the S3 endpoint? | サーバーやプロバイダーのドキュメントに書かれたホスト名。`https://` を付けずにホスト名だけを書くと HTTPS で接続します |
+| What is the S3 endpoint? | サーバーやプロバイダーのドキュメントに書かれたホスト名。`https://` を付けずにホスト名だけを書くと HTTPS で接続します |
 | Which region? | サーバーやプロバイダーに求められた場合だけ入力します。それ以外は空欄のままにします |
-| What's the bucket called? | 作成したとおりのバケット名。バケットはあらかじめ作っておく必要があります |
-| Paste the access key ID. | サーバーやプロバイダーのコンソールで確認します |
-| Paste the secret access key. | サーバーやプロバイダーのコンソールで確認します |
+| What is the bucket name? | 作成したとおりのバケット名。バケットはあらかじめ作っておく必要があります |
+| Paste the Access Key ID. | サーバーやプロバイダーのコンソールで確認します |
+| Paste the Secret Access Key. | サーバーやプロバイダーのコンソールで確認します |
 
 frost は、バケット内の `frost` フォルダにバックアップを保存します。
 

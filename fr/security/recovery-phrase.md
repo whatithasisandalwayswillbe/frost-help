@@ -46,10 +46,10 @@ Tapez les 24 mots dans l'ordre, séparés par des espaces. Les majuscules n'ont 
 
 | frost affiche | Cela signifie |
 | --- | --- |
-| that's 23 words, a recovery phrase has 24 | Il manque un mot, ou il y en a un de trop |
-| word 5 isn't a recovery phrase word | Ce mot est mal orthographié |
-| all the words are real, but they don't make a valid phrase | Deux mots sont inversés, ou l'un d'eux est un autre mot existant |
-| that's a valid phrase, but not the one for these backups | La phrase appartient à un autre ensemble de sauvegardes |
+| entered 23 words, but a recovery phrase must contain exactly 24 words | Il manque un mot, ou il y en a un de trop |
+| word 5 is not a valid recovery word; check the spelling | Ce mot est mal orthographié |
+| all words are valid individually, but together they do not form a valid recovery phrase; check their order and spelling | Deux mots sont inversés, ou l'un d'eux est un autre mot existant |
+| that recovery phrase is valid, but it does not match these backups | La phrase appartient à un autre ensemble de sauvegardes |
 
 ## L'empreinte de la clé
 

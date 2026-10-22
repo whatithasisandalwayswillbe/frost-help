@@ -88,7 +88,7 @@ frost restore maple-absurd-3f1c --overwrite
 연결이 끊기거나, `Ctrl+C`를 누르거나, 컴퓨터가 잠자기에 들어가서 복원이 멈추면, frost는 이어서 진행하는 명령어를 출력합니다.
 
 ```text
-What's restored so far was kept. To carry on from there, run:
+Completed files and unfinished restore data have been preserved. To resume, run:
 
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```

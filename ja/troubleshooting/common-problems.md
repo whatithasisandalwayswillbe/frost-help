@@ -10,11 +10,11 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 
 キーファイルがありません。このコンピュータでストレージの設定が済んでいる場合は、`frost key import` を実行してリカバリーフレーズを入力します。そうでなければ、`frost init` を実行します。
 
-## "a backup or restore is already running"
+## "a backup or restore operation is already in progress"
 
 別の frost のプロセスがバックアップを使用中です。たいていはスケジュールされたバックアップです。その場合、frost は "a scheduled backup is already running" と、それが始まった時刻を表示します。終わるのを待ってから、もう一度試してください。frost のロックファイルを削除しても、そのプロセスは止まりません。
 
-## "the key on this machine doesn't match"
+## "the local encryption key does not match"
 
 ストレージには、別のキーで作られたバックアップがあります。`frost key verify` を実行し、書き留めたフレーズを入力して、どのキーなのかを確かめてください。正しいキーであれば、そのフレーズで `frost key import` を実行します。
 
@@ -30,32 +30,32 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 
 | セットアップの表示 | 確認すること |
 | --- | --- |
-| That access key ID wasn't recognised | アクセスキー ID を最後までコピーしたか |
-| The secret key doesn't match the access key ID | シークレットキーを最後までコピーしたか、そのキー ID のものか |
-| There's no bucket with that name | バケット名。またはバケットを先に作ります |
-| That key doesn't have the bucket permissions frost needs | キーにバケット内のオブジェクトの読み取り、一覧、書き込み、削除の権限があるか |
-| The bucket is in a different region | リージョンまたはエンドポイント |
-| Can't find ... | アドレスとインターネット接続 |
-| Nothing answered at that address | アドレスとポート |
-| The server's certificate isn't valid for that address | アドレスと、サーバーの証明書がそのアドレスに対応しているか |
-| the storage didn't answer in time | インターネット接続。そのあとでもう一度試します |
-| can't reach Permafrost | インターネット接続。そのあとでもう一度試します |
-| Can't find that server | SSH アドレスとネットワーク |
-| The server didn't answer | SSH アドレスと、サーバーの電源が入っているか |
-| That server doesn't offer SFTP | サーバーの SSH やファイルサービスの設定で SFTP がオンになっているか |
-| The server sent text before SFTP started | `.bashrc` などサーバーのログインスクリプトが何かを出力していないか。対話型シェルでだけ出力するようにします |
+| Access key ID not recognized | アクセスキー ID を最後までコピーしたか |
+| The secret key does not match the access key ID | シークレットキーを最後までコピーしたか、そのキー ID のものか |
+| No bucket found with that name | バケット名。またはバケットを先に作ります |
+| The provided key lacks necessary bucket permissions | キーにバケット内のオブジェクトの読み取り、一覧、書き込み、削除の権限があるか |
+| The bucket is located in a different region | リージョンまたはエンドポイント |
+| Cannot resolve ... | アドレスとインターネット接続 |
+| No response from that address | アドレスとポート |
+| The server's TLS certificate is not valid for that address | アドレスと、サーバーの証明書がそのアドレスに対応しているか |
+| the storage host timed out | インターネット接続。そのあとでもう一度試します |
+| cannot reach Permafrost | インターネット接続。そのあとでもう一度試します |
+| Cannot locate the server | SSH アドレスとネットワーク |
+| The server did not respond | SSH アドレスと、サーバーの電源が入っているか |
+| That server does not support SFTP | サーバーの SSH やファイルサービスの設定で SFTP がオンになっているか |
+| server returned text before opening SFTP subsystem | `.bashrc` などサーバーのログインスクリプトが何かを出力していないか。対話型シェルでだけ出力するようにします |
 | There's no folder ... on ... | フォルダのパス。その親フォルダは存在している必要があります |
-| The server won't let frost write in that folder | frost がログインするアカウントに対するフォルダの権限 |
-| ... isn't there. Connect the drive and try again | ドライブが接続されていて、パスが正しいか |
-| frost can't write in that folder | フォルダの権限。macOS では[macOS の権限](#macos-permissions)を参照してください |
-| frost doesn't follow links or junctions to a backup folder | フォルダの実際のパスを使います |
+| The server denied write access to that folder | frost がログインするアカウントに対するフォルダの権限 |
+| ... not found. Connect the required drive and try again | ドライブが接続されていて、パスが正しいか |
+| Unable to write to that folder | フォルダの権限。macOS では[macOS の権限](#macos-permissions)を参照してください |
+| Symbolic links and directory junctions are not supported for backup folders | フォルダの実際のパスを使います |
 | That drive is read-only | 書き込めるドライブを使います |
 
-## "This storage doesn't support conditional writes"
+## "This storage provider does not support conditional writes"
 
 コンピュータ同士がバックアップ記録を上書きし合わないようにするために frost が必要とする機能に、ストレージが対応していません。キーや設定を変えても解決しません。別のストレージを選んでください。詳しくは[ストレージの選び方](#choosing-storage)を参照してください。
 
-セルフホストのサーバーやドライブでは、別の言い方で表示されます。サーバーが "can't make hard links" と表示するか、フォルダが "on a filesystem that can't create a file only when its name is free" と表示されます。ext4、Btrfs、XFS、ZFS、APFS、NTFS などのファイルシステム上のフォルダを使ってください。
+セルフホストのサーバーやドライブでは、別の言い方で表示されます。サーバーが "cannot create hard links" と表示するか、フォルダが "on an unsupported filesystem" と表示されます。ext4、Btrfs、XFS、ZFS、APFS、NTFS などのファイルシステム上のフォルダを使ってください。
 
 ## "the server didn't accept frost's SSH key"
 
@@ -65,7 +65,7 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 
 サーバーの身元が変わると、frost は ssh と同じように接続を拒否します。サーバーを再インストールした場合や、サーバーのアドレスが変わった場合は、`ssh-keygen -R <host>` で古いキーを削除し、もう一度 `frost init` を実行します。それ以外の場合は、接続する前にキーが変わった理由を確かめてください。
 
-## "... isn't there. Connect the drive and try again"
+## "... not found. Connect the required drive and try again"
 
 バックアップのあるドライブが接続されていないか、フォルダのパスが変わりました。ドライブを接続してください。Windows で別のドライブ文字が割り当てられた場合は、[ローカルドライブ](#local-drive)を参照してください。
 
@@ -85,7 +85,7 @@ macOS では、たいていプライバシーに関する権限の問題です�
 
 frost はそれらのファイルをスキップし、残りを保存しました。よくある原因は、読み取り権限のないファイル、バックアップ中に削除されたファイル、そして macOS では iCloud がオンラインにだけ置いているファイルです。
 
-## "kept changing while they were read" と表示されたファイル
+## "continued changing while being read" と表示されたファイル
 
 バックアップ中にプログラムがそれらのファイルに書き込んでいたため、スナップショットには以前のコピーが残りました。プログラムを閉じてからもう一度バックアップするか、次のバックアップに任せてください。
 
@@ -117,11 +117,11 @@ frost はそれらのファイルをスキップし、残りを保存しまし�
 
 抜き取りチェックで、ストレージ内のデータの欠落や破損が見つかりました。詳しくは[バックアップの確認](#checking-backups)を参照してください。
 
-## "can't restore beside the originals"
+## "cannot restore alongside original files"
 
 元のファイルの隣のフォルダが使えません。スナップショットが別のコンピュータのものであることがよくある原因です。代わりに `--to <dir>` を使ってください。詳しくは[ファイルの復元](#restoring)を参照してください。
 
-## "can't overwrite the originals"
+## "cannot overwrite original files"
 
 スナップショットが別の種類のコンピュータのものか、元のファイルへのパスが frost の信頼しないリンクを経由しています。代わりに `--beside` か `--to <dir>` を使ってください。
 
@@ -134,8 +134,8 @@ frost は、確認済みのファイルが変更されたか、復元途中の�
 | frost の表示 | 試すこと |
 | --- | --- |
 | no snapshot at or before ... | もっと後の日時を指定します。メッセージには最も古いスナップショットが表示されます |
-| "maple" matches 2 snapshots, use more of the ID | `maple-absurd` のように、ID をもっと長く入力します |
-| can't read "..." as a snapshot ID or time | `"3 days ago"` のように、スペースを含む日時を引用符で囲みます |
+| "maple" matches 2 snapshots; provide additional ID characters | `maple-absurd` のように、ID をもっと長く入力します |
+| cannot parse "..." as a snapshot ID or timestamp | `"3 days ago"` のように、スペースを含む日時を引用符で囲みます |
 
 ## frost が自分でアップデートできない
 
@@ -146,11 +146,11 @@ frost のフォルダに書き込めないか、frost がソースからビル�
 | インストーラの表示 | 対処 |
 | --- | --- |
 | need OpenSSH 8.1+ to verify the frost release signature | OpenSSH をインストールまたはアップデートします。Windows では PowerShell のインストーラを使ってください |
-| checksums.txt isn't signed by the frost release key. Don't install this. | インストールしないでください。時間をおいて再試行し、繰り返し起きる場合は[報告](#getting-help)してください |
-| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | インストールしないでください。時間をおいて再試行し、繰り返し起きる場合は[報告](#getting-help)してください |
+| checksums.txt signature does not match official frost release key; installation aborted | インストールしないでください。時間をおいて再試行し、繰り返し起きる場合は[報告](#getting-help)してください |
+| runtime inside ... lacks valid OpenJS Foundation signature; installation aborted | インストールしないでください。時間をおいて再試行し、繰り返し起きる場合は[報告](#getting-help)してください |
 | checksum mismatch | ダウンロードしたファイルが壊れています。インストーラをもう一度実行します |
 | 32-bit ARM isn't supported by the bundled runtime | このコンピュータ向けの frost のパッケージはありません |
-| installing frost needs Node.js 22 or newer | Node.js をアップデートするか、npm や pnpm ではなくインストーラを使ってください |
+| installing frost requires Node.js v22 or newer | Node.js をアップデートするか、npm や pnpm ではなくインストーラを使ってください |
 
 ## インストール後に `frost` が見つからない
 

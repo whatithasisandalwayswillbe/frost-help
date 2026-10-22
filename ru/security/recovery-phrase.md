@@ -46,10 +46,10 @@ frost key import
 
 | Что пишет frost | Что это значит |
 | --- | --- |
-| that's 23 words, a recovery phrase has 24 | Одного слова не хватает или одно лишнее |
-| word 5 isn't a recovery phrase word | Это слово написано с ошибкой |
-| all the words are real, but they don't make a valid phrase | Два слова переставлены или одно заменено другим настоящим словом |
-| that's a valid phrase, but not the one for these backups | Фраза от другого набора копий |
+| entered 23 words, but a recovery phrase must contain exactly 24 words | Одного слова не хватает или одно лишнее |
+| word 5 is not a valid recovery word; check the spelling | Это слово написано с ошибкой |
+| all words are valid individually, but together they do not form a valid recovery phrase; check their order and spelling | Два слова переставлены или одно заменено другим настоящим словом |
+| that recovery phrase is valid, but it does not match these backups | Фраза от другого набора копий |
 
 ## Отпечаток ключа
 

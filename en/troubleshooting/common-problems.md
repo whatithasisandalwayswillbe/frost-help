@@ -10,11 +10,11 @@ frost can't find `config.toml`. Run `frost init`. If you use `--config-dir` or `
 
 The key file is missing. If this computer already has storage set up, run `frost key import` and type your recovery phrase. Otherwise, run `frost init`.
 
-## "a backup or restore is already running"
+## "a backup or restore operation is already in progress"
 
 Another frost process is using your backups, usually a scheduled backup. When it is one, frost says "a scheduled backup is already running" and when it started. Wait for it to finish and try again. Deleting frost's lock file doesn't stop the other process.
 
-## "the key on this machine doesn't match"
+## "the local encryption key does not match"
 
 Your storage holds backups made with a different key. Run `frost key verify` and type the phrase you wrote down to see which key it is. If it's the right one, run `frost key import` with it.
 
@@ -30,32 +30,32 @@ Setup explains the problem and goes back to the answer most likely to blame.
 
 | Setup says | Check |
 | --- | --- |
-| That access key ID wasn't recognised | You copied the whole access key ID |
-| The secret key doesn't match the access key ID | You copied the whole secret, and it belongs to that key ID |
-| There's no bucket with that name | The bucket's name, or create the bucket first |
-| That key doesn't have the bucket permissions frost needs | The key can read, list, write and delete objects in the bucket |
-| The bucket is in a different region | The region or endpoint |
-| Can't find ... | The address, and your internet connection |
-| Nothing answered at that address | The address and port |
-| The server's certificate isn't valid for that address | The address, and that the server's certificate covers it |
-| the storage didn't answer in time | Your internet connection, then try again |
-| can't reach Permafrost | Your internet connection, then try again |
-| Can't find that server | The SSH address, and your network |
-| The server didn't answer | The SSH address, and that the server is on |
-| That server doesn't offer SFTP | SFTP is turned on in the server's SSH or file service settings |
-| The server sent text before SFTP started | A login script on the server, like `.bashrc`, prints something. Make it print only in interactive shells |
+| Access key ID not recognized | You copied the whole access key ID |
+| The secret key does not match the access key ID | You copied the whole secret, and it belongs to that key ID |
+| No bucket found with that name | The bucket's name, or create the bucket first |
+| The provided key lacks necessary bucket permissions | The key can read, list, write and delete objects in the bucket |
+| The bucket is located in a different region | The region or endpoint |
+| Cannot resolve ... | The address, and your internet connection |
+| No response from that address | The address and port |
+| The server's TLS certificate is not valid for that address | The address, and that the server's certificate covers it |
+| the storage host timed out | Your internet connection, then try again |
+| cannot reach Permafrost | Your internet connection, then try again |
+| Cannot locate the server | The SSH address, and your network |
+| The server did not respond | The SSH address, and that the server is on |
+| That server does not support SFTP | SFTP is turned on in the server's SSH or file service settings |
+| server returned text before opening SFTP subsystem | A login script on the server, like `.bashrc`, prints something. Make it print only in interactive shells |
 | There's no folder ... on ... | The folder's path. The folder it goes in has to exist |
-| The server won't let frost write in that folder | The folder's permissions, for the account frost logs in as |
-| ... isn't there. Connect the drive and try again | The drive is connected, and the path is right |
-| frost can't write in that folder | The folder's permissions. On macOS, see [macOS permissions](#macos-permissions) |
-| frost doesn't follow links or junctions to a backup folder | Use the folder's real path |
+| The server denied write access to that folder | The folder's permissions, for the account frost logs in as |
+| ... not found. Connect the required drive and try again | The drive is connected, and the path is right |
+| Unable to write to that folder | The folder's permissions. On macOS, see [macOS permissions](#macos-permissions) |
+| Symbolic links and directory junctions are not supported for backup folders | Use the folder's real path |
 | That drive is read-only | Use a drive you can write to |
 
-## "This storage doesn't support conditional writes"
+## "This storage provider does not support conditional writes"
 
 Your storage doesn't support a feature frost needs to keep computers from overwriting each other's backup records. Different keys or settings won't fix it. Choose other storage. See [Choosing storage](#choosing-storage).
 
-A self-hosted server or a drive says it differently. The server "can't make hard links", or the folder is "on a filesystem that can't create a file only when its name is free". Use a folder on a filesystem like ext4, Btrfs, XFS, ZFS, APFS or NTFS.
+A self-hosted server or a drive says it differently. The server "cannot create hard links", or the folder is "on an unsupported filesystem". Use a folder on a filesystem like ext4, Btrfs, XFS, ZFS, APFS or NTFS.
 
 ## "the server didn't accept frost's SSH key"
 
@@ -65,7 +65,7 @@ Your self-hosted server refused frost's key, for example after the key was remov
 
 frost refuses to connect when the server's identity changes, the same as ssh does. If you reinstalled the server or it got a new address, remove its old key with `ssh-keygen -R <host>` and run `frost init` again. Otherwise, find out why the key changed before you connect.
 
-## "... isn't there. Connect the drive and try again"
+## "... not found. Connect the required drive and try again"
 
 Your backups are on a drive that isn't connected, or the folder's path changed. Connect the drive. If Windows gave it another letter, see [Local drive](#local-drive).
 
@@ -85,7 +85,7 @@ On macOS, this is usually a privacy permission. The error says what to allow. Se
 
 frost skipped those files and saved the rest. Common causes are files you don't have permission to read, files deleted during the backup, and, on macOS, files that iCloud keeps only online.
 
-## Files that "kept changing while they were read"
+## Files that "continued changing while being read"
 
 A program was writing to those files during the backup, so the snapshot kept their previous copy. Close the program and back up again, or let the next backup pick them up.
 
@@ -117,11 +117,11 @@ The scheduled job was deleted or switched off. Put it back with `frost config se
 
 A spot check found missing or damaged data in your storage. See [Checking your backups](#checking-backups).
 
-## "can't restore beside the originals"
+## "cannot restore alongside original files"
 
 The folder next to the originals isn't usable, often because the snapshot came from another computer. Use `--to <dir>` instead. See [Restoring files](#restoring).
 
-## "can't overwrite the originals"
+## "cannot overwrite original files"
 
 The snapshot came from a different kind of computer, or the path to the originals goes through a link frost doesn't trust. Use `--beside` or `--to <dir>` instead.
 
@@ -134,8 +134,8 @@ frost found that a checked file changed, or that an unfinished restore file has 
 | frost says | Try |
 | --- | --- |
 | no snapshot at or before ... | A later time. The message shows your oldest snapshot |
-| "maple" matches 2 snapshots, use more of the ID | More of the ID, like `maple-absurd` |
-| can't read "..." as a snapshot ID or time | Quotes around times with spaces, like `"3 days ago"` |
+| "maple" matches 2 snapshots; provide additional ID characters | More of the ID, like `maple-absurd` |
+| cannot parse "..." as a snapshot ID or timestamp | Quotes around times with spaces, like `"3 days ago"` |
 
 ## frost can't update itself
 
@@ -146,11 +146,11 @@ frost's folder isn't writable, or frost was built from source. See [Updating fro
 | The installer says | What to do |
 | --- | --- |
 | need OpenSSH 8.1+ to verify the frost release signature | Install or update OpenSSH. On Windows, use the PowerShell installer instead |
-| checksums.txt isn't signed by the frost release key. Don't install this. | Don't install it. Try again later, and [report it](#getting-help) if it keeps happening |
-| the runtime in ... isn't signed by the OpenJS Foundation. Don't install this. | Don't install it. Try again later, and [report it](#getting-help) if it keeps happening |
+| checksums.txt signature does not match official frost release key; installation aborted | Don't install it. Try again later, and [report it](#getting-help) if it keeps happening |
+| runtime inside ... lacks valid OpenJS Foundation signature; installation aborted | Don't install it. Try again later, and [report it](#getting-help) if it keeps happening |
 | checksum mismatch | The download was damaged. Run the installer again |
 | 32-bit ARM isn't supported by the bundled runtime | There's no frost package for this computer |
-| installing frost needs Node.js 22 or newer | Update Node.js, or use the installer instead of npm or pnpm |
+| installing frost requires Node.js v22 or newer | Update Node.js, or use the installer instead of npm or pnpm |
 
 ## `frost` isn't found after installing
 

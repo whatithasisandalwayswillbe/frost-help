@@ -14,7 +14,7 @@
 
 | 设置程序的问题 | 回答 |
 | --- | --- |
-| What's the server's SSH address? | 用户和主机，比如 `me@nas.local`，或者 SSH 配置中的某个 `Host`。如果端口不同，加上 `:2222` 这样的后缀 |
+| What is the server SSH address? | 用户和主机，比如 `me@nas.local`，或者 SSH 配置中的某个 `Host`。如果端口不同，加上 `:2222` 这样的后缀 |
 | Which folder on the server? | 默认是 `frost`，位于你在服务器上的主文件夹中。也可以填写完整路径，比如 `/srv/backups/frost` |
 
 如果文件夹的最后一级不存在，设置程序会创建它。它所在的上级文件夹必须已经存在。

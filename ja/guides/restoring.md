@@ -88,7 +88,7 @@ frost restore maple-absurd-3f1c --overwrite
 接続が切れた、`Ctrl+C` を押した、コンピュータがスリープした、などの理由で復元が止まると、frost は続きを実行するコマンドを表示します。
 
 ```text
-What's restored so far was kept. To carry on from there, run:
+Completed files and unfinished restore data have been preserved. To resume, run:
 
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```

@@ -46,10 +46,10 @@ Tipp alle 24 Wörter in der richtigen Reihenfolge ein, getrennt durch Leerzeiche
 
 | frost meldet | Das bedeutet |
 | --- | --- |
-| that's 23 words, a recovery phrase has 24 | Ein Wort fehlt oder ist zu viel |
-| word 5 isn't a recovery phrase word | Dieses Wort ist falsch geschrieben |
-| all the words are real, but they don't make a valid phrase | Zwei Wörter sind vertauscht, oder eines ist ein anderes echtes Wort |
-| that's a valid phrase, but not the one for these backups | Die Phrase gehört zu einem anderen Satz Backups |
+| entered 23 words, but a recovery phrase must contain exactly 24 words | Ein Wort fehlt oder ist zu viel |
+| word 5 is not a valid recovery word; check the spelling | Dieses Wort ist falsch geschrieben |
+| all words are valid individually, but together they do not form a valid recovery phrase; check their order and spelling | Zwei Wörter sind vertauscht, oder eines ist ein anderes echtes Wort |
+| that recovery phrase is valid, but it does not match these backups | Die Phrase gehört zu einem anderen Satz Backups |
 
 ## Der Fingerabdruck des Schlüssels
 

@@ -88,7 +88,7 @@ Restored symbolic links keep their original targets, which can point outside the
 If a restore stops, because of a lost connection, `Ctrl+C` or the computer sleeping, frost prints the command that carries on:
 
 ```text
-What's restored so far was kept. To carry on from there, run:
+Completed files and unfinished restore data have been preserved. To resume, run:
 
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
