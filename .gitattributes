@@ -1,0 +1,2 @@
+# Check text out with LF everywhere, so files copied out of a Windows checkout match what's committed.
+* text=auto eol=lf
