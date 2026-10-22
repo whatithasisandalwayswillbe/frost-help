@@ -1,6 +1,6 @@
 # Permafrost
 
-Permafrost is hosted storage made for frost. Connecting takes a single access key, with no bucket, region or endpoint to set up.
+Permafrost is hosted storage made for Frost. Connecting takes a single access key, with no bucket, region or endpoint to set up.
 
 Your backups are encrypted on your computer before they're uploaded, the same as with any other storage. Permafrost can't read them.
 
@@ -9,7 +9,7 @@ Manage your Permafrost account at [getfro.st/perma/portal](https://getfro.st/per
 ## Getting a key
 
 1. Run `frost init` and choose **Permafrost**.
-2. Choose **I don't have a key yet**. frost opens [getfro.st/perma](https://getfro.st/perma) in your browser. If it doesn't open, go there yourself.
+2. Choose **I don't have a key yet**. Frost opens [getfro.st/perma](https://getfro.st/perma) in your browser. If it doesn't open, go there yourself.
 3. Get your key there and copy it.
 4. Paste it into setup.
 
@@ -45,11 +45,11 @@ During setup, the first two read "Permafrost didn't accept that access key" and 
 
 ## A compatible server
 
-Instead of the default server, frost can use any server that speaks the [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). This is for people who run such a server. To back up to a computer of your own, [Self-hosted](#self-hosted) storage only needs SSH.
+Instead of the default server, Frost can use any server that speaks the [Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). This is for people who run such a server. To back up to a computer of your own, [Self-hosted](#self-hosted) storage only needs SSH.
 
-A compatible server must follow the API's object and error rules, including refusing empty uploads. frost retries automatically when a server is busy.
+A compatible server must follow the API's object and error rules, including refusing empty uploads. Frost retries automatically when a server is busy.
 
-Before your first setup, create `config.toml` in frost's config folder, as listed in [Files and folders](#files-and-folders), with these settings. Replace the address with your server's:
+Before your first setup, create `config.toml` in Frost's config folder, as listed in [Files and folders](#files-and-folders), with these settings. Replace the address with your server's:
 
 ```toml
 [storage]
@@ -61,6 +61,6 @@ url = "https://<your-server>"
 
 Then run `frost init`, choose Permafrost, paste your access key, pick your folders and save. Setup creates the repository if the server is empty.
 
-If frost is already set up, use `frost config edit` to change the backend and server address together in the existing file. Accept the warning if the new server is empty, type `yes` to save, then run `frost init` again. `frost config set` refuses an empty destination, so it can't prepare a new server.
+If Frost is already set up, use `frost config edit` to change the backend and server address together in the existing file. Accept the warning if the new server is empty, type `yes` to save, then run `frost init` again. `frost config set` refuses an empty destination, so it can't prepare a new server.
 
 The address must use `https://`, except for a server on your own computer, like `http://localhost:8080`. Leave the setting blank to use the default Permafrost server, `https://permafrost.wihiaawb.com`.

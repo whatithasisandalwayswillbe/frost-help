@@ -36,7 +36,7 @@ O `frost restore` sem mais nada abre o navegador de snapshots.
 
 As datas relativas são escritas em inglês e aceitam minutos (`m`), horas (`h`), dias (`d`), semanas (`w`), meses (`mo`) e anos (`y`), ou as palavras por extenso. Coloque entre aspas o que tiver espaços, como `"3 days ago"`.
 
-O `frost status` lista seus snapshots e os IDs deles. Se o que você digitou corresponder a mais de um ID, o frost pede que você digite mais caracteres.
+O `frost status` lista seus snapshots e os IDs deles. Se o que você digitou corresponder a mais de um ID, o Frost pede que você digite mais caracteres.
 
 ## Para onde vão os arquivos
 
@@ -44,7 +44,7 @@ O `frost status` lista seus snapshots e os IDs deles. Se o que você digitou cor
 | --- | --- |
 | `--beside` | Uma pasta nova `frost-restore-<id>` ao lado dos originais |
 | `--to <dir>` | Uma pasta nova `frost-restore-<id>` dentro de `<dir>`, que já precisa existir |
-| `--overwrite` | Os locais originais, substituindo o que estiver lá. O frost pergunta antes, e `-y` pula a pergunta |
+| `--overwrite` | Os locais originais, substituindo o que estiver lá. O Frost pergunta antes, e `-y` pula a pergunta |
 
 Uma pasta nova nunca sobrescreve nada. Dentro dela, o que você restaura mantém o próprio nome e é organizado a partir da pasta que a sua seleção tem em comum:
 
@@ -54,13 +54,13 @@ Uma pasta nova nunca sobrescreve nada. Dentro dela, o que você restaura mantém
 | `~/notes.txt` | `~/frost-restore-<id>/notes.txt` |
 | `~/Documents/a` e `~/Pictures/b` | `~/frost-restore-<id>/Documents/a` e `~/frost-restore-<id>/Pictures/b` |
 
-O nome da pasta nova usa o ID curto do snapshot. Se esse nome já existir, o frost acrescenta `-1`, `-2` e assim por diante.
+O nome da pasta nova usa o ID curto do snapshot. Se esse nome já existir, o Frost acrescenta `-1`, `-2` e assim por diante.
 
 O `--beside` não funciona quando a seleção só tem em comum a raiz de um disco, quando a pasta dela não está neste computador (como acontece com um snapshot de outro computador) ou quando você não pode gravar ali. Por exemplo, restaurar ao lado do original um snapshot da sua pasta pessoal inteira significaria criar uma pasta nova em `/Users` ou `/home`. Nesses casos, use `--to`.
 
 ## Restaurar por cima dos originais
 
-O `--overwrite` devolve os arquivos ao lugar de onde vieram e substitui o que estiver lá. O frost mostra o que vai fazer e pergunta antes:
+O `--overwrite` devolve os arquivos ao lugar de onde vieram e substitui o que estiver lá. O Frost mostra o que vai fazer e pergunta antes:
 
 ```text
 ┌  restore maple-absurd-3f1c  2026-10-07 03:17 (1d ago)
@@ -75,7 +75,7 @@ O `--overwrite` devolve os arquivos ao lugar de onde vieram e substitui o que es
 - Arquivos que não estão no snapshot não são tocados.
 - Cada arquivo é gravado primeiro em um arquivo temporário oculto ao lado dele e só depois trocado. Você precisa de espaço para as duas cópias do arquivo que está sendo restaurado.
 - O snapshot precisa vir do mesmo tipo de computador: snapshots do macOS e do Linux sobre macOS ou Linux, e do Windows sobre Windows.
-- O frost não restaura passando por um link de pasta que outro usuário possa ter alterado. Se esse for o problema, ele avisa antes de perguntar, e o navegador deixa "Overwrite original files" em cinza.
+- O Frost não restaura passando por um link de pasta que outro usuário possa ter alterado. Se esse for o problema, ele avisa antes de perguntar, e o navegador deixa "Overwrite original files" em cinza.
 
 ## Verificações de segurança
 
@@ -85,7 +85,7 @@ Os links simbólicos restaurados mantêm os destinos originais, que podem aponta
 
 ## Restaurações interrompidas
 
-Se uma restauração parar, por causa de uma conexão perdida, de `Ctrl+C` ou do computador entrando em repouso, o frost mostra o comando que continua de onde parou:
+Se uma restauração parar, por causa de uma conexão perdida, de `Ctrl+C` ou do computador entrando em repouso, o Frost mostra o comando que continua de onde parou:
 
 ```text
 Completed files and unfinished restore data have been preserved. To resume, run:
@@ -93,8 +93,8 @@ Completed files and unfinished restore data have been preserved. To resume, run:
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
 
-É a mesma restauração com o ID completo do snapshot no lugar de `latest` ou de uma data, então um backup feito no meio-tempo não muda o snapshot a que ela se refere. Os arquivos já restaurados são conferidos e pulados, e o arquivo que o frost estava gravando continua do último bloco bom. No Windows, alguns caminhos precisam de um comando do PowerShell; a mensagem indica quando executá-lo no PowerShell.
+É a mesma restauração com o ID completo do snapshot no lugar de `latest` ou de uma data, então um backup feito no meio-tempo não muda o snapshot a que ela se refere. Os arquivos já restaurados são conferidos e pulados, e o arquivo que o Frost estava gravando continua do último bloco bom. No Windows, alguns caminhos precisam de um comando do PowerShell; a mensagem indica quando executá-lo no PowerShell.
 
-Até a restauração terminar, a pasta dela contém um marcador `.frost-restore` e um arquivo `.frost-partial-...`. Deixe os dois onde estão; o frost os remove ao terminar.
+Até a restauração terminar, a pasta dela contém um marcador `.frost-restore` e um arquivo `.frost-partial-...`. Deixe os dois onde estão; o Frost os remove ao terminar.
 
 Para restaurar depois de perder o seu computador, veja [Recuperar em um computador novo](#new-computer).

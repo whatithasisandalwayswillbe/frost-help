@@ -1,16 +1,16 @@
 {
     "pages": [
         { "id": "getting-started", "title": "시작하기", "path": "ko/getting-started.md" },
-        { "id": "how-it-works", "title": "frost의 작동 방식", "path": "ko/how-it-works.md" }
+        { "id": "how-it-works", "title": "Frost의 작동 방식", "path": "ko/how-it-works.md" }
     ],
     "sections": [
         {
             "title": "설치",
             "pages": [
-                { "id": "installing", "title": "frost 설치", "path": "ko/setup/installing.md" },
-                { "id": "setting-up", "title": "frost 설정", "path": "ko/setup/setting-up.md" },
-                { "id": "updating", "title": "frost 업데이트", "path": "ko/setup/updating.md" },
-                { "id": "uninstalling", "title": "frost 제거", "path": "ko/setup/uninstalling.md" }
+                { "id": "installing", "title": "Frost 설치", "path": "ko/setup/installing.md" },
+                { "id": "setting-up", "title": "Frost 설정", "path": "ko/setup/setting-up.md" },
+                { "id": "updating", "title": "Frost 업데이트", "path": "ko/setup/updating.md" },
+                { "id": "uninstalling", "title": "Frost 제거", "path": "ko/setup/uninstalling.md" }
             ]
         },
         {

@@ -36,7 +36,7 @@ frost restore maple-absurd-3f1c --overwrite
 
 Les durées relatives s'écrivent en anglais et acceptent les minutes (`m`), heures (`h`), jours (`d`), semaines (`w`), mois (`mo`) et années (`y`), ou les mots en toutes lettres. Mettez entre guillemets ce qui contient une espace, comme `"3 days ago"`.
 
-`frost status` liste vos instantanés et leurs identifiants. Si ce que vous tapez correspond à plusieurs identifiants, frost vous demande d'en taper davantage.
+`frost status` liste vos instantanés et leurs identifiants. Si ce que vous tapez correspond à plusieurs identifiants, Frost vous demande d'en taper davantage.
 
 ## Où vont les fichiers
 
@@ -44,7 +44,7 @@ Les durées relatives s'écrivent en anglais et acceptent les minutes (`m`), heu
 | --- | --- |
 | `--beside` | Un nouveau dossier `frost-restore-<id>` à côté des originaux |
 | `--to <dir>` | Un nouveau dossier `frost-restore-<id>` dans `<dir>`, qui doit déjà exister |
-| `--overwrite` | Les emplacements d'origine, en remplaçant ce qui s'y trouve. frost demande d'abord confirmation, et `-y` saute la question |
+| `--overwrite` | Les emplacements d'origine, en remplaçant ce qui s'y trouve. Frost demande d'abord confirmation, et `-y` saute la question |
 
 Un nouveau dossier n'écrase jamais rien. À l'intérieur, ce que vous restaurez garde son nom et s'organise à partir du dossier que partage votre sélection :
 
@@ -54,13 +54,13 @@ Un nouveau dossier n'écrase jamais rien. À l'intérieur, ce que vous restaurez
 | `~/notes.txt` | `~/frost-restore-<id>/notes.txt` |
 | `~/Documents/a` et `~/Pictures/b` | `~/frost-restore-<id>/Documents/a` et `~/frost-restore-<id>/Pictures/b` |
 
-Le nom du nouveau dossier utilise l'identifiant court de l'instantané. S'il est déjà pris, frost ajoute `-1`, `-2` et ainsi de suite.
+Le nom du nouveau dossier utilise l'identifiant court de l'instantané. S'il est déjà pris, Frost ajoute `-1`, `-2` et ainsi de suite.
 
 `--beside` ne fonctionne pas quand votre sélection ne partage que la racine d'un disque, quand son dossier n'existe pas sur cet ordinateur (comme avec un instantané venant d'un autre ordinateur), ou quand vous ne pouvez pas y écrire. Par exemple, restaurer à côté de l'original un instantané de tout votre dossier personnel reviendrait à créer un dossier dans `/Users` ou `/home`. Dans ces cas-là, utilisez `--to`.
 
 ## Restaurer par-dessus les originaux
 
-`--overwrite` remet les fichiers à leur place d'origine et remplace ce qui s'y trouve. frost vous montre ce qu'il va faire et demande d'abord :
+`--overwrite` remet les fichiers à leur place d'origine et remplace ce qui s'y trouve. Frost vous montre ce qu'il va faire et demande d'abord :
 
 ```text
 ┌  restore maple-absurd-3f1c  2026-10-07 03:17 (1d ago)
@@ -75,7 +75,7 @@ Le nom du nouveau dossier utilise l'identifiant court de l'instantané. S'il est
 - Les fichiers absents de l'instantané ne sont pas touchés.
 - Chaque fichier est d'abord écrit dans un fichier temporaire caché à côté de lui, puis mis à sa place. Il vous faut assez d'espace pour les deux copies du fichier en cours de restauration.
 - L'instantané doit venir du même type d'ordinateur : instantanés macOS et Linux sur macOS ou Linux, instantanés Windows sur Windows.
-- frost refuse de restaurer à travers un lien de dossier qu'un autre utilisateur aurait pu modifier. Si c'est le cas, il le dit avant de poser la question, et le navigateur grise « Overwrite original files ».
+- Frost refuse de restaurer à travers un lien de dossier qu'un autre utilisateur aurait pu modifier. Si c'est le cas, il le dit avant de poser la question, et le navigateur grise « Overwrite original files ».
 
 ## Contrôles de sécurité
 
@@ -85,7 +85,7 @@ Les liens symboliques restaurés gardent leurs cibles d'origine, qui peuvent poi
 
 ## Restaurations interrompues
 
-Si une restauration s'arrête, à cause d'une connexion perdue, de `Ctrl+C` ou de la mise en veille de l'ordinateur, frost affiche la commande qui la reprend :
+Si une restauration s'arrête, à cause d'une connexion perdue, de `Ctrl+C` ou de la mise en veille de l'ordinateur, Frost affiche la commande qui la reprend :
 
 ```text
 Completed files and unfinished restore data have been preserved. To resume, run:
@@ -93,8 +93,8 @@ Completed files and unfinished restore data have been preserved. To resume, run:
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
 
-C'est la même restauration, avec l'identifiant complet de l'instantané à la place de `latest` ou d'une date : une sauvegarde faite entre-temps ne change donc pas l'instantané visé. Les fichiers déjà restaurés sont vérifiés puis sautés, et le fichier que frost était en train d'écrire reprend à partir de son dernier bloc correct. Sous Windows, certains chemins nécessitent une commande PowerShell ; le message indique quand l'exécuter dans PowerShell.
+C'est la même restauration, avec l'identifiant complet de l'instantané à la place de `latest` ou d'une date : une sauvegarde faite entre-temps ne change donc pas l'instantané visé. Les fichiers déjà restaurés sont vérifiés puis sautés, et le fichier que Frost était en train d'écrire reprend à partir de son dernier bloc correct. Sous Windows, certains chemins nécessitent une commande PowerShell ; le message indique quand l'exécuter dans PowerShell.
 
-Tant que la restauration n'est pas terminée, son dossier contient un marqueur `.frost-restore` et un fichier `.frost-partial-...`. Laissez-les en place ; frost les supprime à la fin.
+Tant que la restauration n'est pas terminée, son dossier contient un marqueur `.frost-restore` et un fichier `.frost-partial-...`. Laissez-les en place ; Frost les supprime à la fin.
 
 Pour restaurer après avoir perdu votre ordinateur, voir [Récupérer sur un nouvel ordinateur](#new-computer).

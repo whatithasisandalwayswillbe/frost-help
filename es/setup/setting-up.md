@@ -1,4 +1,4 @@
-# Configurar frost
+# Configurar Frost
 
 `frost init` te guía por la configuración pregunta a pregunta. Vuelve a ejecutarlo cuando quieras revisar o cambiar tus ajustes.
 
@@ -10,20 +10,20 @@ En una terminal, `frost init` abre un asistente a pantalla completa. Necesita un
 
 Elige dónde van tus copias:
 
-- **Permafrost**, la opción recomendada. Solo necesita una clave de acceso y nada más, y si todavía no tienes clave, frost abre getfro.st/perma para que consigas una. Consulta [Permafrost](#permafrost).
+- **Permafrost**, la opción recomendada. Solo necesita una clave de acceso y nada más, y si todavía no tienes clave, Frost abre getfro.st/perma para que consigas una. Consulta [Permafrost](#permafrost).
 - **S3-compatible** (compatible con S3), que abre una segunda lista: **Amazon S3**, **Backblaze B2**, **Cloudflare R2**, **Wasabi**, u **Other S3-compatible** (otro compatible con S3) para Ceph, SeaweedFS y otros servicios que hablan el protocolo S3. El asistente pregunta solo lo que necesita ese servicio y te dice dónde encontrar cada respuesta. Consulta [Proveedores en la nube](#cloud-providers) y [Otro almacenamiento compatible con S3](#other-s3).
-- **Self-hosted** (servidor propio), para una carpeta en tu propio servidor por SSH. El asistente pregunta la dirección del servidor y la carpeta, y te ayuda a añadir la clave SSH de frost al servidor. Consulta [Servidor propio](#self-hosted).
+- **Self-hosted** (servidor propio), para una carpeta en tu propio servidor por SSH. El asistente pregunta la dirección del servidor y la carpeta, y te ayuda a añadir la clave SSH de Frost al servidor. Consulta [Servidor propio](#self-hosted).
 - **Local drive** (disco local), para una carpeta en un disco interno o externo. El asistente pregunta la ruta completa de la carpeta. Consulta [Disco local](#local-drive).
 
 Cuando pegas una clave secreta, `[tab]` la muestra u oculta.
 
-Cuando terminas de responder, frost se conecta y comprueba que puede escribir, leer, listar y borrar un pequeño objeto de prueba, y que el almacenamiento admite escrituras condicionales. Si algo falla, el asistente te lo explica con palabras sencillas y te devuelve a la respuesta que con más probabilidad lo ha causado. Todo lo demás que escribiste se conserva.
+Cuando terminas de responder, Frost se conecta y comprueba que puede escribir, leer, listar y borrar un pequeño objeto de prueba, y que el almacenamiento admite escrituras condicionales. Si algo falla, el asistente te lo explica con palabras sencillas y te devuelve a la respuesta que con más probabilidad lo ha causado. Todo lo demás que escribiste se conserva.
 
 ### Carpetas
 
-Escribe la ruta completa de una carpeta que quieras respaldar y pulsa `[enter]`. `~` es tu carpeta de inicio, así que `~/Documents` funciona. Añade todas las carpetas que quieras; frost no elige ninguna por ti.
+Escribe la ruta completa de una carpeta que quieras respaldar y pulsa `[enter]`. `~` es tu carpeta de inicio, así que `~/Documents` funciona. Añade todas las carpetas que quieras; Frost no elige ninguna por ti.
 
-- frost respalda carpetas enteras. Para respaldar un solo archivo, añade la carpeta en la que está.
+- Frost respalda carpetas enteras. Para respaldar un solo archivo, añade la carpeta en la que está.
 - Una carpeta que ya está en la lista, o que está dentro de una que lo está, no se añade dos veces. Añadir una carpeta que contiene otras de la lista las sustituye.
 - Una carpeta que todavía no existe se queda en la lista y se omite hasta que exista, como un disco que no está conectado.
 
@@ -31,17 +31,17 @@ Pulsa `[↑]` para entrar en la lista y `[x]` para quitar la carpeta seleccionad
 
 ### Exclusiones
 
-Este paso enumera los nombres y patrones que frost deja fuera de todas las copias. La lista empieza con los valores predeterminados de frost: `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules` y `.cache`. Quita los que sí quieras respaldar. [Excluir archivos](#excluding-files) explica cómo funcionan los patrones.
+Este paso enumera los nombres y patrones que Frost deja fuera de todas las copias. La lista empieza con los valores predeterminados de Frost: `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules` y `.cache`. Quita los que sí quieras respaldar. [Excluir archivos](#excluding-files) explica cómo funcionan los patrones.
 
 ### Programación
 
-Elige cada cuánto hace frost copias por su cuenta: cada hora, cada 6 o 12 horas, a diario o cada semana. Elige "Off" (desactivado) para hacer copias solo cuando ejecutes `frost backup`. Con `frost config set` puedes elegir otros intervalos y la hora de las copias. Consulta [Copias de seguridad automáticas](#scheduling).
+Elige cada cuánto hace Frost copias por su cuenta: cada hora, cada 6 o 12 horas, a diario o cada semana. Elige "Off" (desactivado) para hacer copias solo cuando ejecutes `frost backup`. Con `frost config set` puedes elegir otros intervalos y la hora de las copias. Consulta [Copias de seguridad automáticas](#scheduling).
 
 ### Frase de recuperación
 
-Si el almacenamiento es nuevo, frost crea tu clave y te la muestra como 24 palabras. Las palabras siguen tapadas hasta que pulsas `[v]`, para que primero te asegures de que nadie más ve tu pantalla. Apúntalas, pulsa `[enter]` y escribe las dos palabras que te pida el asistente para comprobar tu copia.
+Si el almacenamiento es nuevo, Frost crea tu clave y te la muestra como 24 palabras. Las palabras siguen tapadas hasta que pulsas `[v]`, para que primero te asegures de que nadie más ve tu pantalla. Apúntalas, pulsa `[enter]` y escribe las dos palabras que te pida el asistente para comprobar tu copia.
 
-Si el almacenamiento ya tiene copias de frost, el asistente te pide la frase de recuperación de esas copias. Si la clave que ya hay en este equipo las abre, se salta este paso.
+Si el almacenamiento ya tiene copias de Frost, el asistente te pide la frase de recuperación de esas copias. Si la clave que ya hay en este equipo las abre, se salta este paso.
 
 ### Revisión
 
@@ -51,11 +51,11 @@ Al guardar se escriben tus ajustes y tu clave, y se crea la tarea programada. Cu
 
 ## Almacenamiento que ya tiene copias
 
-El asistente busca copias de frost en cuanto se conecta:
+El asistente busca copias de Frost en cuanto se conecta:
 
 - Si la clave de este equipo las abre, el asistente se conecta y conservas todas tus instantáneas.
-- Si se hicieron con otra clave, el asistente te pide la frase de recuperación de esa clave. A partir de ahí, frost usa esa clave en este equipo.
-- Si el almacenamiento está vacío pero las copias de este equipo están en otro sitio, el asistente te avisa antes de empezar allí un conjunto de copias aparte. Tus copias anteriores se quedan donde están, pero frost solo muestra las nuevas.
+- Si se hicieron con otra clave, el asistente te pide la frase de recuperación de esa clave. A partir de ahí, Frost usa esa clave en este equipo.
+- Si el almacenamiento está vacío pero las copias de este equipo están en otro sitio, el asistente te avisa antes de empezar allí un conjunto de copias aparte. Tus copias anteriores se quedan donde están, pero Frost solo muestra las nuevas.
 
 Si lo que quieres es mover las copias que ya tienes, consulta [Mover tus copias de seguridad](#moving-backups).
 
@@ -72,4 +72,4 @@ Para una ubicación nueva, usa `frost config edit`, acepta el aviso, guarda y ej
 
 ## Sin una terminal a pantalla completa
 
-Cuando frost no se ejecuta en una terminal interactiva, por ejemplo con la entrada redirigida, `frost init` hace preguntas sencillas, una por línea. Ofrece Permafrost, un bucket genérico compatible con S3, Self-hosted y Local drive, sin la lista de servicios S3, y también pregunta por la carpeta dentro de un bucket. Las listas se separan con comas, y `-` deja vacía la lista de exclusiones. En este modo, frost también abre getfro.st/perma si necesitas una clave de Permafrost, y puede añadir su clave SSH a tu servidor: ssh te pide la contraseña, o frost muestra la línea para que la añadas tú.
+Cuando Frost no se ejecuta en una terminal interactiva, por ejemplo con la entrada redirigida, `frost init` hace preguntas sencillas, una por línea. Ofrece Permafrost, un bucket genérico compatible con S3, Self-hosted y Local drive, sin la lista de servicios S3, y también pregunta por la carpeta dentro de un bucket. Las listas se separan con comas, y `-` deja vacía la lista de exclusiones. En este modo, Frost también abre getfro.st/perma si necesitas una clave de Permafrost, y puede añadir su clave SSH a tu servidor: ssh te pide la contraseña, o Frost muestra la línea para que la añadas tú.

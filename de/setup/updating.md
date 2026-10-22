@@ -1,8 +1,8 @@
-# frost aktualisieren
+# Frost aktualisieren
 
-frost aktualisiert sich selbst, auch wenn du es mit npm oder pnpm installiert hast. Standardmäßig installiert es neue Versionen nach geplanten Backups.
+Frost aktualisiert sich selbst, auch wenn du es mit npm oder pnpm installiert hast. Standardmäßig installiert es neue Versionen nach geplanten Backups.
 
-Das Paket `getfrost` musst du nicht selbst aktualisieren. Ein älteres Paket ersetzt nie ein neueres frost.
+Das Paket `getfrost` musst du nicht selbst aktualisieren. Ein älteres Paket ersetzt nie ein neueres Frost.
 
 ## Jetzt aktualisieren
 
@@ -10,7 +10,7 @@ Das Paket `getfrost` musst du nicht selbst aktualisieren. Ein älteres Paket ers
 frost update
 ```
 
-frost sucht die neueste Version, prüft ihre Signatur und Prüfsumme und stellt sicher, dass die neue Version startet, bevor es auf sie umschaltet. Deine Einstellungen, dein Schlüssel und deine Backups bleiben unberührt.
+Frost sucht die neueste Version, prüft ihre Signatur und Prüfsumme und stellt sicher, dass die neue Version startet, bevor es auf sie umschaltet. Deine Einstellungen, dein Schlüssel und deine Backups bleiben unberührt.
 
 Um nur zu prüfen, ob es eine neuere Version gibt:
 
@@ -22,7 +22,7 @@ frost update --check
 
 ## Automatische Updates
 
-Nach einem geplanten Backup sucht frost höchstens einmal alle 20 Stunden nach einer neuen Version und installiert sie genauso wie `frost update`. Schlägt die Suche oder die Installation fehl, schlägt deshalb nicht das Backup fehl.
+Nach einem geplanten Backup sucht Frost höchstens einmal alle 20 Stunden nach einer neuen Version und installiert sie genauso wie `frost update`. Schlägt die Suche oder die Installation fehl, schlägt deshalb nicht das Backup fehl.
 
 `frost status` zeigt, wie Updates eingestellt sind und ob das letzte geklappt hat. Der Einstellungsbildschirm des Snapshot-Browsers zeigt das ebenfalls.
 
@@ -34,13 +34,13 @@ frost config set update.auto false
 
 `frost status` sagt dir dann, wenn eine neue Version da ist, und installiert wird erst etwas, wenn du `frost update` ausführst.
 
-> Automatische Updates laufen nur nach geplanten Backups. Sind automatische Backups ausgeschaltet, sucht frost im Hintergrund überhaupt nicht nach Updates.
+> Automatische Updates laufen nur nach geplanten Backups. Sind automatische Backups ausgeschaltet, sucht Frost im Hintergrund überhaupt nicht nach Updates.
 
-## Wenn sich frost nicht selbst aktualisieren kann
+## Wenn sich Frost nicht selbst aktualisieren kann
 
 | Wann | Was du stattdessen tust |
 | --- | --- |
-| Du darfst nicht in den Anwendungsordner von frost schreiben | Installiere es mit dem Installationsprogramm neu, als dein eigener Benutzer |
-| frost wurde aus dem Quellcode gebaut | Bau es neu oder installiere eine Version mit dem Installationsprogramm |
+| Du darfst nicht in den Anwendungsordner von Frost schreiben | Installiere es mit dem Installationsprogramm neu, als dein eigener Benutzer |
+| Frost wurde aus dem Quellcode gebaut | Bau es neu oder installiere eine Version mit dem Installationsprogramm |
 
 Bricht ein Update mittendrin ab, führ das Installationsprogramm erneut aus. Es repariert die Installation.

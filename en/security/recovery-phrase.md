@@ -2,13 +2,13 @@
 
 Your recovery phrase is your encryption key, written as 24 words. It's the only way to read your backups.
 
-> If you lose the recovery phrase and the computer, your backups are gone. Nobody can recover them: not whoever stores your backups, not Permafrost and not the frost authors.
+> If you lose the recovery phrase and the computer, your backups are gone. Nobody can recover them: not whoever stores your backups, not Permafrost and not the Frost authors.
 
 ## Keeping it safe
 
 Setup shows you the phrase when it creates your key. Write it down on paper, or keep it in a password manager you trust, and store it somewhere other than the computer you're backing up.
 
-A copy also lives on your computer, in the `key` file in frost's config folder, so scheduled backups can run without you. On macOS and Linux, frost creates it with permissions for your user only. On Windows, it inherits your user profile's permissions. Shared folders or changed permissions can expose it. Anyone who can read that file, or run programs as you, can read your backups, so use full-disk encryption and a screen lock.
+A copy also lives on your computer, in the `key` file in Frost's config folder, so scheduled backups can run without you. On macOS and Linux, Frost creates it with permissions for your user only. On Windows, it inherits your user profile's permissions. Shared folders or changed permissions can expose it. Anyone who can read that file, or run programs as you, can read your backups, so use full-disk encryption and a screen lock.
 
 To read your backups, someone needs both the phrase and access to your storage. Keep your storage keys private as well.
 
@@ -18,7 +18,7 @@ To read your backups, someone needs both the phrase and access to your storage. 
 frost key show
 ```
 
-frost warns you first, and only shows the phrase after you type `show`. Make sure nobody's looking at your screen and you're not sharing it.
+Frost warns you first, and only shows the phrase after you type `show`. Make sure nobody's looking at your screen and you're not sharing it.
 
 ## Check your copy
 
@@ -26,7 +26,7 @@ frost warns you first, and only shows the phrase after you type `show`. Make sur
 frost key verify
 ```
 
-Type the phrase you wrote down. frost tells you whether it's a valid phrase, whether it matches the key on this computer, and whether it opens your backups. It never prints the phrase. Check your copy now and then.
+Type the phrase you wrote down. Frost tells you whether it's a valid phrase, whether it matches the key on this computer, and whether it opens your backups. It never prints the phrase. Check your copy now and then.
 
 ## Use it on another computer
 
@@ -36,15 +36,15 @@ Type the phrase you wrote down. frost tells you whether it's a valid phrase, whe
 frost key import
 ```
 
-If storage is set up, frost first checks that the phrase opens it. If a different key is already on the computer, frost asks before replacing it. Backups made with the old key need the old phrase to restore.
+If storage is set up, Frost first checks that the phrase opens it. If a different key is already on the computer, Frost asks before replacing it. Backups made with the old key need the old phrase to restore.
 
 See [Recovering on a new computer](#new-computer) for the full steps.
 
 ## Typing the phrase
 
-Type all 24 words in order, separated by spaces. Capital letters don't matter. The words come from the standard BIP39 English list of 2,048 words, so frost can tell you when one is misspelled:
+Type all 24 words in order, separated by spaces. Capital letters don't matter. The words come from the standard BIP39 English list of 2,048 words, so Frost can tell you when one is misspelled:
 
-| frost says | It means |
+| Frost says | It means |
 | --- | --- |
 | entered 23 words, but a recovery phrase must contain exactly 24 words | A word is missing or extra |
 | word 5 is not a valid recovery word; check the spelling | That word is misspelled |
@@ -53,8 +53,8 @@ Type all 24 words in order, separated by spaces. Capital letters don't matter. T
 
 ## The key fingerprint
 
-The fingerprint is a short ID, like `6f154dc10058`, that names your key without revealing it. `frost status` shows it, and the snapshot browser shows it when you press `[v]`. Matching fingerprints help identify a key, but are too short to prove that two keys are identical. frost checks the key itself when opening your backups.
+The fingerprint is a short ID, like `6f154dc10058`, that names your key without revealing it. `frost status` shows it, and the snapshot browser shows it when you press `[v]`. Matching fingerprints help identify a key, but are too short to prove that two keys are identical. Frost checks the key itself when opening your backups.
 
 ## Changing your key
 
-frost can't change the key of backups you already have. If someone else may have seen your phrase, they can read those backups for as long as they can reach your storage, so change your storage keys and keep them private.
+Frost can't change the key of backups you already have. If someone else may have seen your phrase, they can read those backups for as long as they can reach your storage, so change your storage keys and keep them private.

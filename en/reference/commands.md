@@ -1,6 +1,6 @@
 # Commands
 
-frost has eight commands. `frost -h` lists them all, with every flag.
+Frost has eight commands. `frost -h` lists them all, with every flag.
 
 ## Global flags
 
@@ -10,11 +10,11 @@ These work with every command:
 | --- | --- |
 | `--config-dir <dir>` | Uses a different config folder |
 | `-h`, `--help` | Shows help, with every command and flag |
-| `-v`, `--version` | Shows frost's version. Put it before any command |
+| `-v`, `--version` | Shows Frost's version. Put it before any command |
 
 ## frost init
 
-Sets up frost: what to back up, where, and how often. Run it again to review or change your settings. See [Setting up frost](#setting-up).
+Sets up Frost: what to back up, where, and how often. Run it again to review or change your settings. See [Setting up Frost](#setting-up).
 
 ```sh
 frost init
@@ -98,7 +98,7 @@ frost key import
 
 ## frost update
 
-Updates frost to the latest release. See [Updating frost](#updating).
+Updates Frost to the latest release. See [Updating Frost](#updating).
 
 ```sh
 frost update [--check]
@@ -110,8 +110,8 @@ frost update [--check]
 
 ## Exit codes
 
-frost exits with `0` when a command succeeds, and `1` on any error. That includes a backup or a `frost status --verify` whose check finds a problem, so scripts can test the result:
+Frost exits with `0` when a command succeeds, and `1` on any error. That includes a backup or a `frost status --verify` whose check finds a problem, so scripts can test the result:
 
 ```sh
-frost status --verify || echo "frost check failed" >&2
+frost status --verify || echo "Frost check failed" >&2
 ```

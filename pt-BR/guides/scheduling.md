@@ -1,6 +1,6 @@
 # Backups automáticos
 
-O frost faz backup em horários programados usando o agendador do próprio sistema operacional. Entre um backup e outro, nada fica rodando em segundo plano.
+O Frost faz backup em horários programados usando o agendador do próprio sistema operacional. Entre um backup e outro, nada fica rodando em segundo plano.
 
 ## Mudar o agendamento
 
@@ -26,7 +26,7 @@ frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-Cada mudança atualiza a tarefa agendada na hora. No macOS e no Windows, uma mudança feita durante um backup agendado é aplicada assim que esse backup termina. Se você editar o `config.toml` por conta própria, o próximo comando do frost atualiza a tarefa.
+Cada mudança atualiza a tarefa agendada na hora. No macOS e no Windows, uma mudança feita durante um backup agendado é aplicada assim que esse backup termina. Se você editar o `config.toml` por conta própria, o próximo comando do Frost atualiza a tarefa.
 
 ## Quando os backups rodam
 
@@ -43,7 +43,7 @@ O systemd atrasa cada execução em até 5 minutos, ao acaso.
 
 ## Backups perdidos
 
-Se o computador estava desligado ou em repouso quando um backup deveria rodar, o frost faz o backup assim que ele volta. Não importa quantos backups ele perdeu, faz um só.
+Se o computador estava desligado ou em repouso quando um backup deveria rodar, o Frost faz o backup assim que ele volta. Não importa quantos backups ele perdeu, faz um só.
 
 | Agendador | Faz o backup perdido |
 | --- | --- |
@@ -52,15 +52,15 @@ Se o computador estava desligado ou em repouso quando um backup deveria rodar, o
 | Agendador de Tarefas (Windows) | Assim que puder, quando o computador volta e você está com a sessão iniciada |
 | cron (Linux) | Até 15 minutos depois de o computador voltar |
 
-Com o cron, o frost verifica a cada 15 minutos e só faz backup quando um está na hora ou foi perdido. Um horário que já tem backup, agendado ou feito por você, não ganha um segundo backup.
+Com o cron, o Frost verifica a cada 15 minutos e só faz backup quando um está na hora ou foi perdido. Um horário que já tem backup, agendado ou feito por você, não ganha um segundo backup.
 
-Para pular os backups perdidos, e o frost só fazer backup na hora certa:
+Para pular os backups perdidos, e o Frost só fazer backup na hora certa:
 
 ```sh
 frost config set schedule.catch_up false
 ```
 
-Um backup agendado que começa antes de a rede voltar, ou antes de um disco ou compartilhamento de rede ser montado, tenta de novo por cerca de 5 minutos. Com um [disco local](#local-drive), o disco precisa estar conectado quando o backup roda. [Servidor próprio](#self-hosted) entra com a própria chave SSH do frost, então funciona sem você. Se outro backup estiver rodando, ele espera esse terminar.
+Um backup agendado que começa antes de a rede voltar, ou antes de um disco ou compartilhamento de rede ser montado, tenta de novo por cerca de 5 minutos. Com um [disco local](#local-drive), o disco precisa estar conectado quando o backup roda. [Servidor próprio](#self-hosted) entra com a própria chave SSH do Frost, então funciona sem você. Se outro backup estiver rodando, ele espera esse terminar.
 
 No Windows, os backups agendados só rodam enquanto sua sessão do Windows estiver aberta. Eles não começam enquanto o computador está na bateria, e param se ele for desconectado da tomada. No macOS e com o systemd, os backups agendados rodam com prioridade baixa para não deixar o computador lento.
 
@@ -75,15 +75,15 @@ No Windows, os backups agendados só rodam enquanto sua sessão do Windows estiv
 
 A tarefa executa `frost backup` com as pastas de configuração e de cache que estavam em uso quando ela foi criada. Se você mudar essas pastas, execute `frost init` de novo.
 
-No macOS, a tarefa aparece em Ajustes do Sistema > Geral > Itens de Início e Extensões (System Settings > General > Login Items & Extensions) como **Node.js Foundation**, a responsável pelo ambiente de execução que o frost inclui. Desligá-la ali interrompe os backups agendados, e o `frost status` informa que a tarefa está faltando. Para interromper os backups agendados, use `frost config set schedule.enabled false`.
+No macOS, a tarefa aparece em Ajustes do Sistema > Geral > Itens de Início e Extensões (System Settings > General > Login Items & Extensions) como **Node.js Foundation**, a responsável pelo ambiente de execução que o Frost inclui. Desligá-la ali interrompe os backups agendados, e o `frost status` informa que a tarefa está faltando. Para interromper os backups agendados, use `frost config set schedule.enabled false`.
 
-Com o systemd, o frost tenta ligar o lingering para o seu usuário (`loginctl enable-linger`) se puder confirmar que ele está desligado. O lingering permite que os backups rodem mesmo depois que você sai da sua conta. Se o frost não conseguir ligá-lo, os backups podem parar depois que você sair da conta. Ao remover o timer, o frost só desliga o lingering se tiver registrado que o ligou.
+Com o systemd, o Frost tenta ligar o lingering para o seu usuário (`loginctl enable-linger`) se puder confirmar que ele está desligado. O lingering permite que os backups rodem mesmo depois que você sai da sua conta. Se o Frost não conseguir ligá-lo, os backups podem parar depois que você sair da conta. Ao remover o timer, o Frost só desliga o lingering se tiver registrado que o ligou.
 
 ## Logs
 
 | Agendador | Onde fica o log |
 | --- | --- |
-| launchd, cron e o Agendador de Tarefas | `frost.log` na pasta de cache do frost. Veja [Arquivos e pastas](#files-and-folders) |
+| launchd, cron e o Agendador de Tarefas | `frost.log` na pasta de cache do Frost. Veja [Arquivos e pastas](#files-and-folders) |
 | systemd | O journal. Leia com `journalctl --user -u frost-backup` |
 
 Um log com mais de 1 MiB é esvaziado antes da próxima execução. O `frost status` também mostra se o último backup funcionou.

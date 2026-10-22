@@ -1,6 +1,6 @@
 # Einstellungen
 
-frost speichert seine Einstellungen in `config.toml` in seinem Konfigurationsordner. Du kannst sie mit `frost init`, `frost config set` oder `frost config edit` ändern, oder in einem beliebigen Texteditor.
+Frost speichert seine Einstellungen in `config.toml` in seinem Konfigurationsordner. Du kannst sie mit `frost init`, `frost config set` oder `frost config edit` ändern, oder in einem beliebigen Texteditor.
 
 ## Einstellungen lesen und ändern
 
@@ -22,7 +22,7 @@ frost config set paths ~/Documents ~/Pictures
 - Eine Liste nimmt einen Wert pro Eintrag, und `set` ersetzt die ganze Liste.
 - `true` und `false` schalten Einstellungen ein und aus.
 - Eine Änderung an einer `schedule`-Einstellung aktualisiert den geplanten Auftrag sofort. Unter macOS und Windows wird eine Änderung, die du während eines geplanten Backups machst, übernommen, sobald dieses fertig ist, damit es nicht abbricht.
-- Änderst du den Ort deines Speichers, prüft frost den neuen Ort, bevor es ihn speichert. Siehe [Backups verschieben](#moving-backups).
+- Änderst du den Ort deines Speichers, prüft Frost den neuen Ort, bevor es ihn speichert. Siehe [Backups verschieben](#moving-backups).
 
 ## Die Datei bearbeiten
 
@@ -30,18 +30,18 @@ frost config set paths ~/Documents ~/Pictures
 frost config edit
 ```
 
-frost öffnet eine Kopie von `config.toml` im angegebenen Editor, ansonsten in `$VISUAL` oder `$EDITOR`, und sonst in nano, vim oder vi. Unter Windows ist Notepad (Editor) die Ausweichlösung. Wenn du den Editor schließt, listet frost auf, was du geändert hast, und speichert die Kopie, sobald du `yes` eintippst.
+Frost öffnet eine Kopie von `config.toml` im angegebenen Editor, ansonsten in `$VISUAL` oder `$EDITOR`, und sonst in nano, vim oder vi. Unter Windows ist Notepad (Editor) die Ausweichlösung. Wenn du den Editor schließt, listet Frost auf, was du geändert hast, und speichert die Kopie, sobald du `yes` eintippst.
 
-Lässt sich die Datei nicht einlesen, zeigt dir frost das Problem und bietet an, sie erneut zu öffnen. Ein Tippfehler kann deine geplanten Backups also nicht lahmlegen. Unbekannte Einstellungen gelten als Fehler, damit ein falsch geschriebener Name nicht unbemerkt durchrutscht.
+Lässt sich die Datei nicht einlesen, zeigt dir Frost das Problem und bietet an, sie erneut zu öffnen. Ein Tippfehler kann deine geplanten Backups also nicht lahmlegen. Unbekannte Einstellungen gelten als Fehler, damit ein falsch geschriebener Name nicht unbemerkt durchrutscht.
 
 ## Selbst bearbeiten
 
-Du kannst `config.toml` auch in einem beliebigen Texteditor öffnen und speichern. frost liest die Datei bei jedem Start, daher gelten die meisten Änderungen ab dem nächsten Lauf. Zwei Arten von Änderungen brauchen einen Schritt mehr, den frost beim nächsten frost-Befehl erledigt, egal welchem:
+Du kannst `config.toml` auch in einem beliebigen Texteditor öffnen und speichern. Frost liest die Datei bei jedem Start, daher gelten die meisten Änderungen ab dem nächsten Lauf. Zwei Arten von Änderungen brauchen einen Schritt mehr, den Frost beim nächsten Frost-Befehl erledigt, egal welchem:
 
-- Ein geänderter Zeitplan aktualisiert den geplanten Auftrag, und frost meldet „config.toml changed. Scheduled job updated“ (config.toml wurde geändert, geplanter Auftrag aktualisiert). Unter Linux erledigt das auch das nächste geplante Backup. Eine Änderung während eines geplanten Backups wartet, bis es fertig ist, genau wie mit `frost config set`.
+- Ein geänderter Zeitplan aktualisiert den geplanten Auftrag, und Frost meldet „config.toml changed. Scheduled job updated“ (config.toml wurde geändert, geplanter Auftrag aktualisiert). Unter Linux erledigt das auch das nächste geplante Backup. Eine Änderung während eines geplanten Backups wartet, bis es fertig ist, genau wie mit `frost config set`.
 - Ein neuer Speicherort bekommt beim ersten Gebrauch dieselben Prüfungen wie mit `frost config edit`. Probleme erscheinen als Warnungen.
 
-Vor dem Speichern prüft nichts die Datei. Lässt sie sich nicht einlesen, melden frost-Befehle das, bis du sie korrigierst.
+Vor dem Speichern prüft nichts die Datei. Lässt sie sich nicht einlesen, melden Frost-Befehle das, bis du sie korrigierst.
 
 ## Alle Einstellungen
 
@@ -81,4 +81,4 @@ Vor dem Speichern prüft nichts die Datei. Lässt sie sich nicht einlesen, melde
 | `FROST_CONFIG_DIR` | Den Konfigurationsordner, wie `--config-dir` |
 | `FROST_CACHE_DIR` | Den Cache-Ordner |
 
-frost schreibt Werte aus der Umgebung nie in `config.toml`. Geplante Backups sehen die Variablen nicht, die du in deiner Shell setzt, und brauchen die Zugangsdaten deshalb weiterhin in `config.toml`.
+Frost schreibt Werte aus der Umgebung nie in `config.toml`. Geplante Backups sehen die Variablen nicht, die du in deiner Shell setzt, und brauchen die Zugangsdaten deshalb weiterhin in `config.toml`.

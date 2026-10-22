@@ -1,6 +1,6 @@
 # Permafrost
 
-Permafrost est un stockage hébergé conçu pour frost. Pour vous connecter, une seule clé d'accès suffit, sans bucket, région ni endpoint à configurer.
+Permafrost est un stockage hébergé conçu pour Frost. Pour vous connecter, une seule clé d'accès suffit, sans bucket, région ni endpoint à configurer.
 
 Vos sauvegardes sont chiffrées sur votre ordinateur avant l'envoi, comme avec n'importe quel autre stockage. Permafrost ne peut pas les lire.
 
@@ -9,7 +9,7 @@ Gérez votre compte Permafrost sur [getfro.st/perma/portal](https://getfro.st/pe
 ## Obtenir une clé
 
 1. Lancez `frost init` et choisissez **Permafrost**.
-2. Choisissez **I don't have a key yet** (je n'ai pas encore de clé). frost ouvre [getfro.st/perma](https://getfro.st/perma) dans votre navigateur. S'il ne s'ouvre pas, rendez-vous-y vous-même.
+2. Choisissez **I don't have a key yet** (je n'ai pas encore de clé). Frost ouvre [getfro.st/perma](https://getfro.st/perma) dans votre navigateur. S'il ne s'ouvre pas, rendez-vous-y vous-même.
 3. Obtenez-y votre clé et copiez-la.
 4. Collez-la dans l'assistant.
 
@@ -45,11 +45,11 @@ Dans l'assistant, les deux premiers s'affichent sous la forme « Permafrost didn
 
 ## Un serveur compatible
 
-À la place du serveur par défaut, frost peut utiliser n'importe quel serveur qui parle l'[API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). C'est pour les personnes qui font tourner un tel serveur. Pour sauvegarder vers un ordinateur à vous, [Serveur auto-hébergé](#self-hosted) n'a besoin que de SSH.
+À la place du serveur par défaut, Frost peut utiliser n'importe quel serveur qui parle l'[API Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). C'est pour les personnes qui font tourner un tel serveur. Pour sauvegarder vers un ordinateur à vous, [Serveur auto-hébergé](#self-hosted) n'a besoin que de SSH.
 
-Un serveur compatible doit respecter les règles de l'API sur les objets et les erreurs, notamment refuser les envois vides. frost réessaie automatiquement quand un serveur est occupé.
+Un serveur compatible doit respecter les règles de l'API sur les objets et les erreurs, notamment refuser les envois vides. Frost réessaie automatiquement quand un serveur est occupé.
 
-Avant de lancer l'assistant pour la première fois, créez `config.toml` dans le dossier de configuration de frost, indiqué dans [Fichiers et dossiers](#files-and-folders), avec ces réglages. Remplacez l'adresse par celle de votre serveur :
+Avant de lancer l'assistant pour la première fois, créez `config.toml` dans le dossier de configuration de Frost, indiqué dans [Fichiers et dossiers](#files-and-folders), avec ces réglages. Remplacez l'adresse par celle de votre serveur :
 
 ```toml
 [storage]
@@ -61,6 +61,6 @@ url = "https://<your-server>"
 
 Lancez ensuite `frost init`, choisissez Permafrost, collez votre clé d'accès, choisissez vos dossiers et enregistrez. L'assistant crée le dépôt si le serveur est vide.
 
-Si frost est déjà configuré, utilisez `frost config edit` pour modifier ensemble le backend et l'adresse du serveur dans le fichier existant. Acceptez l'avertissement si le nouveau serveur est vide, tapez `yes` pour enregistrer, puis relancez `frost init`. `frost config set` refuse une destination vide : il ne peut donc pas préparer un nouveau serveur.
+Si Frost est déjà configuré, utilisez `frost config edit` pour modifier ensemble le backend et l'adresse du serveur dans le fichier existant. Acceptez l'avertissement si le nouveau serveur est vide, tapez `yes` pour enregistrer, puis relancez `frost init`. `frost config set` refuse une destination vide : il ne peut donc pas préparer un nouveau serveur.
 
 L'adresse doit utiliser `https://`, sauf pour un serveur sur votre propre ordinateur, comme `http://localhost:8080`. Laissez ce réglage vide pour utiliser le serveur Permafrost par défaut, `https://permafrost.wihiaawb.com`.

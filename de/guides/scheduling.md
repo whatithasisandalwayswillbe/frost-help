@@ -1,6 +1,6 @@
 # Automatische Backups
 
-frost sichert nach Zeitplan und nutzt dafür den Zeitplaner deines Betriebssystems. Zwischen zwei Backups läuft nichts im Hintergrund.
+Frost sichert nach Zeitplan und nutzt dafür den Zeitplaner deines Betriebssystems. Zwischen zwei Backups läuft nichts im Hintergrund.
 
 ## Den Zeitplan ändern
 
@@ -26,7 +26,7 @@ frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-Jede Änderung aktualisiert den geplanten Auftrag sofort. Unter macOS und Windows wird eine Änderung während eines geplanten Backups übernommen, sobald dieses fertig ist. Bearbeitest du `config.toml` selbst, aktualisiert der nächste frost-Befehl den Auftrag.
+Jede Änderung aktualisiert den geplanten Auftrag sofort. Unter macOS und Windows wird eine Änderung während eines geplanten Backups übernommen, sobald dieses fertig ist. Bearbeitest du `config.toml` selbst, aktualisiert der nächste Frost-Befehl den Auftrag.
 
 ## Wann Backups laufen
 
@@ -43,7 +43,7 @@ systemd startet jeden Lauf zufällig bis zu 5 Minuten später.
 
 ## Verpasste Backups
 
-War dein Computer aus oder im Ruhezustand, als ein Backup fällig war, sichert frost, sobald er wieder da ist. Egal wie viele Backups er verpasst hat, frost sichert einmal.
+War dein Computer aus oder im Ruhezustand, als ein Backup fällig war, sichert Frost, sobald er wieder da ist. Egal wie viele Backups er verpasst hat, Frost sichert einmal.
 
 | Zeitplaner | Startet ein verpasstes Backup |
 | --- | --- |
@@ -52,15 +52,15 @@ War dein Computer aus oder im Ruhezustand, als ein Backup fällig war, sichert f
 | Aufgabenplanung (Windows) | Sobald es geht, wenn dein Computer wieder da ist und du angemeldet bist |
 | cron (Linux) | Innerhalb von 15 Minuten, nachdem dein Computer wieder da ist |
 
-Mit cron prüft frost alle 15 Minuten und sichert nur, wenn ein Backup fällig ist oder verpasst wurde. Für eine Zeit, die schon abgedeckt ist, ob durch ein geplantes Backup oder eins, das du selbst gestartet hast, gibt es kein zweites Backup.
+Mit cron prüft Frost alle 15 Minuten und sichert nur, wenn ein Backup fällig ist oder verpasst wurde. Für eine Zeit, die schon abgedeckt ist, ob durch ein geplantes Backup oder eins, das du selbst gestartet hast, gibt es kein zweites Backup.
 
-Um verpasste Backups stattdessen zu überspringen, damit frost nur pünktlich sichert:
+Um verpasste Backups stattdessen zu überspringen, damit Frost nur pünktlich sichert:
 
 ```sh
 frost config set schedule.catch_up false
 ```
 
-Ein geplantes Backup, das startet, bevor dein Netzwerk wieder da ist oder ein Laufwerk oder eine Freigabe eingehängt ist, versucht es etwa 5 Minuten lang erneut. Bei einem [lokalen Laufwerk](#local-drive) muss das Laufwerk angeschlossen sein, wenn das Backup läuft. [Eigener Server](#self-hosted) meldet sich mit dem eigenen SSH-Schlüssel von frost an und funktioniert deshalb ohne dich. Läuft gerade ein anderes Backup, wartet es, bis dieses fertig ist.
+Ein geplantes Backup, das startet, bevor dein Netzwerk wieder da ist oder ein Laufwerk oder eine Freigabe eingehängt ist, versucht es etwa 5 Minuten lang erneut. Bei einem [lokalen Laufwerk](#local-drive) muss das Laufwerk angeschlossen sein, wenn das Backup läuft. [Eigener Server](#self-hosted) meldet sich mit dem eigenen SSH-Schlüssel von Frost an und funktioniert deshalb ohne dich. Läuft gerade ein anderes Backup, wartet es, bis dieses fertig ist.
 
 Unter Windows laufen geplante Backups nur, solange du angemeldet bist. Sie starten nicht im Akkubetrieb und brechen ab, wenn du den Computer vom Strom trennst. Unter macOS und mit systemd laufen geplante Backups mit niedriger Priorität, damit sie deinen Computer nicht ausbremsen.
 
@@ -75,15 +75,15 @@ Unter Windows laufen geplante Backups nur, solange du angemeldet bist. Sie start
 
 Der Auftrag führt `frost backup` mit den Konfigurations- und Cache-Ordnern aus, die beim Anlegen galten. Wenn du diese Ordner änderst, starte `frost init` erneut.
 
-Unter macOS erscheint der Auftrag in Systemeinstellungen > Allgemein > Anmeldeobjekte & Erweiterungen (System Settings > General > Login Items & Extensions) als **Node.js Foundation**, der Herausgeber der Laufzeitumgebung, die frost mitbringt. Schaltest du ihn dort aus, stoppen die geplanten Backups, und `frost status` meldet den Auftrag als fehlend. Um geplante Backups anzuhalten, nimm lieber `frost config set schedule.enabled false`.
+Unter macOS erscheint der Auftrag in Systemeinstellungen > Allgemein > Anmeldeobjekte & Erweiterungen (System Settings > General > Login Items & Extensions) als **Node.js Foundation**, der Herausgeber der Laufzeitumgebung, die Frost mitbringt. Schaltest du ihn dort aus, stoppen die geplanten Backups, und `frost status` meldet den Auftrag als fehlend. Um geplante Backups anzuhalten, nimm lieber `frost config set schedule.enabled false`.
 
-Mit systemd versucht frost, Lingering für deinen Benutzer einzuschalten (`loginctl enable-linger`), wenn es bestätigen kann, dass Lingering aus ist. Damit laufen Backups auch, wenn du abgemeldet bist. Kann frost Lingering nicht einschalten, laufen nach dem Abmelden möglicherweise keine Backups mehr. Beim Entfernen des Timers schaltet frost Lingering nur aus, wenn es aufgezeichnet hat, dass es Lingering eingeschaltet hat.
+Mit systemd versucht Frost, Lingering für deinen Benutzer einzuschalten (`loginctl enable-linger`), wenn es bestätigen kann, dass Lingering aus ist. Damit laufen Backups auch, wenn du abgemeldet bist. Kann Frost Lingering nicht einschalten, laufen nach dem Abmelden möglicherweise keine Backups mehr. Beim Entfernen des Timers schaltet Frost Lingering nur aus, wenn es aufgezeichnet hat, dass es Lingering eingeschaltet hat.
 
 ## Protokolle
 
 | Zeitplaner | Wo das Protokoll landet |
 | --- | --- |
-| launchd, cron und Aufgabenplanung | `frost.log` im Cache-Ordner von frost. Siehe [Dateien und Ordner](#files-and-folders) |
+| launchd, cron und Aufgabenplanung | `frost.log` im Cache-Ordner von Frost. Siehe [Dateien und Ordner](#files-and-folders) |
 | systemd | Im Journal. Lies es mit `journalctl --user -u frost-backup` |
 
 Ein Protokoll über 1 MiB wird vor dem nächsten Lauf geleert. `frost status` zeigt außerdem, ob das letzte Backup geklappt hat.

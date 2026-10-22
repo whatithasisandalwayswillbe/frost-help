@@ -1,4 +1,4 @@
-# Configurar o frost
+# Configurar o Frost
 
 O `frost init` guia você pela configuração, uma pergunta por vez. Execute de novo sempre que quiser revisar ou mudar suas configurações.
 
@@ -10,20 +10,20 @@ Em um terminal, o `frost init` abre uma configuração em tela cheia. Ela precis
 
 Escolha onde seus backups ficam:
 
-- **Permafrost**, a opção recomendada. Ele precisa só de uma chave de acesso e mais nada, e se você ainda não tiver uma chave, o frost abre getfro.st/perma para você conseguir uma. Veja [Permafrost](#permafrost).
+- **Permafrost**, a opção recomendada. Ele precisa só de uma chave de acesso e mais nada, e se você ainda não tiver uma chave, o Frost abre getfro.st/perma para você conseguir uma. Veja [Permafrost](#permafrost).
 - **S3-compatible** (compatível com S3), que abre uma segunda lista: **Amazon S3**, **Backblaze B2**, **Cloudflare R2**, **Wasabi**, ou **Other S3-compatible** (outro compatível com S3) para Ceph, SeaweedFS e outros serviços que falam o protocolo S3. A configuração pergunta só o que aquele serviço precisa e diz onde encontrar cada resposta. Veja [Provedores de nuvem](#cloud-providers) e [Outro armazenamento compatível com S3](#other-s3).
-- **Self-hosted** (servidor próprio), para uma pasta no seu próprio servidor, por SSH. A configuração pergunta o endereço do servidor e a pasta, e ajuda você a adicionar a chave SSH do frost ao servidor. Veja [Servidor próprio](#self-hosted).
+- **Self-hosted** (servidor próprio), para uma pasta no seu próprio servidor, por SSH. A configuração pergunta o endereço do servidor e a pasta, e ajuda você a adicionar a chave SSH do Frost ao servidor. Veja [Servidor próprio](#self-hosted).
 - **Local drive** (disco local), para uma pasta em um disco interno ou externo. A configuração pergunta o caminho completo da pasta. Veja [Disco local](#local-drive).
 
 Ao colar uma chave secreta, `[tab]` mostra ou esconde o que você digitou.
 
-Quando você termina de responder, o frost se conecta e confere se consegue gravar, ler, listar e apagar um pequeno objeto de teste, e se o armazenamento aceita gravações condicionais. Se algo der errado, a configuração explica o motivo em palavras simples e leva você de volta à resposta que mais provavelmente causou o problema. Todo o resto que você digitou é mantido.
+Quando você termina de responder, o Frost se conecta e confere se consegue gravar, ler, listar e apagar um pequeno objeto de teste, e se o armazenamento aceita gravações condicionais. Se algo der errado, a configuração explica o motivo em palavras simples e leva você de volta à resposta que mais provavelmente causou o problema. Todo o resto que você digitou é mantido.
 
 ### Pastas
 
 Digite o caminho completo de uma pasta para incluir no backup e pressione `[enter]`. `~` é a sua pasta pessoal, então `~/Documents` funciona. Adicione quantas pastas quiser; nada é escolhido por você.
 
-- O frost faz backup de pastas inteiras. Para fazer backup de um único arquivo, adicione a pasta em que ele está.
+- O Frost faz backup de pastas inteiras. Para fazer backup de um único arquivo, adicione a pasta em que ele está.
 - Uma pasta que já está na lista, ou que está dentro de uma pasta da lista, não é adicionada duas vezes. Adicionar uma pasta que contém outras da lista substitui essas pastas.
 - Uma pasta que ainda não existe fica na lista e é ignorada até passar a existir, como um disco que não está conectado.
 
@@ -31,31 +31,31 @@ Pressione `[↑]` para entrar na lista e `[x]` para remover a pasta selecionada.
 
 ### Exclusões
 
-Esta etapa lista os nomes e padrões que o frost deixa de fora de todo backup. A lista começa com os padrões do frost: `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules` e `.cache`. Remova os que você quer incluir no backup. [Excluir arquivos](#excluding-files) explica como os padrões funcionam.
+Esta etapa lista os nomes e padrões que o Frost deixa de fora de todo backup. A lista começa com os padrões do Frost: `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules` e `.cache`. Remova os que você quer incluir no backup. [Excluir arquivos](#excluding-files) explica como os padrões funcionam.
 
 ### Agendamento
 
-Escolha com que frequência o frost faz backup sozinho: a cada hora, a cada 6 ou 12 horas, diariamente ou semanalmente. Escolha "Off" (desligado) para fazer backup só quando você executar `frost backup`. Outros intervalos e o horário dos backups podem ser definidos com `frost config set`. Veja [Backups automáticos](#scheduling).
+Escolha com que frequência o Frost faz backup sozinho: a cada hora, a cada 6 ou 12 horas, diariamente ou semanalmente. Escolha "Off" (desligado) para fazer backup só quando você executar `frost backup`. Outros intervalos e o horário dos backups podem ser definidos com `frost config set`. Veja [Backups automáticos](#scheduling).
 
 ### Frase de recuperação
 
-Em um armazenamento novo, o frost cria a sua chave e a mostra como 24 palavras. As palavras ficam cobertas até você pressionar `[v]`, para que você confira antes que ninguém mais está vendo a sua tela. Anote as palavras, pressione `[enter]` e digite as duas palavras que a configuração pedir, para conferir a sua cópia.
+Em um armazenamento novo, o Frost cria a sua chave e a mostra como 24 palavras. As palavras ficam cobertas até você pressionar `[v]`, para que você confira antes que ninguém mais está vendo a sua tela. Anote as palavras, pressione `[enter]` e digite as duas palavras que a configuração pedir, para conferir a sua cópia.
 
-Se o armazenamento já tiver backups do frost, a configuração pede a frase de recuperação desses backups. Se a chave que já está neste computador abre esses backups, esta etapa é pulada.
+Se o armazenamento já tiver backups do Frost, a configuração pede a frase de recuperação desses backups. Se a chave que já está neste computador abre esses backups, esta etapa é pulada.
 
 ### Revisão
 
 A tela de revisão mostra todas as configurações de uma vez. Use `[↑]` e `[↓]` para escolher uma linha e `[e]` para alterá-la, e depois pressione `[s]` para salvar. `[v]` mostra a impressão digital da sua chave, um ID curto que identifica a chave sem revelá-la.
 
-Ao salvar, o frost grava suas configurações e sua chave e cria a tarefa agendada. Quando a configuração terminar, execute `frost backup --dry-run` para ver uma prévia do primeiro backup, ou `frost backup` para começar.
+Ao salvar, o Frost grava suas configurações e sua chave e cria a tarefa agendada. Quando a configuração terminar, execute `frost backup --dry-run` para ver uma prévia do primeiro backup, ou `frost backup` para começar.
 
 ## Armazenamento que já tem backups
 
-A configuração procura backups do frost assim que se conecta:
+A configuração procura backups do Frost assim que se conecta:
 
 - Se a chave deste computador abre esses backups, a configuração se conecta e você mantém todos os seus snapshots.
-- Se eles foram feitos com outra chave, a configuração pede a frase de recuperação dessa chave. A partir daí, o frost usa essa chave neste computador.
-- Se o armazenamento estiver vazio, mas os backups deste computador estiverem em outro lugar, a configuração avisa você antes de começar ali um conjunto separado de backups. Os backups antigos continuam onde estão, mas o frost só mostra os novos.
+- Se eles foram feitos com outra chave, a configuração pede a frase de recuperação dessa chave. A partir daí, o Frost usa essa chave neste computador.
+- Se o armazenamento estiver vazio, mas os backups deste computador estiverem em outro lugar, a configuração avisa você antes de começar ali um conjunto separado de backups. Os backups antigos continuam onde estão, mas o Frost só mostra os novos.
 
 Se o que você quer é mover os backups que já tem, veja [Mover seus backups](#moving-backups).
 
@@ -72,4 +72,4 @@ Para um novo local, use `frost config edit`, aceite o aviso, salve e execute `fr
 
 ## Sem um terminal em tela cheia
 
-Quando o frost não está rodando em um terminal interativo, por exemplo com a entrada redirecionada, o `frost init` faz perguntas simples, uma por linha. Ele oferece o Permafrost, um bucket genérico compatível com S3, Self-hosted e Local drive, sem a lista de serviços S3, e também pergunta pela pasta dentro de um bucket. As listas são separadas por vírgulas, e `-` deixa a lista de exclusões vazia. Nesse modo, o frost também abre getfro.st/perma se você precisar de uma chave do Permafrost, e pode adicionar a chave SSH dele ao seu servidor: o ssh pede a sua senha, ou o frost mostra a linha para você adicionar.
+Quando o Frost não está rodando em um terminal interativo, por exemplo com a entrada redirecionada, o `frost init` faz perguntas simples, uma por linha. Ele oferece o Permafrost, um bucket genérico compatível com S3, Self-hosted e Local drive, sem a lista de serviços S3, e também pergunta pela pasta dentro de um bucket. As listas são separadas por vírgulas, e `-` deixa a lista de exclusões vazia. Nesse modo, o Frost também abre getfro.st/perma se você precisar de uma chave do Permafrost, e pode adicionar a chave SSH dele ao seu servidor: o ssh pede a sua senha, ou o Frost mostra a linha para você adicionar.

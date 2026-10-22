@@ -1,6 +1,6 @@
 # Comprobar tus copias de seguridad
 
-frost comprueba tus copias sobre la marcha, y `frost status` te muestra cómo están.
+Frost comprueba tus copias sobre la marcha, y `frost status` te muestra cómo están.
 
 ## frost status
 
@@ -9,7 +9,7 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
+┌  Frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
@@ -27,7 +27,7 @@ frost status
 └
 ```
 
-La primera línea muestra la versión de frost, tu almacenamiento y la huella de tu clave. Las filas de debajo muestran:
+La primera línea muestra la versión de Frost, tu almacenamiento y la huella de tu clave. Las filas de debajo muestran:
 
 | Fila | Muestra |
 | --- | --- |
@@ -47,7 +47,7 @@ frost status --all
 
 ## La comprobación aleatoria
 
-Después de cada copia que guarda una instantánea, frost descarga una muestra aleatoria de fragmentos, los descifra uno a uno y comprueba que coinciden con su ID. También carga la lista de archivos de la instantánea más reciente y comprueba que frost conoce todos los fragmentos que necesita. Después de una copia sin cambios, frost solo repite la comprobación si la última tiene más de un día o encontró algún problema.
+Después de cada copia que guarda una instantánea, Frost descarga una muestra aleatoria de fragmentos, los descifra uno a uno y comprueba que coinciden con su ID. También carga la lista de archivos de la instantánea más reciente y comprueba que Frost conoce todos los fragmentos que necesita. Después de una copia sin cambios, Frost solo repite la comprobación si la última tiene más de un día o encontró algún problema.
 
 La muestra es de 20 fragmentos de forma predeterminada. Una muestra mayor detecta más problemas, pero descarga más:
 
@@ -63,7 +63,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-Esto hace una comprobación aleatoria nueva y además compara el registro local de frost de tus fragmentos con todo lo que hay en tu almacenamiento. Comprueba 20 fragmentos incluso si `verify.sample` es `0`. Termina con `1` si la comprobación falla, así que puedes ejecutarlo desde tu propio programador para comprobar con una frecuencia distinta de la de tus copias.
+Esto hace una comprobación aleatoria nueva y además compara el registro local de Frost de tus fragmentos con todo lo que hay en tu almacenamiento. Comprueba 20 fragmentos incluso si `verify.sample` es `0`. Termina con `1` si la comprobación falla, así que puedes ejecutarlo desde tu propio programador para comprobar con una frecuencia distinta de la de tus copias.
 
 ## Si una comprobación falla
 
@@ -76,6 +76,6 @@ Los datos que ya no están en tu equipo no se pueden volver a subir, y las insta
 
 ## Instantáneas desaparecidas
 
-Si desaparecen del almacenamiento instantáneas que este equipo conocía, `frost status` lo indica una vez. Si moviste tus copias, apunta frost a su nueva ubicación. Consulta [Mover tus copias de seguridad](#moving-backups). Si no, es que se borraron de tu almacenamiento.
+Si desaparecen del almacenamiento instantáneas que este equipo conocía, `frost status` lo indica una vez. Si moviste tus copias, apunta Frost a su nueva ubicación. Consulta [Mover tus copias de seguridad](#moving-backups). Si no, es que se borraron de tu almacenamiento.
 
 > Una comprobación aleatoria toma una muestra de tus copias. Detecta los problemas pronto, pero no puede demostrar que todas las instantáneas se vayan a restaurar bien. Para los archivos que no te puedes permitir perder, guarda también una segunda copia independiente.

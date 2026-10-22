@@ -16,7 +16,7 @@ Fehlt der letzte Ordner des Pfads, legt die Einrichtung ihn an. Der Ordner, in d
 
 ## Wenn das Laufwerk nicht angeschlossen ist
 
-frost legt den Ordner nur während der Einrichtung an. Ist das Laufwerk nicht angeschlossen, wenn ein Backup läuft, fehlt der Ordner, und das Backup schlägt mit dem Hinweis fehl, das Laufwerk anzuschließen. Es schreibt deine Backups nie an das, was sonst unter diesem Pfad liegt. Ein geplantes Backup wartet vorher etwa 5 Minuten auf das Laufwerk, falls es gerade erst eingehängt wird.
+Frost legt den Ordner nur während der Einrichtung an. Ist das Laufwerk nicht angeschlossen, wenn ein Backup läuft, fehlt der Ordner, und das Backup schlägt mit dem Hinweis fehl, das Laufwerk anzuschließen. Es schreibt deine Backups nie an das, was sonst unter diesem Pfad liegt. Ein geplantes Backup wartet vorher etwa 5 Minuten auf das Laufwerk, falls es gerade erst eingehängt wird.
 
 Unter Windows kann ein Laufwerk beim erneuten Anschließen einen anderen Buchstaben bekommen. Gib ihm in der Datenträgerverwaltung seinen alten Buchstaben zurück, oder starte `frost init` und gib den neuen Pfad ein.
 
@@ -30,7 +30,7 @@ Für ein NAS ist [Eigener Server](#self-hosted) meist die bessere Wahl. Eine Net
 
 ## Gut zu wissen
 
-- frost folgt im Ordner keinen Links oder Junctions. Unter Windows lehnt es außerdem einen Ordner ab, der über einen solchen erreicht wird. Nutze den echten Pfad des Ordners.
+- Frost folgt im Ordner keinen Links oder Junctions. Unter Windows lehnt es außerdem einen Ordner ab, der über einen solchen erreicht wird. Nutze den echten Pfad des Ordners.
 - Unter macOS brauchen geplante Backups die Erlaubnis, Wechseldatenträger und Netzlaufwerke zu nutzen. Siehe [macOS-Berechtigungen](#macos-permissions).
 - `frost status` zeigt, wie voll das Laufwerk ist, und `frost backup` warnt, wenn es fast voll ist.
 - Laufwerke mit NTFS, APFS, ext4, Btrfs oder XFS funktionieren. Laufwerke mit exFAT und FAT funktionieren, wenn sie den Test der Einrichtung bestehen.

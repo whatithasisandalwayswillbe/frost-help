@@ -1,6 +1,6 @@
 # Erste Schritte
 
-frost sichert deine Ordner in einem Speicher deiner Wahl, von deinem eigenen Server oder einem Laufwerk bis zu einem Cloud-Anbieter, und verschlüsselt alles auf deinem Computer, bevor es gespeichert wird. Diese Seite führt dich von der Installation bis zu deinem ersten Backup.
+Frost sichert deine Ordner in einem Speicher deiner Wahl, von deinem eigenen Server oder einem Laufwerk bis zu einem Cloud-Anbieter, und verschlüsselt alles auf deinem Computer, bevor es gespeichert wird. Diese Seite führt dich von der Installation bis zu deinem ersten Backup.
 
 ## Was du brauchst
 
@@ -8,9 +8,9 @@ frost sichert deine Ordner in einem Speicher deiner Wahl, von deinem eigenen Ser
 - Einen Ort für deine Backups: einen Server, den du über SSH erreichst, ein Laufwerk, einen [Permafrost](#permafrost)-Zugriffsschlüssel oder einen S3-kompatiblen Bucket. [Speicher auswählen](#choosing-storage) vergleicht sie.
 - Ein Terminalfenster mit mindestens 56 Spalten und 18 Zeilen für die Einrichtung im Vollbild.
 
-Node.js oder sonst etwas musst du vorher nicht installieren. frost bringt seine eigene Laufzeitumgebung mit.
+Node.js oder sonst etwas musst du vorher nicht installieren. Frost bringt seine eigene Laufzeitumgebung mit.
 
-## 1. frost installieren
+## 1. Frost installieren
 
 Führe unter macOS oder Linux diesen Befehl in einem Terminal aus:
 
@@ -24,7 +24,7 @@ Unter Windows führst du diesen Befehl in PowerShell aus:
 irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
-Das Installationsprogramm prüft die Signatur der Version, bevor es irgendetwas installiert. [frost installieren](#installing) erklärt npm und pnpm, die manuelle Installation und die Optionen des Installationsprogramms.
+Das Installationsprogramm prüft die Signatur der Version, bevor es irgendetwas installiert. [Frost installieren](#installing) erklärt npm und pnpm, die manuelle Installation und die Optionen des Installationsprogramms.
 
 ## 2. Einrichten
 
@@ -37,13 +37,13 @@ Die Einrichtung fragt auf jedem Bildschirm genau eine Sache ab:
 1. **Speicher.** Wo deine Backups liegen. Wähle Permafrost, einen S3-kompatiblen Dienst, deinen eigenen Server oder ein Laufwerk und beantworte, was gefragt wird.
 2. **Ordner.** Die Ordner, die gesichert werden, zum Beispiel `~/Documents`.
 3. **Ausschlüsse.** Dateien und Ordner, die nicht gesichert werden. Ein paar übliche wie `node_modules` sind schon eingetragen.
-4. **Zeitplan.** Wie oft frost von selbst sichert, oder gar nicht.
+4. **Zeitplan.** Wie oft Frost von selbst sichert, oder gar nicht.
 5. **Wiederherstellungsphrase.** 24 Wörter, mit denen du deine Backups entsperrst. Schreib sie auf.
 6. **Übersicht.** Prüfe alles und drück dann `[s]` zum Speichern.
 
-> Deine Wiederherstellungsphrase ist die einzige Möglichkeit, deine Backups zu lesen, wenn dieser Computer verloren geht. Niemand kann sie für dich wiederherstellen, weder wer deine Backups aufbewahrt noch die Entwickler von frost.
+> Deine Wiederherstellungsphrase ist die einzige Möglichkeit, deine Backups zu lesen, wenn dieser Computer verloren geht. Niemand kann sie für dich wiederherstellen, weder wer deine Backups aufbewahrt noch die Entwickler von Frost.
 
-[frost einrichten](#setting-up) erklärt jeden Bildschirm.
+[Frost einrichten](#setting-up) erklärt jeden Bildschirm.
 
 ## 3. Backup erstellen
 
@@ -59,7 +59,7 @@ Dann starte es:
 frost backup
 ```
 
-Das erste Backup lädt alles hoch. Spätere Backups laden nur hoch, was sich geändert hat. Wenn du den Zeitplan eingeschaltet hast, sichert frost ab jetzt von selbst, und du musst nichts mehr ausführen.
+Das erste Backup lädt alles hoch. Spätere Backups laden nur hoch, was sich geändert hat. Wenn du den Zeitplan eingeschaltet hast, sichert Frost ab jetzt von selbst, und du musst nichts mehr ausführen.
 
 ## 4. Den Stand prüfen
 
@@ -87,6 +87,6 @@ frost restore latest ~/Documents/report.pdf --beside
 
 ## Wie es weitergeht
 
-- [So funktioniert frost](#how-it-works) erklärt Snapshots, die Verschlüsselung und was hochgeladen wird.
+- [So funktioniert Frost](#how-it-works) erklärt Snapshots, die Verschlüsselung und was hochgeladen wird.
 - [Automatische Backups](#scheduling) behandelt den Zeitplan.
 - [Deine Wiederherstellungsphrase](#recovery-phrase) erklärt, wie du deinen Schlüssel sicher aufbewahrst.

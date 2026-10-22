@@ -84,7 +84,6 @@ export async function validateHelp(root, languages = LANGUAGES) {
       }
       for (const title of [...pages, ...manifest.sections].map(item => item.title)) {
         if (/[\u2014\u2015]/u.test(title)) errors.push(`${name}: em dash or dash stand-in in title`);
-        if (/\bFrost\b/.test(title)) errors.push(`${name}: frost must be lowercase in title`);
       }
       manifests.set(lang, { manifest, pages, ids, paths });
     } catch (error) {
@@ -132,7 +131,6 @@ export async function validateHelp(root, languages = LANGUAGES) {
       const report = message => errors.push(`${page.path}: ${message}`);
       if (local.unclosed) report('unclosed code fence');
       if (/[\u2014\u2015]/u.test(text)) report('em dash or dash stand-in');
-      if (/\bFrost\b/.test(text)) report('frost must be lowercase');
       for (const link of local.links) {
         if (link.target.startsWith('#') && !entry.ids.has(link.target.slice(1)))
           report(`unknown page link ${link.target}`);

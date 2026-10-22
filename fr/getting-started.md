@@ -1,6 +1,6 @@
 # Premiers pas
 
-frost sauvegarde vos dossiers vers le stockage de votre choix, de votre propre serveur ou d'un disque jusqu'à un fournisseur cloud, et chiffre tout sur votre ordinateur avant de l'y ranger. Cette page vous accompagne de l'installation de frost jusqu'à votre première sauvegarde.
+Frost sauvegarde vos dossiers vers le stockage de votre choix, de votre propre serveur ou d'un disque jusqu'à un fournisseur cloud, et chiffre tout sur votre ordinateur avant de l'y ranger. Cette page vous accompagne de l'installation de Frost jusqu'à votre première sauvegarde.
 
 ## Ce qu'il vous faut
 
@@ -8,9 +8,9 @@ frost sauvegarde vos dossiers vers le stockage de votre choix, de votre propre s
 - Un endroit où garder vos sauvegardes : un serveur accessible par SSH, un disque, une clé d'accès [Permafrost](#permafrost) ou un bucket compatible S3. [Choisir un stockage](#choosing-storage) les compare.
 - Une fenêtre de terminal d'au moins 56 colonnes de large et 18 lignes de haut, pour l'assistant de configuration en plein écran.
 
-Inutile d'installer Node.js ou quoi que ce soit d'autre au préalable. frost embarque son propre environnement d'exécution.
+Inutile d'installer Node.js ou quoi que ce soit d'autre au préalable. Frost embarque son propre environnement d'exécution.
 
-## 1. Installez frost
+## 1. Installez Frost
 
 Sous macOS ou Linux, lancez cette commande dans un terminal :
 
@@ -24,7 +24,7 @@ Sous Windows, lancez celle-ci dans PowerShell :
 irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
-L'installateur vérifie la signature de la version avant d'installer quoi que ce soit. [Installer frost](#installing) présente npm et pnpm, l'installation manuelle et les options de l'installateur.
+L'installateur vérifie la signature de la version avant d'installer quoi que ce soit. [Installer Frost](#installing) présente npm et pnpm, l'installation manuelle et les options de l'installateur.
 
 ## 2. Configurez-le
 
@@ -41,9 +41,9 @@ L'assistant pose une seule question par écran :
 5. **Phrase de récupération.** 24 mots qui déverrouillent vos sauvegardes. Notez-les.
 6. **Récapitulatif.** Vérifiez tout, puis appuyez sur `[s]` pour enregistrer.
 
-> Votre phrase de récupération est le seul moyen de lire vos sauvegardes si vous perdez cet ordinateur. Personne ne peut la retrouver pour vous, ni la personne qui stocke vos sauvegardes ni les auteurs de frost.
+> Votre phrase de récupération est le seul moyen de lire vos sauvegardes si vous perdez cet ordinateur. Personne ne peut la retrouver pour vous, ni la personne qui stocke vos sauvegardes ni les auteurs de Frost.
 
-[Configurer frost](#setting-up) détaille chaque écran.
+[Configurer Frost](#setting-up) détaille chaque écran.
 
 ## 3. Sauvegardez
 
@@ -59,7 +59,7 @@ Puis lancez-la :
 frost backup
 ```
 
-La première sauvegarde envoie tout. Les suivantes n'envoient que ce qui a changé. Si vous avez activé la planification, frost sauvegarde désormais tout seul et vous n'avez rien à lancer.
+La première sauvegarde envoie tout. Les suivantes n'envoient que ce qui a changé. Si vous avez activé la planification, Frost sauvegarde désormais tout seul et vous n'avez rien à lancer.
 
 ## 4. Gardez un œil dessus
 
@@ -87,6 +87,6 @@ frost restore latest ~/Documents/report.pdf --beside
 
 ## Pour aller plus loin
 
-- [Fonctionnement de frost](#how-it-works) explique les instantanés, le chiffrement et ce qui est envoyé.
+- [Fonctionnement de Frost](#how-it-works) explique les instantanés, le chiffrement et ce qui est envoyé.
 - [Sauvegardes automatiques](#scheduling) traite de la planification.
 - [Votre phrase de récupération](#recovery-phrase) explique comment protéger votre clé.

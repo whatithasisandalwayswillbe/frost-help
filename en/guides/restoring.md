@@ -36,7 +36,7 @@ frost restore maple-absurd-3f1c --overwrite
 
 Times can use minutes (`m`), hours (`h`), days (`d`), weeks (`w`), months (`mo`) and years (`y`), or the words spelled out. Put quotes around anything with a space in it, like `"3 days ago"`.
 
-`frost status` lists your snapshots and their IDs. If what you typed matches more than one ID, frost asks you to type more of it.
+`frost status` lists your snapshots and their IDs. If what you typed matches more than one ID, Frost asks you to type more of it.
 
 ## Where files go
 
@@ -44,7 +44,7 @@ Times can use minutes (`m`), hours (`h`), days (`d`), weeks (`w`), months (`mo`)
 | --- | --- |
 | `--beside` | A new `frost-restore-<id>` folder next to the originals |
 | `--to <dir>` | A new `frost-restore-<id>` folder inside `<dir>`, which must already exist |
-| `--overwrite` | The original locations, replacing what's there. frost asks first, and `-y` skips the question |
+| `--overwrite` | The original locations, replacing what's there. Frost asks first, and `-y` skips the question |
 
 A new folder never overwrites anything. Inside it, what you restore keeps its own name, laid out from the folder your selection shares:
 
@@ -54,13 +54,13 @@ A new folder never overwrites anything. Inside it, what you restore keeps its ow
 | `~/notes.txt` | `~/frost-restore-<id>/notes.txt` |
 | `~/Documents/a` and `~/Pictures/b` | `~/frost-restore-<id>/Documents/a` and `~/frost-restore-<id>/Pictures/b` |
 
-The new folder's name uses the snapshot's short ID. If that name is taken, frost adds `-1`, `-2` and so on.
+The new folder's name uses the snapshot's short ID. If that name is taken, Frost adds `-1`, `-2` and so on.
 
 `--beside` doesn't work when your selection only shares the top of a drive, when its folder isn't on this computer (as with a snapshot from another computer), or when you can't write there. For example, restoring a snapshot of your whole home folder beside the original would mean a new folder in `/Users` or `/home`. Use `--to` in those cases.
 
 ## Restoring over the originals
 
-`--overwrite` puts files back where they came from and replaces what's there. frost shows what it's about to do and asks first:
+`--overwrite` puts files back where they came from and replaces what's there. Frost shows what it's about to do and asks first:
 
 ```text
 ┌  restore maple-absurd-3f1c  2026-10-07 03:17 (1d ago)
@@ -75,7 +75,7 @@ The new folder's name uses the snapshot's short ID. If that name is taken, frost
 - Files that aren't in the snapshot are left alone.
 - Each file is written to a hidden temporary file beside it first, then swapped in. You need room for both copies of the file being restored.
 - The snapshot has to come from the same kind of computer: macOS and Linux snapshots over macOS or Linux, and Windows snapshots over Windows.
-- frost won't restore through a folder link that another user could have changed. If that's the problem, it says so before asking, and the browser greys out "Overwrite original files".
+- Frost won't restore through a folder link that another user could have changed. If that's the problem, it says so before asking, and the browser greys out "Overwrite original files".
 
 ## Safety checks
 
@@ -85,7 +85,7 @@ Restored symbolic links keep their original targets, which can point outside the
 
 ## Interrupted restores
 
-If a restore stops, because of a lost connection, `Ctrl+C` or the computer sleeping, frost prints the command that carries on:
+If a restore stops, because of a lost connection, `Ctrl+C` or the computer sleeping, Frost prints the command that carries on:
 
 ```text
 Completed files and unfinished restore data have been preserved. To resume, run:
@@ -93,8 +93,8 @@ Completed files and unfinished restore data have been preserved. To resume, run:
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
 
-It's the same restore with the snapshot's full ID in place of `latest` or a time, so a backup in between doesn't change which snapshot it means. Files already restored are checked and skipped, and the file frost was writing continues from its last good chunk. On Windows, some paths need a PowerShell command; the message says when to run it in PowerShell.
+It's the same restore with the snapshot's full ID in place of `latest` or a time, so a backup in between doesn't change which snapshot it means. Files already restored are checked and skipped, and the file Frost was writing continues from its last good chunk. On Windows, some paths need a PowerShell command; the message says when to run it in PowerShell.
 
-Until the restore finishes, its folder holds a `.frost-restore` marker and a `.frost-partial-...` file. Leave them there, and frost removes them when it's done.
+Until the restore finishes, its folder holds a `.frost-restore` marker and a `.frost-partial-...` file. Leave them there, and Frost removes them when it's done.
 
 To restore after losing your computer, see [Recovering on a new computer](#new-computer).

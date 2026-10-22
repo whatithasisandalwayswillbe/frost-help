@@ -8,7 +8,7 @@
 frost backup
 ```
 
-frost shows what changed, how much it uploaded and the result of its spot check:
+Frost shows what changed, how much it uploaded and the result of its spot check:
 
 ```text
 ┌  backup  sftp://me@nas.local/~/frost
@@ -23,7 +23,7 @@ frost shows what changed, how much it uploaded and the result of its spot check:
 
 A file counts as changed when its contents, size, permissions or modification time change. A folder's modification time alone doesn't count, because temporary files change it all the time.
 
-If nothing changed, frost doesn't save a new snapshot:
+If nothing changed, Frost doesn't save a new snapshot:
 
 ```text
 ┌  backup  sftp://me@nas.local/~/frost
@@ -59,39 +59,39 @@ To change which folders are backed up every time, run `frost init` again, or see
 
 ## What's backed up
 
-frost backs up regular files, folders and symbolic links, with their permissions and modification times.
+Frost backs up regular files, folders and symbolic links, with their permissions and modification times.
 
 - A symbolic link is saved as the link itself, not the file it points to.
 - Hard-linked files are backed up and restored as separate files.
 
-frost leaves out:
+Frost leaves out:
 
 - Anything on your skip list. See [Excluding files](#excluding-files).
 - Sockets, devices and pipes.
 - File owners, ACLs and extended attributes.
-- On macOS, files that iCloud keeps only online. frost doesn't download them. They're skipped and listed instead.
+- On macOS, files that iCloud keeps only online. Frost doesn't download them. They're skipped and listed instead.
 - The `.frost-partial-...` files that a stopped restore leaves behind.
 
 ## When something goes wrong
 
-| What happens | What frost does |
+| What happens | What Frost does |
 | --- | --- |
 | A file or folder can't be read, because of permissions, because it was deleted mid-backup or because it's only in iCloud | Skips it and lists it. The snapshot is still saved, and `frost status` shows how many items were skipped |
 | A folder on your list isn't there, like one on an unplugged drive | Skips it and backs up the rest. `frost backup` and `frost status` name the missing folder |
 | None of your folders are there, or one exists but can't be read at all | Fails the whole backup, so a backup never looks fine while saving nothing |
-| A file changes while frost reads it, like a database in use, a running virtual machine's disk or a download | Reads it again at the end of the backup. If it's still changing, the snapshot keeps its previous copy and frost lists it. A file that was never backed up cleanly is skipped |
+| A file changes while Frost reads it, like a database in use, a running virtual machine's disk or a download | Reads it again at the end of the backup. If it's still changing, the snapshot keeps its previous copy and Frost lists it. A file that was never backed up cleanly is skipped |
 
-frost doesn't take filesystem or database snapshots. To back up a file that's always busy, back it up while the program using it is closed.
+Frost doesn't take filesystem or database snapshots. To back up a file that's always busy, back it up while the program using it is closed.
 
-On macOS, some folders need your permission before frost can read them. See [macOS permissions](#macos-permissions).
+On macOS, some folders need your permission before Frost can read them. See [macOS permissions](#macos-permissions).
 
 ## The spot check
 
-After a backup that saves a snapshot, frost downloads a few random chunks, 20 by default, and checks them. After a backup with nothing new, it only checks again if the last check is more than a day old or found a problem. If a check fails, the backup reports an error. See [Checking your backups](#checking-backups).
+After a backup that saves a snapshot, Frost downloads a few random chunks, 20 by default, and checks them. After a backup with nothing new, it only checks again if the last check is more than a day old or found a problem. If a check fails, the backup reports an error. See [Checking your backups](#checking-backups).
 
 ## Interrupted backups
 
-If a backup stops partway, because of a lost connection, a closed laptop or `Ctrl+C`, nothing already uploaded is wasted. frost records chunks as they upload, and the next backup skips them.
+If a backup stops partway, because of a lost connection, a closed laptop or `Ctrl+C`, nothing already uploaded is wasted. Frost records chunks as they upload, and the next backup skips them.
 
 ## Near a scheduled backup
 
@@ -104,8 +104,8 @@ If a scheduled backup starts within the next hour, or finished within the last h
 │  Back up now anyway? [Y/n]
 ```
 
-Press Enter to back up anyway, or type `n` to stop. For schedules less than 4 hours apart, the window is a quarter of the interval. A finished backup only counts if it worked and you haven't backed up since. frost only asks in a terminal, and not for a dry run or with `--path` or `--exclude`.
+Press Enter to back up anyway, or type `n` to stop. For schedules less than 4 hours apart, the window is a quarter of the interval. A finished backup only counts if it worked and you haven't backed up since. Frost only asks in a terminal, and not for a dry run or with `--path` or `--exclude`.
 
 ## One at a time
 
-A backup or command-line restore locks its local cache while it runs. If another command needs that cache, frost says "a backup or restore operation is already in progress; try again when it completes". When the other one is a scheduled backup, it says "a scheduled backup is already running" and when it started. A scheduled backup that finds the cache locked waits up to an hour instead. The snapshot browser releases the cache lock, so it can stay open and restore while a backup runs. Different cache folders and computers have separate locks.
+A backup or command-line restore locks its local cache while it runs. If another command needs that cache, Frost says "a backup or restore operation is already in progress; try again when it completes". When the other one is a scheduled backup, it says "a scheduled backup is already running" and when it started. A scheduled backup that finds the cache locked waits up to an hour instead. The snapshot browser releases the cache lock, so it can stay open and restore while a backup runs. Different cache folders and computers have separate locks.

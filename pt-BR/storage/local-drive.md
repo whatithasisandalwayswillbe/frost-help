@@ -16,7 +16,7 @@ A configuração cria a última pasta do caminho se ela não existir. A pasta qu
 
 ## Quando o disco não está conectado
 
-O frost só cria a pasta durante a configuração. Se o disco não estiver conectado quando um backup rodar, a pasta não existe, e o backup falha com uma mensagem pedindo para conectar o disco. Ele nunca grava seus backups no que mais estiver nesse caminho. Um backup agendado espera o disco por cerca de 5 minutos antes, caso ele ainda esteja sendo montado.
+O Frost só cria a pasta durante a configuração. Se o disco não estiver conectado quando um backup rodar, a pasta não existe, e o backup falha com uma mensagem pedindo para conectar o disco. Ele nunca grava seus backups no que mais estiver nesse caminho. Um backup agendado espera o disco por cerca de 5 minutos antes, caso ele ainda esteja sendo montado.
 
 No Windows, um disco pode receber outra letra quando você o conecta de novo. Devolva a letra antiga no Gerenciamento de Disco, ou execute `frost init` e digite o caminho novo.
 
@@ -30,7 +30,7 @@ Para um NAS, [Servidor próprio](#self-hosted) costuma ser a melhor escolha. Um 
 
 ## Bom saber
 
-- O frost não segue links nem junções dentro da pasta. No Windows, ele também recusa uma pasta acessada por meio de um deles. Use o caminho real da pasta.
+- O Frost não segue links nem junções dentro da pasta. No Windows, ele também recusa uma pasta acessada por meio de um deles. Use o caminho real da pasta.
 - No macOS, os backups agendados precisam de permissão para usar discos removíveis e de rede. Veja [Permissões do macOS](#macos-permissions).
 - `frost status` mostra quão cheio está o disco, e `frost backup` avisa quando ele está quase cheio.
 - Discos formatados como NTFS, APFS, ext4, Btrfs ou XFS funcionam. Discos exFAT e FAT funcionam quando passam na verificação da configuração.

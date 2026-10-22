@@ -1,6 +1,6 @@
 # Copias de seguridad automáticas
 
-frost hace copias según una programación, usando el propio programador de tu sistema operativo. Entre una copia y otra no queda nada funcionando en segundo plano.
+Frost hace copias según una programación, usando el propio programador de tu sistema operativo. Entre una copia y otra no queda nada funcionando en segundo plano.
 
 ## Cambiar la programación
 
@@ -26,7 +26,7 @@ frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-Cada cambio actualiza la tarea programada al momento. En macOS y Windows, un cambio hecho durante una copia programada se aplica en cuanto esa copia termina. Si editas `config.toml` tú mismo, el siguiente comando de frost actualiza la tarea.
+Cada cambio actualiza la tarea programada al momento. En macOS y Windows, un cambio hecho durante una copia programada se aplica en cuanto esa copia termina. Si editas `config.toml` tú mismo, el siguiente comando de Frost actualiza la tarea.
 
 ## Cuándo se hacen las copias
 
@@ -43,7 +43,7 @@ systemd retrasa cada ejecución hasta 5 minutos, al azar.
 
 ## Copias perdidas
 
-Si tu equipo estaba apagado o en reposo cuando tocaba una copia, frost la hace en cuanto vuelve. Aunque se haya perdido varias, hace una sola copia.
+Si tu equipo estaba apagado o en reposo cuando tocaba una copia, Frost la hace en cuanto vuelve. Aunque se haya perdido varias, hace una sola copia.
 
 | Programador | Hace la copia perdida |
 | --- | --- |
@@ -52,15 +52,15 @@ Si tu equipo estaba apagado o en reposo cuando tocaba una copia, frost la hace e
 | Programador de tareas (Windows) | En cuanto puede, cuando tu equipo vuelve y tienes la sesión iniciada |
 | cron (Linux) | En los 15 minutos siguientes a que vuelva tu equipo |
 
-Con cron, frost comprueba cada 15 minutos y solo hace una copia cuando toca o cuando se perdió una. Si una hora ya está cubierta, por una copia programada o por una que hiciste tú, no se hace una segunda copia.
+Con cron, Frost comprueba cada 15 minutos y solo hace una copia cuando toca o cuando se perdió una. Si una hora ya está cubierta, por una copia programada o por una que hiciste tú, no se hace una segunda copia.
 
-Para saltarte las copias perdidas, de modo que frost solo copie a su hora:
+Para saltarte las copias perdidas, de modo que Frost solo copie a su hora:
 
 ```sh
 frost config set schedule.catch_up false
 ```
 
-Una copia programada que empieza antes de que vuelva tu red, o antes de que se monte un disco o una carpeta compartida, lo reintenta durante unos 5 minutos. Con un [disco local](#local-drive), el disco tiene que estar conectado cuando se hace la copia. [Servidor propio](#self-hosted) inicia sesión con la propia clave SSH de frost, así que funciona sin ti. Si hay otra copia en marcha, espera a que termine.
+Una copia programada que empieza antes de que vuelva tu red, o antes de que se monte un disco o una carpeta compartida, lo reintenta durante unos 5 minutos. Con un [disco local](#local-drive), el disco tiene que estar conectado cuando se hace la copia. [Servidor propio](#self-hosted) inicia sesión con la propia clave SSH de Frost, así que funciona sin ti. Si hay otra copia en marcha, espera a que termine.
 
 En Windows, las copias programadas solo se ejecutan mientras tengas la sesión iniciada. No empiezan mientras el equipo funciona con batería, y se detienen si lo desenchufas. En macOS y con systemd, las copias programadas se ejecutan con baja prioridad para no ralentizar tu equipo.
 
@@ -75,15 +75,15 @@ En Windows, las copias programadas solo se ejecutan mientras tengas la sesión i
 
 La tarea ejecuta `frost backup` con las carpetas de configuración y de caché que estaban en uso cuando se creó. Si cambias esas carpetas, vuelve a ejecutar `frost init`.
 
-En macOS, la tarea aparece en Ajustes del Sistema > General > Ítems de inicio y extensiones (System Settings > General > Login Items & Extensions) como **Node.js Foundation**, el editor del entorno de ejecución que incluye frost. Si la desactivas ahí, se detienen las copias programadas y `frost status` indica que falta la tarea. Para detener las copias programadas, usa mejor `frost config set schedule.enabled false`.
+En macOS, la tarea aparece en Ajustes del Sistema > General > Ítems de inicio y extensiones (System Settings > General > Login Items & Extensions) como **Node.js Foundation**, el editor del entorno de ejecución que incluye Frost. Si la desactivas ahí, se detienen las copias programadas y `frost status` indica que falta la tarea. Para detener las copias programadas, usa mejor `frost config set schedule.enabled false`.
 
-Con systemd, frost intenta activar lingering para tu usuario (`loginctl enable-linger`) si puede confirmar que está desactivado. Lingering permite que las copias se hagan aunque hayas cerrado sesión. Si frost no puede activarlo, las copias pueden dejar de ejecutarse al cerrar sesión. Al quitar el temporizador, frost solo desactiva lingering si dejó constancia de haberlo activado.
+Con systemd, Frost intenta activar lingering para tu usuario (`loginctl enable-linger`) si puede confirmar que está desactivado. Lingering permite que las copias se hagan aunque hayas cerrado sesión. Si Frost no puede activarlo, las copias pueden dejar de ejecutarse al cerrar sesión. Al quitar el temporizador, Frost solo desactiva lingering si dejó constancia de haberlo activado.
 
 ## Registros
 
 | Programador | Dónde va el registro |
 | --- | --- |
-| launchd, cron y el Programador de tareas | `frost.log` en la carpeta de caché de frost. Consulta [Archivos y carpetas](#files-and-folders) |
+| launchd, cron y el Programador de tareas | `frost.log` en la carpeta de caché de Frost. Consulta [Archivos y carpetas](#files-and-folders) |
 | systemd | El journal. Léelo con `journalctl --user -u frost-backup` |
 
 Un registro de más de 1 MiB se vacía antes de la siguiente ejecución. `frost status` también muestra si la última copia funcionó.

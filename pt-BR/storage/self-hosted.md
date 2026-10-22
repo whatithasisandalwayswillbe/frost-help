@@ -1,6 +1,6 @@
 # Servidor próprio
 
-Faça backup em uma pasta de um computador que você mantém, por SSH. Pode ser um servidor Linux, um NAS, um Raspberry Pi, um VPS, ou um Mac ou computador Windows com o servidor SSH ativado. O frost usa o cliente SSH que o seu computador já tem, então não há nada para instalar no servidor.
+Faça backup em uma pasta de um computador que você mantém, por SSH. Pode ser um servidor Linux, um NAS, um Raspberry Pi, um VPS, ou um Mac ou computador Windows com o servidor SSH ativado. O Frost usa o cliente SSH que o seu computador já tem, então não há nada para instalar no servidor.
 
 ## Antes de começar
 
@@ -19,21 +19,21 @@ Execute `frost init` e escolha **Self-hosted**.
 
 A configuração cria a última parte da pasta se ela não existir. A pasta que a contém já precisa existir.
 
-## A chave SSH do frost
+## A chave SSH do Frost
 
-O frost fornece uma chave SSH própria, criada na primeira configuração. Ele não precisa das suas chaves pessoais nem do seu agente SSH e nunca pede uma senha, então os backups agendados se conectam sempre da mesma forma.
+O Frost fornece uma chave SSH própria, criada na primeira configuração. Ele não precisa das suas chaves pessoais nem do seu agente SSH e nunca pede uma senha, então os backups agendados se conectam sempre da mesma forma.
 
-O servidor ainda não conhece a chave do frost, então, na primeira vez, a configuração pergunta como adicioná-la:
+O servidor ainda não conhece a chave do Frost, então, na primeira vez, a configuração pergunta como adicioná-la:
 
-- **Add it for me** (adicionar por mim) passa o terminal para o ssh. Na primeira vez que você se conecta a um servidor, o ssh mostra a impressão digital dele e pergunta se você confia nele. Depois, pede a sua senha no servidor, adiciona a chave do frost e a configuração continua. A sua senha vai só para o ssh. O frost nunca a vê nem a guarda.
-- **I'll add it myself** (vou adicionar eu mesmo) mostra onde fica o arquivo da chave pública do frost. Adicione a linha desse arquivo a `~/.ssh/authorized_keys` no servidor e pressione `[enter]`.
+- **Add it for me** (adicionar por mim) passa o terminal para o ssh. Na primeira vez que você se conecta a um servidor, o ssh mostra a impressão digital dele e pergunta se você confia nele. Depois, pede a sua senha no servidor, adiciona a chave do Frost e a configuração continua. A sua senha vai só para o ssh. O Frost nunca a vê nem a guarda.
+- **I'll add it myself** (vou adicionar eu mesmo) mostra onde fica o arquivo da chave pública do Frost. Adicione a linha desse arquivo a `~/.ssh/authorized_keys` no servidor e pressione `[enter]`.
 
-| Computador | Chave pública do frost |
+| Computador | Chave pública do Frost |
 | --- | --- |
 | macOS e Linux | `~/.config/frost/ssh/frost_ed25519.pub` |
 | Windows | `%AppData%\frost\ssh\frost_ed25519.pub` |
 
-Quando a configuração adiciona a chave por você, a linha começa com `restrict`. Isso desativa o encaminhamento de conexões e a alocação de terminais, mas ainda deixa o frost ler e gravar arquivos. Comandos de shell continuam possíveis, a menos que o servidor limite a conta ao SFTP.
+Quando a configuração adiciona a chave por você, a linha começa com `restrict`. Isso desativa o encaminhamento de conexões e a alocação de terminais, mas ainda deixa o Frost ler e gravar arquivos. Comandos de shell continuam possíveis, a menos que o servidor limite a conta ao SFTP.
 
 ### Adicionar a chave à mão
 
@@ -49,11 +49,11 @@ Um servidor Windows guarda as chaves em outros lugares, então **Add it for me**
 
 ## Portas e a sua configuração do SSH
 
-O frost lê sua configuração SSH, `~/.ssh/config`, da mesma forma que o ssh. Uma entrada `Host` pode definir o usuário, a porta e outras opções, e você pode usar seu nome como endereço. O frost fornece sua própria chave, mas chaves definidas explicitamente por `IdentityFile` na sua configuração SSH também podem ser oferecidas.
+O Frost lê sua configuração SSH, `~/.ssh/config`, da mesma forma que o ssh. Uma entrada `Host` pode definir o usuário, a porta e outras opções, e você pode usar seu nome como endereço. O Frost fornece sua própria chave, mas chaves definidas explicitamente por `IdentityFile` na sua configuração SSH também podem ser oferecidas.
 
 ## Bom saber
 
-- O sistema de arquivos do servidor precisa de links físicos, que o frost usa para garantir que dois computadores nunca sobrescrevam os registros de backup um do outro. ext4, Btrfs, XFS, ZFS, APFS e NTFS têm. A configuração verifica isso ao se conectar.
-- Se a chave de host do servidor mudar, o frost se recusa a conectar, como faz o ssh. Se você reinstalou o servidor, remova a chave antiga com `ssh-keygen -R <host>` e execute `frost init` de novo.
+- O sistema de arquivos do servidor precisa de links físicos, que o Frost usa para garantir que dois computadores nunca sobrescrevam os registros de backup um do outro. ext4, Btrfs, XFS, ZFS, APFS e NTFS têm. A configuração verifica isso ao se conectar.
+- Se a chave de host do servidor mudar, o Frost se recusa a conectar, como faz o ssh. Se você reinstalou o servidor, remova a chave antiga com `ssh-keygen -R <host>` e execute `frost init` de novo.
 - `frost status` mostra quão cheio está o disco do servidor, e `frost backup` avisa quando ele está quase cheio.
 - Se a pasta fica em um disco que o servidor monta, esse disco precisa estar montado quando os backups rodam. Se a pasta não estiver lá, o backup falha em vez de gravar em outro lugar.

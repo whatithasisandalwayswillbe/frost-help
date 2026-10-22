@@ -1,8 +1,8 @@
-# frost deinstallieren
+# Frost deinstallieren
 
-frost hat keinen Befehl zum Deinstallieren, aber das Entfernen dauert nur ein paar Schritte.
+Frost hat keinen Befehl zum Deinstallieren, aber das Entfernen dauert nur ein paar Schritte.
 
-> Das Deinstallieren von frost löscht deine Backups nicht. Falls du sie irgendwann zurückhaben willst, stell sicher, dass du deine Wiederherstellungsphrase hast, bevor du den Schlüssel auf diesem Computer löschst. `frost key show` zeigt sie an.
+> Das Deinstallieren von Frost löscht deine Backups nicht. Falls du sie irgendwann zurückhaben willst, stell sicher, dass du deine Wiederherstellungsphrase hast, bevor du den Schlüssel auf diesem Computer löschst. `frost key show` zeigt sie an.
 
 ## 1. Den geplanten Auftrag entfernen
 
@@ -10,11 +10,11 @@ frost hat keinen Befehl zum Deinstallieren, aber das Entfernen dauert nur ein pa
 frost config set schedule.enabled false
 ```
 
-Damit wird der Auftrag aus dem Zeitplaner deines Betriebssystems entfernt. Meldet frost, dass der Auftrag entfernt wird, sobald das laufende Backup fertig ist, warte damit bis zum Ende dieses Backups, bevor du weitermachst. Bis dahin meldet `frost status`, dass bereits ein Backup oder eine Wiederherstellung läuft. Unter Linux mit systemd wird außerdem Lingering wieder ausgeschaltet, sofern frost aufgezeichnet hat, dass es Lingering eingeschaltet hat.
+Damit wird der Auftrag aus dem Zeitplaner deines Betriebssystems entfernt. Meldet Frost, dass der Auftrag entfernt wird, sobald das laufende Backup fertig ist, warte damit bis zum Ende dieses Backups, bevor du weitermachst. Bis dahin meldet `frost status`, dass bereits ein Backup oder eine Wiederherstellung läuft. Unter Linux mit systemd wird außerdem Lingering wieder ausgeschaltet, sofern Frost aufgezeichnet hat, dass es Lingering eingeschaltet hat.
 
-## 2. Die Dateien von frost löschen
+## 2. Die Dateien von Frost löschen
 
-Dieser Schritt löscht die Anwendung, ihren Starter, deine Einstellungen, deinen Schlüssel und den Cache von frost. Hast du einen Speicherort geändert, passe die Pfade unten so an, dass sie auf die eigenen Dateien und Ordner von frost zeigen. `FROST_CONFIG_DIR` und `FROST_CACHE_DIR` nennen die frost-Ordner direkt; unter `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` und `XDG_DATA_HOME` liegt jeweils ein Unterordner `frost`. Lösch nie einen XDG-Stammordner oder einen gemeinsam genutzten Ordner selbst. [Dateien und Ordner](#files-and-folders) listet alle Orte auf.
+Dieser Schritt löscht die Anwendung, ihren Starter, deine Einstellungen, deinen Schlüssel und den Cache von Frost. Hast du einen Speicherort geändert, passe die Pfade unten so an, dass sie auf die eigenen Dateien und Ordner von Frost zeigen. `FROST_CONFIG_DIR` und `FROST_CACHE_DIR` nennen die Frost-Ordner direkt; unter `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` und `XDG_DATA_HOME` liegt jeweils ein Unterordner `frost`. Lösch nie einen XDG-Stammordner oder einen gemeinsam genutzten Ordner selbst. [Dateien und Ordner](#files-and-folders) listet alle Orte auf.
 
 Unter macOS:
 

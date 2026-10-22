@@ -1,6 +1,6 @@
 # 명령어
 
-frost에는 명령어가 8개 있습니다. `frost -h`로 모든 명령어와 옵션을 볼 수 있습니다.
+Frost에는 명령어가 8개 있습니다. `frost -h`로 모든 명령어와 옵션을 볼 수 있습니다.
 
 ## 공통 옵션
 
@@ -10,11 +10,11 @@ frost에는 명령어가 8개 있습니다. `frost -h`로 모든 명령어와 �
 | --- | --- |
 | `--config-dir <dir>` | 다른 설정 폴더를 사용합니다 |
 | `-h`, `--help` | 모든 명령어와 옵션이 담긴 도움말을 보여 줍니다 |
-| `-v`, `--version` | frost 버전을 보여 줍니다. 명령어보다 앞에 써야 합니다 |
+| `-v`, `--version` | Frost 버전을 보여 줍니다. 명령어보다 앞에 써야 합니다 |
 
 ## frost init
 
-무엇을, 어디에, 얼마나 자주 백업할지 frost를 설정합니다. 설정을 다시 보거나 바꾸려면 다시 실행하세요. 자세한 내용은 [frost 설정](#setting-up)을 참고하세요.
+무엇을, 어디에, 얼마나 자주 백업할지 Frost를 설정합니다. 설정을 다시 보거나 바꾸려면 다시 실행하세요. 자세한 내용은 [Frost 설정](#setting-up)을 참고하세요.
 
 ```sh
 frost init
@@ -98,7 +98,7 @@ frost key import
 
 ## frost update
 
-frost를 최신 릴리스로 업데이트합니다. 자세한 내용은 [frost 업데이트](#updating)를 참고하세요.
+Frost를 최신 릴리스로 업데이트합니다. 자세한 내용은 [Frost 업데이트](#updating)를 참고하세요.
 
 ```sh
 frost update [--check]
@@ -110,8 +110,8 @@ frost update [--check]
 
 ## 종료 코드
 
-frost는 명령어가 성공하면 `0`, 오류가 나면 `1`로 종료합니다. 백업이나 `frost status --verify`의 검사에서 문제가 발견된 경우도 오류에 포함되므로, 스크립트에서 결과를 확인할 수 있습니다.
+Frost는 명령어가 성공하면 `0`, 오류가 나면 `1`로 종료합니다. 백업이나 `frost status --verify`의 검사에서 문제가 발견된 경우도 오류에 포함되므로, 스크립트에서 결과를 확인할 수 있습니다.
 
 ```sh
-frost status --verify || echo "frost check failed" >&2
+frost status --verify || echo "Frost check failed" >&2
 ```

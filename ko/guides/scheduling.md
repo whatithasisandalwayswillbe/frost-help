@@ -1,6 +1,6 @@
 # 자동 백업
 
-frost는 운영 체제에 내장된 스케줄러를 이용해 정해진 일정에 백업합니다. 백업과 백업 사이에 백그라운드에서 돌아가는 것은 없습니다.
+Frost는 운영 체제에 내장된 스케줄러를 이용해 정해진 일정에 백업합니다. 백업과 백업 사이에 백그라운드에서 돌아가는 것은 없습니다.
 
 ## 일정 바꾸기
 
@@ -26,7 +26,7 @@ frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-어떤 변경이든 예약 작업에 바로 반영됩니다. macOS와 Windows에서는 예약 백업 중에 한 변경이 그 백업이 끝나는 대로 반영됩니다. `config.toml`을 직접 편집하면 다음 frost 명령어가 작업을 업데이트합니다.
+어떤 변경이든 예약 작업에 바로 반영됩니다. macOS와 Windows에서는 예약 백업 중에 한 변경이 그 백업이 끝나는 대로 반영됩니다. `config.toml`을 직접 편집하면 다음 Frost 명령어가 작업을 업데이트합니다.
 
 ## 백업이 실행되는 시각
 
@@ -43,7 +43,7 @@ systemd는 각 실행을 최대 5분까지 무작위로 늦춰 시작합니다.
 
 ## 놓친 백업
 
-백업할 시각에 컴퓨터가 꺼져 있거나 잠자기 상태였다면, frost는 컴퓨터가 돌아온 뒤 백업합니다. 몇 번을 놓쳤든 백업은 한 번만 합니다.
+백업할 시각에 컴퓨터가 꺼져 있거나 잠자기 상태였다면, Frost는 컴퓨터가 돌아온 뒤 백업합니다. 몇 번을 놓쳤든 백업은 한 번만 합니다.
 
 | 스케줄러 | 놓친 백업을 실행하는 때 |
 | --- | --- |
@@ -52,7 +52,7 @@ systemd는 각 실행을 최대 5분까지 무작위로 늦춰 시작합니다.
 | 작업 스케줄러(Windows) | 컴퓨터가 돌아오고 로그인한 상태가 되면 가능한 한 빨리 |
 | cron(Linux) | 컴퓨터가 돌아온 뒤 15분 안에 |
 
-cron에서는 frost가 15분마다 확인하고, 백업할 시각이 되었거나 놓친 백업이 있을 때만 백업합니다. 이미 백업한 시각에는, 예약된 백업이든 직접 실행한 백업이든 두 번째 백업을 하지 않습니다.
+cron에서는 Frost가 15분마다 확인하고, 백업할 시각이 되었거나 놓친 백업이 있을 때만 백업합니다. 이미 백업한 시각에는, 예약된 백업이든 직접 실행한 백업이든 두 번째 백업을 하지 않습니다.
 
 놓친 백업을 건너뛰고 제시간에만 백업하려면 다음을 실행합니다.
 
@@ -60,7 +60,7 @@ cron에서는 frost가 15분마다 확인하고, 백업할 시각이 되었거�
 frost config set schedule.catch_up false
 ```
 
-네트워크가 돌아오기 전이나 드라이브 또는 네트워크 공유가 마운트되기 전에 시작한 예약 백업은 약 5분 동안 다시 시도합니다. [로컬 드라이브](#local-drive)는 백업이 실행될 때 드라이브가 연결되어 있어야 합니다. [셀프 호스팅](#self-hosted) 스토리지는 frost 전용 SSH 키로 로그인하므로, 사용자가 없어도 작동합니다. 다른 백업이 실행 중이면 그 백업이 끝날 때까지 기다립니다.
+네트워크가 돌아오기 전이나 드라이브 또는 네트워크 공유가 마운트되기 전에 시작한 예약 백업은 약 5분 동안 다시 시도합니다. [로컬 드라이브](#local-drive)는 백업이 실행될 때 드라이브가 연결되어 있어야 합니다. [셀프 호스팅](#self-hosted) 스토리지는 Frost 전용 SSH 키로 로그인하므로, 사용자가 없어도 작동합니다. 다른 백업이 실행 중이면 그 백업이 끝날 때까지 기다립니다.
 
 Windows에서는 로그인한 동안에만 예약된 백업이 실행됩니다. 컴퓨터가 배터리로 동작하는 동안 예약된 백업을 시작하지 않고, 전원을 뽑으면 중단합니다. macOS와 systemd에서는 예약된 백업이 낮은 우선순위로 실행되므로 컴퓨터가 느려지지 않습니다.
 
@@ -75,15 +75,15 @@ Windows에서는 로그인한 동안에만 예약된 백업이 실행됩니다. 
 
 작업은 등록할 때 쓰던 설정 폴더와 캐시 폴더로 `frost backup`을 실행합니다. 이 폴더를 바꿨다면 `frost init`을 다시 실행하세요.
 
-macOS에서는 이 작업이 시스템 설정 > 일반 > 로그인 항목 및 확장 프로그램(System Settings > General > Login Items & Extensions)에 **Node.js Foundation**이라는 이름으로 표시됩니다. frost에 포함된 런타임의 배포자입니다. 이곳에서 끄면 예약된 백업이 멈추고, `frost status`는 작업이 없다고 보고합니다. 예약된 백업을 멈추려면 대신 `frost config set schedule.enabled false`를 쓰세요.
+macOS에서는 이 작업이 시스템 설정 > 일반 > 로그인 항목 및 확장 프로그램(System Settings > General > Login Items & Extensions)에 **Node.js Foundation**이라는 이름으로 표시됩니다. Frost에 포함된 런타임의 배포자입니다. 이곳에서 끄면 예약된 백업이 멈추고, `frost status`는 작업이 없다고 보고합니다. 예약된 백업을 멈추려면 대신 `frost config set schedule.enabled false`를 쓰세요.
 
-systemd에서는 lingering이 꺼져 있다고 확인할 수 있을 때 frost가 사용자의 lingering을 켜려고 시도합니다(`loginctl enable-linger`). lingering은 로그아웃한 동안에도 백업을 실행할 수 있게 합니다. frost가 켜지 못하면 로그아웃 후 백업이 멈출 수 있습니다. 타이머를 제거할 때는 frost가 직접 켰다고 기록한 경우에만 lingering을 끕니다.
+systemd에서는 lingering이 꺼져 있다고 확인할 수 있을 때 Frost가 사용자의 lingering을 켜려고 시도합니다(`loginctl enable-linger`). lingering은 로그아웃한 동안에도 백업을 실행할 수 있게 합니다. Frost가 켜지 못하면 로그아웃 후 백업이 멈출 수 있습니다. 타이머를 제거할 때는 Frost가 직접 켰다고 기록한 경우에만 lingering을 끕니다.
 
 ## 로그
 
 | 스케줄러 | 로그 위치 |
 | --- | --- |
-| launchd, cron, 작업 스케줄러 | frost 캐시 폴더의 `frost.log`. [파일 및 폴더](#files-and-folders)를 참고하세요 |
+| launchd, cron, 작업 스케줄러 | Frost 캐시 폴더의 `frost.log`. [파일 및 폴더](#files-and-folders)를 참고하세요 |
 | systemd | 저널. `journalctl --user -u frost-backup`으로 볼 수 있습니다 |
 
 1 MiB를 넘는 로그는 다음 실행 전에 비워집니다. 마지막 백업의 성공 여부는 `frost status`에서도 볼 수 있습니다.

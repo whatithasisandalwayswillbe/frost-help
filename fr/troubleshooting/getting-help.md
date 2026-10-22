@@ -13,7 +13,7 @@ Si votre problème n'est pas traité dans cette documentation, voici comment en 
 
 Ouvrez un ticket sur [github.com/whatithasisandalwayswillbe/frost/issues](https://github.com/whatithasisandalwayswillbe/frost/issues), en indiquant :
 
-- Votre version de frost, donnée par `frost --version`, et votre système d'exploitation.
+- Votre version de Frost, donnée par `frost --version`, et votre système d'exploitation.
 - Ce que vous avez lancé, et ce que vous attendiez.
 - Ce qui s'est passé à la place, avec le message exact.
 - Les lignes utiles de `frost status` ou du journal.

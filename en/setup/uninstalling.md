@@ -1,8 +1,8 @@
-# Uninstalling frost
+# Uninstalling Frost
 
-frost has no uninstall command, but removing it takes a few steps.
+Frost has no uninstall command, but removing it takes a few steps.
 
-> Uninstalling frost doesn't delete your backups. If you might want them back one day, make sure you have your recovery phrase before you delete the key on this computer. `frost key show` prints it.
+> Uninstalling Frost doesn't delete your backups. If you might want them back one day, make sure you have your recovery phrase before you delete the key on this computer. `frost key show` prints it.
 
 ## 1. Remove the scheduled job
 
@@ -10,11 +10,11 @@ frost has no uninstall command, but removing it takes a few steps.
 frost config set schedule.enabled false
 ```
 
-This removes the job from your operating system's scheduler. If frost says the job is removed once the running backup finishes, wait for that backup to finish before the next step. Until it has, `frost status` says a backup or restore operation is already in progress. On Linux with systemd, it also turns lingering back off if frost recorded turning it on.
+This removes the job from your operating system's scheduler. If Frost says the job is removed once the running backup finishes, wait for that backup to finish before the next step. Until it has, `frost status` says a backup or restore operation is already in progress. On Linux with systemd, it also turns lingering back off if Frost recorded turning it on.
 
-## 2. Delete frost's files
+## 2. Delete Frost's files
 
-This deletes the application, its launcher, your settings, your key and frost's cache. If you changed a location, adjust the paths below to frost's own files and folders. `FROST_CONFIG_DIR` and `FROST_CACHE_DIR` name frost's folders directly; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` and `XDG_DATA_HOME` contain a `frost` subfolder. Never delete an XDG root or a shared folder itself. [Files and folders](#files-and-folders) lists every location.
+This deletes the application, its launcher, your settings, your key and Frost's cache. If you changed a location, adjust the paths below to Frost's own files and folders. `FROST_CONFIG_DIR` and `FROST_CACHE_DIR` name Frost's folders directly; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` and `XDG_DATA_HOME` contain a `frost` subfolder. Never delete an XDG root or a shared folder itself. [Files and folders](#files-and-folders) lists every location.
 
 On macOS:
 

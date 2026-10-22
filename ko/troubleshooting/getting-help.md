@@ -13,7 +13,7 @@
 
 [github.com/whatithasisandalwayswillbe/frost/issues](https://github.com/whatithasisandalwayswillbe/frost/issues)에서 issue를 열고 다음 내용을 적어 주세요.
 
-- frost 버전(`frost --version`으로 확인)과 운영 체제.
+- Frost 버전(`frost --version`으로 확인)과 운영 체제.
 - 무엇을 실행했고, 어떻게 되기를 기대했는지.
 - 실제로 무슨 일이 일어났는지. 메시지는 그대로 적어 주세요.
 - 관련된 `frost status`나 로그의 내용.

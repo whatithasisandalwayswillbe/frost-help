@@ -1,16 +1,16 @@
 {
     "pages": [
         { "id": "getting-started", "title": "Getting started", "path": "en/getting-started.md" },
-        { "id": "how-it-works", "title": "How frost works", "path": "en/how-it-works.md" }
+        { "id": "how-it-works", "title": "How Frost works", "path": "en/how-it-works.md" }
     ],
     "sections": [
         {
             "title": "Setup",
             "pages": [
-                { "id": "installing", "title": "Installing frost", "path": "en/setup/installing.md" },
-                { "id": "setting-up", "title": "Setting up frost", "path": "en/setup/setting-up.md" },
-                { "id": "updating", "title": "Updating frost", "path": "en/setup/updating.md" },
-                { "id": "uninstalling", "title": "Uninstalling frost", "path": "en/setup/uninstalling.md" }
+                { "id": "installing", "title": "Installing Frost", "path": "en/setup/installing.md" },
+                { "id": "setting-up", "title": "Setting up Frost", "path": "en/setup/setting-up.md" },
+                { "id": "updating", "title": "Updating Frost", "path": "en/setup/updating.md" },
+                { "id": "uninstalling", "title": "Uninstalling Frost", "path": "en/setup/uninstalling.md" }
             ]
         },
         {

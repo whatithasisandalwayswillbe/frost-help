@@ -1,6 +1,6 @@
 # Speicher auswählen
 
-frost kann deine Backups auf deinem eigenen Server, auf einem Laufwerk, bei Permafrost oder bei einem S3-kompatiblen Dienst ablegen. Wohin sie auch gehen, alles wird zuerst auf deinem Computer verschlüsselt, und wer den Speicher betreibt, kann deine Dateien nicht lesen.
+Frost kann deine Backups auf deinem eigenen Server, auf einem Laufwerk, bei Permafrost oder bei einem S3-kompatiblen Dienst ablegen. Wohin sie auch gehen, alles wird zuerst auf deinem Computer verschlüsselt, und wer den Speicher betreibt, kann deine Dateien nicht lesen.
 
 ## Deine Möglichkeiten
 
@@ -8,7 +8,7 @@ frost kann deine Backups auf deinem eigenen Server, auf einem Laufwerk, bei Perm
 | --- | --- | --- |
 | [Eigener Server](#self-hosted) | Ein NAS, einen Heimserver oder einen VPS, den du betreibst | SSH-Zugang dazu |
 | [Lokales Laufwerk](#local-drive) | Eine USB-Festplatte oder eine zweite Festplatte | Ein Laufwerk, das angeschlossen ist, wenn Backups laufen |
-| [Permafrost](#permafrost) | Gehosteten Speicher, der für frost gemacht ist | Einen Zugriffsschlüssel |
+| [Permafrost](#permafrost) | Gehosteten Speicher, der für Frost gemacht ist | Einen Zugriffsschlüssel |
 | [Cloud-Anbieter](#cloud-providers) | Amazon S3, Cloudflare R2, Backblaze B2 oder Wasabi | Einen Bucket und seine Schlüssel |
 | [Anderer S3-kompatibler Speicher](#other-s3) | Einen S3-Server, den du betreibst, etwa Ceph oder SeaweedFS, oder einen anderen S3-Dienst | Einen Bucket und seine Schlüssel |
 
@@ -16,7 +16,7 @@ Mit einem eigenen Server oder einem lokalen Laufwerk liegen deine Backups auf Ha
 
 ## Bedingte Schreibvorgänge
 
-frost braucht einen Speicher, der eine Datei in einem Schritt nur dann anlegen kann, wenn ihr Name noch frei ist. Das verhindert, dass zwei Computer gegenseitig ihre Backup-Einträge überschreiben. Die Einrichtung testet das beim Verbinden und lehnt Speicher ab, der den Test nicht besteht. Unterstützt ein Speicher es nicht, helfen auch andere Schlüssel oder Einstellungen nicht.
+Frost braucht einen Speicher, der eine Datei in einem Schritt nur dann anlegen kann, wenn ihr Name noch frei ist. Das verhindert, dass zwei Computer gegenseitig ihre Backup-Einträge überschreiben. Die Einrichtung testet das beim Verbinden und lehnt Speicher ab, der den Test nicht besteht. Unterstützt ein Speicher es nicht, helfen auch andere Schlüssel oder Einstellungen nicht.
 
 | Speicher | Bedingte Schreibvorgänge |
 | --- | --- |
@@ -38,9 +38,9 @@ Die S3-Angaben wurden im Oktober 2026 anhand der Dokumentation und des Quellcode
 
 - **Eine Kopie außer Haus.** Ein Laufwerk oder Server zu Hause kann beim selben Brand oder Einbruch verloren gehen wie dein Computer. Ein Server an einem anderen Ort, Permafrost oder ein Cloud-Anbieter nicht. Bewahre von allem Unersetzlichen eine zweite, unabhängige Kopie an einem anderen Ort auf.
 - **Kosten einer Wiederherstellung.** Manche Cloud-Anbieter berechnen Downloads. Eine vollständige Wiederherstellung lädt alles herunter, und jede Stichprobenprüfung lädt eine kleine Stichprobe.
-- **Archiv-Speicherklassen.** frost liest Blöcke direkt zurück. Verschieb seine Objekte also nicht in eine Archivklasse, die vor dem Lesen erst aufgetaut werden muss.
-- **Löschen und Ablaufen.** frost löscht deine Backups nie. Richte keine Lebenszyklusregeln oder Aufräumjobs ein, die Dateien in seinem Ordner löschen oder ablaufen lassen, denn Snapshots teilen sich Blöcke.
-- **Eingeschränkter Zugriff.** Gib frost einen Zugriffsschlüssel, der nur seinen eigenen Bucket erreicht, oder ein Serverkonto, das sonst nichts ändern kann, was dir wichtig ist.
+- **Archiv-Speicherklassen.** Frost liest Blöcke direkt zurück. Verschieb seine Objekte also nicht in eine Archivklasse, die vor dem Lesen erst aufgetaut werden muss.
+- **Löschen und Ablaufen.** Frost löscht deine Backups nie. Richte keine Lebenszyklusregeln oder Aufräumjobs ein, die Dateien in seinem Ordner löschen oder ablaufen lassen, denn Snapshots teilen sich Blöcke.
+- **Eingeschränkter Zugriff.** Gib Frost einen Zugriffsschlüssel, der nur seinen eigenen Bucket erreicht, oder ein Serverkonto, das sonst nichts ändern kann, was dir wichtig ist.
 
 ## Später den Speicher wechseln
 

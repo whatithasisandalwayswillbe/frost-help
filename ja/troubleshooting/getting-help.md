@@ -13,7 +13,7 @@
 
 [github.com/whatithasisandalwayswillbe/frost/issues](https://github.com/whatithasisandalwayswillbe/frost/issues) で issue を作り、次の情報を書いてください。
 
-- frost のバージョン (`frost --version` で確認できます) と OS。
+- Frost のバージョン (`frost --version` で確認できます) と OS。
 - 何を実行し、どうなると思っていたか。
 - 実際に何が起きたか。メッセージはそのまま書いてください。
 - `frost status` やログの関係する行。

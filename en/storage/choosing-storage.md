@@ -1,6 +1,6 @@
 # Choosing storage
 
-frost can keep your backups on your own server, on a drive, on Permafrost or with an S3-compatible service. Wherever they go, everything is encrypted on your computer first, so whoever runs the storage can't read your files.
+Frost can keep your backups on your own server, on a drive, on Permafrost or with an S3-compatible service. Wherever they go, everything is encrypted on your computer first, so whoever runs the storage can't read your files.
 
 ## Your options
 
@@ -8,7 +8,7 @@ frost can keep your backups on your own server, on a drive, on Permafrost or wit
 | --- | --- | --- |
 | [Self-hosted](#self-hosted) | A NAS, home server or VPS you run | SSH access to it |
 | [Local drive](#local-drive) | A USB drive or a second disk | A drive that's connected when backups run |
-| [Permafrost](#permafrost) | Hosted storage made for frost | One access key |
+| [Permafrost](#permafrost) | Hosted storage made for Frost | One access key |
 | [Cloud providers](#cloud-providers) | Amazon S3, Cloudflare R2, Backblaze B2 or Wasabi | A bucket and its keys |
 | [Other S3-compatible storage](#other-s3) | An S3 server you run, like Ceph or SeaweedFS, or another S3 service | A bucket and its keys |
 
@@ -16,7 +16,7 @@ Self-hosted and local drive storage keep your backups on hardware you control, w
 
 ## Conditional writes
 
-frost needs storage that can create a file only when its name is free, in one step. That stops two computers from overwriting each other's backup records. Setup tests this when it connects, and refuses storage that fails. Different keys or settings can't fix storage that doesn't support it.
+Frost needs storage that can create a file only when its name is free, in one step. That stops two computers from overwriting each other's backup records. Setup tests this when it connects, and refuses storage that fails. Different keys or settings can't fix storage that doesn't support it.
 
 | Storage | Conditional writes |
 | --- | --- |
@@ -38,9 +38,9 @@ The S3 entries were checked against each project's documentation and source code
 
 - **A copy away from home.** A drive or server at home can be lost in the same fire or break-in as your computer. A server somewhere else, Permafrost or a cloud provider isn't. For anything irreplaceable, keep a second, independent copy in another place.
 - **Cost to restore.** Some cloud providers charge for downloads. A full restore downloads everything, and each spot check downloads a small sample.
-- **Archive storage classes.** frost reads chunks back directly, so don't move its objects to an archive class that has to be thawed before reading.
-- **Deleting and expiring.** frost never deletes your backups. Don't add lifecycle rules or cleanup jobs that delete or expire files in its folder, because snapshots share chunks.
-- **Limited access.** Give frost an access key that only reaches its own bucket, or a server account that can't change anything else you care about.
+- **Archive storage classes.** Frost reads chunks back directly, so don't move its objects to an archive class that has to be thawed before reading.
+- **Deleting and expiring.** Frost never deletes your backups. Don't add lifecycle rules or cleanup jobs that delete or expire files in its folder, because snapshots share chunks.
+- **Limited access.** Give Frost an access key that only reaches its own bucket, or a server account that can't change anything else you care about.
 
 ## Changing storage later
 

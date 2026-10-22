@@ -1,6 +1,6 @@
 # Checking your backups
 
-frost checks your backups as it goes, and `frost status` shows you how they're doing.
+Frost checks your backups as it goes, and `frost status` shows you how they're doing.
 
 ## frost status
 
@@ -9,7 +9,7 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
+┌  Frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
@@ -27,7 +27,7 @@ frost status
 └
 ```
 
-The first line shows frost's version, your storage and your key's fingerprint. The rows under it show:
+The first line shows Frost's version, your storage and your key's fingerprint. The rows under it show:
 
 | Row | Shows |
 | --- | --- |
@@ -47,7 +47,7 @@ frost status --all
 
 ## The spot check
 
-After every backup that saves a snapshot, frost downloads a random sample of chunks, decrypts each one and checks it matches its ID. It also loads the newest snapshot's file list and checks that frost knows every chunk it needs. After a backup with nothing new, frost repeats the check only when the last one is more than a day old or found a problem.
+After every backup that saves a snapshot, Frost downloads a random sample of chunks, decrypts each one and checks it matches its ID. It also loads the newest snapshot's file list and checks that Frost knows every chunk it needs. After a backup with nothing new, Frost repeats the check only when the last one is more than a day old or found a problem.
 
 The sample is 20 chunks by default. A bigger sample catches more problems but downloads more:
 
@@ -63,7 +63,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-This runs a fresh spot check, and also compares frost's local record of your chunks with everything in your storage. It checks 20 chunks even when `verify.sample` is `0`. It exits with `1` if the check fails, so you can run it from your own scheduler to check on a different schedule from your backups.
+This runs a fresh spot check, and also compares Frost's local record of your chunks with everything in your storage. It checks 20 chunks even when `verify.sample` is `0`. It exits with `1` if the check fails, so you can run it from your own scheduler to check on a different schedule from your backups.
 
 ## If a check fails
 
@@ -76,6 +76,6 @@ Data that's no longer on your computer can't be uploaded again, and older snapsh
 
 ## Missing snapshots
 
-If snapshots this computer knew about are gone from storage, `frost status` says so once. If you moved your backups, point frost at their new location. See [Moving your backups](#moving-backups). Otherwise they were deleted from your storage.
+If snapshots this computer knew about are gone from storage, `frost status` says so once. If you moved your backups, point Frost at their new location. See [Moving your backups](#moving-backups). Otherwise they were deleted from your storage.
 
 > A spot check samples your backups. It catches problems early, but it can't prove every snapshot will restore. For files you can't afford to lose, keep a second, independent backup too.

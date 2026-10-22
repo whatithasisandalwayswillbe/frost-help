@@ -6,9 +6,9 @@ Permafrost 没有可以移动的文件夹，所以无法用这种方式把备份
 
 | 你想要 | 这样做 |
 | --- | --- |
-| 把备份迁移到另一个文件夹、磁盘、服务器或存储桶 | 移动整个仓库文件夹，然后让 frost 指向新的位置。不会重新上传任何内容 |
-| 在别处开始一组新的独立备份 | 运行 `frost init`，选择新的空位置。旧的备份会留在原处，但 frost 只会显示新的那组 |
-| 回到之前迁走的备份 | 让 frost 重新指向旧的位置 |
+| 把备份迁移到另一个文件夹、磁盘、服务器或存储桶 | 移动整个仓库文件夹，然后让 Frost 指向新的位置。不会重新上传任何内容 |
+| 在别处开始一组新的独立备份 | 运行 `frost init`，选择新的空位置。旧的备份会留在原处，但 Frost 只会显示新的那组 |
+| 回到之前迁走的备份 | 让 Frost 重新指向旧的位置 |
 
 ## 移动仓库
 
@@ -20,7 +20,7 @@ Permafrost 没有可以移动的文件夹，所以无法用这种方式把备份
 rsync -a /Volumes/Backup/frost/ me@nas.local:frost/
 ```
 
-然后告诉 frost 备份在哪里。换到磁盘或服务器上的另一个文件夹：
+然后告诉 Frost 备份在哪里。换到磁盘或服务器上的另一个文件夹：
 
 ```sh
 frost config set storage.local.path /Volumes/Backup2/frost
@@ -43,11 +43,11 @@ frost config set storage.s3.prefix backups/frost
 
 ## 保存前的检查
 
-`frost config set` 在保存新的存储位置之前会先检查它。没有 frost 仓库的位置，或用另一个密钥创建的仓库，会被拒绝。如果旧位置有同一仓库的快照，而新位置没有，也会拒绝这项修改。`frost config edit` 会把同样的问题显示为警告，因此它仍然可以保存 `set` 拒绝的修改。 如果你自己编辑 `config.toml` 来修改位置，frost 第一次使用它时会显示这些警告。
+`frost config set` 在保存新的存储位置之前会先检查它。没有 Frost 仓库的位置，或用另一个密钥创建的仓库，会被拒绝。如果旧位置有同一仓库的快照，而新位置没有，也会拒绝这项修改。`frost config edit` 会把同样的问题显示为警告，因此它仍然可以保存 `set` 拒绝的修改。 如果你自己编辑 `config.toml` 来修改位置，Frost 第一次使用它时会显示这些警告。
 
-## frost 找不到你的备份时
+## Frost 找不到你的备份时
 
-当备份不在 frost 预期的位置时，错误信息和 `frost status` 会说明它们上次是在哪里打开的，并给出三种解决办法：
+当备份不在 Frost 预期的位置时，错误信息和 `frost status` 会说明它们上次是在哪里打开的，并给出三种解决办法：
 
 ```text
 Your backups were last opened in s3://old-bucket/frost/.

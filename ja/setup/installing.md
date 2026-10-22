@@ -1,6 +1,6 @@
-# frost のインストール
+# Frost のインストール
 
-frost は、macOS、Linux、Windows のいずれでも 1 つのコマンドでインストールできます。どのリリースにも専用のランタイムが含まれているので、事前に何かをインストールする必要はありません。
+Frost は、macOS、Linux、Windows のいずれでも 1 つのコマンドでインストールできます。どのリリースにも専用のランタイムが含まれているので、事前に何かをインストールする必要はありません。
 
 ## 対応システム
 
@@ -30,7 +30,7 @@ irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/inst
 
 1. お使いのシステム向けの最新リリースをダウンロードします。
 2. リリースの署名とダウンロードしたファイルのチェックサムを確認し、どちらかが合わなければ中止します。
-3. frost をユーザープロファイルにインストールし、`PATH` 上のフォルダに `frost` ランチャーを置きます。
+3. Frost をユーザープロファイルにインストールし、`PATH` 上のフォルダに `frost` ランチャーを置きます。
 
 macOS と Linux では、検証に `curl` または `wget`、OpenSSH 8.1 以降の `ssh-keygen`、`sha256sum` または `shasum` が必要です。Windows では、Windows 10 と 11 に付属する Windows PowerShell 5.1、または PowerShell 7 が必要です。署名の確認には、リリースに含まれるランタイムを使います。そのランタイムが OpenJS Foundation によって署名されていることを、先に Windows が確認します。
 
@@ -38,7 +38,7 @@ macOS と Linux では、ランチャーは書き込み権限があれば `/usr/
 
 `curl` のインストーラは、Windows の Git Bash でも使えます。その場合は Git Bash が提供する `cygpath` が必要で、展開には `unzip` または PowerShell を使い、ランチャーは `~/bin` に置かれます。
 
-インストールが終わったら、`frost init` を実行して最初のバックアップを設定します。詳しくは[frost の設定](#setting-up)を参照してください。
+インストールが終わったら、`frost init` を実行して最初のバックアップを設定します。詳しくは[Frost の設定](#setting-up)を参照してください。
 
 ## インストーラのオプション
 
@@ -59,11 +59,11 @@ Windows では、同じ PowerShell ウィンドウで先に変数を設定しま
 $env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
-ランチャーのフォルダを変えても、frost 本体の場所は変わりません。各ファイルの場所は[ファイルとフォルダ](#files-and-folders)にまとめています。
+ランチャーのフォルダを変えても、Frost 本体の場所は変わりません。各ファイルの場所は[ファイルとフォルダ](#files-and-folders)にまとめています。
 
 ## npm や pnpm でインストールする
 
-Node.js 22 以降をすでに使っているなら、npm で frost をインストールできます。
+Node.js 22 以降をすでに使っているなら、npm で Frost をインストールできます。
 
 ```sh
 npm install -g getfrost
@@ -75,7 +75,7 @@ pnpm の場合:
 pnpm add -g getfrost
 ```
 
-パッケージ名は `getfrost` で、使えるようになるコマンドは `frost` です。初めて `frost` を実行すると、お使いのシステム向けのリリースをダウンロードし、インストーラと同じように署名とチェックサムを確認してから、ユーザープロファイルにインストールします。そのあとで、入力したコマンドを実行します。以降の `frost` コマンドはすべて、インストール済みの frost にそのまま渡されます。frost は自分自身を最新の状態に保ちます。
+パッケージ名は `getfrost` で、使えるようになるコマンドは `frost` です。初めて `frost` を実行すると、お使いのシステム向けのリリースをダウンロードし、インストーラと同じように署名とチェックサムを確認してから、ユーザープロファイルにインストールします。そのあとで、入力したコマンドを実行します。以降の `frost` コマンドはすべて、インストール済みの Frost にそのまま渡されます。Frost は自分自身を最新の状態に保ちます。
 
 pnpm の場合、まだ実行したことがなければ先に `pnpm setup` を実行して、pnpm のグローバルコマンドが `PATH` に入るようにしてください。
 

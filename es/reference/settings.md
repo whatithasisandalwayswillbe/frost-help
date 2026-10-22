@@ -1,6 +1,6 @@
 # Ajustes
 
-frost guarda sus ajustes en `config.toml`, dentro de su carpeta de configuración. Puedes cambiarlos con `frost init`, `frost config set` o `frost config edit`, o en cualquier editor de texto.
+Frost guarda sus ajustes en `config.toml`, dentro de su carpeta de configuración. Puedes cambiarlos con `frost init`, `frost config set` o `frost config edit`, o en cualquier editor de texto.
 
 ## Leer y cambiar ajustes
 
@@ -22,7 +22,7 @@ frost config set paths ~/Documents ~/Pictures
 - Una lista recibe un valor por elemento, y `set` sustituye la lista entera.
 - `true` y `false` activan y desactivan ajustes.
 - Cambiar un ajuste de `schedule` actualiza la tarea programada al momento. En macOS y Windows, un cambio hecho mientras se ejecuta una copia programada se aplica en cuanto esa copia termina, así que no se interrumpe.
-- Si cambias dónde está tu almacenamiento, frost comprueba la nueva ubicación antes de guardarla. Consulta [Mover tus copias de seguridad](#moving-backups).
+- Si cambias dónde está tu almacenamiento, Frost comprueba la nueva ubicación antes de guardarla. Consulta [Mover tus copias de seguridad](#moving-backups).
 
 ## Editar el archivo
 
@@ -30,18 +30,18 @@ frost config set paths ~/Documents ~/Pictures
 frost config edit
 ```
 
-frost abre una copia de `config.toml` en el editor que indiques, o en `$VISUAL` o `$EDITOR`, o si no en nano, vim o vi. En Windows, la alternativa es el Bloc de notas. Al cerrar el editor, frost enumera lo que has cambiado y guarda la copia cuando escribes `yes`.
+Frost abre una copia de `config.toml` en el editor que indiques, o en `$VISUAL` o `$EDITOR`, o si no en nano, vim o vi. En Windows, la alternativa es el Bloc de notas. Al cerrar el editor, Frost enumera lo que has cambiado y guarda la copia cuando escribes `yes`.
 
-Si el archivo no se puede interpretar, frost te señala el problema y te ofrece abrirlo de nuevo, así que una errata no puede estropear tus copias programadas. Los ajustes desconocidos cuentan como errores, así que un nombre mal escrito no pasa desapercibido.
+Si el archivo no se puede interpretar, Frost te señala el problema y te ofrece abrirlo de nuevo, así que una errata no puede estropear tus copias programadas. Los ajustes desconocidos cuentan como errores, así que un nombre mal escrito no pasa desapercibido.
 
 ## Editarlo tú mismo
 
-También puedes abrir `config.toml` en cualquier editor de texto y guardarlo. frost lo lee cada vez que se ejecuta, así que la mayoría de los cambios se aplican desde la siguiente ejecución. Dos tipos de cambio necesitan un paso más, que frost da la próxima vez que ejecutes cualquier comando de frost:
+También puedes abrir `config.toml` en cualquier editor de texto y guardarlo. Frost lo lee cada vez que se ejecuta, así que la mayoría de los cambios se aplican desde la siguiente ejecución. Dos tipos de cambio necesitan un paso más, que Frost da la próxima vez que ejecutes cualquier comando de Frost:
 
-- Si cambias la programación, frost actualiza la tarea programada y lo indica con "config.toml changed. Scheduled job updated" (config.toml cambió; tarea programada actualizada). En Linux, la siguiente copia programada también lo hace. Un cambio hecho mientras se ejecuta una copia programada espera a que termine, igual que con `frost config set`.
-- Una nueva ubicación de almacenamiento recibe las mismas comprobaciones que con `frost config edit` la primera vez que frost la usa. Cualquier problema aparece como aviso.
+- Si cambias la programación, Frost actualiza la tarea programada y lo indica con "config.toml changed. Scheduled job updated" (config.toml cambió; tarea programada actualizada). En Linux, la siguiente copia programada también lo hace. Un cambio hecho mientras se ejecuta una copia programada espera a que termine, igual que con `frost config set`.
+- Una nueva ubicación de almacenamiento recibe las mismas comprobaciones que con `frost config edit` la primera vez que Frost la usa. Cualquier problema aparece como aviso.
 
-Nada comprueba el archivo antes de que lo guardes. Si no se puede interpretar, los comandos de frost lo indican hasta que lo arregles.
+Nada comprueba el archivo antes de que lo guardes. Si no se puede interpretar, los comandos de Frost lo indican hasta que lo arregles.
 
 ## Todos los ajustes
 
@@ -81,4 +81,4 @@ Nada comprueba el archivo antes de que lo guardes. Si no se puede interpretar, l
 | `FROST_CONFIG_DIR` | La carpeta de configuración, como `--config-dir` |
 | `FROST_CACHE_DIR` | La carpeta de caché |
 
-frost nunca escribe en `config.toml` los valores que vienen del entorno. Las copias programadas no ven las variables que defines en tu shell, así que siguen necesitando las credenciales en `config.toml`.
+Frost nunca escribe en `config.toml` los valores que vienen del entorno. Las copias programadas no ven las variables que defines en tu shell, así que siguen necesitando las credenciales en `config.toml`.

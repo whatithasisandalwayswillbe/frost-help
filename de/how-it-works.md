@@ -1,15 +1,15 @@
-# So funktioniert frost
+# So funktioniert Frost
 
-frost erstellt Snapshots deiner Ordner, zerlegt deine Dateien in verschlüsselte Blöcke und lädt nur die Blöcke hoch, die dein Speicher noch nicht hat.
+Frost erstellt Snapshots deiner Ordner, zerlegt deine Dateien in verschlüsselte Blöcke und lädt nur die Blöcke hoch, die dein Speicher noch nicht hat.
 
 ## Kurz gesagt
 
-1. **Durchsuchen.** frost geht deine Ordner durch und überspringt alles auf deiner Ausschlussliste. Dateien, deren Größe und Änderungszeit sich seit dem letzten Backup nicht geändert haben, werden nicht erneut gelesen, solange der Cache von frost noch alle ihre Blöcke kennt.
+1. **Durchsuchen.** Frost geht deine Ordner durch und überspringt alles auf deiner Ausschlussliste. Dateien, deren Größe und Änderungszeit sich seit dem letzten Backup nicht geändert haben, werden nicht erneut gelesen, solange der Cache von Frost noch alle ihre Blöcke kennt.
 2. **Zerlegen.** Geänderte Dateien werden in Blöcke von etwa 1 MiB zerlegt, und zwar an Stellen, die ihr Inhalt bestimmt. Eine Änderung mitten in einer großen Datei betrifft nur die Blöcke drumherum.
 3. **Verschlüsseln.** Jeder neue Block wird komprimiert, wenn er dadurch kleiner wird, und dann mit deinem Schlüssel verschlüsselt.
 4. **Hochladen.** Hochgeladen werden nur Blöcke, die noch nicht im Speicher liegen.
-5. **Snapshot speichern.** frost speichert die Dateiliste, und aus welchen Blöcken jede Datei besteht, als neuen Snapshot.
-6. **Prüfen.** frost lädt eine zufällige Stichprobe von Blöcken herunter und prüft sie.
+5. **Snapshot speichern.** Frost speichert die Dateiliste, und aus welchen Blöcken jede Datei besteht, als neuen Snapshot.
+6. **Prüfen.** Frost lädt eine zufällige Stichprobe von Blöcken herunter und prüft sie.
 
 ## Snapshots
 
@@ -17,21 +17,21 @@ Ein Snapshot hält deine Ordner zu dem Zeitpunkt fest, an dem ein Backup lief: j
 
 Snapshots teilen sich Blöcke. Eine Datei, die sich seit einem Jahr nicht geändert hat, wird nur einmal gespeichert, egal in wie vielen Snapshots sie vorkommt. Viele Snapshots aufzubewahren kostet daher kaum zusätzlichen Platz.
 
-Hat sich seit dem letzten Backup nichts geändert, speichert frost keinen neuen Snapshot. Es meldet dann, dass deine Ordner bereits gesichert sind.
+Hat sich seit dem letzten Backup nichts geändert, speichert Frost keinen neuen Snapshot. Es meldet dann, dass deine Ordner bereits gesichert sind.
 
 Snapshot-IDs sehen so aus: `maple-absurd-3f1c`, also zwei Wörter und vier weitere Zeichen. [Dateien wiederherstellen](#restoring) erklärt, wie du einen Snapshot nach ID oder nach Zeitpunkt auswählst.
 
-> frost kann alte Snapshots noch nicht löschen, deshalb bleiben alle Snapshots im Speicher. Lösch keine Objekte aus dem frost-Ordner in deinem Speicher von Hand und richte keine Regeln ein, die sie ablaufen lassen. Snapshots teilen sich Blöcke, und schon ein einziges entferntes Objekt kann viele Snapshots beschädigen.
+> Frost kann alte Snapshots noch nicht löschen, deshalb bleiben alle Snapshots im Speicher. Lösch keine Objekte aus dem Frost-Ordner in deinem Speicher von Hand und richte keine Regeln ein, die sie ablaufen lassen. Snapshots teilen sich Blöcke, und schon ein einziges entferntes Objekt kann viele Snapshots beschädigen.
 
 ## Dein Schlüssel
 
-`frost init` erzeugt auf deinem Computer einen zufälligen 256-Bit-Schlüssel und zeigt ihn dir als Wiederherstellungsphrase aus 24 Wörtern. Der Schlüssel verlässt deinen Computer nie. Alles, was frost hochlädt, wird vorher damit verschlüsselt, auch Dateinamen und die Ordnerstruktur.
+`frost init` erzeugt auf deinem Computer einen zufälligen 256-Bit-Schlüssel und zeigt ihn dir als Wiederherstellungsphrase aus 24 Wörtern. Der Schlüssel verlässt deinen Computer nie. Alles, was Frost hochlädt, wird vorher damit verschlüsselt, auch Dateinamen und die Ordnerstruktur.
 
 Wer die Phrase hat und auf deinen Speicher zugreifen kann, kann deine Backups lesen. Ohne die Phrase kann es niemand. Siehe [Deine Wiederherstellungsphrase](#recovery-phrase).
 
 ## Das Repository
 
-frost legt deine Backups in einem einzigen Ordner in deinem Speicher ab, dem Repository. Es enthält vier Arten von Objekten:
+Frost legt deine Backups in einem einzigen Ordner in deinem Speicher ab, dem Repository. Es enthält vier Arten von Objekten:
 
 | Objekt | Inhalt |
 | --- | --- |
@@ -46,14 +46,14 @@ Auf einem eigenen Server oder einem lokalen Laufwerk ist jedes Objekt eine Datei
 
 ## Der lokale Cache
 
-frost führt in einem Cache-Ordner auf deinem Computer Buch darüber, was es schon hochgeladen hat, damit es nicht bei jedem Backup den ganzen Speicher auflisten muss. Es gleicht diese Liste einmal pro Woche mit dem Speicher ab, außerdem nach einem Wechsel des Speicherorts oder wenn eine Prüfung fehlende Daten findet.
+Frost führt in einem Cache-Ordner auf deinem Computer Buch darüber, was es schon hochgeladen hat, damit es nicht bei jedem Backup den ganzen Speicher auflisten muss. Es gleicht diese Liste einmal pro Woche mit dem Speicher ab, außerdem nach einem Wechsel des Speicherorts oder wenn eine Prüfung fehlende Daten findet.
 
 Der Cache ist entbehrlich. Geht er verloren, baut ihn das nächste Backup aus dem Speicher neu auf und liest deine Dateien noch einmal. Zum Wiederherstellen wird er überhaupt nicht gebraucht.
 
 ## Kein Hintergrunddienst
 
-frost läuft nicht im Hintergrund. Automatische Backups sind ganz normale Aufträge im Zeitplaner deines Betriebssystems (launchd, systemd, cron oder Aufgabenplanung), die frost starten, ein Backup erstellen und sich wieder beenden. Siehe [Automatische Backups](#scheduling).
+Frost läuft nicht im Hintergrund. Automatische Backups sind ganz normale Aufträge im Zeitplaner deines Betriebssystems (launchd, systemd, cron oder Aufgabenplanung), die Frost starten, ein Backup erstellen und sich wieder beenden. Siehe [Automatische Backups](#scheduling).
 
 ## Selbstprüfung
 
-Nach jedem Backup, das einen Snapshot speichert, lädt frost eine zufällige Stichprobe von Blöcken herunter und prüft, ob sich jeder entschlüsseln lässt und zu seiner ID passt. Ein Backup ohne Neues wiederholt die Prüfung, sobald die letzte älter als einen Tag ist. Siehe [Backups prüfen](#checking-backups).
+Nach jedem Backup, das einen Snapshot speichert, lädt Frost eine zufällige Stichprobe von Blöcken herunter und prüft, ob sich jeder entschlüsseln lässt und zu seiner ID passt. Ein Backup ohne Neues wiederholt die Prüfung, sobald die letzte älter als einen Tag ist. Siehe [Backups prüfen](#checking-backups).

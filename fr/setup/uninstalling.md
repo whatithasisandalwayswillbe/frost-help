@@ -1,8 +1,8 @@
-# Désinstaller frost
+# Désinstaller Frost
 
-frost n'a pas de commande de désinstallation, mais le retirer ne prend que quelques étapes.
+Frost n'a pas de commande de désinstallation, mais le retirer ne prend que quelques étapes.
 
-> Désinstaller frost ne supprime pas vos sauvegardes. Si vous risquez d'en avoir besoin un jour, assurez-vous d'avoir votre phrase de récupération avant de supprimer la clé de cet ordinateur. `frost key show` l'affiche.
+> Désinstaller Frost ne supprime pas vos sauvegardes. Si vous risquez d'en avoir besoin un jour, assurez-vous d'avoir votre phrase de récupération avant de supprimer la clé de cet ordinateur. `frost key show` l'affiche.
 
 ## 1. Retirez la tâche planifiée
 
@@ -10,11 +10,11 @@ frost n'a pas de commande de désinstallation, mais le retirer ne prend que quel
 frost config set schedule.enabled false
 ```
 
-Cette commande retire la tâche du planificateur de votre système. Si frost indique que la tâche sera retirée une fois la sauvegarde en cours terminée, attendez la fin de cette sauvegarde avant l'étape suivante. D'ici là, `frost status` indique qu'une sauvegarde ou une restauration est déjà en cours. Sous Linux avec systemd, elle désactive aussi lingering si frost a enregistré qu'il l'avait activé.
+Cette commande retire la tâche du planificateur de votre système. Si Frost indique que la tâche sera retirée une fois la sauvegarde en cours terminée, attendez la fin de cette sauvegarde avant l'étape suivante. D'ici là, `frost status` indique qu'une sauvegarde ou une restauration est déjà en cours. Sous Linux avec systemd, elle désactive aussi lingering si Frost a enregistré qu'il l'avait activé.
 
-## 2. Supprimez les fichiers de frost
+## 2. Supprimez les fichiers de Frost
 
-Cette étape supprime l'application, son lanceur, vos réglages, votre clé et le cache de frost. Si vous avez changé un emplacement, adaptez les chemins ci-dessous pour viser les fichiers et dossiers propres à frost. `FROST_CONFIG_DIR` et `FROST_CACHE_DIR` désignent directement les dossiers de frost ; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` et `XDG_DATA_HOME` contiennent un sous-dossier `frost`. Ne supprimez jamais un dossier racine XDG ni un dossier partagé. [Fichiers et dossiers](#files-and-folders) liste tous les emplacements.
+Cette étape supprime l'application, son lanceur, vos réglages, votre clé et le cache de Frost. Si vous avez changé un emplacement, adaptez les chemins ci-dessous pour viser les fichiers et dossiers propres à Frost. `FROST_CONFIG_DIR` et `FROST_CACHE_DIR` désignent directement les dossiers de Frost ; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` et `XDG_DATA_HOME` contiennent un sous-dossier `frost`. Ne supprimez jamais un dossier racine XDG ni un dossier partagé. [Fichiers et dossiers](#files-and-folders) liste tous les emplacements.
 
 Sous macOS :
 
@@ -45,7 +45,7 @@ $path = $environment.GetValue('Path', '', 'DoNotExpandEnvironmentNames') -split 
 $environment.SetValue('Path', ($path -join ';'), 'ExpandString')
 ```
 
-Si vous avez installé le lanceur ailleurs, supprimez-le à cet endroit. Si vous avez installé frost avec npm ou pnpm, retirez aussi le paquet :
+Si vous avez installé le lanceur ailleurs, supprimez-le à cet endroit. Si vous avez installé Frost avec npm ou pnpm, retirez aussi le paquet :
 
 ```sh
 npm uninstall -g getfrost

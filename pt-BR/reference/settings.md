@@ -1,6 +1,6 @@
 # Configurações
 
-O frost guarda as configurações em `config.toml`, na pasta de configuração dele. Você pode mudá-las com `frost init`, `frost config set` ou `frost config edit`, ou em qualquer editor de texto.
+O Frost guarda as configurações em `config.toml`, na pasta de configuração dele. Você pode mudá-las com `frost init`, `frost config set` ou `frost config edit`, ou em qualquer editor de texto.
 
 ## Ler e mudar configurações
 
@@ -22,7 +22,7 @@ frost config set paths ~/Documents ~/Pictures
 - Uma lista recebe um valor por item, e o `set` substitui a lista inteira.
 - `true` e `false` ligam e desligam configurações.
 - Mudar uma configuração de `schedule` atualiza a tarefa agendada na hora. No macOS e no Windows, uma mudança feita enquanto um backup agendado roda é aplicada assim que esse backup termina, então ele não é interrompido.
-- Se você mudar onde fica o armazenamento, o frost confere o novo local antes de salvar. Veja [Mover seus backups](#moving-backups).
+- Se você mudar onde fica o armazenamento, o Frost confere o novo local antes de salvar. Veja [Mover seus backups](#moving-backups).
 
 ## Editar o arquivo
 
@@ -30,18 +30,18 @@ frost config set paths ~/Documents ~/Pictures
 frost config edit
 ```
 
-O frost abre uma cópia do `config.toml` no editor que você indicar, ou em `$VISUAL` ou `$EDITOR`, ou então no nano, vim ou vi. No Windows, a alternativa é o Bloco de Notas. Quando você fecha o editor, o frost lista o que mudou e salva a cópia quando você digita `yes`.
+O Frost abre uma cópia do `config.toml` no editor que você indicar, ou em `$VISUAL` ou `$EDITOR`, ou então no nano, vim ou vi. No Windows, a alternativa é o Bloco de Notas. Quando você fecha o editor, o Frost lista o que mudou e salva a cópia quando você digita `yes`.
 
-Se o arquivo não puder ser interpretado, o frost aponta o problema e oferece abri-lo de novo, então um erro de digitação não estraga seus backups agendados. Configurações desconhecidas contam como erro, então um nome escrito errado não passa despercebido.
+Se o arquivo não puder ser interpretado, o Frost aponta o problema e oferece abri-lo de novo, então um erro de digitação não estraga seus backups agendados. Configurações desconhecidas contam como erro, então um nome escrito errado não passa despercebido.
 
 ## Editar você mesmo
 
-Você também pode abrir o `config.toml` em qualquer editor de texto e salvá-lo. O frost lê o arquivo toda vez que roda, então a maioria das mudanças vale a partir da próxima execução. Dois tipos de mudança precisam de um passo a mais, que o frost dá na próxima vez que você rodar qualquer comando do frost:
+Você também pode abrir o `config.toml` em qualquer editor de texto e salvá-lo. O Frost lê o arquivo toda vez que roda, então a maioria das mudanças vale a partir da próxima execução. Dois tipos de mudança precisam de um passo a mais, que o Frost dá na próxima vez que você rodar qualquer comando do Frost:
 
-- Uma mudança no agendamento atualiza a tarefa agendada, e o frost avisa com "config.toml changed. Scheduled job updated" (o config.toml mudou; tarefa agendada atualizada). No Linux, o próximo backup agendado também faz isso. Uma mudança feita enquanto um backup agendado roda espera ele terminar, como acontece com o `frost config set`.
-- Um novo local de armazenamento passa pelas mesmas verificações do `frost config edit` na primeira vez que o frost o usa. Qualquer problema aparece como aviso.
+- Uma mudança no agendamento atualiza a tarefa agendada, e o Frost avisa com "config.toml changed. Scheduled job updated" (o config.toml mudou; tarefa agendada atualizada). No Linux, o próximo backup agendado também faz isso. Uma mudança feita enquanto um backup agendado roda espera ele terminar, como acontece com o `frost config set`.
+- Um novo local de armazenamento passa pelas mesmas verificações do `frost config edit` na primeira vez que o Frost o usa. Qualquer problema aparece como aviso.
 
-Nada confere o arquivo antes de você salvar. Se ele não puder ser interpretado, os comandos do frost avisam até você corrigir.
+Nada confere o arquivo antes de você salvar. Se ele não puder ser interpretado, os comandos do Frost avisam até você corrigir.
 
 ## Todas as configurações
 
@@ -81,4 +81,4 @@ Nada confere o arquivo antes de você salvar. Se ele não puder ser interpretado
 | `FROST_CONFIG_DIR` | A pasta de configuração, como `--config-dir` |
 | `FROST_CACHE_DIR` | A pasta de cache |
 
-O frost nunca grava no `config.toml` os valores que vêm do ambiente. Os backups agendados não enxergam as variáveis que você define no shell, então ainda precisam das credenciais no `config.toml`.
+O Frost nunca grava no `config.toml` os valores que vêm do ambiente. Os backups agendados não enxergam as variáveis que você define no shell, então ainda precisam das credenciais no `config.toml`.

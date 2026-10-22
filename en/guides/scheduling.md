@@ -1,6 +1,6 @@
 # Automatic backups
 
-frost backs up on a schedule using your operating system's own scheduler. Nothing runs in the background between backups.
+Frost backs up on a schedule using your operating system's own scheduler. Nothing runs in the background between backups.
 
 ## Changing the schedule
 
@@ -26,7 +26,7 @@ frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-Each change updates the scheduled job straight away. On macOS and Windows, a change made during a scheduled backup is applied as soon as that backup finishes. If you edit `config.toml` yourself, the next frost command updates the job.
+Each change updates the scheduled job straight away. On macOS and Windows, a change made during a scheduled backup is applied as soon as that backup finishes. If you edit `config.toml` yourself, the next Frost command updates the job.
 
 ## When backups run
 
@@ -43,7 +43,7 @@ systemd starts each run up to 5 minutes late, at random.
 
 ## Missed backups
 
-If your computer was off or asleep when a backup was due, frost backs up once it's back. However many backups it missed, it backs up once.
+If your computer was off or asleep when a backup was due, Frost backs up once it's back. However many backups it missed, it backs up once.
 
 | Scheduler | Runs a missed backup |
 | --- | --- |
@@ -52,15 +52,15 @@ If your computer was off or asleep when a backup was due, frost backs up once it
 | Task Scheduler (Windows) | As soon as it can once your computer is back and you're signed in |
 | cron (Linux) | Within 15 minutes of your computer being back |
 
-With cron, frost checks every 15 minutes and only backs up when a backup is due or was missed. A time that's already covered, by a scheduled backup or one you ran yourself, doesn't get a second backup.
+With cron, Frost checks every 15 minutes and only backs up when a backup is due or was missed. A time that's already covered, by a scheduled backup or one you ran yourself, doesn't get a second backup.
 
-To skip missed backups instead, so frost only backs up on time:
+To skip missed backups instead, so Frost only backs up on time:
 
 ```sh
 frost config set schedule.catch_up false
 ```
 
-A scheduled backup that starts before your network is back, or before a drive or share is mounted, tries again for about 5 minutes. With a [local drive](#local-drive), the drive has to be connected when the backup runs. [Self-hosted](#self-hosted) storage logs in with frost's own SSH key, so it works without you. If another backup is running, it waits for it to finish.
+A scheduled backup that starts before your network is back, or before a drive or share is mounted, tries again for about 5 minutes. With a [local drive](#local-drive), the drive has to be connected when the backup runs. [Self-hosted](#self-hosted) storage logs in with Frost's own SSH key, so it works without you. If another backup is running, it waits for it to finish.
 
 On Windows, scheduled backups run only while you're signed in. They don't start while the computer runs on battery, and stop if it's unplugged. On macOS and with systemd, scheduled backups run at low priority so they don't slow your computer down.
 
@@ -75,15 +75,15 @@ On Windows, scheduled backups run only while you're signed in. They don't start 
 
 The job runs `frost backup` with the config and cache folders that were in use when it was set up. If you change those folders, run `frost init` again.
 
-On macOS, the job is listed in System Settings > General > Login Items & Extensions as **Node.js Foundation**, the publisher of the runtime frost bundles. Switching it off there stops scheduled backups, and `frost status` reports the job as missing. To stop scheduled backups, use `frost config set schedule.enabled false` instead.
+On macOS, the job is listed in System Settings > General > Login Items & Extensions as **Node.js Foundation**, the publisher of the runtime Frost bundles. Switching it off there stops scheduled backups, and `frost status` reports the job as missing. To stop scheduled backups, use `frost config set schedule.enabled false` instead.
 
-With systemd, frost tries to turn on lingering for your user (`loginctl enable-linger`) if it can confirm lingering is off. Lingering lets backups run while you're logged out. If frost can't enable it, backups may stop after you log out. When removing the timer, frost turns lingering off only if it recorded enabling it.
+With systemd, Frost tries to turn on lingering for your user (`loginctl enable-linger`) if it can confirm lingering is off. Lingering lets backups run while you're logged out. If Frost can't enable it, backups may stop after you log out. When removing the timer, Frost turns lingering off only if it recorded enabling it.
 
 ## Logs
 
 | Scheduler | Where the log goes |
 | --- | --- |
-| launchd, cron and Task Scheduler | `frost.log` in frost's cache folder. See [Files and folders](#files-and-folders) |
+| launchd, cron and Task Scheduler | `frost.log` in Frost's cache folder. See [Files and folders](#files-and-folders) |
 | systemd | The journal. Read it with `journalctl --user -u frost-backup` |
 
 A log larger than 1 MiB is emptied before the next run. `frost status` also shows whether the last backup worked.

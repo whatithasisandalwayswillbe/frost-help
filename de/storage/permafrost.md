@@ -1,6 +1,6 @@
 # Permafrost
 
-Permafrost ist ein gehosteter Speicher, der für frost gemacht ist. Zum Verbinden reicht ein einziger Zugriffsschlüssel, ohne Bucket, Region oder Endpunkt.
+Permafrost ist ein gehosteter Speicher, der für Frost gemacht ist. Zum Verbinden reicht ein einziger Zugriffsschlüssel, ohne Bucket, Region oder Endpunkt.
 
 Deine Backups werden auf deinem Computer verschlüsselt, bevor sie hochgeladen werden, genau wie bei jedem anderen Speicher. Permafrost kann sie nicht lesen.
 
@@ -9,7 +9,7 @@ Dein Permafrost-Konto verwaltest du unter [getfro.st/perma/portal](https://getfr
 ## Einen Schlüssel bekommen
 
 1. Starte `frost init` und wähle **Permafrost**.
-2. Wähle **I don't have a key yet** (ich habe noch keinen Schlüssel). frost öffnet [getfro.st/perma](https://getfro.st/perma) in deinem Browser. Öffnet er sich nicht, ruf die Seite selbst auf.
+2. Wähle **I don't have a key yet** (ich habe noch keinen Schlüssel). Frost öffnet [getfro.st/perma](https://getfro.st/perma) in deinem Browser. Öffnet er sich nicht, ruf die Seite selbst auf.
 3. Hol dir dort deinen Schlüssel und kopier ihn.
 4. Füge ihn in der Einrichtung ein.
 
@@ -45,11 +45,11 @@ In der Einrichtung lauten die ersten beiden „Permafrost didn't accept that acc
 
 ## Ein kompatibler Server
 
-Statt des Standardservers kann frost jeden Server nutzen, der die [Permafrost-API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) spricht. Das ist für Leute gedacht, die einen solchen Server betreiben. Um auf einen eigenen Computer zu sichern, braucht [Eigener Server](#self-hosted) nur SSH.
+Statt des Standardservers kann Frost jeden Server nutzen, der die [Permafrost-API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) spricht. Das ist für Leute gedacht, die einen solchen Server betreiben. Um auf einen eigenen Computer zu sichern, braucht [Eigener Server](#self-hosted) nur SSH.
 
-Ein kompatibler Server muss die Regeln der API für Objekte und Fehler befolgen und dabei auch leere Uploads ablehnen. frost versucht es automatisch erneut, wenn ein Server ausgelastet ist.
+Ein kompatibler Server muss die Regeln der API für Objekte und Fehler befolgen und dabei auch leere Uploads ablehnen. Frost versucht es automatisch erneut, wenn ein Server ausgelastet ist.
 
-Erstelle vor deiner ersten Einrichtung eine Datei `config.toml` im Konfigurationsordner von frost, der unter [Dateien und Ordner](#files-and-folders) aufgeführt ist, mit diesen Einstellungen. Ersetze die Adresse durch die deines Servers:
+Erstelle vor deiner ersten Einrichtung eine Datei `config.toml` im Konfigurationsordner von Frost, der unter [Dateien und Ordner](#files-and-folders) aufgeführt ist, mit diesen Einstellungen. Ersetze die Adresse durch die deines Servers:
 
 ```toml
 [storage]
@@ -61,6 +61,6 @@ url = "https://<your-server>"
 
 Starte dann `frost init`, wähle Permafrost, füge deinen Zugriffsschlüssel ein, wähle deine Ordner und speichere. Ist der Server leer, erstellt die Einrichtung das Repository.
 
-Ist frost schon eingerichtet, ändere mit `frost config edit` das Backend und die Serveradresse gemeinsam in der vorhandenen Datei. Bestätige die Warnung, wenn der neue Server leer ist, tipp `yes` zum Speichern und starte `frost init` erneut. `frost config set` lehnt ein leeres Ziel ab und kann deshalb keinen neuen Server vorbereiten.
+Ist Frost schon eingerichtet, ändere mit `frost config edit` das Backend und die Serveradresse gemeinsam in der vorhandenen Datei. Bestätige die Warnung, wenn der neue Server leer ist, tipp `yes` zum Speichern und starte `frost init` erneut. `frost config set` lehnt ein leeres Ziel ab und kann deshalb keinen neuen Server vorbereiten.
 
 Die Adresse muss `https://` verwenden, außer bei einem Server auf deinem eigenen Computer, etwa `http://localhost:8080`. Lass die Einstellung leer, um den Standardserver von Permafrost zu verwenden, `https://permafrost.wihiaawb.com`.

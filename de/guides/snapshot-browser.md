@@ -63,10 +63,10 @@ Wähle nach `[r]`, wohin die Dateien kommen:
 | `[2]` | New folder elsewhere | Lässt dich einen Ordner wählen und stellt in einen neuen Ordner darin wieder her |
 | `[3]` | Overwrite original files | Ersetzt die Originale, wie `frost restore --overwrite`. Bestätige mit `[y]` |
 
-Bevor etwas geschrieben wird, zeigt frost, wo alles landen wird. Drück `[enter]` zum Wiederherstellen, `[c]`, um den Ordner zu ändern, oder `[esc]` zum Abbrechen. Lange Bestätigungen und Ergebnisse scrollst du mit `[pgup]` und `[pgdn]`.
+Bevor etwas geschrieben wird, zeigt Frost, wo alles landen wird. Drück `[enter]` zum Wiederherstellen, `[c]`, um den Ordner zu ändern, oder `[esc]` zum Abbrechen. Lange Bestätigungen und Ergebnisse scrollst du mit `[pgup]` und `[pgdn]`.
 
 „New folder elsewhere“ öffnet die Ordnerauswahl deines Systems: den Finder unter macOS, den Datei-Explorer unter Windows und zenity, qarma oder matedialog unter Linux. Unter Windows lässt sich die Größe des Auswahlfensters ändern. Es hat eine Adressleiste, eine Seitenleiste und eine Ordneransicht. Über SSH oder unter Linux ohne Auswahldialog gibst du den Ordner selbst ein. Drück `[t]`, während die Auswahl offen ist, um ihn trotzdem einzutippen.
 
-Wenn eine Wiederherstellung fertig ist, zeigt frost das Wiederhergestellte im Finder, im Datei-Explorer oder im Dateimanager deines Linux-Systems. Eine einzelne Datei erscheint unter macOS und Windows ausgewählt; unter Linux öffnet sich ihr Ordner. Ansonsten öffnet sich der tiefste gemeinsame Ordner, der alles Wiederhergestellte enthält. Über SSH, ohne grafische Oberfläche oder wenn die Wiederherstellung fehlschlägt, öffnet sich nichts.
+Wenn eine Wiederherstellung fertig ist, zeigt Frost das Wiederhergestellte im Finder, im Datei-Explorer oder im Dateimanager deines Linux-Systems. Eine einzelne Datei erscheint unter macOS und Windows ausgewählt; unter Linux öffnet sich ihr Ordner. Ansonsten öffnet sich der tiefste gemeinsame Ordner, der alles Wiederhergestellte enthält. Über SSH, ohne grafische Oberfläche oder wenn die Wiederherstellung fehlschlägt, öffnet sich nichts.
 
 [Dateien wiederherstellen](#restoring) erklärt jede Option im Detail und was passiert, wenn eine Wiederherstellung unterbrochen wird.

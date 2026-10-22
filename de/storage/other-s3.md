@@ -16,7 +16,7 @@ Starte `frost init`, wähle **S3-compatible** und dann **Other S3-compatible**.
 | Paste the Access Key ID. | Aus der Konsole deines Servers oder Anbieters |
 | Paste the Secret Access Key. | Aus der Konsole deines Servers oder Anbieters |
 
-frost legt deine Backups in einem Ordner `frost` im Bucket ab.
+Frost legt deine Backups in einem Ordner `frost` im Bucket ab.
 
 ## Server, die du betreibst
 
@@ -25,7 +25,7 @@ frost legt deine Backups in einem Ordner `frost` im Bucket ab.
 | Ceph | Sein RADOS Gateway unterstützt bedingte Schreibvorgänge. Gib der Einrichtung Adresse und Port des Gateways an |
 | SeaweedFS | Sein S3-Gateway dokumentiert bedingte Schreibvorgänge. Gib der Einrichtung seine Adresse an, etwa `http://<server>:8333` |
 | MinIO | Unterstützt bedingte Schreibvorgänge, wird aber nicht mehr gepflegt und bekommt keine Fehlerbehebungen. Ein vorhandener Server funktioniert weiter, wenn er den Test der Einrichtung besteht. Gib der Einrichtung seine Adresse an, etwa `https://<server>:9000` |
-| Garage | Unterstützt keine bedingten Schreibvorgänge, frost kann es also nicht nutzen |
+| Garage | Unterstützt keine bedingten Schreibvorgänge, Frost kann es also nicht nutzen |
 
 Leg den Bucket und einen Zugriffsschlüssel vorher mit den Werkzeugen des Servers an.
 
@@ -35,11 +35,11 @@ Für einen Server auf deinem eigenen Computer oder in deinem Netzwerk gibst du d
 
 ## Der Ordner im Bucket
 
-frost legt alles in einem Ordner im Bucket ab, standardmäßig `frost`. Die Einrichtung im Vollbild fragt nicht danach.
+Frost legt alles in einem Ordner im Bucket ab, standardmäßig `frost`. Die Einrichtung im Vollbild fragt nicht danach.
 
 Um nach Abschluss der Einrichtung und vor deinem ersten Backup einen anderen Ordner oder die oberste Ebene des Buckets zu nutzen:
 
-1. Starte `frost config edit` und ändere `prefix` unter `[storage.s3]`. Lass es leer für die oberste Ebene des Buckets. frost warnt dich, dass dort noch keine Backups liegen. Tipp `yes`, um trotzdem zu speichern.
+1. Starte `frost config edit` und ändere `prefix` unter `[storage.s3]`. Lass es leer für die oberste Ebene des Buckets. Frost warnt dich, dass dort noch keine Backups liegen. Tipp `yes`, um trotzdem zu speichern.
 2. Starte `frost init` erneut. Der Übersichtsbildschirm warnt, dass damit ein separater Satz Backups beginnt. Drück `[s]`, um fortzufahren.
 
 Hast du schon Backups, verschieb sie stattdessen, wie unter [Backups verschieben](#moving-backups) beschrieben.

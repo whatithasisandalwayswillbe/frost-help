@@ -1,16 +1,16 @@
 {
     "pages": [
         { "id": "getting-started", "title": "快速入门", "path": "zh-CN/getting-started.md" },
-        { "id": "how-it-works", "title": "frost 的工作原理", "path": "zh-CN/how-it-works.md" }
+        { "id": "how-it-works", "title": "Frost 的工作原理", "path": "zh-CN/how-it-works.md" }
     ],
     "sections": [
         {
             "title": "安装与设置",
             "pages": [
-                { "id": "installing", "title": "安装 frost", "path": "zh-CN/setup/installing.md" },
-                { "id": "setting-up", "title": "设置 frost", "path": "zh-CN/setup/setting-up.md" },
-                { "id": "updating", "title": "更新 frost", "path": "zh-CN/setup/updating.md" },
-                { "id": "uninstalling", "title": "卸载 frost", "path": "zh-CN/setup/uninstalling.md" }
+                { "id": "installing", "title": "安装 Frost", "path": "zh-CN/setup/installing.md" },
+                { "id": "setting-up", "title": "设置 Frost", "path": "zh-CN/setup/setting-up.md" },
+                { "id": "updating", "title": "更新 Frost", "path": "zh-CN/setup/updating.md" },
+                { "id": "uninstalling", "title": "卸载 Frost", "path": "zh-CN/setup/uninstalling.md" }
             ]
         },
         {

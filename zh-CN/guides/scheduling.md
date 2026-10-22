@@ -1,6 +1,6 @@
 # 自动备份
 
-frost 借助操作系统自带的计划程序按计划备份。两次备份之间，没有任何东西在后台运行。
+Frost 借助操作系统自带的计划程序按计划备份。两次备份之间，没有任何东西在后台运行。
 
 ## 更改备份计划
 
@@ -26,7 +26,7 @@ frost config set schedule.enabled false
 frost config set schedule.enabled true
 ```
 
-每项修改都会立即更新计划任务。在 macOS 和 Windows 上，计划备份进行期间做的修改，会在那次备份结束后立即生效。 如果你自己编辑 `config.toml`，下一个 frost 命令会更新计划任务。
+每项修改都会立即更新计划任务。在 macOS 和 Windows 上，计划备份进行期间做的修改，会在那次备份结束后立即生效。 如果你自己编辑 `config.toml`，下一个 Frost 命令会更新计划任务。
 
 ## 备份在什么时候运行
 
@@ -43,7 +43,7 @@ systemd 每次会随机推迟最多 5 分钟启动。
 
 ## 错过的备份
 
-如果备份到点时电脑处于关机或睡眠状态，frost 会在电脑恢复后备份。不管错过了多少次，都只备份一次。
+如果备份到点时电脑处于关机或睡眠状态，Frost 会在电脑恢复后备份。不管错过了多少次，都只备份一次。
 
 | 计划程序 | 补上错过的备份 |
 | --- | --- |
@@ -52,7 +52,7 @@ systemd 每次会随机推迟最多 5 分钟启动。
 | 任务计划程序（Windows） | 电脑恢复且你已登录后尽快运行 |
 | cron（Linux） | 电脑恢复后 15 分钟内 |
 
-使用 cron 时，frost 每 15 分钟检查一次，只在有备份到期或被错过时才备份。某个时间点已经备份过的话，无论是计划备份还是你自己运行的，都不会再备份第二次。
+使用 cron 时，Frost 每 15 分钟检查一次，只在有备份到期或被错过时才备份。某个时间点已经备份过的话，无论是计划备份还是你自己运行的，都不会再备份第二次。
 
 如果想跳过错过的备份，只按时备份：
 
@@ -60,7 +60,7 @@ systemd 每次会随机推迟最多 5 分钟启动。
 frost config set schedule.catch_up false
 ```
 
-如果计划备份启动时网络还没恢复，或者磁盘、网络共享还没挂载，它会在大约 5 分钟内重试。使用[本地磁盘](#local-drive)时，备份运行时磁盘必须已连接。[自托管](#self-hosted)存储用 frost 自己的 SSH 密钥登录，所以不需要你在场也能运行。如果另一个备份正在运行，它会等那个备份结束。
+如果计划备份启动时网络还没恢复，或者磁盘、网络共享还没挂载，它会在大约 5 分钟内重试。使用[本地磁盘](#local-drive)时，备份运行时磁盘必须已连接。[自托管](#self-hosted)存储用 Frost 自己的 SSH 密钥登录，所以不需要你在场也能运行。如果另一个备份正在运行，它会等那个备份结束。
 
 在 Windows 上，只有你登录后才会运行计划备份。电脑使用电池供电时不会启动计划备份，拔掉电源时也会停止正在进行的计划备份。在 macOS 上以及使用 systemd 时，计划备份以低优先级运行，不会拖慢你的电脑。
 
@@ -75,15 +75,15 @@ frost config set schedule.catch_up false
 
 计划任务运行 `frost backup` 时，使用的是设置它时的配置文件夹和缓存文件夹。如果你更改了这些文件夹，请再运行一次 `frost init`。
 
-在 macOS 上，这个计划任务会以 **Node.js Foundation** 的名称出现在“系统设置 > 通用 > 登录项与扩展”（System Settings > General > Login Items & Extensions）中，Node.js Foundation 是 frost 自带运行时的发布者。在那里把它关掉会停止计划备份，`frost status` 也会报告计划任务缺失。如果想停止计划备份，请改用 `frost config set schedule.enabled false`。
+在 macOS 上，这个计划任务会以 **Node.js Foundation** 的名称出现在“系统设置 > 通用 > 登录项与扩展”（System Settings > General > Login Items & Extensions）中，Node.js Foundation 是 Frost 自带运行时的发布者。在那里把它关掉会停止计划备份，`frost status` 也会报告计划任务缺失。如果想停止计划备份，请改用 `frost config set schedule.enabled false`。
 
-使用 systemd 时，如果能确认 lingering 处于关闭状态，frost 会尝试为你的用户开启它（`loginctl enable-linger`）。lingering 让备份能在你注销后继续运行。如果 frost 无法开启它，注销后备份可能就不会运行。删除定时器时，只有 frost 记录过自己开启了 lingering，才会把它关掉。
+使用 systemd 时，如果能确认 lingering 处于关闭状态，Frost 会尝试为你的用户开启它（`loginctl enable-linger`）。lingering 让备份能在你注销后继续运行。如果 Frost 无法开启它，注销后备份可能就不会运行。删除定时器时，只有 Frost 记录过自己开启了 lingering，才会把它关掉。
 
 ## 日志
 
 | 计划程序 | 日志位置 |
 | --- | --- |
-| launchd、cron 和任务计划程序 | frost 缓存文件夹中的 `frost.log`。参见[文件与文件夹](#files-and-folders) |
+| launchd、cron 和任务计划程序 | Frost 缓存文件夹中的 `frost.log`。参见[文件与文件夹](#files-and-folders) |
 | systemd | 系统日志（journal）。用 `journalctl --user -u frost-backup` 查看 |
 
 超过 1 MiB 的日志会在下一次运行前被清空。`frost status` 也会显示上一次备份是否成功。

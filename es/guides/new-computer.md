@@ -11,7 +11,7 @@ Si todavía tienes el equipo antiguo, `frost key show` te muestra la frase.
 
 ## Pasos
 
-1. [Instala frost](#installing) en el equipo nuevo.
+1. [Instala Frost](#installing) en el equipo nuevo.
 2. Ejecuta `frost init` y elige el mismo almacenamiento, con los mismos datos que antes.
 3. El asistente encuentra tus copias y te pide su frase de recuperación. Escribe las 24 palabras.
 4. Elige las carpetas que quieres respaldar en este equipo, la lista de exclusiones y la programación, y luego revisa y guarda.

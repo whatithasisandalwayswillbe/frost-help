@@ -1,6 +1,6 @@
 # Backups prüfen
 
-frost prüft deine Backups laufend, und `frost status` zeigt dir, wie es um sie steht.
+Frost prüft deine Backups laufend, und `frost status` zeigt dir, wie es um sie steht.
 
 ## frost status
 
@@ -9,7 +9,7 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
+┌  Frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
@@ -27,7 +27,7 @@ frost status
 └
 ```
 
-Die erste Zeile zeigt die Version von frost, deinen Speicher und den Fingerabdruck deines Schlüssels. Die Zeilen darunter zeigen:
+Die erste Zeile zeigt die Version von Frost, deinen Speicher und den Fingerabdruck deines Schlüssels. Die Zeilen darunter zeigen:
 
 | Zeile | Inhalt |
 | --- | --- |
@@ -47,7 +47,7 @@ frost status --all
 
 ## Die Stichprobenprüfung
 
-Nach jedem Backup, das einen Snapshot speichert, lädt frost eine zufällige Stichprobe von Blöcken herunter, entschlüsselt jeden und prüft, ob er zu seiner ID passt. Außerdem lädt es die Dateiliste des neuesten Snapshots und prüft, ob es jeden Block kennt, den diese braucht. Nach einem Backup ohne Neues wiederholt frost die Prüfung nur, wenn die letzte älter als einen Tag ist oder ein Problem gefunden hat.
+Nach jedem Backup, das einen Snapshot speichert, lädt Frost eine zufällige Stichprobe von Blöcken herunter, entschlüsselt jeden und prüft, ob er zu seiner ID passt. Außerdem lädt es die Dateiliste des neuesten Snapshots und prüft, ob es jeden Block kennt, den diese braucht. Nach einem Backup ohne Neues wiederholt Frost die Prüfung nur, wenn die letzte älter als einen Tag ist oder ein Problem gefunden hat.
 
 Die Stichprobe umfasst standardmäßig 20 Blöcke. Eine größere Stichprobe findet mehr Probleme, lädt aber mehr herunter:
 
@@ -76,6 +76,6 @@ Daten, die nicht mehr auf deinem Computer liegen, lassen sich nicht erneut hochl
 
 ## Fehlende Snapshots
 
-Verschwinden Snapshots aus dem Speicher, die dieser Computer kannte, meldet `frost status` das einmal. Hast du deine Backups verschoben, verweise frost auf den neuen Ort. Siehe [Backups verschieben](#moving-backups). Andernfalls wurden sie aus deinem Speicher gelöscht.
+Verschwinden Snapshots aus dem Speicher, die dieser Computer kannte, meldet `frost status` das einmal. Hast du deine Backups verschoben, verweise Frost auf den neuen Ort. Siehe [Backups verschieben](#moving-backups). Andernfalls wurden sie aus deinem Speicher gelöscht.
 
 > Eine Stichprobenprüfung prüft nur einen Teil deiner Backups. Sie findet Probleme früh, kann aber nicht beweisen, dass sich jeder Snapshot wiederherstellen lässt. Für Dateien, die du auf keinen Fall verlieren darfst, halte zusätzlich ein zweites, unabhängiges Backup vor.

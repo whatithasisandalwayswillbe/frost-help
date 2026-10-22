@@ -11,7 +11,7 @@ Hast du den alten Computer noch, zeigt `frost key show` die Phrase an.
 
 ## Schritte
 
-1. [Installiere frost](#installing) auf dem neuen Computer.
+1. [Installiere Frost](#installing) auf dem neuen Computer.
 2. Starte `frost init` und wähle denselben Speicher mit denselben Angaben wie vorher.
 3. Die Einrichtung findet deine Backups und fragt nach ihrer Wiederherstellungsphrase. Gib alle 24 Wörter ein.
 4. Wähle die Ordner, die auf diesem Computer gesichert werden sollen, die Ausschlussliste und den Zeitplan, prüf alles und speichere.

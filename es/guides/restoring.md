@@ -36,7 +36,7 @@ frost restore maple-absurd-3f1c --overwrite
 
 Las fechas relativas se escriben en inglés y admiten minutos (`m`), horas (`h`), días (`d`), semanas (`w`), meses (`mo`) y años (`y`), o las palabras completas. Pon entre comillas lo que lleve espacios, como `"3 days ago"`.
 
-`frost status` enumera tus instantáneas con sus ID. Si lo que escribes coincide con más de un ID, frost te pide que escribas más caracteres.
+`frost status` enumera tus instantáneas con sus ID. Si lo que escribes coincide con más de un ID, Frost te pide que escribas más caracteres.
 
 ## Dónde van los archivos
 
@@ -44,7 +44,7 @@ Las fechas relativas se escriben en inglés y admiten minutos (`m`), horas (`h`)
 | --- | --- |
 | `--beside` | Una carpeta nueva `frost-restore-<id>` junto a los originales |
 | `--to <dir>` | Una carpeta nueva `frost-restore-<id>` dentro de `<dir>`, que ya tiene que existir |
-| `--overwrite` | Las ubicaciones originales, sustituyendo lo que haya. frost pregunta antes, y `-y` se salta la pregunta |
+| `--overwrite` | Las ubicaciones originales, sustituyendo lo que haya. Frost pregunta antes, y `-y` se salta la pregunta |
 
 Una carpeta nueva nunca sobrescribe nada. Dentro de ella, lo que restauras conserva su nombre y se organiza a partir de la carpeta que comparte tu selección:
 
@@ -54,13 +54,13 @@ Una carpeta nueva nunca sobrescribe nada. Dentro de ella, lo que restauras conse
 | `~/notes.txt` | `~/frost-restore-<id>/notes.txt` |
 | `~/Documents/a` y `~/Pictures/b` | `~/frost-restore-<id>/Documents/a` y `~/frost-restore-<id>/Pictures/b` |
 
-El nombre de la carpeta nueva usa el ID corto de la instantánea. Si ese nombre ya existe, frost añade `-1`, `-2`, etcétera.
+El nombre de la carpeta nueva usa el ID corto de la instantánea. Si ese nombre ya existe, Frost añade `-1`, `-2`, etcétera.
 
 `--beside` no funciona cuando tu selección solo comparte la raíz de un disco, cuando su carpeta no está en este equipo (como pasa con una instantánea de otro equipo) o cuando no puedes escribir ahí. Por ejemplo, restaurar junto al original una instantánea de toda tu carpeta de inicio supondría crear una carpeta nueva en `/Users` o `/home`. En esos casos, usa `--to`.
 
 ## Restaurar encima de los originales
 
-`--overwrite` devuelve los archivos a su sitio y sustituye lo que haya. frost te muestra lo que va a hacer y pregunta antes:
+`--overwrite` devuelve los archivos a su sitio y sustituye lo que haya. Frost te muestra lo que va a hacer y pregunta antes:
 
 ```text
 ┌  restore maple-absurd-3f1c  2026-10-07 03:17 (1d ago)
@@ -75,7 +75,7 @@ El nombre de la carpeta nueva usa el ID corto de la instantánea. Si ese nombre 
 - Los archivos que no están en la instantánea no se tocan.
 - Cada archivo se escribe primero en un archivo temporal oculto a su lado y después se intercambia. Necesitas espacio para las dos copias del archivo que se está restaurando.
 - La instantánea tiene que venir del mismo tipo de equipo: instantáneas de macOS y Linux sobre macOS o Linux, y de Windows sobre Windows.
-- frost no restaura a través de un enlace de carpeta que otro usuario haya podido modificar. Si ese es el problema, te lo dice antes de preguntar, y el explorador muestra en gris "Overwrite original files".
+- Frost no restaura a través de un enlace de carpeta que otro usuario haya podido modificar. Si ese es el problema, te lo dice antes de preguntar, y el explorador muestra en gris "Overwrite original files".
 
 ## Comprobaciones de seguridad
 
@@ -85,7 +85,7 @@ Los enlaces simbólicos restaurados conservan sus destinos originales, que puede
 
 ## Restauraciones interrumpidas
 
-Si una restauración se detiene, por una conexión perdida, `Ctrl+C` o porque el equipo entra en reposo, frost muestra el comando que la continúa:
+Si una restauración se detiene, por una conexión perdida, `Ctrl+C` o porque el equipo entra en reposo, Frost muestra el comando que la continúa:
 
 ```text
 Completed files and unfinished restore data have been preserved. To resume, run:
@@ -93,8 +93,8 @@ Completed files and unfinished restore data have been preserved. To resume, run:
   frost restore maple-absurd-3f1c9a0b2e7 /home/you/Documents/taxes --beside
 ```
 
-Es la misma restauración con el ID completo de la instantánea en lugar de `latest` o de una fecha, así que una copia hecha entretanto no cambia la instantánea a la que se refiere. Los archivos ya restaurados se comprueban y se saltan, y el archivo que frost estaba escribiendo continúa desde su último fragmento correcto. En Windows, algunas rutas necesitan un comando de PowerShell; el mensaje indica cuándo ejecutarlo en PowerShell.
+Es la misma restauración con el ID completo de la instantánea en lugar de `latest` o de una fecha, así que una copia hecha entretanto no cambia la instantánea a la que se refiere. Los archivos ya restaurados se comprueban y se saltan, y el archivo que Frost estaba escribiendo continúa desde su último fragmento correcto. En Windows, algunas rutas necesitan un comando de PowerShell; el mensaje indica cuándo ejecutarlo en PowerShell.
 
-Hasta que la restauración termina, su carpeta contiene un marcador `.frost-restore` y un archivo `.frost-partial-...`. Déjalos ahí; frost los quita al terminar.
+Hasta que la restauración termina, su carpeta contiene un marcador `.frost-restore` y un archivo `.frost-partial-...`. Déjalos ahí; Frost los quita al terminar.
 
 Para restaurar después de perder tu equipo, consulta [Recuperar en un equipo nuevo](#new-computer).

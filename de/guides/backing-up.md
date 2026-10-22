@@ -8,7 +8,7 @@
 frost backup
 ```
 
-frost zeigt, was sich geändert hat, wie viel es hochgeladen hat und das Ergebnis seiner Stichprobenprüfung:
+Frost zeigt, was sich geändert hat, wie viel es hochgeladen hat und das Ergebnis seiner Stichprobenprüfung:
 
 ```text
 ┌  backup  sftp://me@nas.local/~/frost
@@ -23,7 +23,7 @@ frost zeigt, was sich geändert hat, wie viel es hochgeladen hat und das Ergebni
 
 Eine Datei gilt als geändert, wenn sich ihr Inhalt, ihre Größe, ihre Berechtigungen oder ihre Änderungszeit ändern. Ändert sich nur die Änderungszeit eines Ordners, zählt das nicht, denn temporäre Dateien verändern sie ständig.
 
-Hat sich nichts geändert, speichert frost keinen neuen Snapshot:
+Hat sich nichts geändert, speichert Frost keinen neuen Snapshot:
 
 ```text
 ┌  backup  sftp://me@nas.local/~/frost
@@ -59,39 +59,39 @@ Um zu ändern, welche Ordner jedes Mal gesichert werden, starte `frost init` ern
 
 ## Was gesichert wird
 
-frost sichert normale Dateien, Ordner und symbolische Links samt Berechtigungen und Änderungszeiten.
+Frost sichert normale Dateien, Ordner und symbolische Links samt Berechtigungen und Änderungszeiten.
 
 - Ein symbolischer Link wird als Link gespeichert, nicht als die Datei, auf die er zeigt.
 - Hardlinks werden als getrennte Dateien gesichert und wiederhergestellt.
 
-frost lässt aus:
+Frost lässt aus:
 
 - Alles auf deiner Ausschlussliste. Siehe [Dateien ausschließen](#excluding-files).
 - Sockets, Gerätedateien und Pipes.
 - Dateibesitzer, ACLs und erweiterte Attribute.
-- Unter macOS Dateien, die iCloud nur online vorhält. frost lädt sie nicht herunter, sondern überspringt sie und listet sie auf.
+- Unter macOS Dateien, die iCloud nur online vorhält. Frost lädt sie nicht herunter, sondern überspringt sie und listet sie auf.
 - Die `.frost-partial-...`-Dateien, die eine abgebrochene Wiederherstellung hinterlässt.
 
 ## Wenn etwas schiefgeht
 
-| Was passiert | Was frost tut |
+| Was passiert | Was Frost tut |
 | --- | --- |
 | Eine Datei oder ein Ordner lässt sich nicht lesen, wegen fehlender Berechtigungen, weil sie mitten im Backup gelöscht wurde oder weil sie nur in iCloud liegt | Überspringt sie und listet sie auf. Der Snapshot wird trotzdem gespeichert, und `frost status` zeigt, wie viele Einträge übersprungen wurden |
 | Ein Ordner aus deiner Liste fehlt, etwa auf einem nicht angeschlossenen Laufwerk | Überspringt ihn und sichert den Rest. `frost backup` und `frost status` nennen den fehlenden Ordner |
 | Keiner deiner Ordner ist da, oder einer existiert, lässt sich aber überhaupt nicht lesen | Lässt das ganze Backup fehlschlagen, damit ein Backup nie in Ordnung aussieht, obwohl nichts gesichert wurde |
-| Eine Datei ändert sich, während frost sie liest, etwa eine Datenbank im Betrieb, die Festplatte einer laufenden virtuellen Maschine oder ein Download | Liest sie am Ende des Backups noch einmal. Ändert sie sich immer noch, behält der Snapshot ihre vorherige Kopie, und frost listet sie auf. Eine Datei, die nie vollständig gesichert werden konnte, wird übersprungen |
+| Eine Datei ändert sich, während Frost sie liest, etwa eine Datenbank im Betrieb, die Festplatte einer laufenden virtuellen Maschine oder ein Download | Liest sie am Ende des Backups noch einmal. Ändert sie sich immer noch, behält der Snapshot ihre vorherige Kopie, und Frost listet sie auf. Eine Datei, die nie vollständig gesichert werden konnte, wird übersprungen |
 
-frost erstellt keine Snapshots auf Dateisystem- oder Datenbankebene. Eine Datei, die ständig in Benutzung ist, sicherst du am besten, während das Programm, das sie nutzt, geschlossen ist.
+Frost erstellt keine Snapshots auf Dateisystem- oder Datenbankebene. Eine Datei, die ständig in Benutzung ist, sicherst du am besten, während das Programm, das sie nutzt, geschlossen ist.
 
-Unter macOS brauchen manche Ordner deine Erlaubnis, bevor frost sie lesen kann. Siehe [macOS-Berechtigungen](#macos-permissions).
+Unter macOS brauchen manche Ordner deine Erlaubnis, bevor Frost sie lesen kann. Siehe [macOS-Berechtigungen](#macos-permissions).
 
 ## Die Stichprobenprüfung
 
-Nach einem Backup, das einen Snapshot speichert, lädt frost einige zufällige Blöcke herunter, standardmäßig 20, und prüft sie. Nach einem Backup ohne Neues prüft es nur dann erneut, wenn die letzte Prüfung älter als einen Tag ist oder ein Problem gefunden hat. Schlägt eine Prüfung fehl, meldet das Backup einen Fehler. Siehe [Backups prüfen](#checking-backups).
+Nach einem Backup, das einen Snapshot speichert, lädt Frost einige zufällige Blöcke herunter, standardmäßig 20, und prüft sie. Nach einem Backup ohne Neues prüft es nur dann erneut, wenn die letzte Prüfung älter als einen Tag ist oder ein Problem gefunden hat. Schlägt eine Prüfung fehl, meldet das Backup einen Fehler. Siehe [Backups prüfen](#checking-backups).
 
 ## Unterbrochene Backups
 
-Bricht ein Backup mittendrin ab, wegen einer verlorenen Verbindung, eines zugeklappten Laptops oder `Ctrl+C`, ist nichts von dem verloren, was schon hochgeladen wurde. frost vermerkt die Blöcke während des Hochladens, und das nächste Backup überspringt sie.
+Bricht ein Backup mittendrin ab, wegen einer verlorenen Verbindung, eines zugeklappten Laptops oder `Ctrl+C`, ist nichts von dem verloren, was schon hochgeladen wurde. Frost vermerkt die Blöcke während des Hochladens, und das nächste Backup überspringt sie.
 
 ## Kurz vor oder nach einem geplanten Backup
 
@@ -104,8 +104,8 @@ Startet ein geplantes Backup innerhalb der nächsten Stunde oder ist eins in der
 │  Back up now anyway? [Y/n]
 ```
 
-Drück Enter, um trotzdem zu sichern, oder tippe `n`, um abzubrechen. Bei Zeitplänen mit weniger als 4 Stunden Abstand ist das Zeitfenster ein Viertel des Intervalls. Ein fertiges Backup zählt nur, wenn es geklappt hat und du seitdem nicht gesichert hast. frost fragt nur im Terminal, und nicht bei einer Vorschau oder mit `--path` oder `--exclude`.
+Drück Enter, um trotzdem zu sichern, oder tippe `n`, um abzubrechen. Bei Zeitplänen mit weniger als 4 Stunden Abstand ist das Zeitfenster ein Viertel des Intervalls. Ein fertiges Backup zählt nur, wenn es geklappt hat und du seitdem nicht gesichert hast. Frost fragt nur im Terminal, und nicht bei einer Vorschau oder mit `--path` oder `--exclude`.
 
 ## Eins nach dem anderen
 
-Ein Backup oder eine Wiederherstellung über die Kommandozeile sperrt während des Laufs den lokalen Cache. Braucht ein anderer Befehl diesen Cache, meldet frost „a backup or restore operation is already in progress; try again when it completes“ (es läuft bereits ein Backup oder eine Wiederherstellung, versuch es danach noch einmal). Ist das andere ein geplantes Backup, meldet frost „a scheduled backup is already running“ (es läuft bereits ein geplantes Backup) und wann es gestartet ist. Ein geplantes Backup, das den Cache gesperrt vorfindet, wartet stattdessen bis zu einer Stunde. Der Snapshot-Browser gibt die Cache-Sperre frei, sodass er geöffnet bleiben und Dateien wiederherstellen kann, während ein Backup läuft. Andere Cache-Ordner und Computer haben eigene Sperren.
+Ein Backup oder eine Wiederherstellung über die Kommandozeile sperrt während des Laufs den lokalen Cache. Braucht ein anderer Befehl diesen Cache, meldet Frost „a backup or restore operation is already in progress; try again when it completes“ (es läuft bereits ein Backup oder eine Wiederherstellung, versuch es danach noch einmal). Ist das andere ein geplantes Backup, meldet Frost „a scheduled backup is already running“ (es läuft bereits ein geplantes Backup) und wann es gestartet ist. Ein geplantes Backup, das den Cache gesperrt vorfindet, wartet stattdessen bis zu einer Stunde. Der Snapshot-Browser gibt die Cache-Sperre frei, sodass er geöffnet bleiben und Dateien wiederherstellen kann, während ein Backup läuft. Andere Cache-Ordner und Computer haben eigene Sperren.

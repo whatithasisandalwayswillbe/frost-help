@@ -2,13 +2,13 @@
 
 A sua frase de recuperação é a sua chave de criptografia escrita como 24 palavras. Ela é a única forma de ler seus backups.
 
-> Se você perder a frase de recuperação e o computador, seus backups estão perdidos. Ninguém consegue recuperá-los: nem quem guarda seus backups, nem o Permafrost, nem os autores do frost.
+> Se você perder a frase de recuperação e o computador, seus backups estão perdidos. Ninguém consegue recuperá-los: nem quem guarda seus backups, nem o Permafrost, nem os autores do Frost.
 
 ## Guarde bem
 
 A configuração mostra a frase quando cria a sua chave. Anote em papel ou guarde em um gerenciador de senhas de confiança, e mantenha em um lugar diferente do computador que você está protegendo.
 
-Também há uma cópia no seu computador, no arquivo `key` da pasta de configuração do frost, para que os backups agendados funcionem sem você. No macOS e no Linux, o frost a cria com permissões só para o seu usuário. No Windows, ela herda as permissões do seu perfil de usuário. Pastas compartilhadas ou alterações nas permissões podem deixá-la exposta. Quem conseguir ler esse arquivo, ou executar programas como você, consegue ler seus backups, então use criptografia de disco completo e bloqueio de tela.
+Também há uma cópia no seu computador, no arquivo `key` da pasta de configuração do Frost, para que os backups agendados funcionem sem você. No macOS e no Linux, o Frost a cria com permissões só para o seu usuário. No Windows, ela herda as permissões do seu perfil de usuário. Pastas compartilhadas ou alterações nas permissões podem deixá-la exposta. Quem conseguir ler esse arquivo, ou executar programas como você, consegue ler seus backups, então use criptografia de disco completo e bloqueio de tela.
 
 Para ler seus backups, alguém precisa ter a frase e também acesso ao seu armazenamento. Mantenha as chaves do seu armazenamento em sigilo também.
 
@@ -18,7 +18,7 @@ Para ler seus backups, alguém precisa ter a frase e também acesso ao seu armaz
 frost key show
 ```
 
-O frost avisa antes e só mostra a frase depois que você digitar `show`. Confira se ninguém está olhando a sua tela e se você não está compartilhando a tela.
+O Frost avisa antes e só mostra a frase depois que você digitar `show`. Confira se ninguém está olhando a sua tela e se você não está compartilhando a tela.
 
 ## Conferir a sua cópia
 
@@ -26,7 +26,7 @@ O frost avisa antes e só mostra a frase depois que você digitar `show`. Confir
 frost key verify
 ```
 
-Digite a frase que você anotou. O frost diz se ela é válida, se corresponde à chave deste computador e se abre seus backups. Ele nunca mostra a frase. Confira a sua cópia de vez em quando.
+Digite a frase que você anotou. O Frost diz se ela é válida, se corresponde à chave deste computador e se abre seus backups. Ele nunca mostra a frase. Confira a sua cópia de vez em quando.
 
 ## Usar em outro computador
 
@@ -36,15 +36,15 @@ O `frost init` pede a frase quando se conecta a um armazenamento que já tem seu
 frost key import
 ```
 
-Se o armazenamento já estiver configurado, o frost confere primeiro se a frase o abre. Se já houver outra chave no computador, o frost pergunta antes de substituí-la. Backups feitos com a chave antiga precisam da frase antiga para serem restaurados.
+Se o armazenamento já estiver configurado, o Frost confere primeiro se a frase o abre. Se já houver outra chave no computador, o Frost pergunta antes de substituí-la. Backups feitos com a chave antiga precisam da frase antiga para serem restaurados.
 
 Veja [Recuperar em um computador novo](#new-computer) para o passo a passo completo.
 
 ## Digitar a frase
 
-Digite as 24 palavras em ordem, separadas por espaços. Maiúsculas não fazem diferença. As palavras vêm da lista padrão BIP39 em inglês, com 2.048 palavras, então o frost consegue avisar quando uma está escrita errado:
+Digite as 24 palavras em ordem, separadas por espaços. Maiúsculas não fazem diferença. As palavras vêm da lista padrão BIP39 em inglês, com 2.048 palavras, então o Frost consegue avisar quando uma está escrita errado:
 
-| O frost diz | Significa |
+| O Frost diz | Significa |
 | --- | --- |
 | entered 23 words, but a recovery phrase must contain exactly 24 words | Falta ou sobra uma palavra |
 | word 5 is not a valid recovery word; check the spelling | Essa palavra está escrita errado |
@@ -53,8 +53,8 @@ Digite as 24 palavras em ordem, separadas por espaços. Maiúsculas não fazem d
 
 ## A impressão digital da chave
 
-A impressão digital é um ID curto, como `6f154dc10058`, que identifica a sua chave sem revelá-la. O `frost status` a mostra, e o navegador de snapshots também, quando você pressiona `[v]`. Impressões digitais iguais ajudam a identificar uma chave, mas são curtas demais para provar que duas chaves são idênticas. O frost verifica a própria chave ao abrir seus backups.
+A impressão digital é um ID curto, como `6f154dc10058`, que identifica a sua chave sem revelá-la. O `frost status` a mostra, e o navegador de snapshots também, quando você pressiona `[v]`. Impressões digitais iguais ajudam a identificar uma chave, mas são curtas demais para provar que duas chaves são idênticas. O Frost verifica a própria chave ao abrir seus backups.
 
 ## Trocar a sua chave
 
-O frost não consegue trocar a chave dos backups que você já tem. Se outra pessoa pode ter visto a sua frase, ela consegue ler esses backups enquanto tiver acesso ao seu armazenamento, então troque as chaves do seu armazenamento e mantenha-as em sigilo.
+O Frost não consegue trocar a chave dos backups que você já tem. Se outra pessoa pode ter visto a sua frase, ela consegue ler esses backups enquanto tiver acesso ao seu armazenamento, então troque as chaves do seu armazenamento e mantenha-as em sigilo.

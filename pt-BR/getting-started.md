@@ -1,6 +1,6 @@
 # Primeiros passos
 
-O frost faz backup das suas pastas no armazenamento que você escolher, do seu próprio servidor ou um disco a um provedor de nuvem, e criptografa tudo no seu computador antes de guardar. Esta página leva você da instalação do frost até o seu primeiro backup.
+O Frost faz backup das suas pastas no armazenamento que você escolher, do seu próprio servidor ou um disco a um provedor de nuvem, e criptografa tudo no seu computador antes de guardar. Esta página leva você da instalação do Frost até o seu primeiro backup.
 
 ## O que você precisa
 
@@ -8,9 +8,9 @@ O frost faz backup das suas pastas no armazenamento que você escolher, do seu p
 - Um lugar para guardar seus backups: um servidor que você acessa por SSH, um disco, uma chave de acesso do [Permafrost](#permafrost) ou um bucket compatível com S3. [Escolher o armazenamento](#choosing-storage) compara as opções.
 - Uma janela de terminal com pelo menos 56 colunas de largura e 18 linhas de altura, para a configuração em tela cheia.
 
-Você não precisa instalar o Node.js nem mais nada antes. O frost traz o próprio ambiente de execução.
+Você não precisa instalar o Node.js nem mais nada antes. O Frost traz o próprio ambiente de execução.
 
-## 1. Instale o frost
+## 1. Instale o Frost
 
 No macOS ou no Linux, execute isto em um terminal:
 
@@ -24,7 +24,7 @@ No Windows, execute isto no PowerShell:
 irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
-O instalador confere a assinatura da versão antes de instalar qualquer coisa. [Instalar o frost](#installing) explica npm e pnpm, a instalação manual e as opções do instalador.
+O instalador confere a assinatura da versão antes de instalar qualquer coisa. [Instalar o Frost](#installing) explica npm e pnpm, a instalação manual e as opções do instalador.
 
 ## 2. Configure
 
@@ -41,9 +41,9 @@ A configuração pergunta uma coisa por tela:
 5. **Frase de recuperação.** 24 palavras que destravam seus backups. Anote todas.
 6. **Revisão.** Confira tudo e pressione `[s]` para salvar.
 
-> A frase de recuperação é a única forma de ler seus backups se você perder este computador. Ninguém consegue recuperá-la para você, nem quem guarda seus backups nem os autores do frost.
+> A frase de recuperação é a única forma de ler seus backups se você perder este computador. Ninguém consegue recuperá-la para você, nem quem guarda seus backups nem os autores do Frost.
 
-[Configurar o frost](#setting-up) explica cada tela.
+[Configurar o Frost](#setting-up) explica cada tela.
 
 ## 3. Faça o backup
 
@@ -59,7 +59,7 @@ Depois, execute:
 frost backup
 ```
 
-O primeiro backup envia tudo. Os seguintes enviam só o que mudou. Se você ativou o agendamento, o frost agora faz backup sozinho e você não precisa executar nada.
+O primeiro backup envia tudo. Os seguintes enviam só o que mudou. Se você ativou o agendamento, o Frost agora faz backup sozinho e você não precisa executar nada.
 
 ## 4. Acompanhe
 
@@ -87,6 +87,6 @@ frost restore latest ~/Documents/report.pdf --beside
 
 ## Próximos passos
 
-- [Como o frost funciona](#how-it-works) explica os snapshots, a criptografia e o que é enviado.
+- [Como o Frost funciona](#how-it-works) explica os snapshots, a criptografia e o que é enviado.
 - [Backups automáticos](#scheduling) trata do agendamento.
 - [Sua frase de recuperação](#recovery-phrase) explica como manter sua chave em segurança.

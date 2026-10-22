@@ -2,13 +2,13 @@
 
 Deine Wiederherstellungsphrase ist dein Verschlüsselungsschlüssel, geschrieben als 24 Wörter. Sie ist die einzige Möglichkeit, deine Backups zu lesen.
 
-> Verlierst du die Wiederherstellungsphrase und den Computer, sind deine Backups verloren. Niemand kann sie wiederherstellen: weder wer deine Backups aufbewahrt noch Permafrost noch die Entwickler von frost.
+> Verlierst du die Wiederherstellungsphrase und den Computer, sind deine Backups verloren. Niemand kann sie wiederherstellen: weder wer deine Backups aufbewahrt noch Permafrost noch die Entwickler von Frost.
 
 ## Sicher aufbewahren
 
 Die Einrichtung zeigt dir die Phrase, wenn sie deinen Schlüssel erzeugt. Schreib sie auf Papier oder bewahre sie in einem Passwortmanager auf, dem du vertraust, und zwar an einem anderen Ort als auf dem Computer, den du sicherst.
 
-Eine Kopie liegt außerdem auf deinem Computer, in der Datei `key` im Konfigurationsordner von frost, damit geplante Backups ohne dich laufen können. Unter macOS und Linux legt frost sie mit Berechtigungen nur für deinen Benutzer an. Unter Windows übernimmt sie die Berechtigungen deines Benutzerprofils. Gemeinsam genutzte Ordner oder geänderte Berechtigungen können anderen Zugriff darauf geben. Wer diese Datei lesen oder Programme unter deinem Namen ausführen kann, kann deine Backups lesen. Nutze deshalb eine vollständige Festplattenverschlüsselung und eine Bildschirmsperre.
+Eine Kopie liegt außerdem auf deinem Computer, in der Datei `key` im Konfigurationsordner von Frost, damit geplante Backups ohne dich laufen können. Unter macOS und Linux legt Frost sie mit Berechtigungen nur für deinen Benutzer an. Unter Windows übernimmt sie die Berechtigungen deines Benutzerprofils. Gemeinsam genutzte Ordner oder geänderte Berechtigungen können anderen Zugriff darauf geben. Wer diese Datei lesen oder Programme unter deinem Namen ausführen kann, kann deine Backups lesen. Nutze deshalb eine vollständige Festplattenverschlüsselung und eine Bildschirmsperre.
 
 Um deine Backups zu lesen, braucht jemand sowohl die Phrase als auch Zugriff auf deinen Speicher. Halte deshalb auch die Schlüssel für deinen Speicher geheim.
 
@@ -18,7 +18,7 @@ Um deine Backups zu lesen, braucht jemand sowohl die Phrase als auch Zugriff auf
 frost key show
 ```
 
-frost warnt dich zuerst und zeigt die Phrase erst an, nachdem du `show` eingetippt hast. Achte darauf, dass niemand auf deinen Bildschirm sieht und du ihn nicht gerade teilst.
+Frost warnt dich zuerst und zeigt die Phrase erst an, nachdem du `show` eingetippt hast. Achte darauf, dass niemand auf deinen Bildschirm sieht und du ihn nicht gerade teilst.
 
 ## Deine Abschrift prüfen
 
@@ -26,7 +26,7 @@ frost warnt dich zuerst und zeigt die Phrase erst an, nachdem du `show` eingetip
 frost key verify
 ```
 
-Tipp die Phrase ein, die du aufgeschrieben hast. frost sagt dir, ob sie gültig ist, ob sie zum Schlüssel auf diesem Computer passt und ob sie deine Backups öffnet. Die Phrase selbst gibt es nie aus. Prüf deine Abschrift ab und zu.
+Tipp die Phrase ein, die du aufgeschrieben hast. Frost sagt dir, ob sie gültig ist, ob sie zum Schlüssel auf diesem Computer passt und ob sie deine Backups öffnet. Die Phrase selbst gibt es nie aus. Prüf deine Abschrift ab und zu.
 
 ## Auf einem anderen Computer verwenden
 
@@ -36,15 +36,15 @@ Tipp die Phrase ein, die du aufgeschrieben hast. frost sagt dir, ob sie gültig 
 frost key import
 ```
 
-Ist ein Speicher eingerichtet, prüft frost zuerst, ob die Phrase ihn öffnet. Liegt schon ein anderer Schlüssel auf dem Computer, fragt frost, bevor es ihn ersetzt. Backups, die mit dem alten Schlüssel erstellt wurden, brauchen zum Wiederherstellen die alte Phrase.
+Ist ein Speicher eingerichtet, prüft Frost zuerst, ob die Phrase ihn öffnet. Liegt schon ein anderer Schlüssel auf dem Computer, fragt Frost, bevor es ihn ersetzt. Backups, die mit dem alten Schlüssel erstellt wurden, brauchen zum Wiederherstellen die alte Phrase.
 
 Alle Schritte findest du unter [Auf einem neuen Computer wiederherstellen](#new-computer).
 
 ## Die Phrase eintippen
 
-Tipp alle 24 Wörter in der richtigen Reihenfolge ein, getrennt durch Leerzeichen. Groß- und Kleinschreibung spielt keine Rolle. Die Wörter stammen aus der englischen Standardliste BIP39 mit 2.048 Wörtern, deshalb kann frost dir sagen, wenn eines falsch geschrieben ist:
+Tipp alle 24 Wörter in der richtigen Reihenfolge ein, getrennt durch Leerzeichen. Groß- und Kleinschreibung spielt keine Rolle. Die Wörter stammen aus der englischen Standardliste BIP39 mit 2.048 Wörtern, deshalb kann Frost dir sagen, wenn eines falsch geschrieben ist:
 
-| frost meldet | Das bedeutet |
+| Frost meldet | Das bedeutet |
 | --- | --- |
 | entered 23 words, but a recovery phrase must contain exactly 24 words | Ein Wort fehlt oder ist zu viel |
 | word 5 is not a valid recovery word; check the spelling | Dieses Wort ist falsch geschrieben |
@@ -53,8 +53,8 @@ Tipp alle 24 Wörter in der richtigen Reihenfolge ein, getrennt durch Leerzeiche
 
 ## Der Fingerabdruck des Schlüssels
 
-Der Fingerabdruck ist eine kurze ID, etwa `6f154dc10058`, die deinen Schlüssel benennt, ohne ihn preiszugeben. `frost status` zeigt ihn an, ebenso der Snapshot-Browser, wenn du `[v]` drückst. Übereinstimmende Fingerabdrücke helfen dabei, einen Schlüssel zu erkennen, sind aber zu kurz, um die Gleichheit zweier Schlüssel zu beweisen. frost prüft den Schlüssel selbst, wenn es deine Backups öffnet.
+Der Fingerabdruck ist eine kurze ID, etwa `6f154dc10058`, die deinen Schlüssel benennt, ohne ihn preiszugeben. `frost status` zeigt ihn an, ebenso der Snapshot-Browser, wenn du `[v]` drückst. Übereinstimmende Fingerabdrücke helfen dabei, einen Schlüssel zu erkennen, sind aber zu kurz, um die Gleichheit zweier Schlüssel zu beweisen. Frost prüft den Schlüssel selbst, wenn es deine Backups öffnet.
 
 ## Den Schlüssel wechseln
 
-frost kann den Schlüssel bestehender Backups nicht ändern. Hat jemand anderes deine Phrase womöglich gesehen, kann er diese Backups lesen, solange er an deinen Speicher herankommt. Ändere deshalb die Schlüssel für deinen Speicher und halte sie geheim.
+Frost kann den Schlüssel bestehender Backups nicht ändern. Hat jemand anderes deine Phrase womöglich gesehen, kann er diese Backups lesen, solange er an deinen Speicher herankommt. Ändere deshalb die Schlüssel für deinen Speicher und halte sie geheim.

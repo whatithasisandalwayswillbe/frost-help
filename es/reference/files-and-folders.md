@@ -1,6 +1,6 @@
 # Archivos y carpetas
 
-frost guarda la aplicación, tus ajustes y su caché en carpetas separadas de tu equipo.
+Frost guarda la aplicación, tus ajustes y su caché en carpetas separadas de tu equipo.
 
 ## La aplicación
 
@@ -12,7 +12,7 @@ frost guarda la aplicación, tus ajustes y su caché en carpetas separadas de tu
 
 La carpeta de la aplicación contiene el entorno de ejecución incluido y cada versión instalada. Mantenla completa.
 
-El lanzador `frost` está en `/usr/local/bin` o `~/.local/bin` en macOS y Linux, y en `%LocalAppData%\frost\bin` en Windows, salvo que hayas elegido otra carpeta al instalar. El instalador de Git Bash usa `~/bin`. Con npm o pnpm, `frost` está donde ellos guardan los comandos globales. Consulta [Instalar frost](#installing).
+El lanzador `frost` está en `/usr/local/bin` o `~/.local/bin` en macOS y Linux, y en `%LocalAppData%\frost\bin` en Windows, salvo que hayas elegido otra carpeta al instalar. El instalador de Git Bash usa `~/bin`. Con npm o pnpm, `frost` está donde ellos guardan los comandos globales. Consulta [Instalar Frost](#installing).
 
 ## Ajustes y clave
 
@@ -34,10 +34,10 @@ El lanzador `frost` está en `/usr/local/bin` o `~/.local/bin` en macOS y Linux,
 
 Con systemd, las copias programadas escriben su registro en el journal en lugar de en `frost.log`. Consulta [Copias de seguridad automáticas](#scheduling), donde también se indica dónde está la tarea programada.
 
-El registro de lo que se ha subido es prescindible. Si lo borras, la siguiente copia lo reconstruye a partir de tu almacenamiento y vuelve a leer todos tus archivos. Para restaurar no se necesita. A su lado hay un archivo `.lock` que impide que dos procesos de frost escriban a la vez. Borrar el archivo de bloqueo no detiene un frost que esté en marcha.
+El registro de lo que se ha subido es prescindible. Si lo borras, la siguiente copia lo reconstruye a partir de tu almacenamiento y vuelve a leer todos tus archivos. Para restaurar no se necesita. A su lado hay un archivo `.lock` que impide que dos procesos de Frost escriban a la vez. Borrar el archivo de bloqueo no detiene un Frost que esté en marcha.
 
 ## Cambiar las carpetas
 
-En macOS y Linux, frost respeta `XDG_CONFIG_HOME` y `XDG_CACHE_HOME`. `FROST_CONFIG_DIR` y `FROST_CACHE_DIR` tienen prioridad sobre ambas, y `--config-dir` cambia la carpeta de configuración para un solo comando.
+En macOS y Linux, Frost respeta `XDG_CONFIG_HOME` y `XDG_CACHE_HOME`. `FROST_CONFIG_DIR` y `FROST_CACHE_DIR` tienen prioridad sobre ambas, y `--config-dir` cambia la carpeta de configuración para un solo comando.
 
 Si cambias estas carpetas, vuelve a ejecutar `frost init` para que la tarea programada también las use.

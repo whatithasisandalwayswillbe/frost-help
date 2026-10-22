@@ -1,6 +1,6 @@
 # Elegir almacenamiento
 
-frost puede guardar tus copias en tu propio servidor, en un disco, en Permafrost o en un servicio compatible con S3. Vayan donde vayan, todo se cifra primero en tu equipo, así que quien gestiona el almacenamiento no puede leer tus archivos.
+Frost puede guardar tus copias en tu propio servidor, en un disco, en Permafrost o en un servicio compatible con S3. Vayan donde vayan, todo se cifra primero en tu equipo, así que quien gestiona el almacenamiento no puede leer tus archivos.
 
 ## Tus opciones
 
@@ -8,7 +8,7 @@ frost puede guardar tus copias en tu propio servidor, en un disco, en Permafrost
 | --- | --- | --- |
 | [Servidor propio](#self-hosted) | Un NAS, un servidor en casa o un VPS que gestionas tú | Acceso por SSH |
 | [Disco local](#local-drive) | Un disco USB o un segundo disco | Un disco conectado cuando se hacen las copias |
-| [Permafrost](#permafrost) | Almacenamiento alojado hecho para frost | Una clave de acceso |
+| [Permafrost](#permafrost) | Almacenamiento alojado hecho para Frost | Una clave de acceso |
 | [Proveedores en la nube](#cloud-providers) | Amazon S3, Cloudflare R2, Backblaze B2 o Wasabi | Un bucket y sus claves |
 | [Otro almacenamiento compatible con S3](#other-s3) | Un servidor S3 que gestionas tú, como Ceph o SeaweedFS, u otro servicio S3 | Un bucket y sus claves |
 
@@ -16,7 +16,7 @@ Con un servidor propio o un disco local, tus copias quedan en hardware que contr
 
 ## Escrituras condicionales
 
-frost necesita un almacenamiento que pueda crear un archivo en un solo paso, solo si su nombre está libre. Así se evita que dos equipos sobrescriban los registros de copia del otro. El asistente lo comprueba al conectarse y rechaza el almacenamiento que no lo cumple. Si el almacenamiento no lo admite, ni otras claves ni otros ajustes lo arreglan.
+Frost necesita un almacenamiento que pueda crear un archivo en un solo paso, solo si su nombre está libre. Así se evita que dos equipos sobrescriban los registros de copia del otro. El asistente lo comprueba al conectarse y rechaza el almacenamiento que no lo cumple. Si el almacenamiento no lo admite, ni otras claves ni otros ajustes lo arreglan.
 
 | Almacenamiento | Escrituras condicionales |
 | --- | --- |
@@ -38,9 +38,9 @@ Los datos de los servicios S3 se comprobaron con la documentación y el código 
 
 - **Una copia fuera de casa.** Un disco o un servidor en casa puede perderse en el mismo incendio o robo que tu equipo. Un servidor en otro lugar, Permafrost o un proveedor en la nube, no. Guarda una segunda copia independiente de todo lo irreemplazable en otro sitio.
 - **Lo que cuesta restaurar.** Algunos proveedores en la nube cobran por las descargas. Una restauración completa lo descarga todo, y cada comprobación aleatoria descarga una pequeña muestra.
-- **Clases de almacenamiento de archivo.** frost lee los fragmentos directamente, así que no muevas sus objetos a una clase de archivo que haya que descongelar antes de leer.
-- **Borrado y caducidad.** frost nunca borra tus copias. No añadas reglas de ciclo de vida ni tareas de limpieza que borren o hagan caducar archivos de su carpeta, porque las instantáneas comparten fragmentos.
-- **Acceso limitado.** Dale a frost una clave de acceso que solo llegue a su propio bucket, o una cuenta en el servidor que no pueda cambiar nada más que te importe.
+- **Clases de almacenamiento de archivo.** Frost lee los fragmentos directamente, así que no muevas sus objetos a una clase de archivo que haya que descongelar antes de leer.
+- **Borrado y caducidad.** Frost nunca borra tus copias. No añadas reglas de ciclo de vida ni tareas de limpieza que borren o hagan caducar archivos de su carpeta, porque las instantáneas comparten fragmentos.
+- **Acceso limitado.** Dale a Frost una clave de acceso que solo llegue a su propio bucket, o una cuenta en el servidor que no pueda cambiar nada más que te importe.
 
 ## Cambiar de almacenamiento más adelante
 

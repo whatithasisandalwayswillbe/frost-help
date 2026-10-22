@@ -1,10 +1,10 @@
 # よくある問題
 
-このページでは、よく見かけるメッセージや問題をまとめています。各見出しは、frost が表示するメッセージか、あなたが気づく症状です。
+このページでは、よく見かけるメッセージや問題をまとめています。各見出しは、Frost が表示するメッセージか、あなたが気づく症状です。
 
-## "frost isn't set up yet, run `frost init`"
+## "Frost isn't set up yet, run `frost init`"
 
-frost が `config.toml` を見つけられません。`frost init` を実行してください。`--config-dir` や `FROST_CONFIG_DIR` を使っている場合は、正しいフォルダを指しているか確認してください。
+Frost が `config.toml` を見つけられません。`frost init` を実行してください。`--config-dir` や `FROST_CONFIG_DIR` を使っている場合は、正しいフォルダを指しているか確認してください。
 
 ## "no key on this machine"
 
@@ -12,15 +12,15 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 
 ## "a backup or restore operation is already in progress"
 
-別の frost のプロセスがバックアップを使用中です。たいていはスケジュールされたバックアップです。その場合、frost は "a scheduled backup is already running" と、それが始まった時刻を表示します。終わるのを待ってから、もう一度試してください。frost のロックファイルを削除しても、そのプロセスは止まりません。
+別の Frost のプロセスがバックアップを使用中です。たいていはスケジュールされたバックアップです。その場合、Frost は "a scheduled backup is already running" と、それが始まった時刻を表示します。終わるのを待ってから、もう一度試してください。Frost のロックファイルを削除しても、そのプロセスは止まりません。
 
 ## "the local encryption key does not match"
 
 ストレージには、別のキーで作られたバックアップがあります。`frost key verify` を実行し、書き留めたフレーズを入力して、どのキーなのかを確かめてください。正しいキーであれば、そのフレーズで `frost key import` を実行します。
 
-## frost がバックアップを見つけられない
+## Frost がバックアップを見つけられない
 
-"has no frost repository" のようなメッセージは、frost が探している場所にバックアップがないことを意味します。エラーには、最後に開いた場所と、そこに戻る方法が表示されます。詳しくは[バックアップの移動](#moving-backups)を参照してください。
+"has no Frost repository" のようなメッセージは、Frost が探している場所にバックアップがないことを意味します。エラーには、最後に開いた場所と、そこに戻る方法が表示されます。詳しくは[バックアップの移動](#moving-backups)を参照してください。
 
 アクセスキーがまだ使えるのにバックアップが Permafrost から消えている場合は、そのキーを使って削除された可能性が高いです。すぐに care@getfro.st にメールしてください。ほかの人がキーを持っているかもしれない場合は、[getfro.st/perma/recover](https://getfro.st/perma/recover) で新しいキーを受け取ってください。
 
@@ -45,7 +45,7 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 | That server does not support SFTP | サーバーの SSH やファイルサービスの設定で SFTP がオンになっているか |
 | server returned text before opening SFTP subsystem | `.bashrc` などサーバーのログインスクリプトが何かを出力していないか。対話型シェルでだけ出力するようにします |
 | There's no folder ... on ... | フォルダのパス。その親フォルダは存在している必要があります |
-| The server denied write access to that folder | frost がログインするアカウントに対するフォルダの権限 |
+| The server denied write access to that folder | Frost がログインするアカウントに対するフォルダの権限 |
 | ... not found. Connect the required drive and try again | ドライブが接続されていて、パスが正しいか |
 | Unable to write to that folder | フォルダの権限。macOS では[macOS の権限](#macos-permissions)を参照してください |
 | Symbolic links and directory junctions are not supported for backup folders | フォルダの実際のパスを使います |
@@ -53,17 +53,17 @@ frost が `config.toml` を見つけられません。`frost init` を実行し�
 
 ## "This storage provider does not support conditional writes"
 
-コンピュータ同士がバックアップ記録を上書きし合わないようにするために frost が必要とする機能に、ストレージが対応していません。キーや設定を変えても解決しません。別のストレージを選んでください。詳しくは[ストレージの選び方](#choosing-storage)を参照してください。
+コンピュータ同士がバックアップ記録を上書きし合わないようにするために Frost が必要とする機能に、ストレージが対応していません。キーや設定を変えても解決しません。別のストレージを選んでください。詳しくは[ストレージの選び方](#choosing-storage)を参照してください。
 
 セルフホストのサーバーやドライブでは、別の言い方で表示されます。サーバーが "cannot create hard links" と表示するか、フォルダが "on an unsupported filesystem" と表示されます。ext4、Btrfs、XFS、ZFS、APFS、NTFS などのファイルシステム上のフォルダを使ってください。
 
-## "the server didn't accept frost's SSH key"
+## "the server didn't accept Frost's SSH key"
 
-セルフホストのサーバーが frost のキーを拒否しました。たとえば、キーが `authorized_keys` から削除された場合です。`frost init` を実行して、キーをもう一度追加してください。詳しくは[セルフホスト](#self-hosted)を参照してください。
+セルフホストのサーバーが Frost のキーを拒否しました。たとえば、キーが `authorized_keys` から削除された場合です。`frost init` を実行して、キーをもう一度追加してください。詳しくは[セルフホスト](#self-hosted)を参照してください。
 
 ## "the server's SSH host key has changed"
 
-サーバーの身元が変わると、frost は ssh と同じように接続を拒否します。サーバーを再インストールした場合や、サーバーのアドレスが変わった場合は、`ssh-keygen -R <host>` で古いキーを削除し、もう一度 `frost init` を実行します。それ以外の場合は、接続する前にキーが変わった理由を確かめてください。
+サーバーの身元が変わると、Frost は ssh と同じように接続を拒否します。サーバーを再インストールした場合や、サーバーのアドレスが変わった場合は、`ssh-keygen -R <host>` で古いキーを削除し、もう一度 `frost init` を実行します。それ以外の場合は、接続する前にキーが変わった理由を確かめてください。
 
 ## "... not found. Connect the required drive and try again"
 
@@ -83,7 +83,7 @@ macOS では、たいていプライバシーに関する権限の問題です�
 
 ## "couldn't be read" と表示されたファイル
 
-frost はそれらのファイルをスキップし、残りを保存しました。よくある原因は、読み取り権限のないファイル、バックアップ中に削除されたファイル、そして macOS では iCloud がオンラインにだけ置いているファイルです。
+Frost はそれらのファイルをスキップし、残りを保存しました。よくある原因は、読み取り権限のないファイル、バックアップ中に削除されたファイル、そして macOS では iCloud がオンラインにだけ置いているファイルです。
 
 ## "continued changing while being read" と表示されたファイル
 
@@ -91,15 +91,15 @@ frost はそれらのファイルをスキップし、残りを保存しまし�
 
 ## フォルダが "not found" になる
 
-リストにあるフォルダが見つからなかったため、frost は残りをバックアップしました。ドライブを接続し直すか、フォルダが移動した場合は `frost init` でリストを更新してください。
+リストにあるフォルダが見つからなかったため、Frost は残りをバックアップしました。ドライブを接続し直すか、フォルダが移動した場合は `frost init` でリストを更新してください。
 
 ## "config.toml changed, but updating the scheduled job failed"
 
-`config.toml` を編集したものの、frost がスケジュールジョブをそれに合わせて更新できませんでした。理由はメッセージの続きに書かれています。設定名が書かれていれば、`config.toml` でその設定を直してください。frost はうまくいくまで、コマンドを実行するたびに再試行します。
+`config.toml` を編集したものの、Frost がスケジュールジョブをそれに合わせて更新できませんでした。理由はメッセージの続きに書かれています。設定名が書かれていれば、`config.toml` でその設定を直してください。Frost はうまくいくまで、コマンドを実行するたびに再試行します。
 
 ## "config.toml changed where backups go"
 
-`config.toml` でバックアップの保存先を変えたところ、frost が新しい場所を最初に使ったときに問題が見つかりました。内容はメッセージの続きに書かれています。詳しくは[バックアップの移動](#moving-backups)を参照してください。
+`config.toml` でバックアップの保存先を変えたところ、Frost が新しい場所を最初に使ったときに問題が見つかりました。内容はメッセージの続きに書かれています。詳しくは[バックアップの移動](#moving-backups)を参照してください。
 
 ## "scheduled job is missing"
 
@@ -108,7 +108,7 @@ frost はそれらのファイルをスキップし、残りを保存しまし�
 ## スケジュールされたバックアップが実行されない
 
 - `frost status` の "next backup" の行を確認します。
-- macOS では、システム設定 > 一般 > ログイン項目と機能拡張 (System Settings > General > Login Items & Extensions) で frost のスイッチを確認します。Node.js Foundation という名前で表示されています。
+- macOS では、システム設定 > 一般 > ログイン項目と機能拡張 (System Settings > General > Login Items & Extensions) で Frost のスイッチを確認します。Node.js Foundation という名前で表示されています。
 - Windows では、スケジュールされたバックアップにはサインインが必要で、バッテリーで動いている間は実行されません。
 - `schedule.catch_up` が `false` のとき、予定の時刻にコンピュータの電源が切れていたりスリープしていたりすると、そのバックアップはとばされます。
 - ログを確認します。詳しくは[自動バックアップ](#scheduling)を参照してください。
@@ -123,35 +123,35 @@ frost はそれらのファイルをスキップし、残りを保存しまし�
 
 ## "cannot overwrite original files"
 
-スナップショットが別の種類のコンピュータのものか、元のファイルへのパスが frost の信頼しないリンクを経由しています。代わりに `--beside` か `--to <dir>` を使ってください。
+スナップショットが別の種類のコンピュータのものか、元のファイルへのパスが Frost の信頼しないリンクを経由しています。代わりに `--beside` か `--to <dir>` を使ってください。
 
 ## 復元時にファイルについて "changed after it was checked" または "has more than one link" と表示される
 
-frost は、確認済みのファイルが変更されたか、復元途中のファイルに別の名前へのハードリンクがあることを検出しました。復元先のフォルダを変更しているプログラムを閉じてから、もう一度試してください。復元途中のファイルにハードリンクがある場合は、代わりに新しい空のフォルダに復元してください。
+Frost は、確認済みのファイルが変更されたか、復元途中のファイルに別の名前へのハードリンクがあることを検出しました。復元先のフォルダを変更しているプログラムを閉じてから、もう一度試してください。復元途中のファイルにハードリンクがある場合は、代わりに新しい空のフォルダに復元してください。
 
 ## 指定したスナップショットが見つからない
 
-| frost の表示 | 試すこと |
+| Frost の表示 | 試すこと |
 | --- | --- |
 | no snapshot at or before ... | もっと後の日時を指定します。メッセージには最も古いスナップショットが表示されます |
 | "maple" matches 2 snapshots; provide additional ID characters | `maple-absurd` のように、ID をもっと長く入力します |
 | cannot parse "..." as a snapshot ID or timestamp | `"3 days ago"` のように、スペースを含む日時を引用符で囲みます |
 
-## frost が自分でアップデートできない
+## Frost が自分でアップデートできない
 
-frost のフォルダに書き込めないか、frost がソースからビルドされています。詳しくは[frost のアップデート](#updating)を参照してください。
+Frost のフォルダに書き込めないか、Frost がソースからビルドされています。詳しくは[Frost のアップデート](#updating)を参照してください。
 
 ## インストーラが止まる
 
 | インストーラの表示 | 対処 |
 | --- | --- |
-| need OpenSSH 8.1+ to verify the frost release signature | OpenSSH をインストールまたはアップデートします。Windows では PowerShell のインストーラを使ってください |
-| checksums.txt signature does not match official frost release key; installation aborted | インストールしないでください。時間をおいて再試行し、繰り返し起きる場合は[報告](#getting-help)してください |
+| need OpenSSH 8.1+ to verify the Frost release signature | OpenSSH をインストールまたはアップデートします。Windows では PowerShell のインストーラを使ってください |
+| checksums.txt signature does not match official Frost release key; installation aborted | インストールしないでください。時間をおいて再試行し、繰り返し起きる場合は[報告](#getting-help)してください |
 | runtime inside ... lacks valid OpenJS Foundation signature; installation aborted | インストールしないでください。時間をおいて再試行し、繰り返し起きる場合は[報告](#getting-help)してください |
 | checksum mismatch | ダウンロードしたファイルが壊れています。インストーラをもう一度実行します |
-| 32-bit ARM isn't supported by the bundled runtime | このコンピュータ向けの frost のパッケージはありません |
-| installing frost requires Node.js v22 or newer | Node.js をアップデートするか、npm や pnpm ではなくインストーラを使ってください |
+| 32-bit ARM isn't supported by the bundled runtime | このコンピュータ向けの Frost のパッケージはありません |
+| installing Frost requires Node.js v22 or newer | Node.js をアップデートするか、npm や pnpm ではなくインストーラを使ってください |
 
 ## インストール後に `frost` が見つからない
 
-新しいターミナルを開いてください。frost のインストール中に開いていたターミナルには、新しい `PATH` が反映されません。pnpm の場合は、`pnpm setup` を一度実行してから新しいターミナルを開きます。
+新しいターミナルを開いてください。Frost のインストール中に開いていたターミナルには、新しい `PATH` が反映されません。pnpm の場合は、`pnpm setup` を一度実行してから新しいターミナルを開きます。

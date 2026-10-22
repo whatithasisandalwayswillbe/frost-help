@@ -1,6 +1,6 @@
-# Instalar o frost
+# Instalar o Frost
 
-O frost se instala com um único comando no macOS, no Linux e no Windows. Cada versão traz o próprio ambiente de execução, então não é preciso instalar mais nada antes.
+O Frost se instala com um único comando no macOS, no Linux e no Windows. Cada versão traz o próprio ambiente de execução, então não é preciso instalar mais nada antes.
 
 ## Sistemas compatíveis
 
@@ -30,7 +30,7 @@ O instalador:
 
 1. Baixa a versão mais recente para o seu sistema.
 2. Confere a assinatura da versão e a soma de verificação do download, e para se alguma estiver errada.
-3. Instala o frost no seu perfil de usuário e coloca um inicializador `frost` em uma pasta do seu `PATH`.
+3. Instala o Frost no seu perfil de usuário e coloca um inicializador `frost` em uma pasta do seu `PATH`.
 
 No macOS e no Linux, ele precisa de `curl` ou `wget`, do `ssh-keygen` do OpenSSH 8.1 ou mais recente, e de `sha256sum` ou `shasum` para as verificações. No Windows, ele precisa do Windows PowerShell 5.1, que vem com o Windows 10 e 11, ou do PowerShell 7. Ele confere a assinatura com o runtime que vem na própria versão, depois que o Windows confirma que a OpenJS Foundation assinou esse runtime.
 
@@ -38,7 +38,7 @@ No macOS e no Linux, o inicializador vai para `/usr/local/bin` se você tiver pe
 
 O instalador com `curl` também funciona no Git Bash no Windows. Ali ele precisa do `cygpath`, que o Git Bash fornece, extrai com `unzip` ou PowerShell, e coloca o inicializador em `~/bin`.
 
-Quando terminar, execute `frost init` para configurar o seu primeiro backup. Veja [Configurar o frost](#setting-up).
+Quando terminar, execute `frost init` para configurar o seu primeiro backup. Veja [Configurar o Frost](#setting-up).
 
 ## Opções do instalador
 
@@ -59,11 +59,11 @@ No Windows, defina a variável antes, na mesma janela do PowerShell:
 $env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
-Mudar a pasta do inicializador não move o frost em si. [Arquivos e pastas](#files-and-folders) mostra onde fica cada coisa.
+Mudar a pasta do inicializador não move o Frost em si. [Arquivos e pastas](#files-and-folders) mostra onde fica cada coisa.
 
 ## Com npm ou pnpm
 
-Se você já tem o Node.js 22 ou mais recente, pode instalar o frost com o npm:
+Se você já tem o Node.js 22 ou mais recente, pode instalar o Frost com o npm:
 
 ```sh
 npm install -g getfrost
@@ -75,7 +75,7 @@ Ou com o pnpm:
 pnpm add -g getfrost
 ```
 
-O pacote se chama `getfrost`, e o comando que ele oferece é `frost`. Na primeira vez que você executa `frost`, ele baixa a versão para o seu sistema, confere a assinatura e a soma de verificação como o instalador faz, e a instala no seu perfil de usuário. Depois executa o seu comando. A partir daí, todo comando `frost` vai direto para o frost instalado, que se mantém atualizado sozinho.
+O pacote se chama `getfrost`, e o comando que ele oferece é `frost`. Na primeira vez que você executa `frost`, ele baixa a versão para o seu sistema, confere a assinatura e a soma de verificação como o instalador faz, e a instala no seu perfil de usuário. Depois executa o seu comando. A partir daí, todo comando `frost` vai direto para o Frost instalado, que se mantém atualizado sozinho.
 
 Com o pnpm, execute `pnpm setup` antes, se nunca tiver feito isso, para que os comandos globais do pnpm fiquem no seu `PATH`.
 

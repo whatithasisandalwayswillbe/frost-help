@@ -1,6 +1,6 @@
 # Comandos
 
-O frost tem oito comandos. O `frost -h` lista todos, com cada opção.
+O Frost tem oito comandos. O `frost -h` lista todos, com cada opção.
 
 ## Opções globais
 
@@ -10,11 +10,11 @@ Funcionam com qualquer comando:
 | --- | --- |
 | `--config-dir <dir>` | Usa outra pasta de configuração |
 | `-h`, `--help` | Mostra a ajuda, com todos os comandos e opções |
-| `-v`, `--version` | Mostra a versão do frost. Coloque antes de qualquer comando |
+| `-v`, `--version` | Mostra a versão do Frost. Coloque antes de qualquer comando |
 
 ## frost init
 
-Configura o frost: do que fazer backup, onde e com que frequência. Execute de novo para revisar ou mudar suas configurações. Veja [Configurar o frost](#setting-up).
+Configura o Frost: do que fazer backup, onde e com que frequência. Execute de novo para revisar ou mudar suas configurações. Veja [Configurar o Frost](#setting-up).
 
 ```sh
 frost init
@@ -98,7 +98,7 @@ frost key import
 
 ## frost update
 
-Atualiza o frost para a versão mais recente. Veja [Atualizar o frost](#updating).
+Atualiza o Frost para a versão mais recente. Veja [Atualizar o Frost](#updating).
 
 ```sh
 frost update [--check]
@@ -110,8 +110,8 @@ frost update [--check]
 
 ## Códigos de saída
 
-O frost termina com `0` quando um comando dá certo, e com `1` em qualquer erro. Isso inclui um backup ou um `frost status --verify` cuja verificação encontra um problema, então scripts podem testar o resultado:
+O Frost termina com `0` quando um comando dá certo, e com `1` em qualquer erro. Isso inclui um backup ou um `frost status --verify` cuja verificação encontra um problema, então scripts podem testar o resultado:
 
 ```sh
-frost status --verify || echo "frost check failed" >&2
+frost status --verify || echo "Frost check failed" >&2
 ```

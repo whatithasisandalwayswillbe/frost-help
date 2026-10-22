@@ -1,12 +1,12 @@
 # Sicherheit und Datenschutz
 
-frost verschlüsselt deine Backups auf deinem Computer, mit einem Schlüssel, den nur du hast, bevor irgendetwas gespeichert wird. Ohne den Schlüssel kann niemand sie lesen: kein Cloud-Anbieter, nicht der Betreiber von Permafrost, niemand sonst mit Zugriff auf deinen Server oder dein Laufwerk und nicht die Entwickler von frost.
+Frost verschlüsselt deine Backups auf deinem Computer, mit einem Schlüssel, den nur du hast, bevor irgendetwas gespeichert wird. Ohne den Schlüssel kann niemand sie lesen: kein Cloud-Anbieter, nicht der Betreiber von Permafrost, niemand sonst mit Zugriff auf deinen Server oder dein Laufwerk und nicht die Entwickler von Frost.
 
-frost hat keine Konten und sammelt nichts über dich oder darüber, wie du es nutzt. Es verbindet sich nur mit deinem Speicher und mit GitHub, um nach Updates zu suchen und sie herunterzuladen.
+Frost hat keine Konten und sammelt nichts über dich oder darüber, wie du es nutzt. Es verbindet sich nur mit deinem Speicher und mit GitHub, um nach Updates zu suchen und sie herunterzuladen.
 
 ## Was verschlüsselt wird
 
-frost verschlüsselt alles in deinen Backups: Dateiinhalte, Dateinamen, die Ordnerstruktur und die Angaben zu jedem Snapshot. Bei der Einrichtung sendet frost außerdem ein kleines Testobjekt im Klartext und löscht es danach. Es enthält keine Dateien, Dateinamen oder Verschlüsselungsschlüssel. frost sendet deinen Schlüssel nie an einen Server und hinterlegt auch keine Kopie davon.
+Frost verschlüsselt alles in deinen Backups: Dateiinhalte, Dateinamen, die Ordnerstruktur und die Angaben zu jedem Snapshot. Bei der Einrichtung sendet Frost außerdem ein kleines Testobjekt im Klartext und löscht es danach. Es enthält keine Dateien, Dateinamen oder Verschlüsselungsschlüssel. Frost sendet deinen Schlüssel nie an einen Server und hinterlegt auch keine Kopie davon.
 
 | Bestandteil | Wie |
 | --- | --- |
@@ -28,31 +28,31 @@ Wer deinen Speicher betreibt oder lesen kann, sieht Folgendes. Das ist ein Cloud
 
 Er kann nicht prüfen, ob du eine bestimmte bekannte Datei hast. Sowohl die Blocknamen als auch die Blockgrenzen hängen von deinem Schlüssel ab.
 
-## Wovor frost schützt
+## Wovor Frost schützt
 
 - Davor, dass jemand, der deinen Speicher betreibt oder erreicht, deine Dateien liest, auch mit einer Kopie deines Buckets, des Ordners auf deinem Server oder deines Laufwerks.
 - Vor jemandem im Netzwerk zwischen dir und deinem Speicher. Verbindungen nutzen TLS oder SSH, außer du wählst einen S3-Endpunkt mit `http://` oder aktivierst `storage.s3.insecure` für einen Endpunkt ohne Protokollangabe. Permafrost erlaubt `http://` nur auf deinem eigenen Computer. Nutze unverschlüsseltes HTTP nur für lokale Tests. Jedes Backup-Objekt ist in beiden Fällen authentifiziert.
 - Vor jemandem, der sich als dein eigener Server ausgibt. SSH prüft den Host-Schlüssel des Servers und lehnt einen geänderten ab. Siehe [Eigener Server](#self-hosted).
-- Vor Manipulation. Ein verändertes, vertauschtes oder abgeschnittenes Objekt lässt sich nicht entschlüsseln, und frost akzeptiert es nie stillschweigend.
+- Vor Manipulation. Ein verändertes, vertauschtes oder abgeschnittenes Objekt lässt sich nicht entschlüsseln, und Frost akzeptiert es nie stillschweigend.
 - Davor, dass eine Wiederherstellung außerhalb des gewählten Ordners schreibt.
-- Vor manipulierten frost-Downloads. Jede Version ist signiert, und die Installationsprogramme, das npm-Paket `getfrost` und `frost update` prüfen die Signatur, bevor sie etwas installieren.
+- Vor manipulierten Frost-Downloads. Jede Version ist signiert, und die Installationsprogramme, das npm-Paket `getfrost` und `frost update` prüfen die Signatur, bevor sie etwas installieren.
 
 ## Wovor es nicht schützen kann
 
-- **Vor jemandem mit Zugriff auf deinen Computer.** Die Schlüsseldatei liegt auf deinem Computer, damit geplante Backups laufen können, ebenso der SSH-Schlüssel von frost für einen eigenen Server. Wer die Schlüsseldatei lesen oder Programme unter deinem Namen ausführen kann, kann deine Backups lesen. Nutze eine vollständige Festplattenverschlüsselung und eine Bildschirmsperre.
-- **Vor Datenverlust im Speicher.** Wer deinen Speicher kontrolliert, könnte deine Objekte löschen oder zurückhalten, und ein Laufwerk kann kaputtgehen oder verloren gehen. Stichprobenprüfungen können das bemerken, aber frost kann es nicht verhindern. Halte von allem, was du auf keinen Fall verlieren darfst, eine zweite, unabhängige Kopie vor, und zwar nicht auf dem Laufwerk neben deinem Computer.
+- **Vor jemandem mit Zugriff auf deinen Computer.** Die Schlüsseldatei liegt auf deinem Computer, damit geplante Backups laufen können, ebenso der SSH-Schlüssel von Frost für einen eigenen Server. Wer die Schlüsseldatei lesen oder Programme unter deinem Namen ausführen kann, kann deine Backups lesen. Nutze eine vollständige Festplattenverschlüsselung und eine Bildschirmsperre.
+- **Vor Datenverlust im Speicher.** Wer deinen Speicher kontrolliert, könnte deine Objekte löschen oder zurückhalten, und ein Laufwerk kann kaputtgehen oder verloren gehen. Stichprobenprüfungen können das bemerken, aber Frost kann es nicht verhindern. Halte von allem, was du auf keinen Fall verlieren darfst, eine zweite, unabhängige Kopie vor, und zwar nicht auf dem Laufwerk neben deinem Computer.
 - **Vor versteckten Snapshots.** Der Speicher könnte deine neuesten Snapshots verstecken und nur ältere ausliefern. Ein Computer, der die neueren schon gesehen hat, meldet sie als fehlend, ein neuer Computer kann es aber nicht erkennen. Jeder ausgelieferte Snapshot ist trotzdem echt.
 - **Vor Rückschlüssen aus Zeitpunkten und Größen.** Wann du sicherst und wie viel, ist sichtbar, wie oben beschrieben.
 
 ## Dateien auf deinem Computer
 
-Unter macOS und Linux legt frost seine privaten Dateien mit Berechtigungen nur für deinen Benutzer an. Vorhandene Berechtigungen und vom Zeitplaner angelegte Protokolle können davon abweichen. Unter Windows übernehmen die Dateien die Berechtigungen deines Benutzerprofils, außer dem SSH-Schlüssel von frost, dessen Ordner nur dein Konto öffnen kann. Bewahre Konfiguration und Cache in Ordnern auf, die andere Benutzer nicht lesen können.
+Unter macOS und Linux legt Frost seine privaten Dateien mit Berechtigungen nur für deinen Benutzer an. Vorhandene Berechtigungen und vom Zeitplaner angelegte Protokolle können davon abweichen. Unter Windows übernehmen die Dateien die Berechtigungen deines Benutzerprofils, außer dem SSH-Schlüssel von Frost, dessen Ordner nur dein Konto öffnen kann. Bewahre Konfiguration und Cache in Ordnern auf, die andere Benutzer nicht lesen können.
 
 | Datei | Inhalt |
 | --- | --- |
 | `key` | Deine Wiederherstellungsphrase, im Klartext |
 | `config.toml` | Deine Einstellungen und die Zugangsdaten für deinen Speicher |
-| `ssh/frost_ed25519` | Der SSH-Schlüssel von frost für einen eigenen Server |
+| `ssh/frost_ed25519` | Der SSH-Schlüssel von Frost für einen eigenen Server |
 | `manifest-*.jsonl` | Block-IDs, Dateipfade, Größen und Änderungszeiten. Sie verlässt deinen Computer nie |
 | `frost.log` | Die Ausgabe geplanter Backups, einschließlich Pfaden, die sich nicht lesen ließen |
 
@@ -62,9 +62,9 @@ Unter macOS und Linux legt frost seine privaten Dateien mit Berechtigungen nur f
 
 - Bewahre deine Wiederherstellungsphrase offline auf, auf Papier oder in einem Passwortmanager, dem du vertraust.
 - Führ ab und zu `frost key verify` aus, um sicherzugehen, dass die aufgeschriebene Phrase stimmt.
-- Gib frost Zugangsdaten, die nur seinen eigenen Bucket erreichen, oder ein Serverkonto, das sonst nichts ändern kann, was dir wichtig ist.
+- Gib Frost Zugangsdaten, die nur seinen eigenen Bucket erreichen, oder ein Serverkonto, das sonst nichts ändern kann, was dir wichtig ist.
 - Wirf ab und zu einen Blick auf `frost status` und geh jedem Problem mit dem Zustand sofort nach.
 
 ## Ein Sicherheitsproblem melden
 
-Bitte eröffne kein öffentliches Issue. Melde es vertraulich über den [Security-Tab](https://github.com/whatithasisandalwayswillbe/frost/security) des GitHub-Repositorys von frost, mit **Report a vulnerability**. Beschreib, was du gefunden hast, wie es sich nachstellen lässt und was ein Angreifer damit erreichen könnte. Du bekommst innerhalb einer Woche eine Antwort.
+Bitte eröffne kein öffentliches Issue. Melde es vertraulich über den [Security-Tab](https://github.com/whatithasisandalwayswillbe/frost/security) des GitHub-Repositorys von Frost, mit **Report a vulnerability**. Beschreib, was du gefunden hast, wie es sich nachstellen lässt und was ein Angreifer damit erreichen könnte. Du bekommst innerhalb einer Woche eine Antwort.

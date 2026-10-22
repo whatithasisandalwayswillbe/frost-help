@@ -1,6 +1,6 @@
 # Vérifier vos sauvegardes
 
-frost vérifie vos sauvegardes au fil de l'eau, et `frost status` vous montre où elles en sont.
+Frost vérifie vos sauvegardes au fil de l'eau, et `frost status` vous montre où elles en sont.
 
 ## frost status
 
@@ -9,7 +9,7 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
+┌  Frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
@@ -27,7 +27,7 @@ frost status
 └
 ```
 
-La première ligne indique la version de frost, votre stockage et l'empreinte de votre clé. Les lignes suivantes indiquent :
+La première ligne indique la version de Frost, votre stockage et l'empreinte de votre clé. Les lignes suivantes indiquent :
 
 | Ligne | Contenu |
 | --- | --- |
@@ -47,7 +47,7 @@ frost status --all
 
 ## La vérification par échantillonnage
 
-Après chaque sauvegarde qui enregistre un instantané, frost télécharge un échantillon aléatoire de blocs, les déchiffre un par un et vérifie que chacun correspond à son identifiant. Il charge aussi la liste de fichiers de l'instantané le plus récent et vérifie qu'il connaît chaque bloc dont elle a besoin. Après une sauvegarde sans nouveauté, frost ne refait la vérification que si la dernière date de plus d'un jour ou a trouvé un problème.
+Après chaque sauvegarde qui enregistre un instantané, Frost télécharge un échantillon aléatoire de blocs, les déchiffre un par un et vérifie que chacun correspond à son identifiant. Il charge aussi la liste de fichiers de l'instantané le plus récent et vérifie qu'il connaît chaque bloc dont elle a besoin. Après une sauvegarde sans nouveauté, Frost ne refait la vérification que si la dernière date de plus d'un jour ou a trouvé un problème.
 
 L'échantillon compte 20 blocs par défaut. Un échantillon plus grand repère plus de problèmes, mais télécharge davantage :
 
@@ -63,7 +63,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-Cette commande lance une nouvelle vérification et compare en plus la liste locale des blocs de frost avec tout ce que contient votre stockage. Elle vérifie 20 blocs même si `verify.sample` vaut `0`. Elle se termine avec `1` si la vérification échoue : vous pouvez donc la lancer depuis votre propre planificateur pour vérifier à un autre rythme que vos sauvegardes.
+Cette commande lance une nouvelle vérification et compare en plus la liste locale des blocs de Frost avec tout ce que contient votre stockage. Elle vérifie 20 blocs même si `verify.sample` vaut `0`. Elle se termine avec `1` si la vérification échoue : vous pouvez donc la lancer depuis votre propre planificateur pour vérifier à un autre rythme que vos sauvegardes.
 
 ## Si une vérification échoue
 
@@ -76,6 +76,6 @@ Les données qui ne sont plus sur votre ordinateur ne peuvent pas être renvoyé
 
 ## Instantanés manquants
 
-Si des instantanés connus de cet ordinateur disparaissent du stockage, `frost status` le signale une fois. Si vous avez déplacé vos sauvegardes, indiquez à frost leur nouvel emplacement. Voir [Déplacer vos sauvegardes](#moving-backups). Sinon, c'est qu'ils ont été supprimés de votre stockage.
+Si des instantanés connus de cet ordinateur disparaissent du stockage, `frost status` le signale une fois. Si vous avez déplacé vos sauvegardes, indiquez à Frost leur nouvel emplacement. Voir [Déplacer vos sauvegardes](#moving-backups). Sinon, c'est qu'ils ont été supprimés de votre stockage.
 
 > Une vérification par échantillonnage ne contrôle qu'une partie de vos sauvegardes. Elle repère les problèmes tôt, mais ne prouve pas que chaque instantané se restaurera. Pour les fichiers que vous ne pouvez pas vous permettre de perdre, gardez aussi une seconde sauvegarde indépendante.

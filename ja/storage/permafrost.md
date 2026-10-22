@@ -1,6 +1,6 @@
 # Permafrost
 
-Permafrost は、frost のために作られたホスト型ストレージです。接続に必要なのはアクセスキー 1 つだけで、バケット、リージョン、エンドポイントを設定する必要はありません。
+Permafrost は、Frost のために作られたホスト型ストレージです。接続に必要なのはアクセスキー 1 つだけで、バケット、リージョン、エンドポイントを設定する必要はありません。
 
 ほかのストレージと同じように、バックアップはアップロード前にコンピュータ上で暗号化されます。Permafrost が中身を読むことはできません。
 
@@ -9,7 +9,7 @@ Permafrost アカウントは [getfro.st/perma/portal](https://getfro.st/perma/p
 ## キーを取得する
 
 1. `frost init` を実行し、**Permafrost** を選びます。
-2. **I don't have a key yet** (まだキーを持っていない) を選びます。frost がブラウザで [getfro.st/perma](https://getfro.st/perma) を開きます。開かない場合は、自分で開いてください。
+2. **I don't have a key yet** (まだキーを持っていない) を選びます。Frost がブラウザで [getfro.st/perma](https://getfro.st/perma) を開きます。開かない場合は、自分で開いてください。
 3. そこでキーを取得してコピーします。
 4. セットアップに貼り付けます。
 
@@ -45,11 +45,11 @@ Permafrost のエラーには理由が書かれています。バックアップ
 
 ## 互換サーバー
 
-frost は、既定のサーバーの代わりに、[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) に対応した任意のサーバーを使えます。これは、そうしたサーバーをすでに運用している人向けです。自分のコンピュータにバックアップするなら、[セルフホスト](#self-hosted)のストレージは SSH だけで使えます。
+Frost は、既定のサーバーの代わりに、[Permafrost API](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md) に対応した任意のサーバーを使えます。これは、そうしたサーバーをすでに運用している人向けです。自分のコンピュータにバックアップするなら、[セルフホスト](#self-hosted)のストレージは SSH だけで使えます。
 
-互換サーバーは、空のアップロードを拒否することも含め、API のオブジェクトとエラーの規則に従う必要があります。サーバーが混み合っている場合、frost は自動的に再試行します。
+互換サーバーは、空のアップロードを拒否することも含め、API のオブジェクトとエラーの規則に従う必要があります。サーバーが混み合っている場合、Frost は自動的に再試行します。
 
-最初のセットアップの前に、frost の設定フォルダに `config.toml` を作り、次の設定を入れてください。場所は[ファイルとフォルダ](#files-and-folders)に載っています。アドレスを自分のサーバーのものに置き換えます。
+最初のセットアップの前に、Frost の設定フォルダに `config.toml` を作り、次の設定を入れてください。場所は[ファイルとフォルダ](#files-and-folders)に載っています。アドレスを自分のサーバーのものに置き換えます。
 
 ```toml
 [storage]
@@ -61,6 +61,6 @@ url = "https://<your-server>"
 
 次に `frost init` を実行し、Permafrost を選び、アクセスキーを貼り付け、フォルダを選んで保存します。サーバーが空なら、セットアップがリポジトリを作成します。
 
-すでに frost を設定済みの場合は、`frost config edit` で既存のファイルを開き、バックエンドとサーバーのアドレスを一緒に変更します。新しいサーバーが空なら警告を確認し、`yes` と入力して保存したあと、`frost init` をもう一度実行してください。`frost config set` は空の保存先を拒否するので、新しいサーバーの準備には使えません。
+すでに Frost を設定済みの場合は、`frost config edit` で既存のファイルを開き、バックエンドとサーバーのアドレスを一緒に変更します。新しいサーバーが空なら警告を確認し、`yes` と入力して保存したあと、`frost init` をもう一度実行してください。`frost config set` は空の保存先を拒否するので、新しいサーバーの準備には使えません。
 
 アドレスには `https://` を使う必要があります。例外は、`http://localhost:8080` のように自分のコンピュータで動かすサーバーだけです。この設定を空にすると、既定の Permafrost サーバー `https://permafrost.wihiaawb.com` を使います。

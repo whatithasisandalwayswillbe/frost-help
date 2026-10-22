@@ -1,6 +1,6 @@
 # 命令
 
-frost 有八个命令。`frost -h` 会列出所有命令以及每个参数。
+Frost 有八个命令。`frost -h` 会列出所有命令以及每个参数。
 
 ## 全局参数
 
@@ -10,11 +10,11 @@ frost 有八个命令。`frost -h` 会列出所有命令以及每个参数。
 | --- | --- |
 | `--config-dir <dir>` | 使用另一个配置文件夹 |
 | `-h`, `--help` | 显示帮助，包括所有命令和参数 |
-| `-v`, `--version` | 显示 frost 的版本。请放在任何命令之前 |
+| `-v`, `--version` | 显示 Frost 的版本。请放在任何命令之前 |
 
 ## frost init
 
-设置 frost：备份什么、存到哪里、多久备份一次。再次运行可以查看或修改设置。参见[设置 frost](#setting-up)。
+设置 Frost：备份什么、存到哪里、多久备份一次。再次运行可以查看或修改设置。参见[设置 Frost](#setting-up)。
 
 ```sh
 frost init
@@ -98,7 +98,7 @@ frost key import
 
 ## frost update
 
-把 frost 更新到最新的发布版本。参见[更新 frost](#updating)。
+把 Frost 更新到最新的发布版本。参见[更新 Frost](#updating)。
 
 ```sh
 frost update [--check]
@@ -110,8 +110,8 @@ frost update [--check]
 
 ## 退出码
 
-命令成功时，frost 以 `0` 退出；出现任何错误时，以 `1` 退出。备份或 `frost status --verify` 的检查发现问题时，也算作错误，所以脚本可以据此判断结果：
+命令成功时，Frost 以 `0` 退出；出现任何错误时，以 `1` 退出。备份或 `frost status --verify` 的检查发现问题时，也算作错误，所以脚本可以据此判断结果：
 
 ```sh
-frost status --verify || echo "frost check failed" >&2
+frost status --verify || echo "Frost check failed" >&2
 ```

@@ -11,7 +11,7 @@ Se você ainda tiver o computador antigo, o `frost key show` mostra a frase.
 
 ## Passos
 
-1. [Instale o frost](#installing) no computador novo.
+1. [Instale o Frost](#installing) no computador novo.
 2. Execute `frost init` e escolha o mesmo armazenamento, com os mesmos dados de antes.
 3. A configuração encontra seus backups e pede a frase de recuperação deles. Digite as 24 palavras.
 4. Escolha as pastas para fazer backup neste computador, a lista de exclusões e o agendamento, e depois revise e salve.

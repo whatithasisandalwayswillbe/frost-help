@@ -16,7 +16,7 @@ El asistente crea la última carpeta de la ruta si falta. La carpeta que la cont
 
 ## Cuando el disco no está conectado
 
-frost solo crea la carpeta durante el asistente. Si el disco no está conectado cuando se hace una copia, falta la carpeta, y la copia falla con un mensaje que te pide conectar el disco. Nunca escribe tus copias en lo que haya en esa ruta. Una copia programada espera antes unos 5 minutos al disco, por si se está montando todavía.
+Frost solo crea la carpeta durante el asistente. Si el disco no está conectado cuando se hace una copia, falta la carpeta, y la copia falla con un mensaje que te pide conectar el disco. Nunca escribe tus copias en lo que haya en esa ruta. Una copia programada espera antes unos 5 minutos al disco, por si se está montando todavía.
 
 En Windows, un disco puede recibir otra letra al volver a conectarlo. Devuélvele su letra anterior en Administración de discos, o ejecuta `frost init` y escribe la ruta nueva.
 
@@ -30,7 +30,7 @@ Para un NAS, [Servidor propio](#self-hosted) suele ser la mejor opción. Una car
 
 ## Conviene saber
 
-- frost no sigue enlaces ni uniones dentro de la carpeta. En Windows, también rechaza una carpeta a la que se llega a través de uno. Usa la ruta real de la carpeta.
+- Frost no sigue enlaces ni uniones dentro de la carpeta. En Windows, también rechaza una carpeta a la que se llega a través de uno. Usa la ruta real de la carpeta.
 - En macOS, las copias programadas necesitan permiso para usar discos extraíbles y volúmenes de red. Consulta [Permisos de macOS](#macos-permissions).
 - `frost status` muestra lo lleno que está el disco, y `frost backup` avisa cuando está casi lleno.
 - Funcionan los discos con NTFS, APFS, ext4, Btrfs o XFS. Los discos con exFAT y FAT funcionan si superan la comprobación del asistente.

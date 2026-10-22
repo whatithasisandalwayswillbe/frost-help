@@ -1,8 +1,8 @@
-# Actualizar frost
+# Actualizar Frost
 
-frost se actualiza solo, también si lo instalaste con npm o pnpm. De forma predeterminada, instala las versiones nuevas después de las copias programadas.
+Frost se actualiza solo, también si lo instalaste con npm o pnpm. De forma predeterminada, instala las versiones nuevas después de las copias programadas.
 
-No hace falta que actualices tú el paquete `getfrost`. Uno más antiguo nunca reemplaza a un frost más nuevo.
+No hace falta que actualices tú el paquete `getfrost`. Uno más antiguo nunca reemplaza a un Frost más nuevo.
 
 ## Actualizar ahora
 
@@ -10,7 +10,7 @@ No hace falta que actualices tú el paquete `getfrost`. Uno más antiguo nunca r
 frost update
 ```
 
-frost busca la última versión, comprueba su firma y su suma de comprobación, y se asegura de que la versión nueva arranca antes de cambiar a ella. Tus ajustes, tu clave y tus copias no se tocan.
+Frost busca la última versión, comprueba su firma y su suma de comprobación, y se asegura de que la versión nueva arranca antes de cambiar a ella. Tus ajustes, tu clave y tus copias no se tocan.
 
 Para comprobar solo si hay una versión más reciente:
 
@@ -22,7 +22,7 @@ frost update --check
 
 ## Actualizaciones automáticas
 
-Después de una copia programada, frost busca una versión nueva como mucho una vez cada 20 horas y la instala igual que `frost update`. Si la búsqueda o la instalación fallan, la copia no falla por ello.
+Después de una copia programada, Frost busca una versión nueva como mucho una vez cada 20 horas y la instala igual que `frost update`. Si la búsqueda o la instalación fallan, la copia no falla por ello.
 
 `frost status` muestra cómo están configuradas las actualizaciones y si la última funcionó. La pantalla de ajustes del explorador de instantáneas también lo muestra.
 
@@ -34,13 +34,13 @@ frost config set update.auto false
 
 Desde ese momento, `frost status` te avisa cuando sale una versión, y no se instala nada hasta que ejecutes `frost update`.
 
-> Las actualizaciones automáticas solo se ejecutan después de las copias programadas. Con las copias automáticas desactivadas, frost no busca actualizaciones en segundo plano.
+> Las actualizaciones automáticas solo se ejecutan después de las copias programadas. Con las copias automáticas desactivadas, Frost no busca actualizaciones en segundo plano.
 
-## Cuándo frost no puede actualizarse
+## Cuándo Frost no puede actualizarse
 
 | Cuándo | Qué hacer en su lugar |
 | --- | --- |
-| No puedes escribir en la carpeta de la aplicación de frost | Reinstálalo con el instalador, con tu propio usuario |
-| frost se compiló desde el código fuente | Vuelve a compilarlo, o instala una versión con el instalador |
+| No puedes escribir en la carpeta de la aplicación de Frost | Reinstálalo con el instalador, con tu propio usuario |
+| Frost se compiló desde el código fuente | Vuelve a compilarlo, o instala una versión con el instalador |
 
 Si una actualización se queda a medias, vuelve a ejecutar el instalador. Repara la instalación.

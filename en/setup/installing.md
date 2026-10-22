@@ -1,6 +1,6 @@
-# Installing frost
+# Installing Frost
 
-frost installs with one command on macOS, Linux and Windows. Each release includes its own runtime, so there's nothing else to install first.
+Frost installs with one command on macOS, Linux and Windows. Each release includes its own runtime, so there's nothing else to install first.
 
 ## Supported systems
 
@@ -30,7 +30,7 @@ The installer:
 
 1. Downloads the latest release for your system.
 2. Checks the release's signature and the download's checksum, and stops if either is wrong.
-3. Installs frost in your user profile, and puts a `frost` launcher in a folder on your `PATH`.
+3. Installs Frost in your user profile, and puts a `frost` launcher in a folder on your `PATH`.
 
 On macOS and Linux, it needs `curl` or `wget`, `ssh-keygen` from OpenSSH 8.1 or newer, and `sha256sum` or `shasum` for verification. On Windows, it needs Windows PowerShell 5.1, which comes with Windows 10 and 11, or PowerShell 7. It checks the signature with the runtime inside the release, once Windows confirms the OpenJS Foundation signed that runtime.
 
@@ -38,7 +38,7 @@ On macOS and Linux, the launcher goes in `/usr/local/bin` if you can write to it
 
 The `curl` installer also works in Git Bash on Windows. There it needs `cygpath`, which Git Bash provides, extracts with `unzip` or PowerShell, and puts the launcher in `~/bin`.
 
-When it's done, run `frost init` to set up your first backup. See [Setting up frost](#setting-up).
+When it's done, run `frost init` to set up your first backup. See [Setting up Frost](#setting-up).
 
 ## Installer options
 
@@ -59,11 +59,11 @@ On Windows, set the variable first, in the same PowerShell window:
 $env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
-Changing the launcher folder doesn't move frost itself. [Files and folders](#files-and-folders) lists where everything goes.
+Changing the launcher folder doesn't move Frost itself. [Files and folders](#files-and-folders) lists where everything goes.
 
 ## With npm or pnpm
 
-If you already have Node.js 22 or newer, you can install frost with npm:
+If you already have Node.js 22 or newer, you can install Frost with npm:
 
 ```sh
 npm install -g getfrost
@@ -75,7 +75,7 @@ Or with pnpm:
 pnpm add -g getfrost
 ```
 
-The package is called `getfrost`, and the command it gives you is `frost`. The first time you run `frost`, it downloads the release for your system, checks its signature and checksum like the installer does, and installs it in your user profile. Then it runs your command. After that, every `frost` command goes straight to the installed frost, which keeps itself up to date.
+The package is called `getfrost`, and the command it gives you is `frost`. The first time you run `frost`, it downloads the release for your system, checks its signature and checksum like the installer does, and installs it in your user profile. Then it runs your command. After that, every `frost` command goes straight to the installed Frost, which keeps itself up to date.
 
 With pnpm, run `pnpm setup` first if you haven't before, so pnpm's global commands are on your `PATH`.
 

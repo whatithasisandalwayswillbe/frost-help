@@ -6,9 +6,9 @@ O Permafrost não tem uma pasta para mover, então seus backups não podem entra
 
 | Você quer | Faça isto |
 | --- | --- |
-| Mover seus backups para outra pasta, disco, servidor ou bucket | Mova a pasta inteira do repositório e aponte o frost para o novo local. Nada é enviado de novo |
-| Começar um conjunto separado de backups em outro lugar | Execute `frost init` e escolha o novo local vazio. Os backups antigos ficam onde estão, mas o frost só mostra os novos |
-| Voltar a usar os backups de um local anterior | Aponte o frost de novo para o local antigo |
+| Mover seus backups para outra pasta, disco, servidor ou bucket | Mova a pasta inteira do repositório e aponte o Frost para o novo local. Nada é enviado de novo |
+| Começar um conjunto separado de backups em outro lugar | Execute `frost init` e escolha o novo local vazio. Os backups antigos ficam onde estão, mas o Frost só mostra os novos |
+| Voltar a usar os backups de um local anterior | Aponte o Frost de novo para o local antigo |
 
 ## Mover o repositório
 
@@ -20,7 +20,7 @@ Um servidor próprio, um disco local e um armazenamento S3 guardam os mesmos arq
 rsync -a /Volumes/Backup/frost/ me@nas.local:frost/
 ```
 
-Depois, diga ao frost onde eles estão. Para outra pasta em um disco ou servidor:
+Depois, diga ao Frost onde eles estão. Para outra pasta em um disco ou servidor:
 
 ```sh
 frost config set storage.local.path /Volumes/Backup2/frost
@@ -43,11 +43,11 @@ Para ir para outro tipo de armazenamento ou outro provedor, o que exige mudar v�
 
 ## Verificações antes de salvar
 
-O `frost config set` confere um novo local de armazenamento antes de salvá-lo. Ele recusa um local sem repositório do frost ou com um repositório criado com outra chave. Se o local antigo tem snapshots do mesmo repositório, mas o novo não, ele também recusa essa mudança. O `frost config edit` mostra esses mesmos problemas como avisos, então ainda consegue salvar uma mudança que o `set` recusa. Se você mudar o local editando o `config.toml` por conta própria, o frost mostra esses avisos na primeira vez que o usar.
+O `frost config set` confere um novo local de armazenamento antes de salvá-lo. Ele recusa um local sem repositório do Frost ou com um repositório criado com outra chave. Se o local antigo tem snapshots do mesmo repositório, mas o novo não, ele também recusa essa mudança. O `frost config edit` mostra esses mesmos problemas como avisos, então ainda consegue salvar uma mudança que o `set` recusa. Se você mudar o local editando o `config.toml` por conta própria, o Frost mostra esses avisos na primeira vez que o usar.
 
-## Se o frost não encontrar seus backups
+## Se o Frost não encontrar seus backups
 
-Quando seus backups não estão onde o frost espera, o erro e o `frost status` dizem onde eles foram abertos pela última vez e dão três saídas:
+Quando seus backups não estão onde o Frost espera, o erro e o `frost status` dizem onde eles foram abertos pela última vez e dão três saídas:
 
 ```text
 Your backups were last opened in s3://old-bucket/frost/.

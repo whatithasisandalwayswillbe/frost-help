@@ -1,6 +1,6 @@
 # Permafrost
 
-Permafrost es un almacenamiento alojado hecho para frost. Para conectarte basta con una clave de acceso, sin bucket, región ni endpoint que configurar.
+Permafrost es un almacenamiento alojado hecho para Frost. Para conectarte basta con una clave de acceso, sin bucket, región ni endpoint que configurar.
 
 Tus copias se cifran en tu equipo antes de subirse, igual que con cualquier otro almacenamiento. Permafrost no puede leerlas.
 
@@ -9,7 +9,7 @@ Gestiona tu cuenta de Permafrost en [getfro.st/perma/portal](https://getfro.st/p
 ## Conseguir una clave
 
 1. Ejecuta `frost init` y elige **Permafrost**.
-2. Elige **I don't have a key yet** (todavía no tengo clave). frost abre [getfro.st/perma](https://getfro.st/perma) en tu navegador. Si no se abre, entra tú.
+2. Elige **I don't have a key yet** (todavía no tengo clave). Frost abre [getfro.st/perma](https://getfro.st/perma) en tu navegador. Si no se abre, entra tú.
 3. Consigue ahí tu clave y cópiala.
 4. Pégala en el asistente.
 
@@ -45,11 +45,11 @@ Durante la configuración, los dos primeros aparecen como "Permafrost didn't acc
 
 ## Un servidor compatible
 
-En lugar del servidor predeterminado, frost puede usar cualquier servidor que hable la [API de Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Es para quienes ya tienen un servidor así. Para hacer copias en un equipo tuyo, [Servidor propio](#self-hosted) solo necesita SSH.
+En lugar del servidor predeterminado, Frost puede usar cualquier servidor que hable la [API de Permafrost](https://github.com/whatithasisandalwayswillbe/frost/blob/main/docs/PERMAFROST.md). Es para quienes ya tienen un servidor así. Para hacer copias en un equipo tuyo, [Servidor propio](#self-hosted) solo necesita SSH.
 
-Un servidor compatible debe seguir las reglas de la API sobre objetos y errores, incluido el rechazo de subidas vacías. frost lo intenta de nuevo automáticamente cuando un servidor está ocupado.
+Un servidor compatible debe seguir las reglas de la API sobre objetos y errores, incluido el rechazo de subidas vacías. Frost lo intenta de nuevo automáticamente cuando un servidor está ocupado.
 
-Antes de ejecutar el asistente por primera vez, crea `config.toml` en la carpeta de configuración de frost, indicada en [Archivos y carpetas](#files-and-folders), con estos ajustes. Sustituye la dirección por la de tu servidor:
+Antes de ejecutar el asistente por primera vez, crea `config.toml` en la carpeta de configuración de Frost, indicada en [Archivos y carpetas](#files-and-folders), con estos ajustes. Sustituye la dirección por la de tu servidor:
 
 ```toml
 [storage]
@@ -61,6 +61,6 @@ url = "https://<your-server>"
 
 Después ejecuta `frost init`, elige Permafrost, pega tu clave de acceso, elige tus carpetas y guarda. El asistente crea el repositorio si el servidor está vacío.
 
-Si frost ya está configurado, usa `frost config edit` para cambiar a la vez el backend y la dirección del servidor en el archivo existente. Acepta el aviso si el nuevo servidor está vacío, escribe `yes` para guardar y vuelve a ejecutar `frost init`. `frost config set` rechaza un destino vacío, así que no puede preparar un servidor nuevo.
+Si Frost ya está configurado, usa `frost config edit` para cambiar a la vez el backend y la dirección del servidor en el archivo existente. Acepta el aviso si el nuevo servidor está vacío, escribe `yes` para guardar y vuelve a ejecutar `frost init`. `frost config set` rechaza un destino vacío, así que no puede preparar un servidor nuevo.
 
 La dirección tiene que usar `https://`, salvo para un servidor en tu propio equipo, como `http://localhost:8080`. Deja el ajuste vacío para usar el servidor de Permafrost predeterminado, `https://permafrost.wihiaawb.com`.

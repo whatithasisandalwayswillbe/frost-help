@@ -1,4 +1,4 @@
-# frost einrichten
+# Frost einrichten
 
 `frost init` führt dich Frage für Frage durch die Einrichtung. Starte es jederzeit erneut, wenn du deine Einstellungen ansehen oder ändern willst.
 
@@ -10,20 +10,20 @@ In einem Terminal öffnet `frost init` eine Einrichtung im Vollbild. Sie braucht
 
 Wähle, wo deine Backups liegen sollen:
 
-- **Permafrost**, die empfohlene Option. Du brauchst nur einen Zugriffsschlüssel und sonst nichts, und wenn du noch keinen hast, öffnet frost getfro.st/perma, damit du dir einen holen kannst. Siehe [Permafrost](#permafrost).
+- **Permafrost**, die empfohlene Option. Du brauchst nur einen Zugriffsschlüssel und sonst nichts, und wenn du noch keinen hast, öffnet Frost getfro.st/perma, damit du dir einen holen kannst. Siehe [Permafrost](#permafrost).
 - **S3-compatible** (S3-kompatibel), das eine zweite Liste öffnet: **Amazon S3**, **Backblaze B2**, **Cloudflare R2**, **Wasabi** oder **Other S3-compatible** (anderer S3-kompatibler Dienst) für Ceph, SeaweedFS und andere Dienste, die das S3-Protokoll sprechen. Die Einrichtung fragt nur, was dieser Dienst braucht, und sagt dir, wo du jede Antwort findest. Siehe [Cloud-Anbieter](#cloud-providers) und [Anderer S3-kompatibler Speicher](#other-s3).
-- **Self-hosted** (eigener Server), für einen Ordner auf deinem eigenen Server über SSH. Die Einrichtung fragt nach der Adresse des Servers und dem Ordner und hilft dir, den SSH-Schlüssel von frost auf den Server zu bringen. Siehe [Eigener Server](#self-hosted).
+- **Self-hosted** (eigener Server), für einen Ordner auf deinem eigenen Server über SSH. Die Einrichtung fragt nach der Adresse des Servers und dem Ordner und hilft dir, den SSH-Schlüssel von Frost auf den Server zu bringen. Siehe [Eigener Server](#self-hosted).
 - **Local drive** (lokales Laufwerk), für einen Ordner auf einem internen oder externen Laufwerk. Die Einrichtung fragt nach dem vollständigen Pfad des Ordners. Siehe [Lokales Laufwerk](#local-drive).
 
 Wenn du einen geheimen Schlüssel einfügst, blendet `[tab]` ihn ein oder aus.
 
-Sobald du alles beantwortet hast, verbindet sich frost und prüft, ob es ein kleines Testobjekt schreiben, lesen, auflisten und löschen kann und ob der Speicher bedingte Schreibvorgänge unterstützt. Geht etwas schief, erklärt die Einrichtung das in einfachen Worten und bringt dich zu der Antwort zurück, die es am wahrscheinlichsten verursacht hat. Alles andere, was du eingegeben hast, bleibt erhalten.
+Sobald du alles beantwortet hast, verbindet sich Frost und prüft, ob es ein kleines Testobjekt schreiben, lesen, auflisten und löschen kann und ob der Speicher bedingte Schreibvorgänge unterstützt. Geht etwas schief, erklärt die Einrichtung das in einfachen Worten und bringt dich zu der Antwort zurück, die es am wahrscheinlichsten verursacht hat. Alles andere, was du eingegeben hast, bleibt erhalten.
 
 ### Ordner
 
 Gib den vollständigen Pfad eines Ordners ein, den du sichern willst, und drück `[enter]`. `~` steht für deinen Benutzerordner, `~/Documents` funktioniert also. Füge so viele Ordner hinzu, wie du willst; nichts wird für dich ausgewählt.
 
-- frost sichert immer ganze Ordner. Um eine einzelne Datei zu sichern, füge den Ordner hinzu, in dem sie liegt.
+- Frost sichert immer ganze Ordner. Um eine einzelne Datei zu sichern, füge den Ordner hinzu, in dem sie liegt.
 - Ein Ordner, der schon in der Liste steht oder in einem Ordner der Liste liegt, wird nicht doppelt hinzugefügt. Ein Ordner, der andere Ordner der Liste enthält, ersetzt diese.
 - Ein Ordner, den es noch nicht gibt, bleibt in der Liste und wird übersprungen, bis es ihn gibt, etwa auf einem nicht angeschlossenen Laufwerk.
 
@@ -31,17 +31,17 @@ Drück `[↑]`, um in die Liste zu wechseln, und `[x]`, um den ausgewählten Ord
 
 ### Ausschlüsse
 
-Dieser Schritt listet die Namen und Muster auf, die frost bei jedem Backup auslässt. Die Liste beginnt mit den Standardwerten von frost: `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules` und `.cache`. Entferne alle, die du doch sichern willst. [Dateien ausschließen](#excluding-files) erklärt, wie Muster funktionieren.
+Dieser Schritt listet die Namen und Muster auf, die Frost bei jedem Backup auslässt. Die Liste beginnt mit den Standardwerten von Frost: `.DS_Store`, `Thumbs.db`, `*.tmp`, `*.swp`, `node_modules` und `.cache`. Entferne alle, die du doch sichern willst. [Dateien ausschließen](#excluding-files) erklärt, wie Muster funktionieren.
 
 ### Zeitplan
 
-Wähle, wie oft frost von selbst sichert: stündlich, alle 6 oder 12 Stunden, täglich oder wöchentlich. Wähle „Off“ (aus), um nur zu sichern, wenn du `frost backup` ausführst. Weitere Intervalle und die Uhrzeit der Backups stellst du mit `frost config set` ein. Siehe [Automatische Backups](#scheduling).
+Wähle, wie oft Frost von selbst sichert: stündlich, alle 6 oder 12 Stunden, täglich oder wöchentlich. Wähle „Off“ (aus), um nur zu sichern, wenn du `frost backup` ausführst. Weitere Intervalle und die Uhrzeit der Backups stellst du mit `frost config set` ein. Siehe [Automatische Backups](#scheduling).
 
 ### Wiederherstellungsphrase
 
-Bei einem neuen Speicher erzeugt frost deinen Schlüssel und zeigt ihn als 24 Wörter an. Die Wörter bleiben verdeckt, bis du `[v]` drückst, damit du vorher sicherstellen kannst, dass niemand sonst auf deinen Bildschirm sieht. Schreib sie auf, drück `[enter]` und gib dann die zwei Wörter ein, nach denen die Einrichtung fragt, um deine Abschrift zu prüfen.
+Bei einem neuen Speicher erzeugt Frost deinen Schlüssel und zeigt ihn als 24 Wörter an. Die Wörter bleiben verdeckt, bis du `[v]` drückst, damit du vorher sicherstellen kannst, dass niemand sonst auf deinen Bildschirm sieht. Schreib sie auf, drück `[enter]` und gib dann die zwei Wörter ein, nach denen die Einrichtung fragt, um deine Abschrift zu prüfen.
 
-Liegen im Speicher schon frost-Backups, fragt die Einrichtung stattdessen nach deren Wiederherstellungsphrase. Öffnet der Schlüssel, der schon auf diesem Computer liegt, diese Backups, wird der Schritt übersprungen.
+Liegen im Speicher schon Frost-Backups, fragt die Einrichtung stattdessen nach deren Wiederherstellungsphrase. Öffnet der Schlüssel, der schon auf diesem Computer liegt, diese Backups, wird der Schritt übersprungen.
 
 ### Übersicht
 
@@ -51,11 +51,11 @@ Beim Speichern werden deine Einstellungen und dein Schlüssel geschrieben, und d
 
 ## Speicher, der schon Backups enthält
 
-Die Einrichtung sucht nach frost-Backups, sobald sie sich verbunden hat:
+Die Einrichtung sucht nach Frost-Backups, sobald sie sich verbunden hat:
 
 - Öffnet der Schlüssel dieses Computers sie, verbindet sich die Einrichtung, und alle deine Snapshots bleiben erhalten.
-- Wurden sie mit einem anderen Schlüssel erstellt, fragt die Einrichtung nach dessen Wiederherstellungsphrase. frost verwendet diesen Schlüssel dann auf diesem Computer.
-- Ist der Speicher leer, die Backups dieses Computers liegen aber woanders, warnt dich die Einrichtung, bevor sie dort einen separaten Satz Backups anlegt. Deine alten Backups bleiben, wo sie sind, aber frost zeigt nur noch die neuen an.
+- Wurden sie mit einem anderen Schlüssel erstellt, fragt die Einrichtung nach dessen Wiederherstellungsphrase. Frost verwendet diesen Schlüssel dann auf diesem Computer.
+- Ist der Speicher leer, die Backups dieses Computers liegen aber woanders, warnt dich die Einrichtung, bevor sie dort einen separaten Satz Backups anlegt. Deine alten Backups bleiben, wo sie sind, aber Frost zeigt nur noch die neuen an.
 
 Wenn du vorhandene Backups lieber verschieben willst, siehe [Backups verschieben](#moving-backups).
 
@@ -72,4 +72,4 @@ Für einen neuen Speicherort nutze `frost config edit`, bestätige die Warnung, 
 
 ## Ohne Vollbild-Terminal
 
-Läuft frost nicht in einem interaktiven Terminal, zum Beispiel bei umgeleiteter Eingabe, stellt `frost init` einfache Fragen, eine pro Zeile. Es bietet Permafrost, einen allgemeinen S3-kompatiblen Bucket, Self-hosted und Local drive an, ohne die Liste der S3-Dienste, und fragt zusätzlich nach dem Ordner in einem Bucket. Listen werden mit Kommas getrennt, und `-` lässt die Ausschlussliste leer. Auch hier öffnet frost getfro.st/perma, wenn du einen neuen Permafrost-Schlüssel brauchst, und kann seinen SSH-Schlüssel auf deinen Server bringen: ssh fragt nach deinem Passwort, oder frost gibt die Zeile aus, die du selbst hinzufügst.
+Läuft Frost nicht in einem interaktiven Terminal, zum Beispiel bei umgeleiteter Eingabe, stellt `frost init` einfache Fragen, eine pro Zeile. Es bietet Permafrost, einen allgemeinen S3-kompatiblen Bucket, Self-hosted und Local drive an, ohne die Liste der S3-Dienste, und fragt zusätzlich nach dem Ordner in einem Bucket. Listen werden mit Kommas getrennt, und `-` lässt die Ausschlussliste leer. Auch hier öffnet Frost getfro.st/perma, wenn du einen neuen Permafrost-Schlüssel brauchst, und kann seinen SSH-Schlüssel auf deinen Server bringen: ssh fragt nach deinem Passwort, oder Frost gibt die Zeile aus, die du selbst hinzufügst.

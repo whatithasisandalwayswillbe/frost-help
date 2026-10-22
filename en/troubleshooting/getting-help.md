@@ -13,7 +13,7 @@ If your problem isn't covered in these docs, here's how to find out more and ask
 
 Open an issue at [github.com/whatithasisandalwayswillbe/frost/issues](https://github.com/whatithasisandalwayswillbe/frost/issues), and include:
 
-- Your frost version, from `frost --version`, and your operating system.
+- Your Frost version, from `frost --version`, and your operating system.
 - What you ran, and what you expected to happen.
 - What happened instead, with the exact message.
 - Any related lines from `frost status` or the log.

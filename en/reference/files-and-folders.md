@@ -1,6 +1,6 @@
 # Files and folders
 
-frost keeps the application, your settings and its cache in separate folders on your computer.
+Frost keeps the application, your settings and its cache in separate folders on your computer.
 
 ## The application
 
@@ -12,7 +12,7 @@ frost keeps the application, your settings and its cache in separate folders on 
 
 The application folder holds the bundled runtime and each installed version. Keep it whole.
 
-The `frost` launcher is in `/usr/local/bin` or `~/.local/bin` on macOS and Linux, and in `%LocalAppData%\frost\bin` on Windows, unless you chose another folder when installing. The Git Bash installer uses `~/bin` instead. With npm or pnpm, `frost` is wherever they put global commands. See [Installing frost](#installing).
+The `frost` launcher is in `/usr/local/bin` or `~/.local/bin` on macOS and Linux, and in `%LocalAppData%\frost\bin` on Windows, unless you chose another folder when installing. The Git Bash installer uses `~/bin` instead. With npm or pnpm, `frost` is wherever they put global commands. See [Installing Frost](#installing).
 
 ## Settings and key
 
@@ -34,10 +34,10 @@ The `frost` launcher is in `/usr/local/bin` or `~/.local/bin` on macOS and Linux
 
 With systemd, scheduled backups log to the journal instead of `frost.log`. See [Automatic backups](#scheduling), which also lists where the scheduled job lives.
 
-The record of what's uploaded is disposable. If you delete it, the next backup rebuilds it from your storage and reads all your files again. Restores don't need it. Next to it is a `.lock` file that keeps two frost processes from writing at once. Deleting the lock file doesn't stop a running frost.
+The record of what's uploaded is disposable. If you delete it, the next backup rebuilds it from your storage and reads all your files again. Restores don't need it. Next to it is a `.lock` file that keeps two Frost processes from writing at once. Deleting the lock file doesn't stop a running Frost.
 
 ## Changing the folders
 
-On macOS and Linux, frost follows `XDG_CONFIG_HOME` and `XDG_CACHE_HOME`. `FROST_CONFIG_DIR` and `FROST_CACHE_DIR` override both, and `--config-dir` overrides the config folder for one command.
+On macOS and Linux, Frost follows `XDG_CONFIG_HOME` and `XDG_CACHE_HOME`. `FROST_CONFIG_DIR` and `FROST_CACHE_DIR` override both, and `--config-dir` overrides the config folder for one command.
 
 If you change these folders, run `frost init` again so the scheduled job uses them too.

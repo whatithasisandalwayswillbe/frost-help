@@ -63,10 +63,10 @@ Depois de `[r]`, escolha para onde vão os arquivos:
 | `[2]` | New folder elsewhere | Deixa você escolher uma pasta e restaura em uma pasta nova dentro dela |
 | `[3]` | Overwrite original files | Substitui os originais, como `frost restore --overwrite`. Pressione `[y]` para confirmar |
 
-Antes de gravar qualquer coisa, o frost mostra onde cada item vai parar. Pressione `[enter]` para restaurar, `[c]` para trocar a pasta ou `[esc]` para cancelar. Confirmações e resultados longos rolam com `[pgup]` e `[pgdn]`.
+Antes de gravar qualquer coisa, o Frost mostra onde cada item vai parar. Pressione `[enter]` para restaurar, `[c]` para trocar a pasta ou `[esc]` para cancelar. Confirmações e resultados longos rolam com `[pgup]` e `[pgdn]`.
 
 "New folder elsewhere" abre o seletor de pastas do sistema: o Finder no macOS, o Explorador de Arquivos no Windows, e zenity, qarma ou matedialog no Linux. No Windows, você pode redimensionar a janela do seletor, que tem barra de endereços, barra lateral e visualização de pastas. Por SSH, ou no Linux sem seletor, você digita a pasta. Pressione `[t]` com o seletor aberto para digitá-la mesmo assim.
 
-Quando uma restauração termina, o frost mostra o que restaurou no Finder, no Explorador de Arquivos ou no gerenciador de arquivos do Linux. Um arquivo único aparece selecionado no macOS e no Windows; no Linux, a pasta dele é aberta. Nos outros casos, abre a pasta mais interna que contém tudo o que foi restaurado. Nada é aberto por SSH, sem tela gráfica ou quando a restauração falha.
+Quando uma restauração termina, o Frost mostra o que restaurou no Finder, no Explorador de Arquivos ou no gerenciador de arquivos do Linux. Um arquivo único aparece selecionado no macOS e no Windows; no Linux, a pasta dele é aberta. Nos outros casos, abre a pasta mais interna que contém tudo o que foi restaurado. Nada é aberto por SSH, sem tela gráfica ou quando a restauração falha.
 
 [Restaurar arquivos](#restoring) explica cada opção em detalhes, e o que acontece quando uma restauração é interrompida.

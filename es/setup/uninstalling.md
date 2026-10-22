@@ -1,8 +1,8 @@
-# Desinstalar frost
+# Desinstalar Frost
 
-frost no tiene un comando para desinstalarse, pero quitarlo solo lleva unos pocos pasos.
+Frost no tiene un comando para desinstalarse, pero quitarlo solo lleva unos pocos pasos.
 
-> Desinstalar frost no borra tus copias de seguridad. Si es posible que algún día quieras recuperarlas, asegúrate de tener tu frase de recuperación antes de borrar la clave de este equipo. `frost key show` te la muestra.
+> Desinstalar Frost no borra tus copias de seguridad. Si es posible que algún día quieras recuperarlas, asegúrate de tener tu frase de recuperación antes de borrar la clave de este equipo. `frost key show` te la muestra.
 
 ## 1. Quita la tarea programada
 
@@ -10,11 +10,11 @@ frost no tiene un comando para desinstalarse, pero quitarlo solo lleva unos poco
 frost config set schedule.enabled false
 ```
 
-Esto quita la tarea del programador de tu sistema operativo. Si frost dice que la tarea se quitará cuando termine la copia en marcha, espera a que termine antes del siguiente paso. Mientras no termine, `frost status` dice que ya hay una copia o restauración en marcha. En Linux con systemd, también vuelve a desactivar lingering si frost dejó constancia de haberlo activado.
+Esto quita la tarea del programador de tu sistema operativo. Si Frost dice que la tarea se quitará cuando termine la copia en marcha, espera a que termine antes del siguiente paso. Mientras no termine, `frost status` dice que ya hay una copia o restauración en marcha. En Linux con systemd, también vuelve a desactivar lingering si Frost dejó constancia de haberlo activado.
 
-## 2. Borra los archivos de frost
+## 2. Borra los archivos de Frost
 
-Esto borra la aplicación, su lanzador, tus ajustes, tu clave y la caché de frost. Si cambiaste alguna ubicación, adapta las rutas de abajo para que apunten a los archivos y carpetas propios de frost. `FROST_CONFIG_DIR` y `FROST_CACHE_DIR` indican directamente las carpetas de frost; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` y `XDG_DATA_HOME` contienen una subcarpeta `frost`. Nunca borres la carpeta raíz de XDG ni una carpeta compartida. [Archivos y carpetas](#files-and-folders) indica todas las ubicaciones.
+Esto borra la aplicación, su lanzador, tus ajustes, tu clave y la caché de Frost. Si cambiaste alguna ubicación, adapta las rutas de abajo para que apunten a los archivos y carpetas propios de Frost. `FROST_CONFIG_DIR` y `FROST_CACHE_DIR` indican directamente las carpetas de Frost; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` y `XDG_DATA_HOME` contienen una subcarpeta `frost`. Nunca borres la carpeta raíz de XDG ni una carpeta compartida. [Archivos y carpetas](#files-and-folders) indica todas las ubicaciones.
 
 En macOS:
 

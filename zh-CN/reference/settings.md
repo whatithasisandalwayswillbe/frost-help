@@ -1,6 +1,6 @@
 # 设置项
 
-frost 把设置保存在配置文件夹中的 `config.toml` 里。你可以用 `frost init`、`frost config set` 或 `frost config edit` 修改它们，也可以用任何文本编辑器修改。
+Frost 把设置保存在配置文件夹中的 `config.toml` 里。你可以用 `frost init`、`frost config set` 或 `frost config edit` 修改它们，也可以用任何文本编辑器修改。
 
 ## 查看和修改设置
 
@@ -22,7 +22,7 @@ frost config set paths ~/Documents ~/Pictures
 - 列表的每一项是一个值，`set` 会替换整个列表。
 - 用 `true` 和 `false` 开启或关闭某项设置。
 - 修改任何 `schedule` 设置都会立即更新计划任务。在 macOS 和 Windows 上，如果修改时计划备份正在运行，修改会在那次备份结束后立即生效，所以备份不会被中断。
-- 修改存储位置时，frost 会在保存之前先检查新位置。参见[迁移备份](#moving-backups)。
+- 修改存储位置时，Frost 会在保存之前先检查新位置。参见[迁移备份](#moving-backups)。
 
 ## 编辑配置文件
 
@@ -30,18 +30,18 @@ frost config set paths ~/Documents ~/Pictures
 frost config edit
 ```
 
-frost 会用你指定的编辑器打开 `config.toml` 的一份副本；如果没有指定，就用 `$VISUAL` 或 `$EDITOR`，再不然就用 nano、vim 或 vi。在 Windows 上，最后的备选是记事本。关闭编辑器后，frost 会列出你改了什么，并在你输入 `yes` 后保存这份副本。
+Frost 会用你指定的编辑器打开 `config.toml` 的一份副本；如果没有指定，就用 `$VISUAL` 或 `$EDITOR`，再不然就用 nano、vim 或 vi。在 Windows 上，最后的备选是记事本。关闭编辑器后，Frost 会列出你改了什么，并在你输入 `yes` 后保存这份副本。
 
-如果文件无法解析，frost 会指出问题所在，并提出重新打开它，所以一个笔误不会破坏你的计划备份。未知的设置也算作错误，所以拼错的名称不会悄悄混过去。
+如果文件无法解析，Frost 会指出问题所在，并提出重新打开它，所以一个笔误不会破坏你的计划备份。未知的设置也算作错误，所以拼错的名称不会悄悄混过去。
 
 ## 自己编辑
 
-你也可以用任何文本编辑器打开 `config.toml` 并保存。frost 每次运行都会读取它，所以大多数修改从下一次运行起生效。有两类修改还需要多一步，frost 会在你下次运行任意 frost 命令时完成：
+你也可以用任何文本编辑器打开 `config.toml` 并保存。Frost 每次运行都会读取它，所以大多数修改从下一次运行起生效。有两类修改还需要多一步，Frost 会在你下次运行任意 Frost 命令时完成：
 
-- 修改了计划，frost 会更新计划任务，并提示 "config.toml changed. Scheduled job updated"（config.toml 已更改，计划任务已更新）。在 Linux 上，下一次计划备份也会这样做。 如果修改时计划备份正在运行，修改会等它结束，和 `frost config set` 一样。
-- 修改了存储位置，frost 第一次使用它时，会做和 `frost config edit` 一样的检查。有问题会显示为警告。
+- 修改了计划，Frost 会更新计划任务，并提示 "config.toml changed. Scheduled job updated"（config.toml 已更改，计划任务已更新）。在 Linux 上，下一次计划备份也会这样做。 如果修改时计划备份正在运行，修改会等它结束，和 `frost config set` 一样。
+- 修改了存储位置，Frost 第一次使用它时，会做和 `frost config edit` 一样的检查。有问题会显示为警告。
 
-保存之前没有任何检查。如果文件无法解析，frost 命令会一直提示，直到你修好它。
+保存之前没有任何检查。如果文件无法解析，Frost 命令会一直提示，直到你修好它。
 
 ## 所有设置
 
@@ -81,4 +81,4 @@ frost 会用你指定的编辑器打开 `config.toml` 的一份副本；如果�
 | `FROST_CONFIG_DIR` | 配置文件夹，与 `--config-dir` 相同 |
 | `FROST_CACHE_DIR` | 缓存文件夹 |
 
-frost 永远不会把环境变量中的值写入 `config.toml`。计划备份看不到你在 shell 中设置的变量，所以 `config.toml` 中仍然需要凭据。
+Frost 永远不会把环境变量中的值写入 `config.toml`。计划备份看不到你在 shell 中设置的变量，所以 `config.toml` 中仍然需要凭据。

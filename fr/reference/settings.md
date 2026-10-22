@@ -1,6 +1,6 @@
 # Réglages
 
-frost conserve ses réglages dans `config.toml`, dans son dossier de configuration. Vous pouvez les modifier avec `frost init`, `frost config set` ou `frost config edit`, ou dans n'importe quel éditeur de texte.
+Frost conserve ses réglages dans `config.toml`, dans son dossier de configuration. Vous pouvez les modifier avec `frost init`, `frost config set` ou `frost config edit`, ou dans n'importe quel éditeur de texte.
 
 ## Lire et modifier les réglages
 
@@ -22,7 +22,7 @@ frost config set paths ~/Documents ~/Pictures
 - Une liste prend une valeur par élément, et `set` remplace la liste entière.
 - `true` et `false` activent et désactivent les réglages.
 - Modifier un réglage `schedule` met à jour la tâche planifiée immédiatement. Sous macOS et Windows, un changement fait pendant une sauvegarde planifiée s'applique dès qu'elle se termine, pour ne pas l'interrompre.
-- Si vous changez l'emplacement de votre stockage, frost vérifie le nouvel emplacement avant de l'enregistrer. Voir [Déplacer vos sauvegardes](#moving-backups).
+- Si vous changez l'emplacement de votre stockage, Frost vérifie le nouvel emplacement avant de l'enregistrer. Voir [Déplacer vos sauvegardes](#moving-backups).
 
 ## Modifier le fichier
 
@@ -30,18 +30,18 @@ frost config set paths ~/Documents ~/Pictures
 frost config edit
 ```
 
-frost ouvre une copie de `config.toml` dans l'éditeur que vous indiquez, ou dans `$VISUAL` ou `$EDITOR`, ou à défaut dans nano, vim ou vi. Sous Windows, c'est le Bloc-notes par défaut. Quand vous fermez l'éditeur, frost liste ce que vous avez modifié et enregistre la copie dès que vous tapez `yes`.
+Frost ouvre une copie de `config.toml` dans l'éditeur que vous indiquez, ou dans `$VISUAL` ou `$EDITOR`, ou à défaut dans nano, vim ou vi. Sous Windows, c'est le Bloc-notes par défaut. Quand vous fermez l'éditeur, Frost liste ce que vous avez modifié et enregistre la copie dès que vous tapez `yes`.
 
-Si le fichier ne peut pas être lu, frost vous signale le problème et propose de le rouvrir : une faute de frappe ne peut donc pas casser vos sauvegardes planifiées. Les réglages inconnus comptent comme des erreurs, pour qu'un nom mal orthographié ne passe pas inaperçu.
+Si le fichier ne peut pas être lu, Frost vous signale le problème et propose de le rouvrir : une faute de frappe ne peut donc pas casser vos sauvegardes planifiées. Les réglages inconnus comptent comme des erreurs, pour qu'un nom mal orthographié ne passe pas inaperçu.
 
 ## Le modifier vous-même
 
-Vous pouvez aussi ouvrir `config.toml` dans n'importe quel éditeur de texte et l'enregistrer. frost le lit à chaque exécution, donc la plupart des changements s'appliquent dès la suivante. Deux types de changement demandent une étape de plus, que frost effectue la prochaine fois que vous lancez une commande frost :
+Vous pouvez aussi ouvrir `config.toml` dans n'importe quel éditeur de texte et l'enregistrer. Frost le lit à chaque exécution, donc la plupart des changements s'appliquent dès la suivante. Deux types de changement demandent une étape de plus, que Frost effectue la prochaine fois que vous lancez une commande Frost :
 
-- Un planning modifié met à jour la tâche planifiée, et frost l'indique par « config.toml changed. Scheduled job updated » (config.toml a changé, tâche planifiée mise à jour). Sous Linux, la sauvegarde planifiée suivante le fait aussi. Un changement fait pendant une sauvegarde planifiée attend qu'elle se termine, comme avec `frost config set`.
-- Un nouvel emplacement de stockage passe les mêmes vérifications qu'avec `frost config edit`, la première fois que frost l'utilise. Tout problème s'affiche sous forme d'avertissement.
+- Un planning modifié met à jour la tâche planifiée, et Frost l'indique par « config.toml changed. Scheduled job updated » (config.toml a changé, tâche planifiée mise à jour). Sous Linux, la sauvegarde planifiée suivante le fait aussi. Un changement fait pendant une sauvegarde planifiée attend qu'elle se termine, comme avec `frost config set`.
+- Un nouvel emplacement de stockage passe les mêmes vérifications qu'avec `frost config edit`, la première fois que Frost l'utilise. Tout problème s'affiche sous forme d'avertissement.
 
-Rien ne vérifie le fichier avant que vous l'enregistriez. S'il ne peut pas être lu, les commandes frost le signalent jusqu'à ce que vous le corrigiez.
+Rien ne vérifie le fichier avant que vous l'enregistriez. S'il ne peut pas être lu, les commandes Frost le signalent jusqu'à ce que vous le corrigiez.
 
 ## Tous les réglages
 
@@ -81,4 +81,4 @@ Rien ne vérifie le fichier avant que vous l'enregistriez. S'il ne peut pas êtr
 | `FROST_CONFIG_DIR` | Le dossier de configuration, comme `--config-dir` |
 | `FROST_CACHE_DIR` | Le dossier de cache |
 
-frost n'écrit jamais dans `config.toml` les valeurs issues de l'environnement. Les sauvegardes planifiées ne voient pas les variables définies dans votre shell : elles ont donc toujours besoin des identifiants dans `config.toml`.
+Frost n'écrit jamais dans `config.toml` les valeurs issues de l'environnement. Les sauvegardes planifiées ne voient pas les variables définies dans votre shell : elles ont donc toujours besoin des identifiants dans `config.toml`.

@@ -1,6 +1,6 @@
 # Verificar seus backups
 
-O frost confere seus backups enquanto trabalha, e o `frost status` mostra como eles estão.
+O Frost confere seus backups enquanto trabalha, e o `frost status` mostra como eles estão.
 
 ## frost status
 
@@ -9,7 +9,7 @@ frost status
 ```
 
 ```text
-┌  frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
+┌  Frost  v0.1.0  sftp://me@nas.local/~/frost  key 6f154dc10058
 │
 │  last backup  ok 2h ago  maple-absurd-3f1c
 │  next backup  ~in 4h  6h via launchd
@@ -27,7 +27,7 @@ frost status
 └
 ```
 
-A primeira linha mostra a versão do frost, o seu armazenamento e a impressão digital da sua chave. As linhas abaixo dela mostram:
+A primeira linha mostra a versão do Frost, o seu armazenamento e a impressão digital da sua chave. As linhas abaixo dela mostram:
 
 | Linha | Mostra |
 | --- | --- |
@@ -47,7 +47,7 @@ frost status --all
 
 ## A verificação por amostragem
 
-Depois de cada backup que salva um snapshot, o frost baixa uma amostra aleatória de blocos, descriptografa cada um e confere se corresponde ao seu ID. Ele também carrega a lista de arquivos do snapshot mais recente e confere se conhece todos os blocos de que ela precisa. Depois de um backup sem nada novo, o frost só repete a verificação se a última tiver mais de um dia ou tiver encontrado algum problema.
+Depois de cada backup que salva um snapshot, o Frost baixa uma amostra aleatória de blocos, descriptografa cada um e confere se corresponde ao seu ID. Ele também carrega a lista de arquivos do snapshot mais recente e confere se conhece todos os blocos de que ela precisa. Depois de um backup sem nada novo, o Frost só repete a verificação se a última tiver mais de um dia ou tiver encontrado algum problema.
 
 A amostra tem 20 blocos por padrão. Uma amostra maior encontra mais problemas, mas baixa mais dados:
 
@@ -63,7 +63,7 @@ frost config set verify.sample 50
 frost status --verify
 ```
 
-Isso faz uma verificação nova e ainda compara o registro local de blocos do frost com tudo o que está no seu armazenamento. Ele verifica 20 blocos mesmo quando `verify.sample` é `0`. O comando termina com `1` se a verificação falhar, então você pode rodá-lo pelo seu próprio agendador para verificar com uma frequência diferente da dos backups.
+Isso faz uma verificação nova e ainda compara o registro local de blocos do Frost com tudo o que está no seu armazenamento. Ele verifica 20 blocos mesmo quando `verify.sample` é `0`. O comando termina com `1` se a verificação falhar, então você pode rodá-lo pelo seu próprio agendador para verificar com uma frequência diferente da dos backups.
 
 ## Se uma verificação falhar
 
@@ -76,6 +76,6 @@ Dados que não estão mais no seu computador não podem ser enviados de novo, e 
 
 ## Snapshots desaparecidos
 
-Se snapshots que este computador conhecia sumirem do armazenamento, o `frost status` avisa uma vez. Se você moveu seus backups, aponte o frost para o novo local. Veja [Mover seus backups](#moving-backups). Caso contrário, eles foram apagados do seu armazenamento.
+Se snapshots que este computador conhecia sumirem do armazenamento, o `frost status` avisa uma vez. Se você moveu seus backups, aponte o Frost para o novo local. Veja [Mover seus backups](#moving-backups). Caso contrário, eles foram apagados do seu armazenamento.
 
 > Uma verificação por amostragem testa só uma parte dos seus backups. Ela encontra problemas cedo, mas não prova que todo snapshot vai ser restaurado. Para os arquivos que você não pode perder, mantenha também um segundo backup independente.

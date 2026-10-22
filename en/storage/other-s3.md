@@ -16,7 +16,7 @@ Run `frost init`, choose **S3-compatible**, then **Other S3-compatible**.
 | Paste the Access Key ID. | From your server's or provider's console |
 | Paste the Secret Access Key. | From your server's or provider's console |
 
-frost keeps your backups in a `frost` folder inside the bucket.
+Frost keeps your backups in a `frost` folder inside the bucket.
 
 ## Servers you run
 
@@ -25,7 +25,7 @@ frost keeps your backups in a `frost` folder inside the bucket.
 | Ceph | Its RADOS Gateway supports conditional writes. Give setup the gateway's address and port |
 | SeaweedFS | Its S3 gateway documents conditional writes. Give setup its address, like `http://<server>:8333` |
 | MinIO | It supports conditional writes but is no longer maintained, so it gets no fixes. An existing server still works if it passes setup's check. Give setup its address, like `https://<server>:9000` |
-| Garage | It doesn't support conditional writes, so frost can't use it |
+| Garage | It doesn't support conditional writes, so Frost can't use it |
 
 Create the bucket and an access key in the server's own tools first.
 
@@ -35,11 +35,11 @@ For a server on your own computer or network, give the endpoint with `http://`, 
 
 ## The folder inside the bucket
 
-frost keeps everything in one folder inside the bucket, `frost` by default. The full-screen setup doesn't ask about it.
+Frost keeps everything in one folder inside the bucket, `frost` by default. The full-screen setup doesn't ask about it.
 
 After completing setup, to use another folder or the top of the bucket before your first backup:
 
-1. Run `frost config edit` and change `prefix` under `[storage.s3]`. Leave it empty for the top of the bucket. frost warns that there are no backups there yet. Type `yes` to save anyway.
+1. Run `frost config edit` and change `prefix` under `[storage.s3]`. Leave it empty for the top of the bucket. Frost warns that there are no backups there yet. Type `yes` to save anyway.
 2. Run `frost init` again. Its review screen warns that this starts a separate set of backups. Press `[s]` to go ahead.
 
 If you already have backups, move them instead, as described in [Moving your backups](#moving-backups).

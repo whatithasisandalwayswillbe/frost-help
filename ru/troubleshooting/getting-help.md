@@ -13,7 +13,7 @@
 
 Создайте issue на [github.com/whatithasisandalwayswillbe/frost/issues](https://github.com/whatithasisandalwayswillbe/frost/issues) и укажите:
 
-- Версию frost из `frost --version` и вашу операционную систему.
+- Версию Frost из `frost --version` и вашу операционную систему.
 - Что вы запускали и что ожидали получить.
 - Что произошло на самом деле, с точным текстом сообщения.
 - Относящиеся к делу строки из `frost status` или журнала.

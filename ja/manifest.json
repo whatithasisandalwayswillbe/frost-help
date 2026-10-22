@@ -1,16 +1,16 @@
 {
     "pages": [
         { "id": "getting-started", "title": "はじめに", "path": "ja/getting-started.md" },
-        { "id": "how-it-works", "title": "frost のしくみ", "path": "ja/how-it-works.md" }
+        { "id": "how-it-works", "title": "Frost のしくみ", "path": "ja/how-it-works.md" }
     ],
     "sections": [
         {
             "title": "セットアップ",
             "pages": [
-                { "id": "installing", "title": "frost のインストール", "path": "ja/setup/installing.md" },
-                { "id": "setting-up", "title": "frost の設定", "path": "ja/setup/setting-up.md" },
-                { "id": "updating", "title": "frost のアップデート", "path": "ja/setup/updating.md" },
-                { "id": "uninstalling", "title": "frost のアンインストール", "path": "ja/setup/uninstalling.md" }
+                { "id": "installing", "title": "Frost のインストール", "path": "ja/setup/installing.md" },
+                { "id": "setting-up", "title": "Frost の設定", "path": "ja/setup/setting-up.md" },
+                { "id": "updating", "title": "Frost のアップデート", "path": "ja/setup/updating.md" },
+                { "id": "uninstalling", "title": "Frost のアンインストール", "path": "ja/setup/uninstalling.md" }
             ]
         },
         {

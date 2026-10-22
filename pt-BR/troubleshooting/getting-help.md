@@ -13,7 +13,7 @@ Se o seu problema não está nesta documentação, veja aqui como descobrir mais
 
 Abra uma issue em [github.com/whatithasisandalwayswillbe/frost/issues](https://github.com/whatithasisandalwayswillbe/frost/issues) e inclua:
 
-- A sua versão do frost, de `frost --version`, e o seu sistema operacional.
+- A sua versão do Frost, de `frost --version`, e o seu sistema operacional.
 - O que você executou e o que esperava que acontecesse.
 - O que aconteceu de fato, com a mensagem exata.
 - As linhas relacionadas do `frost status` ou do log.

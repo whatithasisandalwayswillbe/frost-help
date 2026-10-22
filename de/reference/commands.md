@@ -1,6 +1,6 @@
 # Befehle
 
-frost hat acht Befehle. `frost -h` listet sie alle auf, mit jeder Option.
+Frost hat acht Befehle. `frost -h` listet sie alle auf, mit jeder Option.
 
 ## Globale Optionen
 
@@ -10,11 +10,11 @@ Diese funktionieren mit jedem Befehl:
 | --- | --- |
 | `--config-dir <dir>` | Verwendet einen anderen Konfigurationsordner |
 | `-h`, `--help` | Zeigt die Hilfe mit allen Befehlen und Optionen |
-| `-v`, `--version` | Zeigt die Version von frost. Muss vor einem Befehl stehen |
+| `-v`, `--version` | Zeigt die Version von Frost. Muss vor einem Befehl stehen |
 
 ## frost init
 
-Richtet frost ein: was gesichert wird, wohin und wie oft. Starte es erneut, um deine Einstellungen anzusehen oder zu ändern. Siehe [frost einrichten](#setting-up).
+Richtet Frost ein: was gesichert wird, wohin und wie oft. Starte es erneut, um deine Einstellungen anzusehen oder zu ändern. Siehe [Frost einrichten](#setting-up).
 
 ```sh
 frost init
@@ -98,7 +98,7 @@ frost key import
 
 ## frost update
 
-Aktualisiert frost auf die neueste Version. Siehe [frost aktualisieren](#updating).
+Aktualisiert Frost auf die neueste Version. Siehe [Frost aktualisieren](#updating).
 
 ```sh
 frost update [--check]
@@ -110,8 +110,8 @@ frost update [--check]
 
 ## Exit-Codes
 
-frost endet mit `0`, wenn ein Befehl erfolgreich war, und mit `1` bei jedem Fehler. Dazu zählt auch ein Backup oder ein `frost status --verify`, dessen Prüfung ein Problem findet. Skripte können das Ergebnis also auswerten:
+Frost endet mit `0`, wenn ein Befehl erfolgreich war, und mit `1` bei jedem Fehler. Dazu zählt auch ein Backup oder ein `frost status --verify`, dessen Prüfung ein Problem findet. Skripte können das Ergebnis also auswerten:
 
 ```sh
-frost status --verify || echo "frost check failed" >&2
+frost status --verify || echo "Frost check failed" >&2
 ```

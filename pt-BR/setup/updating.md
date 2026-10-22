@@ -1,8 +1,8 @@
-# Atualizar o frost
+# Atualizar o Frost
 
-O frost se atualiza sozinho, inclusive quando você o instalou com npm ou pnpm. Por padrão, ele instala as versões novas depois dos backups agendados.
+O Frost se atualiza sozinho, inclusive quando você o instalou com npm ou pnpm. Por padrão, ele instala as versões novas depois dos backups agendados.
 
-Você não precisa atualizar o pacote `getfrost` por conta própria. Um pacote mais antigo nunca substitui um frost mais novo.
+Você não precisa atualizar o pacote `getfrost` por conta própria. Um pacote mais antigo nunca substitui um Frost mais novo.
 
 ## Atualizar agora
 
@@ -10,7 +10,7 @@ Você não precisa atualizar o pacote `getfrost` por conta própria. Um pacote m
 frost update
 ```
 
-O frost encontra a versão mais recente, confere a assinatura e a soma de verificação, e garante que a versão nova inicia antes de trocar para ela. Suas configurações, sua chave e seus backups não são alterados.
+O Frost encontra a versão mais recente, confere a assinatura e a soma de verificação, e garante que a versão nova inicia antes de trocar para ela. Suas configurações, sua chave e seus backups não são alterados.
 
 Para só conferir se existe uma versão mais nova:
 
@@ -22,7 +22,7 @@ O `frost update` nunca instala uma versão de pré-lançamento, nem uma versão 
 
 ## Atualizações automáticas
 
-Depois de um backup agendado, o frost procura uma versão nova no máximo uma vez a cada 20 horas e a instala do mesmo jeito que o `frost update`. Se a busca ou a instalação falhar, o backup não falha por causa disso.
+Depois de um backup agendado, o Frost procura uma versão nova no máximo uma vez a cada 20 horas e a instala do mesmo jeito que o `frost update`. Se a busca ou a instalação falhar, o backup não falha por causa disso.
 
 O `frost status` mostra como as atualizações estão configuradas e se a última funcionou. A tela de configurações do navegador de snapshots também mostra isso.
 
@@ -34,13 +34,13 @@ frost config set update.auto false
 
 Daí em diante, o `frost status` avisa quando sai uma versão, e nada é instalado até você executar `frost update`.
 
-> As atualizações automáticas só rodam depois dos backups agendados. Com os backups automáticos desligados, o frost não procura atualizações em segundo plano.
+> As atualizações automáticas só rodam depois dos backups agendados. Com os backups automáticos desligados, o Frost não procura atualizações em segundo plano.
 
-## Quando o frost não consegue se atualizar
+## Quando o Frost não consegue se atualizar
 
 | Quando | O que fazer |
 | --- | --- |
-| Você não tem permissão de escrita na pasta do aplicativo do frost | Reinstale com o instalador, usando o seu próprio usuário |
-| O frost foi compilado a partir do código-fonte | Compile de novo, ou instale uma versão com o instalador |
+| Você não tem permissão de escrita na pasta do aplicativo do Frost | Reinstale com o instalador, usando o seu próprio usuário |
+| O Frost foi compilado a partir do código-fonte | Compile de novo, ou instale uma versão com o instalador |
 
 Se uma atualização parar no meio, execute o instalador de novo. Ele repara a instalação.

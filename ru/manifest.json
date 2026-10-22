@@ -1,16 +1,16 @@
 {
     "pages": [
         { "id": "getting-started", "title": "Начало работы", "path": "ru/getting-started.md" },
-        { "id": "how-it-works", "title": "Как работает frost", "path": "ru/how-it-works.md" }
+        { "id": "how-it-works", "title": "Как работает Frost", "path": "ru/how-it-works.md" }
     ],
     "sections": [
         {
             "title": "Установка",
             "pages": [
-                { "id": "installing", "title": "Установка frost", "path": "ru/setup/installing.md" },
-                { "id": "setting-up", "title": "Настройка frost", "path": "ru/setup/setting-up.md" },
-                { "id": "updating", "title": "Обновление frost", "path": "ru/setup/updating.md" },
-                { "id": "uninstalling", "title": "Удаление frost", "path": "ru/setup/uninstalling.md" }
+                { "id": "installing", "title": "Установка Frost", "path": "ru/setup/installing.md" },
+                { "id": "setting-up", "title": "Настройка Frost", "path": "ru/setup/setting-up.md" },
+                { "id": "updating", "title": "Обновление Frost", "path": "ru/setup/updating.md" },
+                { "id": "uninstalling", "title": "Удаление Frost", "path": "ru/setup/uninstalling.md" }
             ]
         },
         {

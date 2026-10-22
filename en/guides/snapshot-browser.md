@@ -63,10 +63,10 @@ After `[r]`, choose where the files go:
 | `[2]` | New folder elsewhere | Lets you pick a folder, then restores into a new folder inside it |
 | `[3]` | Overwrite original files | Replaces the originals, like `frost restore --overwrite`. Press `[y]` to confirm |
 
-Before anything is written, frost shows where everything will land. Press `[enter]` to restore, `[c]` to change the folder or `[esc]` to cancel. Long confirmations and results scroll with `[pgup]` and `[pgdn]`.
+Before anything is written, Frost shows where everything will land. Press `[enter]` to restore, `[c]` to change the folder or `[esc]` to cancel. Long confirmations and results scroll with `[pgup]` and `[pgdn]`.
 
 "New folder elsewhere" opens your system's folder picker: Finder on macOS, Explorer on Windows, and zenity, qarma or matedialog on Linux. On Windows, this is a resizable Explorer folder-selection window with an address bar, sidebar and folder view. Over SSH, or on Linux without a picker, you type the folder instead. Press `[t]` while the picker is open to type it anyway.
 
-When a restore finishes, frost shows what it restored in Finder, Explorer or your Linux file manager. A single file is shown selected on macOS and Windows; on Linux, its folder opens. Otherwise the deepest folder holding everything restored opens. Nothing opens over SSH, without a display, or when the restore fails.
+When a restore finishes, Frost shows what it restored in Finder, Explorer or your Linux file manager. A single file is shown selected on macOS and Windows; on Linux, its folder opens. Otherwise the deepest folder holding everything restored opens. Nothing opens over SSH, without a display, or when the restore fails.
 
 [Restoring files](#restoring) explains each option in detail, and what happens when a restore is interrupted.

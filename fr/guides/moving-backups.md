@@ -6,9 +6,9 @@ Permafrost n'a pas de dossier à déplacer, donc vos sauvegardes ne peuvent pas 
 
 | Vous voulez | Faites ceci |
 | --- | --- |
-| Déplacer vos sauvegardes vers un autre dossier, disque, serveur ou bucket | Déplacez tout le dossier du dépôt, puis indiquez à frost le nouvel emplacement. Rien n'est renvoyé |
-| Démarrer un ensemble de sauvegardes séparé ailleurs | Lancez `frost init` et choisissez le nouvel emplacement vide. Vos anciennes sauvegardes restent où elles sont, mais frost n'affiche plus que les nouvelles |
-| Réutiliser les sauvegardes d'un ancien emplacement | Indiquez de nouveau l'ancien emplacement à frost |
+| Déplacer vos sauvegardes vers un autre dossier, disque, serveur ou bucket | Déplacez tout le dossier du dépôt, puis indiquez à Frost le nouvel emplacement. Rien n'est renvoyé |
+| Démarrer un ensemble de sauvegardes séparé ailleurs | Lancez `frost init` et choisissez le nouvel emplacement vide. Vos anciennes sauvegardes restent où elles sont, mais Frost n'affiche plus que les nouvelles |
+| Réutiliser les sauvegardes d'un ancien emplacement | Indiquez de nouveau l'ancien emplacement à Frost |
 
 ## Déplacer le dépôt
 
@@ -20,7 +20,7 @@ Un serveur auto-hébergé, un disque local et un stockage S3 contiennent tous le
 rsync -a /Volumes/Backup/frost/ me@nas.local:frost/
 ```
 
-Indiquez ensuite à frost où elles se trouvent. Pour un autre dossier sur un disque ou un serveur :
+Indiquez ensuite à Frost où elles se trouvent. Pour un autre dossier sur un disque ou un serveur :
 
 ```sh
 frost config set storage.local.path /Volumes/Backup2/frost
@@ -43,11 +43,11 @@ Pour passer à un autre type de stockage ou chez un autre fournisseur, ce qui im
 
 ## Contrôles avant l'enregistrement
 
-`frost config set` vérifie un nouvel emplacement de stockage avant de l'enregistrer. Il refuse un emplacement sans dépôt frost ou avec un dépôt créé avec une autre clé. Si l'ancien emplacement contient des instantanés du même dépôt mais que le nouveau n'en contient pas, il refuse aussi ce changement. `frost config edit` présente ces mêmes problèmes sous forme d'avertissements : il peut donc encore enregistrer un changement que `set` refuse. Si vous changez l'emplacement en modifiant vous-même `config.toml`, frost affiche ces avertissements la première fois qu'il l'utilise.
+`frost config set` vérifie un nouvel emplacement de stockage avant de l'enregistrer. Il refuse un emplacement sans dépôt Frost ou avec un dépôt créé avec une autre clé. Si l'ancien emplacement contient des instantanés du même dépôt mais que le nouveau n'en contient pas, il refuse aussi ce changement. `frost config edit` présente ces mêmes problèmes sous forme d'avertissements : il peut donc encore enregistrer un changement que `set` refuse. Si vous changez l'emplacement en modifiant vous-même `config.toml`, Frost affiche ces avertissements la première fois qu'il l'utilise.
 
-## Si frost ne trouve pas vos sauvegardes
+## Si Frost ne trouve pas vos sauvegardes
 
-Quand vos sauvegardes ne sont pas là où frost les attend, l'erreur et `frost status` indiquent où elles ont été ouvertes pour la dernière fois et proposent trois solutions :
+Quand vos sauvegardes ne sont pas là où Frost les attend, l'erreur et `frost status` indiquent où elles ont été ouvertes pour la dernière fois et proposent trois solutions :
 
 ```text
 Your backups were last opened in s3://old-bucket/frost/.

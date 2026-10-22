@@ -1,6 +1,6 @@
-# 安装 frost
+# 安装 Frost
 
-在 macOS、Linux 和 Windows 上，一条命令就能装好 frost。每个发布版本都自带运行时，所以不需要事先安装任何东西。
+在 macOS、Linux 和 Windows 上，一条命令就能装好 Frost。每个发布版本都自带运行时，所以不需要事先安装任何东西。
 
 ## 支持的系统
 
@@ -30,7 +30,7 @@ irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/inst
 
 1. 下载适合你系统的最新发布版本。
 2. 检查发布版本的签名和下载文件的校验和，只要有一项不对就停止。
-3. 把 frost 安装到你的用户目录中，并在 `PATH` 中的某个文件夹里放一个 `frost` 启动器。
+3. 把 Frost 安装到你的用户目录中，并在 `PATH` 中的某个文件夹里放一个 `frost` 启动器。
 
 在 macOS 和 Linux 上，它需要 `curl` 或 `wget`、OpenSSH 8.1 或更新版本中的 `ssh-keygen`，以及 `sha256sum` 或 `shasum` 来验证下载。在 Windows 上，它需要 Windows 10 和 11 自带的 Windows PowerShell 5.1，或者 PowerShell 7。它用发布版本里自带的运行时来检查签名，前提是 Windows 已确认这个运行时由 OpenJS Foundation 签名。
 
@@ -38,7 +38,7 @@ irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/inst
 
 `curl` 安装程序也能在 Windows 的 Git Bash 中使用。在那里，它需要 Git Bash 提供的 `cygpath`，用 `unzip` 或 PowerShell 解压，并把启动器放在 `~/bin`。
 
-安装完成后，运行 `frost init` 来设置你的第一次备份。参见[设置 frost](#setting-up)。
+安装完成后，运行 `frost init` 来设置你的第一次备份。参见[设置 Frost](#setting-up)。
 
 ## 安装程序选项
 
@@ -59,11 +59,11 @@ curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/ma
 $env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
-更改启动器所在的文件夹，不会移动 frost 本身。[文件与文件夹](#files-and-folders)列出了所有内容的位置。
+更改启动器所在的文件夹，不会移动 Frost 本身。[文件与文件夹](#files-and-folders)列出了所有内容的位置。
 
 ## 使用 npm 或 pnpm
 
-如果你已经装有 Node.js 22 或更新版本，可以用 npm 安装 frost：
+如果你已经装有 Node.js 22 或更新版本，可以用 npm 安装 Frost：
 
 ```sh
 npm install -g getfrost
@@ -75,7 +75,7 @@ npm install -g getfrost
 pnpm add -g getfrost
 ```
 
-这个包叫 `getfrost`，它提供的命令是 `frost`。第一次运行 `frost` 时，它会下载适合你系统的发布版本，像安装程序一样检查签名和校验和，并把它安装到你的用户目录中，然后运行你的命令。此后，每个 `frost` 命令都会直接交给已安装的 frost，而 frost 会自己保持更新。
+这个包叫 `getfrost`，它提供的命令是 `frost`。第一次运行 `frost` 时，它会下载适合你系统的发布版本，像安装程序一样检查签名和校验和，并把它安装到你的用户目录中，然后运行你的命令。此后，每个 `frost` 命令都会直接交给已安装的 Frost，而 Frost 会自己保持更新。
 
 使用 pnpm 时，如果你以前没有运行过 `pnpm setup`，请先运行它，这样 pnpm 的全局命令才会在你的 `PATH` 中。
 

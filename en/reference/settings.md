@@ -1,6 +1,6 @@
 # Settings
 
-frost keeps its settings in `config.toml`, in its config folder. You can change them with `frost init`, `frost config set` or `frost config edit`, or in any text editor.
+Frost keeps its settings in `config.toml`, in its config folder. You can change them with `frost init`, `frost config set` or `frost config edit`, or in any text editor.
 
 ## Reading and changing settings
 
@@ -22,7 +22,7 @@ frost config set paths ~/Documents ~/Pictures
 - A list takes one value per item, and `set` replaces the whole list.
 - `true` and `false` turn settings on and off.
 - Changing a `schedule` setting updates the scheduled job straight away. On macOS and Windows, a change made while a scheduled backup runs is applied as soon as that backup finishes, so it isn't stopped.
-- Changing where your storage is makes frost check the new location before saving it. See [Moving your backups](#moving-backups).
+- Changing where your storage is makes Frost check the new location before saving it. See [Moving your backups](#moving-backups).
 
 ## Editing the file
 
@@ -30,18 +30,18 @@ frost config set paths ~/Documents ~/Pictures
 frost config edit
 ```
 
-frost opens a copy of `config.toml` in the editor you name, or in `$VISUAL` or `$EDITOR`, or else in nano, vim or vi. On Windows the fallback is Notepad. When you close the editor, frost lists what you changed and saves the copy once you type `yes`.
+Frost opens a copy of `config.toml` in the editor you name, or in `$VISUAL` or `$EDITOR`, or else in nano, vim or vi. On Windows the fallback is Notepad. When you close the editor, Frost lists what you changed and saves the copy once you type `yes`.
 
-If the file doesn't parse, frost points out the problem and offers to open it again, so a typo can't break your scheduled backups. Unknown settings count as errors, so a misspelled name can't slip through unnoticed.
+If the file doesn't parse, Frost points out the problem and offers to open it again, so a typo can't break your scheduled backups. Unknown settings count as errors, so a misspelled name can't slip through unnoticed.
 
 ## Editing it yourself
 
-You can also open `config.toml` in any text editor and save it. frost reads it every time it runs, so most changes apply from the next run. Two kinds of change need one more step, which frost takes the next time you run any frost command:
+You can also open `config.toml` in any text editor and save it. Frost reads it every time it runs, so most changes apply from the next run. Two kinds of change need one more step, which Frost takes the next time you run any Frost command:
 
-- A changed schedule updates the scheduled job, and frost says "config.toml changed. Scheduled job updated". On Linux, the next scheduled backup does this too. A change made while a scheduled backup runs waits for it, as with `frost config set`.
-- A changed storage location gets the same checks as `frost config edit`, the first time frost uses it. Any problem shows as a warning.
+- A changed schedule updates the scheduled job, and Frost says "config.toml changed. Scheduled job updated". On Linux, the next scheduled backup does this too. A change made while a scheduled backup runs waits for it, as with `frost config set`.
+- A changed storage location gets the same checks as `frost config edit`, the first time Frost uses it. Any problem shows as a warning.
 
-Nothing checks the file before you save it. If it doesn't parse, frost commands say so until you fix it.
+Nothing checks the file before you save it. If it doesn't parse, Frost commands say so until you fix it.
 
 ## All settings
 
@@ -81,4 +81,4 @@ Nothing checks the file before you save it. If it doesn't parse, frost commands 
 | `FROST_CONFIG_DIR` | The config folder, like `--config-dir` |
 | `FROST_CACHE_DIR` | The cache folder |
 
-frost never writes values from the environment into `config.toml`. Scheduled backups don't see the variables you set in your shell, so they still need credentials in `config.toml`.
+Frost never writes values from the environment into `config.toml`. Scheduled backups don't see the variables you set in your shell, so they still need credentials in `config.toml`.

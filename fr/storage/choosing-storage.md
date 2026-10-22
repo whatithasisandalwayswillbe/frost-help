@@ -1,6 +1,6 @@
 # Choisir un stockage
 
-frost peut ranger vos sauvegardes sur votre propre serveur, sur un disque, sur Permafrost ou chez un service compatible S3. Où qu'elles aillent, tout est d'abord chiffré sur votre ordinateur, donc la personne qui gère le stockage ne peut pas lire vos fichiers.
+Frost peut ranger vos sauvegardes sur votre propre serveur, sur un disque, sur Permafrost ou chez un service compatible S3. Où qu'elles aillent, tout est d'abord chiffré sur votre ordinateur, donc la personne qui gère le stockage ne peut pas lire vos fichiers.
 
 ## Vos options
 
@@ -8,7 +8,7 @@ frost peut ranger vos sauvegardes sur votre propre serveur, sur un disque, sur P
 | --- | --- | --- |
 | [Serveur auto-hébergé](#self-hosted) | Un NAS, un serveur à la maison ou un VPS que vous gérez | Un accès SSH |
 | [Disque local](#local-drive) | Un disque USB ou un second disque | Un disque branché pendant les sauvegardes |
-| [Permafrost](#permafrost) | Un stockage hébergé conçu pour frost | Une clé d'accès |
+| [Permafrost](#permafrost) | Un stockage hébergé conçu pour Frost | Une clé d'accès |
 | [Fournisseurs cloud](#cloud-providers) | Amazon S3, Cloudflare R2, Backblaze B2 ou Wasabi | Un bucket et ses clés |
 | [Autre stockage compatible S3](#other-s3) | Un serveur S3 que vous gérez, comme Ceph ou SeaweedFS, ou un autre service S3 | Un bucket et ses clés |
 
@@ -16,7 +16,7 @@ Avec un serveur auto-hébergé ou un disque local, vos sauvegardes restent sur d
 
 ## Écritures conditionnelles
 
-frost a besoin d'un stockage capable de créer un fichier en une seule étape, seulement si son nom est libre. Cela empêche deux ordinateurs d'écraser les registres de sauvegarde l'un de l'autre. L'assistant le vérifie à la connexion et refuse un stockage qui échoue. Si le stockage ne le prend pas en charge, ni d'autres clés ni d'autres réglages n'y changeront rien.
+Frost a besoin d'un stockage capable de créer un fichier en une seule étape, seulement si son nom est libre. Cela empêche deux ordinateurs d'écraser les registres de sauvegarde l'un de l'autre. L'assistant le vérifie à la connexion et refuse un stockage qui échoue. Si le stockage ne le prend pas en charge, ni d'autres clés ni d'autres réglages n'y changeront rien.
 
 | Stockage | Écritures conditionnelles |
 | --- | --- |
@@ -38,9 +38,9 @@ Les informations sur les services S3 ont été vérifiées dans la documentation
 
 - **Une copie hors de chez vous.** Un disque ou un serveur à la maison peut disparaître dans le même incendie ou le même cambriolage que votre ordinateur. Un serveur situé ailleurs, Permafrost ou un fournisseur cloud, non. Gardez une seconde copie indépendante de tout ce qui est irremplaçable dans un autre lieu.
 - **Le coût d'une restauration.** Certains fournisseurs cloud facturent les téléchargements. Une restauration complète télécharge tout, et chaque vérification par échantillonnage télécharge un petit échantillon.
-- **Les classes de stockage d'archivage.** frost relit les blocs directement : ne déplacez pas ses objets vers une classe d'archivage qu'il faut décongeler avant de lire.
-- **Suppression et expiration.** frost ne supprime jamais vos sauvegardes. N'ajoutez pas de règle de cycle de vie ni de tâche de nettoyage qui supprime ou fait expirer des fichiers de son dossier, car les instantanés partagent leurs blocs.
-- **Un accès limité.** Donnez à frost une clé d'accès qui n'atteint que son propre bucket, ou un compte sur le serveur qui ne peut rien modifier d'autre d'important pour vous.
+- **Les classes de stockage d'archivage.** Frost relit les blocs directement : ne déplacez pas ses objets vers une classe d'archivage qu'il faut décongeler avant de lire.
+- **Suppression et expiration.** Frost ne supprime jamais vos sauvegardes. N'ajoutez pas de règle de cycle de vie ni de tâche de nettoyage qui supprime ou fait expirer des fichiers de son dossier, car les instantanés partagent leurs blocs.
+- **Un accès limité.** Donnez à Frost une clé d'accès qui n'atteint que son propre bucket, ou un compte sur le serveur qui ne peut rien modifier d'autre d'important pour vous.
 
 ## Changer de stockage plus tard
 

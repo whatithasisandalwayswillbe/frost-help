@@ -1,8 +1,8 @@
-# Desinstalar o frost
+# Desinstalar o Frost
 
-O frost não tem um comando de desinstalação, mas removê-lo leva só alguns passos.
+O Frost não tem um comando de desinstalação, mas removê-lo leva só alguns passos.
 
-> Desinstalar o frost não apaga os seus backups. Se você talvez queira recuperá-los um dia, garanta que tem a sua frase de recuperação antes de apagar a chave deste computador. O `frost key show` mostra a frase.
+> Desinstalar o Frost não apaga os seus backups. Se você talvez queira recuperá-los um dia, garanta que tem a sua frase de recuperação antes de apagar a chave deste computador. O `frost key show` mostra a frase.
 
 ## 1. Remova a tarefa agendada
 
@@ -10,11 +10,11 @@ O frost não tem um comando de desinstalação, mas removê-lo leva só alguns p
 frost config set schedule.enabled false
 ```
 
-Isso remove a tarefa do agendador do sistema operacional. Se o frost disser que a tarefa será removida quando o backup em andamento terminar, espere esse backup terminar antes do próximo passo. Até lá, o `frost status` diz que já há um backup ou uma restauração em andamento. No Linux com systemd, também desliga o lingering de novo se o frost tiver registrado que o ligou.
+Isso remove a tarefa do agendador do sistema operacional. Se o Frost disser que a tarefa será removida quando o backup em andamento terminar, espere esse backup terminar antes do próximo passo. Até lá, o `frost status` diz que já há um backup ou uma restauração em andamento. No Linux com systemd, também desliga o lingering de novo se o Frost tiver registrado que o ligou.
 
-## 2. Apague os arquivos do frost
+## 2. Apague os arquivos do Frost
 
-Isto apaga o aplicativo, o inicializador, suas configurações, sua chave e o cache do frost. Se você mudou algum local, ajuste os caminhos abaixo para apontar para os arquivos e pastas do próprio frost. `FROST_CONFIG_DIR` e `FROST_CACHE_DIR` indicam diretamente as pastas do frost; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` e `XDG_DATA_HOME` contêm uma subpasta `frost`. Nunca apague uma pasta raiz do XDG nem uma pasta compartilhada. [Arquivos e pastas](#files-and-folders) lista todos os locais.
+Isto apaga o aplicativo, o inicializador, suas configurações, sua chave e o cache do Frost. Se você mudou algum local, ajuste os caminhos abaixo para apontar para os arquivos e pastas do próprio Frost. `FROST_CONFIG_DIR` e `FROST_CACHE_DIR` indicam diretamente as pastas do Frost; `XDG_CONFIG_HOME`, `XDG_CACHE_HOME` e `XDG_DATA_HOME` contêm uma subpasta `frost`. Nunca apague uma pasta raiz do XDG nem uma pasta compartilhada. [Arquivos e pastas](#files-and-folders) lista todos os locais.
 
 No macOS:
 

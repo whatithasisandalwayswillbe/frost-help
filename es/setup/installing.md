@@ -1,6 +1,6 @@
-# Instalar frost
+# Instalar Frost
 
-frost se instala con un solo comando en macOS, Linux y Windows. Cada versión incluye su propio entorno de ejecución, así que no hace falta instalar nada antes.
+Frost se instala con un solo comando en macOS, Linux y Windows. Cada versión incluye su propio entorno de ejecución, así que no hace falta instalar nada antes.
 
 ## Sistemas compatibles
 
@@ -30,7 +30,7 @@ El instalador:
 
 1. Descarga la última versión para tu sistema.
 2. Comprueba la firma de la versión y la suma de comprobación de la descarga, y se detiene si alguna no cuadra.
-3. Instala frost en tu perfil de usuario y deja un lanzador `frost` en una carpeta de tu `PATH`.
+3. Instala Frost en tu perfil de usuario y deja un lanzador `frost` en una carpeta de tu `PATH`.
 
 En macOS y Linux necesita `curl` o `wget`, `ssh-keygen` de OpenSSH 8.1 o posterior, y `sha256sum` o `shasum` para las comprobaciones. En Windows necesita Windows PowerShell 5.1, que viene con Windows 10 y 11, o PowerShell 7. Comprueba la firma con el entorno de ejecución que trae la versión, después de que Windows confirme que lo firmó la OpenJS Foundation.
 
@@ -38,7 +38,7 @@ En macOS y Linux, el lanzador va a `/usr/local/bin` si tienes permiso de escritu
 
 El instalador de `curl` también funciona en Git Bash en Windows. Ahí necesita `cygpath`, que viene con Git Bash, extrae los archivos con `unzip` o PowerShell, y deja el lanzador en `~/bin`.
 
-Cuando termine, ejecuta `frost init` para configurar tu primera copia de seguridad. Consulta [Configurar frost](#setting-up).
+Cuando termine, ejecuta `frost init` para configurar tu primera copia de seguridad. Consulta [Configurar Frost](#setting-up).
 
 ## Opciones del instalador
 
@@ -59,11 +59,11 @@ En Windows, define la variable antes, en la misma ventana de PowerShell:
 $env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
 ```
 
-Cambiar la carpeta del lanzador no mueve frost en sí. [Archivos y carpetas](#files-and-folders) indica dónde va cada cosa.
+Cambiar la carpeta del lanzador no mueve Frost en sí. [Archivos y carpetas](#files-and-folders) indica dónde va cada cosa.
 
 ## Con npm o pnpm
 
-Si ya tienes Node.js 22 o posterior, puedes instalar frost con npm:
+Si ya tienes Node.js 22 o posterior, puedes instalar Frost con npm:
 
 ```sh
 npm install -g getfrost
@@ -75,7 +75,7 @@ O con pnpm:
 pnpm add -g getfrost
 ```
 
-El paquete se llama `getfrost`, y el comando que te da es `frost`. La primera vez que ejecutas `frost`, descarga la versión para tu sistema, comprueba su firma y su suma de comprobación igual que el instalador, y la instala en tu perfil de usuario. Después ejecuta tu comando. A partir de ahí, cada comando `frost` va directo al frost instalado, que se mantiene actualizado solo.
+El paquete se llama `getfrost`, y el comando que te da es `frost`. La primera vez que ejecutas `frost`, descarga la versión para tu sistema, comprueba su firma y su suma de comprobación igual que el instalador, y la instala en tu perfil de usuario. Después ejecuta tu comando. A partir de ahí, cada comando `frost` va directo al Frost instalado, que se mantiene actualizado solo.
 
 Con pnpm, ejecuta antes `pnpm setup` si nunca lo has hecho, para que los comandos globales de pnpm estén en tu `PATH`.
 

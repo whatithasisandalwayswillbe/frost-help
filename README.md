@@ -1,6 +1,6 @@
 # frost-help
 
-The help docs for [frost](https://github.com/whatithasisandalwayswillbe/frost). They're published at [getfro.st/help](https://getfro.st/help).
+The help docs for [Frost](https://github.com/whatithasisandalwayswillbe/frost). They're published at [getfro.st/help](https://getfro.st/help).
 
 ## Languages
 
@@ -31,7 +31,7 @@ node tools/check.mjs
 node --test tools/check.test.mjs
 ```
 
-The check covers all nine languages. It checks manifest ids and paths, missing or unlisted pages, heading, table and list structure, links, inline identifiers and exact code blocks. It doesn't judge translation quality or check frost's behavior; those still need a review against the English pages and frost's source.
+The check covers all nine languages. It checks manifest ids and paths, missing or unlisted pages, heading, table and list structure, links, inline identifiers and exact code blocks. It doesn't judge translation quality or check Frost's behavior; those still need a review against the English pages and Frost's source.
 
 ## Contributing
 
@@ -40,7 +40,6 @@ Pull requests are welcome for typos, unclear wording and translations that are w
 - Change English first, then carry the change into all other languages.
 - Translate for meaning, the way a native speaker would put it, rather than word for word.
 - Keep ids, file names, links and code blocks exactly as they are in English.
-- frost's commands and messages are in English, so quoted messages, setup questions and key names stay in English.
-- Write `frost` in lowercase, even at the start of a sentence.
+- Frost's commands and messages are in English, so quoted messages, setup questions and key names stay in English.
 
-Bugs and feature requests for frost itself belong in the [frost repository](https://github.com/whatithasisandalwayswillbe/frost/issues). Report security problems privately from its [Security tab](https://github.com/whatithasisandalwayswillbe/frost/security).
+Bugs and feature requests for Frost itself belong in the [Frost repository](https://github.com/whatithasisandalwayswillbe/frost/issues). Report security problems privately from its [Security tab](https://github.com/whatithasisandalwayswillbe/frost/security).

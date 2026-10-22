@@ -1,10 +1,10 @@
 # Häufige Probleme
 
-Diese Seite sammelt die Meldungen und Probleme, die am häufigsten auftreten. Jede Überschrift ist entweder das, was frost meldet, oder das, was dir auffällt.
+Diese Seite sammelt die Meldungen und Probleme, die am häufigsten auftreten. Jede Überschrift ist entweder das, was Frost meldet, oder das, was dir auffällt.
 
-## „frost isn't set up yet, run `frost init`“
+## „Frost isn't set up yet, run `frost init`“
 
-frost findet `config.toml` nicht. Starte `frost init`. Wenn du `--config-dir` oder `FROST_CONFIG_DIR` verwendest, prüf, ob sie auf den richtigen Ordner zeigen.
+Frost findet `config.toml` nicht. Starte `frost init`. Wenn du `--config-dir` oder `FROST_CONFIG_DIR` verwendest, prüf, ob sie auf den richtigen Ordner zeigen.
 
 ## „no key on this machine“
 
@@ -12,15 +12,15 @@ Die Schlüsseldatei fehlt. Ist auf diesem Computer schon ein Speicher eingericht
 
 ## „a backup or restore operation is already in progress“
 
-Ein anderer frost-Prozess nutzt gerade deine Backups, meistens ein geplantes Backup. Ist es eins, meldet frost „a scheduled backup is already running“ und wann es gestartet ist. Warte, bis er fertig ist, und versuch es dann erneut. Die Sperrdatei von frost zu löschen beendet den anderen Prozess nicht.
+Ein anderer Frost-Prozess nutzt gerade deine Backups, meistens ein geplantes Backup. Ist es eins, meldet Frost „a scheduled backup is already running“ und wann es gestartet ist. Warte, bis er fertig ist, und versuch es dann erneut. Die Sperrdatei von Frost zu löschen beendet den anderen Prozess nicht.
 
 ## „the local encryption key does not match“
 
 In deinem Speicher liegen Backups, die mit einem anderen Schlüssel erstellt wurden. Führ `frost key verify` aus und tipp die Phrase ein, die du aufgeschrieben hast, um herauszufinden, um welchen Schlüssel es geht. Ist es der richtige, führ damit `frost key import` aus.
 
-## frost findet deine Backups nicht
+## Frost findet deine Backups nicht
 
-Meldungen wie „has no frost repository“ bedeuten, dass deine Backups nicht dort liegen, wo frost sucht. Die Fehlermeldung sagt, wo sie zuletzt geöffnet wurden und wie du wieder zu ihnen kommst. Siehe [Backups verschieben](#moving-backups).
+Meldungen wie „has no Frost repository“ bedeuten, dass deine Backups nicht dort liegen, wo Frost sucht. Die Fehlermeldung sagt, wo sie zuletzt geöffnet wurden und wie du wieder zu ihnen kommst. Siehe [Backups verschieben](#moving-backups).
 
 Sind deine Backups aus Permafrost verschwunden, obwohl dein Zugriffsschlüssel noch funktioniert, wurden sie höchstwahrscheinlich mit diesem Schlüssel gelöscht. Schreib sofort an care@getfro.st. Falls jemand anderes deinen Schlüssel haben könnte, hol dir unter [getfro.st/perma/recover](https://getfro.st/perma/recover) einen neuen.
 
@@ -45,7 +45,7 @@ Die Einrichtung erklärt das Problem und bringt dich zu der Antwort zurück, die
 | That server does not support SFTP | Ob SFTP in den SSH- oder Dateidienst-Einstellungen des Servers eingeschaltet ist |
 | server returned text before opening SFTP subsystem | Ob ein Anmeldeskript auf dem Server, etwa `.bashrc`, etwas ausgibt. Lass es nur in interaktiven Shells etwas ausgeben |
 | There's no folder ... on ... | Den Pfad des Ordners. Der Ordner, in dem er liegt, muss existieren |
-| The server denied write access to that folder | Die Berechtigungen des Ordners für das Konto, mit dem frost sich anmeldet |
+| The server denied write access to that folder | Die Berechtigungen des Ordners für das Konto, mit dem Frost sich anmeldet |
 | ... not found. Connect the required drive and try again | Ob das Laufwerk angeschlossen ist und der Pfad stimmt |
 | Unable to write to that folder | Die Berechtigungen des Ordners. Unter macOS siehe [macOS-Berechtigungen](#macos-permissions) |
 | Symbolic links and directory junctions are not supported for backup folders | Nutze den echten Pfad des Ordners |
@@ -53,17 +53,17 @@ Die Einrichtung erklärt das Problem und bringt dich zu der Antwort zurück, die
 
 ## „This storage provider does not support conditional writes“
 
-Dein Speicher unterstützt eine Funktion nicht, die frost braucht, damit sich Computer nicht gegenseitig ihre Backup-Einträge überschreiben. Andere Schlüssel oder Einstellungen helfen nicht. Wähle einen anderen Speicher. Siehe [Speicher auswählen](#choosing-storage).
+Dein Speicher unterstützt eine Funktion nicht, die Frost braucht, damit sich Computer nicht gegenseitig ihre Backup-Einträge überschreiben. Andere Schlüssel oder Einstellungen helfen nicht. Wähle einen anderen Speicher. Siehe [Speicher auswählen](#choosing-storage).
 
 Ein eigener Server oder ein Laufwerk sagt es anders. Der Server „cannot create hard links“, oder der Ordner liegt „on an unsupported filesystem“. Nutze einen Ordner auf einem Dateisystem wie ext4, Btrfs, XFS, ZFS, APFS oder NTFS.
 
-## „the server didn't accept frost's SSH key“
+## „the server didn't accept Frost's SSH key“
 
-Dein eigener Server hat den Schlüssel von frost abgelehnt, zum Beispiel nachdem er aus `authorized_keys` entfernt wurde. Starte `frost init` und füge den Schlüssel erneut hinzu. Siehe [Eigener Server](#self-hosted).
+Dein eigener Server hat den Schlüssel von Frost abgelehnt, zum Beispiel nachdem er aus `authorized_keys` entfernt wurde. Starte `frost init` und füge den Schlüssel erneut hinzu. Siehe [Eigener Server](#self-hosted).
 
 ## „the server's SSH host key has changed“
 
-frost verweigert die Verbindung, wenn sich die Identität des Servers ändert, genau wie ssh. Hast du den Server neu installiert oder hat er eine neue Adresse, entferne seinen alten Schlüssel mit `ssh-keygen -R <host>` und starte `frost init` erneut. Andernfalls finde heraus, warum sich der Schlüssel geändert hat, bevor du dich verbindest.
+Frost verweigert die Verbindung, wenn sich die Identität des Servers ändert, genau wie ssh. Hast du den Server neu installiert oder hat er eine neue Adresse, entferne seinen alten Schlüssel mit `ssh-keygen -R <host>` und starte `frost init` erneut. Andernfalls finde heraus, warum sich der Schlüssel geändert hat, bevor du dich verbindest.
 
 ## „... not found. Connect the required drive and try again“
 
@@ -83,7 +83,7 @@ Unter macOS liegt das meist an einer Datenschutzberechtigung. Die Fehlermeldung 
 
 ## Dateien, die als „couldn't be read“ aufgeführt sind
 
-frost hat diese Dateien übersprungen und den Rest gesichert. Häufige Ursachen sind Dateien, die du nicht lesen darfst, Dateien, die während des Backups gelöscht wurden, und unter macOS Dateien, die iCloud nur online vorhält.
+Frost hat diese Dateien übersprungen und den Rest gesichert. Häufige Ursachen sind Dateien, die du nicht lesen darfst, Dateien, die während des Backups gelöscht wurden, und unter macOS Dateien, die iCloud nur online vorhält.
 
 ## Dateien, die „continued changing while being read“
 
@@ -91,15 +91,15 @@ Ein Programm hat während des Backups in diese Dateien geschrieben, deshalb hat 
 
 ## Ein Ordner ist „not found“
 
-Ein Ordner aus deiner Liste fehlte, also hat frost den Rest gesichert. Schließ das Laufwerk wieder an, oder aktualisiere deine Liste mit `frost init`, falls der Ordner umgezogen ist.
+Ein Ordner aus deiner Liste fehlte, also hat Frost den Rest gesichert. Schließ das Laufwerk wieder an, oder aktualisiere deine Liste mit `frost init`, falls der Ordner umgezogen ist.
 
 ## „config.toml changed, but updating the scheduled job failed“
 
-Du hast `config.toml` bearbeitet, und frost konnte den geplanten Auftrag nicht passend aktualisieren. Der Rest der Meldung nennt den Grund. Nennt sie eine Einstellung, korrigiere sie in `config.toml`. frost versucht es bei jedem Befehl erneut, bis es klappt.
+Du hast `config.toml` bearbeitet, und Frost konnte den geplanten Auftrag nicht passend aktualisieren. Der Rest der Meldung nennt den Grund. Nennt sie eine Einstellung, korrigiere sie in `config.toml`. Frost versucht es bei jedem Befehl erneut, bis es klappt.
 
 ## „config.toml changed where backups go“
 
-Du hast in `config.toml` geändert, wohin Backups gehen, und frost hat beim ersten Gebrauch ein Problem mit dem neuen Ort gefunden. Der Rest der Meldung sagt, welches. Siehe [Backups verschieben](#moving-backups).
+Du hast in `config.toml` geändert, wohin Backups gehen, und Frost hat beim ersten Gebrauch ein Problem mit dem neuen Ort gefunden. Der Rest der Meldung sagt, welches. Siehe [Backups verschieben](#moving-backups).
 
 ## „scheduled job is missing“
 
@@ -108,7 +108,7 @@ Der geplante Auftrag wurde gelöscht oder ausgeschaltet. Stell ihn mit `frost co
 ## Geplante Backups laufen nicht
 
 - Sieh dir die Zeile „next backup“ in `frost status` an.
-- Prüf unter macOS den Schalter für frost unter Systemeinstellungen > Allgemein > Anmeldeobjekte & Erweiterungen (System Settings > General > Login Items & Extensions). Er heißt dort Node.js Foundation.
+- Prüf unter macOS den Schalter für Frost unter Systemeinstellungen > Allgemein > Anmeldeobjekte & Erweiterungen (System Settings > General > Login Items & Extensions). Er heißt dort Node.js Foundation.
 - Unter Windows musst du für geplante Backups angemeldet sein, und sie laufen nicht im Akkubetrieb.
 - Steht `schedule.catch_up` auf `false`, wird ein Backup übersprungen, das fällig war, während der Computer aus war oder schlief.
 - Lies das Protokoll. Siehe [Automatische Backups](#scheduling).
@@ -123,34 +123,34 @@ Der Ordner neben den Originalen lässt sich nicht nutzen, oft weil der Snapshot 
 
 ## „cannot overwrite original files“
 
-Der Snapshot stammt von einer anderen Art Computer, oder der Pfad zu den Originalen führt über einen Link, dem frost nicht vertraut. Nimm stattdessen `--beside` oder `--to <dir>`.
+Der Snapshot stammt von einer anderen Art Computer, oder der Pfad zu den Originalen führt über einen Link, dem Frost nicht vertraut. Nimm stattdessen `--beside` oder `--to <dir>`.
 
 ## Die Wiederherstellung meldet bei einer Datei „changed after it was checked“ oder „has more than one link“
 
-frost hat festgestellt, dass eine bereits geprüfte Datei geändert wurde oder dass eine noch nicht fertig wiederhergestellte Datei über einen Hardlink mit einem anderen Namen verknüpft ist. Schließe Programme, die den Wiederherstellungsordner ändern, und versuche es erneut. Hat eine noch nicht fertig wiederhergestellte Datei einen Hardlink, stelle stattdessen in einem neuen, leeren Ordner wieder her.
+Frost hat festgestellt, dass eine bereits geprüfte Datei geändert wurde oder dass eine noch nicht fertig wiederhergestellte Datei über einen Hardlink mit einem anderen Namen verknüpft ist. Schließe Programme, die den Wiederherstellungsordner ändern, und versuche es erneut. Hat eine noch nicht fertig wiederhergestellte Datei einen Hardlink, stelle stattdessen in einem neuen, leeren Ordner wieder her.
 
-## frost findet den gewünschten Snapshot nicht
+## Frost findet den gewünschten Snapshot nicht
 
-| frost meldet | Versuch es mit |
+| Frost meldet | Versuch es mit |
 | --- | --- |
 | no snapshot at or before ... | Einem späteren Zeitpunkt. Die Meldung nennt deinen ältesten Snapshot |
 | "maple" matches 2 snapshots; provide additional ID characters | Mehr Zeichen der ID, etwa `maple-absurd` |
 | cannot parse "..." as a snapshot ID or timestamp | Anführungszeichen um Zeitangaben mit Leerzeichen, etwa `"3 days ago"` |
 
-## frost kann sich nicht selbst aktualisieren
+## Frost kann sich nicht selbst aktualisieren
 
-Der Ordner von frost ist nicht beschreibbar, oder frost wurde aus dem Quellcode gebaut. Siehe [frost aktualisieren](#updating).
+Der Ordner von Frost ist nicht beschreibbar, oder Frost wurde aus dem Quellcode gebaut. Siehe [Frost aktualisieren](#updating).
 
 ## Das Installationsprogramm bricht ab
 
 | Das Installationsprogramm meldet | Was du tust |
 | --- | --- |
-| need OpenSSH 8.1+ to verify the frost release signature | Installiere oder aktualisiere OpenSSH. Unter Windows nimm stattdessen das PowerShell-Installationsprogramm |
-| checksums.txt signature does not match official frost release key; installation aborted | Installiere es nicht. Versuch es später erneut und [melde es](#getting-help), wenn es wieder passiert |
+| need OpenSSH 8.1+ to verify the Frost release signature | Installiere oder aktualisiere OpenSSH. Unter Windows nimm stattdessen das PowerShell-Installationsprogramm |
+| checksums.txt signature does not match official Frost release key; installation aborted | Installiere es nicht. Versuch es später erneut und [melde es](#getting-help), wenn es wieder passiert |
 | runtime inside ... lacks valid OpenJS Foundation signature; installation aborted | Installiere es nicht. Versuch es später erneut und [melde es](#getting-help), wenn es wieder passiert |
 | checksum mismatch | Der Download ist beschädigt. Führ das Installationsprogramm erneut aus |
-| 32-bit ARM isn't supported by the bundled runtime | Für diesen Computer gibt es kein frost-Paket |
-| installing frost requires Node.js v22 or newer | Aktualisiere Node.js, oder nimm das Installationsprogramm statt npm oder pnpm |
+| 32-bit ARM isn't supported by the bundled runtime | Für diesen Computer gibt es kein Frost-Paket |
+| installing Frost requires Node.js v22 or newer | Aktualisiere Node.js, oder nimm das Installationsprogramm statt npm oder pnpm |
 
 ## `frost` wird nach der Installation nicht gefunden
 

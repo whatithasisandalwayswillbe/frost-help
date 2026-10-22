@@ -85,7 +85,6 @@ const cases = [
   ],
   ['a malformed manifest', 'es/manifest.json', () => '{}', /pages and sections/],
   ['an em dash in a manifest title', 'es/manifest.json', text => text.replace('Inicio', 'Inicio\u2014frost'), /dash/],
-  ['capitalized frost in a manifest title', 'es/manifest.json', text => text.replace('Inicio', 'Frost'), /lowercase/],
   ['an em dash', 'es/storage.md', text => text + '\ntext\u2014text\n', /dash/],
 ];
 

@@ -8,7 +8,7 @@ O `frost backup` faz backup das suas pastas agora. Só é enviado o que mudou de
 frost backup
 ```
 
-O frost mostra o que mudou, quanto enviou e o resultado da verificação por amostragem:
+O Frost mostra o que mudou, quanto enviou e o resultado da verificação por amostragem:
 
 ```text
 ┌  backup  sftp://me@nas.local/~/frost
@@ -23,7 +23,7 @@ O frost mostra o que mudou, quanto enviou e o resultado da verificação por amo
 
 Um arquivo conta como alterado quando muda o conteúdo, o tamanho, as permissões ou a data de modificação. Mudar só a data de modificação de uma pasta não conta, porque arquivos temporários mexem nela o tempo todo.
 
-Se nada mudou, o frost não salva um snapshot novo:
+Se nada mudou, o Frost não salva um snapshot novo:
 
 ```text
 ┌  backup  sftp://me@nas.local/~/frost
@@ -59,39 +59,39 @@ Para mudar quais pastas entram em todos os backups, execute `frost init` de novo
 
 ## O que entra no backup
 
-O frost faz backup de arquivos comuns, pastas e links simbólicos, com suas permissões e datas de modificação.
+O Frost faz backup de arquivos comuns, pastas e links simbólicos, com suas permissões e datas de modificação.
 
 - Um link simbólico é salvo como o próprio link, e não como o arquivo para o qual ele aponta.
 - Arquivos com links físicos entram no backup, e são restaurados, como arquivos separados.
 
-O frost deixa de fora:
+O Frost deixa de fora:
 
 - Tudo o que está na sua lista de exclusões. Veja [Excluir arquivos](#excluding-files).
 - Sockets, dispositivos e pipes.
 - Donos de arquivo, ACLs e atributos estendidos.
-- No macOS, os arquivos que o iCloud mantém só na nuvem. O frost não baixa esses arquivos: ele os pula e os lista.
+- No macOS, os arquivos que o iCloud mantém só na nuvem. O Frost não baixa esses arquivos: ele os pula e os lista.
 - Os arquivos `.frost-partial-...` que uma restauração interrompida deixa para trás.
 
 ## Quando algo dá errado
 
-| O que acontece | O que o frost faz |
+| O que acontece | O que o Frost faz |
 | --- | --- |
 | Um arquivo ou uma pasta não pode ser lido, por falta de permissão, por ter sido apagado no meio do backup ou por estar só no iCloud | Pula e lista o item. O snapshot é salvo mesmo assim, e o `frost status` mostra quantos itens foram pulados |
 | Uma pasta da sua lista não está lá, como uma pasta em um disco desconectado | Pula a pasta e faz backup do resto. O `frost backup` e o `frost status` dizem qual pasta está faltando |
 | Nenhuma das suas pastas está lá, ou uma existe mas não pode ser lida de jeito nenhum | Faz o backup inteiro falhar, para que um backup nunca pareça bem-sucedido sem ter salvado nada |
-| Um arquivo muda enquanto o frost o lê, como um banco de dados em uso, o disco de uma máquina virtual ligada ou um download | Lê o arquivo de novo no fim do backup. Se ainda estiver mudando, o snapshot mantém a cópia anterior e o frost lista o arquivo. Um arquivo que nunca foi copiado por inteiro é pulado |
+| Um arquivo muda enquanto o Frost o lê, como um banco de dados em uso, o disco de uma máquina virtual ligada ou um download | Lê o arquivo de novo no fim do backup. Se ainda estiver mudando, o snapshot mantém a cópia anterior e o Frost lista o arquivo. Um arquivo que nunca foi copiado por inteiro é pulado |
 
-O frost não tira snapshots do sistema de arquivos nem de bancos de dados. Para fazer backup de um arquivo que está sempre em uso, faça com o programa que o usa fechado.
+O Frost não tira snapshots do sistema de arquivos nem de bancos de dados. Para fazer backup de um arquivo que está sempre em uso, faça com o programa que o usa fechado.
 
-No macOS, algumas pastas precisam da sua permissão antes que o frost possa lê-las. Veja [Permissões do macOS](#macos-permissions).
+No macOS, algumas pastas precisam da sua permissão antes que o Frost possa lê-las. Veja [Permissões do macOS](#macos-permissions).
 
 ## A verificação por amostragem
 
-Depois de um backup que salva um snapshot, o frost baixa alguns blocos aleatórios, 20 por padrão, e os confere. Depois de um backup sem nada novo, ele só confere de novo se a última verificação tiver mais de um dia ou tiver encontrado algum problema. Se uma verificação falhar, o backup termina com erro. Veja [Verificar seus backups](#checking-backups).
+Depois de um backup que salva um snapshot, o Frost baixa alguns blocos aleatórios, 20 por padrão, e os confere. Depois de um backup sem nada novo, ele só confere de novo se a última verificação tiver mais de um dia ou tiver encontrado algum problema. Se uma verificação falhar, o backup termina com erro. Veja [Verificar seus backups](#checking-backups).
 
 ## Backups interrompidos
 
-Se um backup parar no meio, por causa de uma conexão perdida, de um notebook fechado ou de `Ctrl+C`, nada do que já foi enviado se perde. O frost registra os blocos conforme eles são enviados, e o próximo backup pula esses blocos.
+Se um backup parar no meio, por causa de uma conexão perdida, de um notebook fechado ou de `Ctrl+C`, nada do que já foi enviado se perde. O Frost registra os blocos conforme eles são enviados, e o próximo backup pula esses blocos.
 
 ## Perto de um backup agendado
 
@@ -104,8 +104,8 @@ Se um backup agendado começa na próxima hora, ou terminou na última hora, o `
 │  Back up now anyway? [Y/n]
 ```
 
-Aperte Enter para fazer o backup mesmo assim, ou digite `n` para parar. Em agendamentos com menos de 4 horas de intervalo, a janela é um quarto do intervalo. Um backup que terminou só conta se deu certo e você não fez outro desde então. O frost só pergunta em um terminal, e não pergunta numa prévia nem com `--path` ou `--exclude`.
+Aperte Enter para fazer o backup mesmo assim, ou digite `n` para parar. Em agendamentos com menos de 4 horas de intervalo, a janela é um quarto do intervalo. Um backup que terminou só conta se deu certo e você não fez outro desde então. O Frost só pergunta em um terminal, e não pergunta numa prévia nem com `--path` ou `--exclude`.
 
 ## Um de cada vez
 
-Um backup ou uma restauração pela linha de comando bloqueia o cache local enquanto roda. Se outro comando precisar desse cache, o frost mostra "a backup or restore operation is already in progress; try again when it completes" (já há um backup ou uma restauração em andamento; tente de novo quando terminar). Se o outro for um backup agendado, ele mostra "a scheduled backup is already running" (já há um backup agendado em andamento) e quando começou. Um backup agendado que encontra o cache bloqueado espera, por até uma hora. O navegador de snapshots libera o bloqueio do cache, então pode ficar aberto e restaurar arquivos enquanto um backup roda. Cada pasta de cache e cada computador têm seu próprio bloqueio.
+Um backup ou uma restauração pela linha de comando bloqueia o cache local enquanto roda. Se outro comando precisar desse cache, o Frost mostra "a backup or restore operation is already in progress; try again when it completes" (já há um backup ou uma restauração em andamento; tente de novo quando terminar). Se o outro for um backup agendado, ele mostra "a scheduled backup is already running" (já há um backup agendado em andamento) e quando começou. Um backup agendado que encontra o cache bloqueado espera, por até uma hora. O navegador de snapshots libera o bloqueio do cache, então pode ficar aberto e restaurar arquivos enquanto um backup roda. Cada pasta de cache e cada computador têm seu próprio bloqueio.

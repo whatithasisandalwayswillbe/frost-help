@@ -16,7 +16,7 @@ Setup creates the last folder of the path if it's missing. The folder it goes in
 
 ## When the drive isn't connected
 
-frost only creates the folder during setup. If the drive isn't connected when a backup runs, the folder is missing, and the backup fails with a message to connect the drive. It never writes your backups to whatever else is at that path. A scheduled backup waits about 5 minutes for the drive first, in case it's still being mounted.
+Frost only creates the folder during setup. If the drive isn't connected when a backup runs, the folder is missing, and the backup fails with a message to connect the drive. It never writes your backups to whatever else is at that path. A scheduled backup waits about 5 minutes for the drive first, in case it's still being mounted.
 
 On Windows, a drive can get a different letter when you plug it in again. Give it back its old letter in Disk Management, or run `frost init` and type the new path.
 
@@ -30,7 +30,7 @@ For a NAS, [Self-hosted](#self-hosted) storage is usually the better choice. A n
 
 ## Good to know
 
-- frost doesn't follow links or junctions inside the folder. On Windows it also refuses a folder reached through one. Use the folder's real path.
+- Frost doesn't follow links or junctions inside the folder. On Windows it also refuses a folder reached through one. Use the folder's real path.
 - On macOS, scheduled backups need permission to use removable and network drives. See [macOS permissions](#macos-permissions).
 - `frost status` shows how full the drive is, and `frost backup` warns when it's nearly full.
 - Drives formatted as NTFS, APFS, ext4, Btrfs or XFS work. exFAT and FAT drives work where setup's check passes.

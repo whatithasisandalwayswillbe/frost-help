@@ -16,7 +16,7 @@ L'assistant crée le dernier dossier du chemin s'il manque. Le dossier qui le co
 
 ## Quand le disque n'est pas branché
 
-frost ne crée le dossier que pendant la configuration. Si le disque n'est pas branché au moment d'une sauvegarde, le dossier manque et la sauvegarde échoue avec un message vous invitant à brancher le disque. frost n'écrit jamais vos sauvegardes dans ce qui se trouverait d'autre à cet emplacement. Une sauvegarde planifiée attend d'abord le disque environ 5 minutes, au cas où il serait en train d'être monté.
+Frost ne crée le dossier que pendant la configuration. Si le disque n'est pas branché au moment d'une sauvegarde, le dossier manque et la sauvegarde échoue avec un message vous invitant à brancher le disque. Frost n'écrit jamais vos sauvegardes dans ce qui se trouverait d'autre à cet emplacement. Une sauvegarde planifiée attend d'abord le disque environ 5 minutes, au cas où il serait en train d'être monté.
 
 Sous Windows, un disque peut changer de lettre quand vous le rebranchez. Rendez-lui son ancienne lettre dans la Gestion des disques, ou lancez `frost init` et saisissez le nouveau chemin.
 
@@ -30,7 +30,7 @@ Pour un NAS, [Serveur auto-hébergé](#self-hosted) est en général le meilleur
 
 ## Bon à savoir
 
-- frost ne suit pas les liens ni les jonctions à l'intérieur du dossier. Sous Windows, il refuse aussi un dossier atteint par l'un d'eux. Utilisez le vrai chemin du dossier.
+- Frost ne suit pas les liens ni les jonctions à l'intérieur du dossier. Sous Windows, il refuse aussi un dossier atteint par l'un d'eux. Utilisez le vrai chemin du dossier.
 - Sous macOS, les sauvegardes planifiées ont besoin d'une autorisation pour utiliser les disques amovibles et les volumes réseau. Voir [Autorisations macOS](#macos-permissions).
 - `frost status` indique à quel point le disque est plein, et `frost backup` vous avertit quand il est presque plein.
 - Les disques formatés en NTFS, APFS, ext4, Btrfs ou XFS fonctionnent. Les disques exFAT et FAT fonctionnent s'ils passent le test de l'assistant.

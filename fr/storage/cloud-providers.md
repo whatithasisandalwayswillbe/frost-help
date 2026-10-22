@@ -2,16 +2,16 @@
 
 L'assistant propose des préréglages pour quatre fournisseurs cloud qui parlent le protocole S3. Lancez `frost init`, choisissez **S3-compatible**, puis votre fournisseur. Pour tout autre service S3, ou un serveur S3 que vous gérez vous-même, voir [Autre stockage compatible S3](#other-s3).
 
-Chaque préréglage range vos sauvegardes dans un dossier `frost` du bucket, pour que le bucket puisse contenir autre chose. Donnez à frost une clé qui n'atteint que ce bucket, et n'ajoutez pas de règle de cycle de vie qui supprime, fait expirer ou archive des objets de son dossier. Les instantanés partagent leurs blocs, et retirer un seul objet peut en abîmer beaucoup.
+Chaque préréglage range vos sauvegardes dans un dossier `frost` du bucket, pour que le bucket puisse contenir autre chose. Donnez à Frost une clé qui n'atteint que ce bucket, et n'ajoutez pas de règle de cycle de vie qui supprime, fait expirer ou archive des objets de son dossier. Les instantanés partagent leurs blocs, et retirer un seul objet peut en abîmer beaucoup.
 
 ## Amazon S3
 
-S3 prend en charge les écritures conditionnelles dont frost a besoin.
+S3 prend en charge les écritures conditionnelles dont Frost a besoin.
 
 1. Créez un bucket dans la console AWS et notez sa région, comme `us-east-1`.
-2. Créez un utilisateur IAM pour frost et créez-lui une clé d'accès : IAM > Users > your user > Security credentials > Create access key.
+2. Créez un utilisateur IAM pour Frost et créez-lui une clé d'accès : IAM > Users > your user > Security credentials > Create access key.
 
-frost doit pouvoir lire, lister, écrire et supprimer des objets dans le bucket, même si le seul objet qu'il supprime est le petit objet de test que l'assistant crée lors de la connexion. Une stratégie comme celle-ci suffit. Remplacez `my-backups` par le nom de votre bucket :
+Frost doit pouvoir lire, lister, écrire et supprimer des objets dans le bucket, même si le seul objet qu'il supprime est le petit objet de test que l'assistant crée lors de la connexion. Une stratégie comme celle-ci suffit. Remplacez `my-backups` par le nom de votre bucket :
 
 ```json
 {
@@ -38,11 +38,11 @@ frost doit pouvoir lire, lister, écrire et supprimer des objets dans le bucket,
 | Paste the Access Key ID. | L'identifiant de clé d'accès IAM |
 | Paste the Secret Access Key. | Affichée une seule fois, à côté de l'identifiant, au moment de la création |
 
-frost se connecte à `s3.<region>.amazonaws.com`. Gardez ses objets dans une classe de stockage lisible immédiatement, comme S3 Standard ou S3 Standard-IA, et non Glacier Flexible Retrieval ou Glacier Deep Archive. Le versionnage du bucket n'est pas nécessaire.
+Frost se connecte à `s3.<region>.amazonaws.com`. Gardez ses objets dans une classe de stockage lisible immédiatement, comme S3 Standard ou S3 Standard-IA, et non Glacier Flexible Retrieval ou Glacier Deep Archive. Le versionnage du bucket n'est pas nécessaire.
 
 ## Cloudflare R2
 
-R2 prend en charge les écritures conditionnelles dont frost a besoin.
+R2 prend en charge les écritures conditionnelles dont Frost a besoin.
 
 1. Dans le tableau de bord Cloudflare, créez un bucket R2.
 2. Notez votre identifiant de compte. Il figure sur la page de présentation de R2 : 32 lettres et chiffres.
@@ -55,11 +55,11 @@ R2 prend en charge les écritures conditionnelles dont frost a besoin.
 | Paste the Access Key ID. | L'Access Key ID de votre nouveau jeton d'API |
 | Paste the Secret Access Key. | Affichée une seule fois, à côté de l'Access Key ID |
 
-frost se connecte à `<account-id>.r2.cloudflarestorage.com` avec la région `auto`.
+Frost se connecte à `<account-id>.r2.cloudflarestorage.com` avec la région `auto`.
 
 ## Backblaze B2
 
-La documentation de Backblaze ne dit pas si B2 prend en charge les écritures conditionnelles dont frost a besoin. L'assistant le vérifie à la connexion. Si le test échoue, choisissez un autre stockage.
+La documentation de Backblaze ne dit pas si B2 prend en charge les écritures conditionnelles dont Frost a besoin. L'assistant le vérifie à la connexion. Si le test échoue, choisissez un autre stockage.
 
 1. Créez un bucket dans votre compte Backblaze.
 2. Notez son endpoint : Buckets > your bucket > Endpoint. Il ressemble à `s3.us-west-004.backblazeb2.com`.
@@ -72,11 +72,11 @@ La documentation de Backblaze ne dit pas si B2 prend en charge les écritures co
 | Paste the application key's keyID. | Le keyID de votre nouvelle clé d'application |
 | Paste the applicationKey. | Affichée une seule fois, juste après la création de la clé |
 
-frost déduit la région de l'endpoint.
+Frost déduit la région de l'endpoint.
 
 ## Wasabi
 
-La documentation de Wasabi ne permet pas d'affirmer qu'il prend en charge les écritures conditionnelles dont frost a besoin. L'assistant le vérifie à la connexion. Si le test échoue, choisissez un autre stockage.
+La documentation de Wasabi ne permet pas d'affirmer qu'il prend en charge les écritures conditionnelles dont Frost a besoin. L'assistant le vérifie à la connexion. Si le test échoue, choisissez un autre stockage.
 
 1. Créez un bucket dans la console Wasabi et notez sa région, comme `us-east-1` ou `eu-central-1`.
 2. Créez une clé d'accès : Access Keys > Create New Access Key. Si possible, utilisez un utilisateur qui n'a accès qu'à ce bucket.
@@ -88,4 +88,4 @@ La documentation de Wasabi ne permet pas d'affirmer qu'il prend en charge les é
 | Paste the Access Key. | La clé d'accès que vous avez créée |
 | Paste the Secret Key. | Affichée une seule fois, à la création de la clé |
 
-frost se connecte à `s3.<region>.wasabisys.com`.
+Frost se connecte à `s3.<region>.wasabisys.com`.

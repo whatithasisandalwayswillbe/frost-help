@@ -6,9 +6,9 @@ Permafrost hat keinen Ordner, den du verschieben könntest. Deshalb können Back
 
 | Du willst | So geht's |
 | --- | --- |
-| Deine Backups in einen anderen Ordner, auf ein anderes Laufwerk, auf einen anderen Server oder in einen anderen Bucket verschieben | Verschieb den ganzen Repository-Ordner und verweise frost dann auf den neuen Ort. Nichts wird erneut hochgeladen |
-| Woanders einen separaten Satz Backups beginnen | Starte `frost init` und wähle den neuen, leeren Ort. Deine alten Backups bleiben, wo sie sind, aber frost zeigt nur die neuen an |
-| Zu Backups zurückkehren, von denen du weggezogen bist | Verweise frost wieder auf den alten Ort |
+| Deine Backups in einen anderen Ordner, auf ein anderes Laufwerk, auf einen anderen Server oder in einen anderen Bucket verschieben | Verschieb den ganzen Repository-Ordner und verweise Frost dann auf den neuen Ort. Nichts wird erneut hochgeladen |
+| Woanders einen separaten Satz Backups beginnen | Starte `frost init` und wähle den neuen, leeren Ort. Deine alten Backups bleiben, wo sie sind, aber Frost zeigt nur die neuen an |
+| Zu Backups zurückkehren, von denen du weggezogen bist | Verweise Frost wieder auf den alten Ort |
 
 ## Das Repository verschieben
 
@@ -20,7 +20,7 @@ Ein eigener Server, ein lokales Laufwerk und S3-Speicher enthalten alle dieselbe
 rsync -a /Volumes/Backup/frost/ me@nas.local:frost/
 ```
 
-Sag frost danach, wo sie liegen. Für einen anderen Ordner auf einem Laufwerk oder Server:
+Sag Frost danach, wo sie liegen. Für einen anderen Ordner auf einem Laufwerk oder Server:
 
 ```sh
 frost config set storage.local.path /Volumes/Backup2/frost
@@ -43,11 +43,11 @@ Für einen Umzug zu einer anderen Art von Speicher oder einem anderen Anbieter, 
 
 ## Prüfungen vor dem Speichern
 
-`frost config set` prüft einen neuen Speicherort, bevor es ihn speichert. Es lehnt einen Ort ohne frost-Repository ab oder einen mit einem Repository, das mit einem anderen Schlüssel erstellt wurde. Enthält der alte Ort Snapshots desselben Repositorys, der neue aber nicht, lehnt es auch diese Änderung ab. `frost config edit` zeigt dieselben Probleme als Warnungen an und kann eine Änderung, die `set` ablehnt, deshalb trotzdem speichern. Änderst du den Ort, indem du `config.toml` selbst bearbeitest, zeigt frost diese Warnungen, wenn es ihn zum ersten Mal nutzt.
+`frost config set` prüft einen neuen Speicherort, bevor es ihn speichert. Es lehnt einen Ort ohne Frost-Repository ab oder einen mit einem Repository, das mit einem anderen Schlüssel erstellt wurde. Enthält der alte Ort Snapshots desselben Repositorys, der neue aber nicht, lehnt es auch diese Änderung ab. `frost config edit` zeigt dieselben Probleme als Warnungen an und kann eine Änderung, die `set` ablehnt, deshalb trotzdem speichern. Änderst du den Ort, indem du `config.toml` selbst bearbeitest, zeigt Frost diese Warnungen, wenn es ihn zum ersten Mal nutzt.
 
-## Wenn frost deine Backups nicht findet
+## Wenn Frost deine Backups nicht findet
 
-Liegen deine Backups nicht dort, wo frost sie erwartet, sagen die Fehlermeldung und `frost status`, wo sie zuletzt geöffnet wurden, und bieten drei Auswege an:
+Liegen deine Backups nicht dort, wo Frost sie erwartet, sagen die Fehlermeldung und `frost status`, wo sie zuletzt geöffnet wurden, und bieten drei Auswege an:
 
 ```text
 Your backups were last opened in s3://old-bucket/frost/.

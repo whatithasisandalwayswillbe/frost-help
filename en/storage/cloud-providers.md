@@ -2,16 +2,16 @@
 
 Setup has presets for four cloud providers that speak the S3 protocol. Run `frost init`, choose **S3-compatible**, then pick yours. For any other S3 service, or an S3 server you run yourself, see [Other S3-compatible storage](#other-s3).
 
-Each preset keeps your backups in a `frost` folder inside the bucket, so the bucket can hold other things too. Give frost a key that only reaches that bucket, and don't add lifecycle rules that delete, expire or archive objects in its folder. Snapshots share chunks, so removing one object can break many snapshots.
+Each preset keeps your backups in a `frost` folder inside the bucket, so the bucket can hold other things too. Give Frost a key that only reaches that bucket, and don't add lifecycle rules that delete, expire or archive objects in its folder. Snapshots share chunks, so removing one object can break many snapshots.
 
 ## Amazon S3
 
-S3 supports the conditional writes frost needs.
+S3 supports the conditional writes Frost needs.
 
 1. Create a bucket in the AWS console, and note its region, like `us-east-1`.
-2. Create an IAM user for frost and an access key for it: IAM > Users > your user > Security credentials > Create access key.
+2. Create an IAM user for Frost and an access key for it: IAM > Users > your user > Security credentials > Create access key.
 
-frost needs to read, list, write and delete objects in the bucket, although the only object it deletes is the small test object setup creates when it connects. A policy like this one is enough. Replace `my-backups` with your bucket's name:
+Frost needs to read, list, write and delete objects in the bucket, although the only object it deletes is the small test object setup creates when it connects. A policy like this one is enough. Replace `my-backups` with your bucket's name:
 
 ```json
 {
@@ -38,11 +38,11 @@ frost needs to read, list, write and delete objects in the bucket, although the 
 | Paste the Access Key ID. | The access key ID from IAM |
 | Paste the Secret Access Key. | Shown once, next to the access key ID when you create it |
 
-frost connects to `s3.<region>.amazonaws.com`. Keep its objects in a storage class that can be read straight away, like S3 Standard or S3 Standard-IA, not Glacier Flexible Retrieval or Glacier Deep Archive. Bucket versioning isn't needed.
+Frost connects to `s3.<region>.amazonaws.com`. Keep its objects in a storage class that can be read straight away, like S3 Standard or S3 Standard-IA, not Glacier Flexible Retrieval or Glacier Deep Archive. Bucket versioning isn't needed.
 
 ## Cloudflare R2
 
-R2 supports the conditional writes frost needs.
+R2 supports the conditional writes Frost needs.
 
 1. In the Cloudflare dashboard, create an R2 bucket.
 2. Note your account ID. It's on the R2 overview page, 32 letters and numbers.
@@ -55,11 +55,11 @@ R2 supports the conditional writes frost needs.
 | Paste the Access Key ID. | The Access Key ID from your new API token |
 | Paste the Secret Access Key. | Shown once, next to the Access Key ID |
 
-frost connects to `<account-id>.r2.cloudflarestorage.com` with the region `auto`.
+Frost connects to `<account-id>.r2.cloudflarestorage.com` with the region `auto`.
 
 ## Backblaze B2
 
-Backblaze's documentation doesn't say whether B2 supports the conditional writes frost needs. Setup tests this when it connects. If the test fails, choose other storage.
+Backblaze's documentation doesn't say whether B2 supports the conditional writes Frost needs. Setup tests this when it connects. If the test fails, choose other storage.
 
 1. Create a bucket in your Backblaze account.
 2. Note its endpoint: Buckets > your bucket > Endpoint. It looks like `s3.us-west-004.backblazeb2.com`.
@@ -72,11 +72,11 @@ Backblaze's documentation doesn't say whether B2 supports the conditional writes
 | Paste the application key's keyID. | The keyID of your new application key |
 | Paste the applicationKey. | Shown once, right after you create the key |
 
-frost works out the region from the endpoint.
+Frost works out the region from the endpoint.
 
 ## Wasabi
 
-Wasabi's documentation doesn't establish whether it supports the conditional writes frost needs. Setup tests this when it connects. If the test fails, choose other storage.
+Wasabi's documentation doesn't establish whether it supports the conditional writes Frost needs. Setup tests this when it connects. If the test fails, choose other storage.
 
 1. Create a bucket in the Wasabi console, and note its region, like `us-east-1` or `eu-central-1`.
 2. Create an access key: Access Keys > Create New Access Key. If you can, use a user whose access is limited to this bucket.
@@ -88,4 +88,4 @@ Wasabi's documentation doesn't establish whether it supports the conditional wri
 | Paste the Access Key. | The access key you created |
 | Paste the Secret Key. | Shown once, when you create the key |
 
-frost connects to `s3.<region>.wasabisys.com`.
+Frost connects to `s3.<region>.wasabisys.com`.

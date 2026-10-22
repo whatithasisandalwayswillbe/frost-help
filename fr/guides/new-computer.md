@@ -11,7 +11,7 @@ Si vous avez encore l'ancien ordinateur, `frost key show` affiche la phrase.
 
 ## Étapes
 
-1. [Installez frost](#installing) sur le nouvel ordinateur.
+1. [Installez Frost](#installing) sur le nouvel ordinateur.
 2. Lancez `frost init` et choisissez le même stockage, avec les mêmes informations qu'avant.
 3. L'assistant trouve vos sauvegardes et demande leur phrase de récupération. Tapez les 24 mots.
 4. Choisissez les dossiers à sauvegarder sur cet ordinateur, la liste d'exclusions et la planification, puis vérifiez et enregistrez.

@@ -13,7 +13,7 @@
 
 在 [github.com/whatithasisandalwayswillbe/frost/issues](https://github.com/whatithasisandalwayswillbe/frost/issues) 提交一个 issue，并附上：
 
-- 你的 frost 版本（来自 `frost --version`）和操作系统。
+- 你的 Frost 版本（来自 `frost --version`）和操作系统。
 - 你运行了什么，以及你期望发生什么。
 - 实际发生了什么，附上完整的提示信息。
 - `frost status` 或日志中的相关内容。
