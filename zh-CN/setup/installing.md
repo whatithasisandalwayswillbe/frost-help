@@ -17,13 +17,13 @@
 在 macOS 或 Linux 上，在终端中运行：
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 在 Windows 上，在 PowerShell 中运行：
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 安装程序会：
@@ -50,13 +50,13 @@ irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/inst
 例如，在 macOS 或 Linux 上：
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
+curl -fsSL https://getfro.st/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
 在 Windows 上，先在同一个 PowerShell 窗口中设置变量：
 
 ```powershell
-$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+$env:FROST_VERSION = 'v0.1.0'; irm https://getfro.st/install.ps1 | iex
 ```
 
 更改启动器所在的文件夹，不会移动 Frost 本身。[文件与文件夹](#files-and-folders)列出了所有内容的位置。

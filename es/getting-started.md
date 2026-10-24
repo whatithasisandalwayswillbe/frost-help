@@ -15,13 +15,13 @@ No necesitas instalar Node.js ni nada más antes. Frost trae su propio entorno d
 En macOS o Linux, ejecuta esto en una terminal:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 En Windows, ejecútalo en PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 El instalador comprueba la firma de la versión antes de instalar nada. [Instalar Frost](#installing) explica npm y pnpm, la instalación manual y las opciones del instalador.

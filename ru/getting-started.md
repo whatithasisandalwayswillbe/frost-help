@@ -15,13 +15,13 @@ Frost создаёт резервные копии ваших папок в вы
 В macOS или Linux выполните эту команду в терминале:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 В Windows выполните эту команду в PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 Прежде чем что-либо устанавливать, установщик проверяет подпись версии. Об установке через npm и pnpm, установке вручную и параметрах установщика рассказано в разделе [Установка Frost](#installing).

@@ -17,13 +17,13 @@ There's no package for 32-bit ARM, like older Raspberry Pi systems. On Windows, 
 On macOS or Linux, run this in a terminal:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 On Windows, run this in PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 The installer:
@@ -50,13 +50,13 @@ When it's done, run `frost init` to set up your first backup. See [Setting up Fr
 For example, on macOS or Linux:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
+curl -fsSL https://getfro.st/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
 On Windows, set the variable first, in the same PowerShell window:
 
 ```powershell
-$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+$env:FROST_VERSION = 'v0.1.0'; irm https://getfro.st/install.ps1 | iex
 ```
 
 Changing the launcher folder doesn't move Frost itself. [Files and folders](#files-and-folders) lists where everything goes.

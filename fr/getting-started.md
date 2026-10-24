@@ -15,13 +15,13 @@ Inutile d'installer Node.js ou quoi que ce soit d'autre au préalable. Frost emb
 Sous macOS ou Linux, lancez cette commande dans un terminal :
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 Sous Windows, lancez celle-ci dans PowerShell :
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 L'installateur vérifie la signature de la version avant d'installer quoi que ce soit. [Installer Frost](#installing) présente npm et pnpm, l'installation manuelle et les options de l'installateur.

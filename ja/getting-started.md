@@ -15,13 +15,13 @@ Node.js などを事前にインストールする必要はありません。Fro
 macOS や Linux では、ターミナルで次のコマンドを実行します。
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 Windows では、PowerShell で次のコマンドを実行します。
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 インストーラは、何かをインストールする前にリリースの署名を確認します。npm や pnpm でのインストール、手動でのインストール、インストーラのオプションについては、[Frost のインストール](#installing)を参照してください。

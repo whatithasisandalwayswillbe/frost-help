@@ -17,13 +17,13 @@ Frost는 macOS, Linux, Windows 어디서든 명령어 하나로 설치할 수 �
 macOS나 Linux에서는 터미널에서 다음 명령어를 실행합니다.
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 Windows에서는 PowerShell에서 다음 명령어를 실행합니다.
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 설치 프로그램은 다음 일을 합니다.
@@ -50,13 +50,13 @@ macOS와 Linux에서는 런처가 쓰기 권한이 있으면 `/usr/local/bin`에
 macOS나 Linux에서의 예:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
+curl -fsSL https://getfro.st/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
 Windows에서는 같은 PowerShell 창에서 변수를 먼저 설정합니다.
 
 ```powershell
-$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+$env:FROST_VERSION = 'v0.1.0'; irm https://getfro.st/install.ps1 | iex
 ```
 
 런처 폴더를 바꿔도 Frost 자체의 위치는 바뀌지 않습니다. 각 파일의 위치는 [파일 및 폴더](#files-and-folders)에 정리되어 있습니다.

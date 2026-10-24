@@ -17,13 +17,13 @@ No hay paquete para ARM de 32 bits, como los sistemas Raspberry Pi más antiguos
 En macOS o Linux, ejecuta esto en una terminal:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 En Windows, ejecútalo en PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 El instalador:
@@ -50,13 +50,13 @@ Cuando termine, ejecuta `frost init` para configurar tu primera copia de segurid
 Por ejemplo, en macOS o Linux:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
+curl -fsSL https://getfro.st/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
 En Windows, define la variable antes, en la misma ventana de PowerShell:
 
 ```powershell
-$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+$env:FROST_VERSION = 'v0.1.0'; irm https://getfro.st/install.ps1 | iex
 ```
 
 Cambiar la carpeta del lanzador no mueve Frost en sí. [Archivos y carpetas](#files-and-folders) indica dónde va cada cosa.

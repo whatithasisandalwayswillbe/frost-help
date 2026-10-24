@@ -17,13 +17,13 @@ Il n'existe pas de paquet pour l'ARM 32 bits, comme les anciens systèmes Raspbe
 Sous macOS ou Linux, lancez cette commande dans un terminal :
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 Sous Windows, lancez celle-ci dans PowerShell :
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 L'installateur :
@@ -50,13 +50,13 @@ Une fois terminé, lancez `frost init` pour configurer votre première sauvegard
 Par exemple, sous macOS ou Linux :
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
+curl -fsSL https://getfro.st/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
 Sous Windows, définissez d'abord la variable, dans la même fenêtre PowerShell :
 
 ```powershell
-$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+$env:FROST_VERSION = 'v0.1.0'; irm https://getfro.st/install.ps1 | iex
 ```
 
 Changer le dossier du lanceur ne déplace pas Frost lui-même. [Fichiers et dossiers](#files-and-folders) indique où va chaque élément.

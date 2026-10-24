@@ -17,13 +17,13 @@ Frost は、macOS、Linux、Windows のいずれでも 1 つのコマンドで�
 macOS や Linux では、ターミナルで次のコマンドを実行します。
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 Windows では、PowerShell で次のコマンドを実行します。
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 インストーラは次のことを行います。
@@ -50,13 +50,13 @@ macOS と Linux では、ランチャーは書き込み権限があれば `/usr/
 macOS や Linux での例:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
+curl -fsSL https://getfro.st/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
 Windows では、同じ PowerShell ウィンドウで先に変数を設定します。
 
 ```powershell
-$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+$env:FROST_VERSION = 'v0.1.0'; irm https://getfro.st/install.ps1 | iex
 ```
 
 ランチャーのフォルダを変えても、Frost 本体の場所は変わりません。各ファイルの場所は[ファイルとフォルダ](#files-and-folders)にまとめています。

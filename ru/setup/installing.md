@@ -17,13 +17,13 @@ Frost устанавливается одной командой в macOS, Linux
 В macOS или Linux выполните эту команду в терминале:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 В Windows выполните эту команду в PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 Установщик:
@@ -50,13 +50,13 @@ irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/inst
 Например, в macOS или Linux:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
+curl -fsSL https://getfro.st/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
 В Windows сначала задайте переменную в том же окне PowerShell:
 
 ```powershell
-$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+$env:FROST_VERSION = 'v0.1.0'; irm https://getfro.st/install.ps1 | iex
 ```
 
 Смена папки лаунчера не перемещает сам Frost. Где что лежит, показано в разделе [Файлы и папки](#files-and-folders).

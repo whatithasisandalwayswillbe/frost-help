@@ -17,13 +17,13 @@ Não existe pacote para ARM de 32 bits, como os sistemas Raspberry Pi mais antig
 No macOS ou no Linux, execute isto em um terminal:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 No Windows, execute isto no PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 O instalador:
@@ -50,13 +50,13 @@ Quando terminar, execute `frost init` para configurar o seu primeiro backup. Vej
 Por exemplo, no macOS ou no Linux:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
+curl -fsSL https://getfro.st/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
 No Windows, defina a variável antes, na mesma janela do PowerShell:
 
 ```powershell
-$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+$env:FROST_VERSION = 'v0.1.0'; irm https://getfro.st/install.ps1 | iex
 ```
 
 Mudar a pasta do inicializador não move o Frost em si. [Arquivos e pastas](#files-and-folders) mostra onde fica cada coisa.

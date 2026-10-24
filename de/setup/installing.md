@@ -17,13 +17,13 @@ Für 32-Bit-ARM, etwa ältere Raspberry-Pi-Systeme, gibt es kein Paket. Unter Wi
 Führe unter macOS oder Linux diesen Befehl in einem Terminal aus:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 Unter Windows führst du diesen Befehl in PowerShell aus:
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 Das Installationsprogramm:
@@ -50,13 +50,13 @@ Wenn alles fertig ist, richte mit `frost init` dein erstes Backup ein. Siehe [Fr
 Zum Beispiel unter macOS oder Linux:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
+curl -fsSL https://getfro.st/install.sh | FROST_INSTALL_DIR="$HOME/bin" sh
 ```
 
 Unter Windows setzt du die Variable vorher im selben PowerShell-Fenster:
 
 ```powershell
-$env:FROST_VERSION = 'v0.1.0'; irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+$env:FROST_VERSION = 'v0.1.0'; irm https://getfro.st/install.ps1 | iex
 ```
 
 Ein anderer Ordner für den Starter verschiebt Frost selbst nicht. [Dateien und Ordner](#files-and-folders) listet auf, wo was liegt.

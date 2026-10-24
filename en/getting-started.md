@@ -15,13 +15,13 @@ You don't need to install Node.js or anything else first. Frost brings its own r
 On macOS or Linux, run this in a terminal:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.sh | sh
+curl -fsSL https://getfro.st/install.sh | sh
 ```
 
 On Windows, run this in PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/whatithasisandalwayswillbe/frost/main/install/install.ps1 | iex
+irm https://getfro.st/install.ps1 | iex
 ```
 
 The installer checks the release's signature before it installs anything. [Installing Frost](#installing) covers npm and pnpm, manual installs and installer options.
